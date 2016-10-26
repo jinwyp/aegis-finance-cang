@@ -535,3 +535,670 @@ Caused by: java.io.FileNotFoundException: class path resource [processes/] canno
 2016-10-26 11:50:39.924  INFO 55566 --- [Thread-4] o.a.e.i.a.AcquireTimerJobsRunnable       : stopped async job due acquisition
 2016-10-26 11:50:39.927  INFO 55566 --- [Thread-5] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : stopped async job due acquisition
 2016-10-26 11:50:39.934  INFO 55566 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:09:38.598  INFO 55970 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 55970 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:09:38.606  INFO 55970 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:09:38.778  INFO 55970 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3658d5a5: startup date [Wed Oct 26 13:09:38 CST 2016]; root of context hierarchy
+2016-10-26 13:09:41.219  INFO 55970 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:09:41.696  INFO 55970 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:09:41.850  INFO 55970 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:09:41.904  INFO 55970 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:09:41.909  INFO 55970 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:09:41.917  INFO 55970 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:09:42.859  INFO 55970 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ed61a33d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:09:43.854  INFO 55970 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:09:43.878  INFO 55970 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:09:43.881  INFO 55970 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:09:44.035  INFO 55970 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:09:44.038  INFO 55970 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5267 ms
+2016-10-26 13:09:44.978  WARN 55970 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:09:45.241  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:09:45.250  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:09:45.250  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:09:45.250  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:09:45.251  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:09:45.251  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:09:45.251  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:09:45.251  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:09:45.251  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:09:45.251  INFO 55970 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:09:45.323 DEBUG 55970 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:09:45.324 DEBUG 55970 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:09:45.894  INFO 55970 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:09:46.386  INFO 55970 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:09:46.480  INFO 55970 --- [main] o.f.core.internal.command.DbValidate     : Validated 1 migration (execution time 00:00.055s)
+2016-10-26 13:09:46.530  INFO 55970 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `warehouse_db`: 1.0.0
+2016-10-26 13:09:46.534  INFO 55970 --- [main] o.f.core.internal.command.DbMigrate      : Schema `warehouse_db` is up to date. No migration necessary.
+2016-10-26 13:09:46.709  INFO 55970 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:09:46.746  INFO 55970 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-10-26 13:09:46.910  INFO 55970 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.9.Final}
+2016-10-26 13:09:46.925  INFO 55970 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-10-26 13:09:46.931  INFO 55970 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-10-26 13:09:47.072  INFO 55970 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-26 13:09:47.384  INFO 55970 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-10-26 13:09:48.679  INFO 55970 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:09:48.953  INFO 55970 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3658d5a5: startup date [Wed Oct 26 13:09:38 CST 2016]; root of context hierarchy] and template loader path [file:./src/main/resources/templates/site/src/]
+2016-10-26 13:09:48.953  INFO 55970 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3658d5a5: startup date [Wed Oct 26 13:09:38 CST 2016]; root of context hierarchy] and template loader path [file:./src/main/resources/templates/admin/src/]
+2016-10-26 13:09:48.955  INFO 55970 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2016-10-26 13:09:50.578  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.Object com.yimei.warehouse.controller.IndexController.index()
+2016-10-26 13:09:50.580  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2016-10-26 13:09:50.584  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2016-10-26 13:09:50.585  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2016-10-26 13:09:50.587  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2016-10-26 13:09:50.591  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-26 13:09:50.592  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-26 13:09:50.751  INFO 55970 --- [main] a.s.b.AbstractProcessEngineConfiguration : No process definitions were found for autodeployment
+2016-10-26 13:09:52.433  INFO 55970 --- [main] o.a.engine.impl.ProcessEngineImpl        : ProcessEngine default created
+2016-10-26 13:09:52.436  INFO 55970 --- [main] o.a.e.i.a.AbstractAsyncJobExecutor       : Starting up the default async job executor [org.activiti.spring.SpringAsyncExecutor].
+2016-10-26 13:09:52.438  INFO 55970 --- [Thread-5] o.a.e.i.a.AcquireTimerJobsRunnable       : starting to acquire async jobs due
+2016-10-26 13:09:52.439  INFO 55970 --- [Thread-6] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : starting to acquire async jobs due
+2016-10-26 13:09:53.119  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/activiti/processes/{processDefinitionKey:.*}],methods=[GET],produces=[image/jpeg]}" onto public org.springframework.http.ResponseEntity org.activiti.spring.boot.actuate.endpoint.ProcessEngineMvcEndpoint.processDefinitionDiagram(java.lang.String)
+2016-10-26 13:09:53.119  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/activiti || /activiti.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.121  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/flyway || /flyway.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.122  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.123  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+2016-10-26 13:09:53.125  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+2016-10-26 13:09:53.126  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.131  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2016-10-26 13:09:53.132  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.134  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2016-10-26 13:09:53.135  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.136  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.142  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2016-10-26 13:09:53.143  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.143  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.144  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.145  INFO 55970 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:09:53.374  INFO 55970 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'getAsyncExecutor'
+2016-10-26 13:09:53.664  INFO 55970 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3658d5a5: startup date [Wed Oct 26 13:09:38 CST 2016]; root of context hierarchy
+2016-10-26 13:09:53.766  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/v2/api-docs] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:09:53.767  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources/configuration/ui] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:09:53.767  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources/configuration/security] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:09:53.767  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:09:53.792  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/admin/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:09:53.792  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/site/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:09:53.792  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/files/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:09:53.793  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-ui.html**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:09:53.793  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:09:53.833  INFO 55970 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalExceptionHandler
+2016-10-26 13:09:53.887  INFO 55970 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:09:54.486  WARN 55970 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [file:./src/main/resources/templates/site/src/, file:./src/main/resources/templates/admin/src/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2016-10-26 13:09:55.018  INFO 55970 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2016-10-26 13:09:55.043  INFO 55970 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2016-10-26 13:09:55.174  INFO 55970 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2016-10-26 13:09:55.174  INFO 55970 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2016-10-26 13:09:55.236  INFO 55970 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2016-10-26 13:09:55.255  INFO 55970 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2016-10-26 13:09:55.330  INFO 55970 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2016-10-26 13:09:55.452  INFO 55970 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8003 (http)
+2016-10-26 13:09:55.466  INFO 55970 --- [main] c.y.warehouse.AegisWareHouseApplication  : Started AegisWareHouseApplication in 17.722 seconds (JVM running for 28.778)
+2016-10-26 13:09:55.468  INFO 55970 --- [main] c.y.warehouse.AegisWareHouseApplication  : Access URLs:
+----------------------------------------------------------
+	Local: 		http://127.0.0.1:8003
+	External: 	http://192.168.1.91:8003
+----------------------------------------------------------
+2016-10-26 13:13:30.435  INFO 55991 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 55991 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:13:30.443  INFO 55991 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:13:30.599  INFO 55991 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1fe18d8d: startup date [Wed Oct 26 13:13:30 CST 2016]; root of context hierarchy
+2016-10-26 13:13:33.288  INFO 55991 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:13:33.667  INFO 55991 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:13:33.856  INFO 55991 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:13:34.047  INFO 55991 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:13:34.054  INFO 55991 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:13:34.065  INFO 55991 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:13:35.410  INFO 55991 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$329b8c3c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:13:36.379  INFO 55991 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:13:36.407  INFO 55991 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:13:36.409  INFO 55991 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:13:36.553  INFO 55991 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:13:36.556  INFO 55991 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5962 ms
+2016-10-26 13:13:37.538  WARN 55991 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:13:37.842  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:13:37.853  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:13:37.860  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:13:37.864  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:13:37.865  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:13:37.866  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:13:37.866  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:13:37.866  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:13:37.866  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:13:37.866  INFO 55991 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:13:37.938 DEBUG 55991 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:13:37.939 DEBUG 55991 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:13:38.410  INFO 55991 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:13:38.870  INFO 55991 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:13:38.908  WARN 55991 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+2016-10-26 13:13:38.919  INFO 55991 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2016-10-26 13:13:38.942  INFO 55991 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report enable debug logging (start with --debug)
+
+
+2016-10-26 13:13:38.971 ERROR 55991 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:296) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at com.yimei.warehouse.AegisWareHouseApplication.main(AegisWareHouseApplication.java:16) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:483) [spring-boot-maven-plugin-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_45]
+Caused by: org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+	at org.flywaydb.core.internal.resolver.MigrationInfoHelper.extractVersionAndDescription(MigrationInfoHelper.java:51) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.extractMigrationInfo(SqlMigrationResolver.java:133) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.resolveMigrations(SqlMigrationResolver.java:112) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.resolveMigrations(SqlMigrationResolver.java:41) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.collectMigrations(CompositeMigrationResolver.java:126) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.doFindAvailableMigrations(CompositeMigrationResolver.java:108) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:94) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:42) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.info.MigrationInfoServiceImpl.refresh(MigrationInfoServiceImpl.java:96) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate$2.doInTransaction(DbValidate.java:136) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate$2.doInTransaction(DbValidate.java:131) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.util.jdbc.TransactionTemplate.execute(TransactionTemplate.java:72) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate.validate(DbValidate.java:131) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:1102) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.access$300(Flyway.java:62) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1012) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1418) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 22 common frames omitted
+
+2016-10-26 13:14:36.876  INFO 56004 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 56004 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:14:36.962  INFO 56004 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:14:37.064  INFO 56004 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7aef0084: startup date [Wed Oct 26 13:14:37 CST 2016]; root of context hierarchy
+2016-10-26 13:14:40.158  INFO 56004 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:14:40.568  INFO 56004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:14:40.720  INFO 56004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:14:40.766  INFO 56004 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:14:40.772  INFO 56004 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:14:40.783  INFO 56004 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:14:42.133  INFO 56004 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d98f90] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:14:43.356  INFO 56004 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:14:43.423  INFO 56004 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:14:43.425  INFO 56004 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:14:43.594  INFO 56004 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:14:43.600  INFO 56004 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6541 ms
+2016-10-26 13:14:44.722  WARN 56004 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:14:45.130  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:14:45.138  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:14:45.139  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:14:45.140  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:14:45.140  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:14:45.140  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:14:45.141  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:14:45.141  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:14:45.141  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:14:45.142  INFO 56004 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:14:45.215 DEBUG 56004 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:14:45.216 DEBUG 56004 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:14:45.700  INFO 56004 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:14:46.194  INFO 56004 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:14:46.257  WARN 56004 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+2016-10-26 13:14:46.267  INFO 56004 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2016-10-26 13:14:46.296  INFO 56004 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report enable debug logging (start with --debug)
+
+
+2016-10-26 13:14:46.327 ERROR 56004 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:296) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at com.yimei.warehouse.AegisWareHouseApplication.main(AegisWareHouseApplication.java:16) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:483) [spring-boot-maven-plugin-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_45]
+Caused by: org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+	at org.flywaydb.core.internal.resolver.MigrationInfoHelper.extractVersionAndDescription(MigrationInfoHelper.java:51) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.extractMigrationInfo(SqlMigrationResolver.java:133) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.resolveMigrations(SqlMigrationResolver.java:112) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.resolveMigrations(SqlMigrationResolver.java:41) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.collectMigrations(CompositeMigrationResolver.java:126) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.doFindAvailableMigrations(CompositeMigrationResolver.java:108) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:94) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:42) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.info.MigrationInfoServiceImpl.refresh(MigrationInfoServiceImpl.java:96) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate$2.doInTransaction(DbValidate.java:136) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate$2.doInTransaction(DbValidate.java:131) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.util.jdbc.TransactionTemplate.execute(TransactionTemplate.java:72) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate.validate(DbValidate.java:131) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:1102) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.access$300(Flyway.java:62) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1012) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1418) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 22 common frames omitted
+
+2016-10-26 13:15:55.519  INFO 56020 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 56020 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:15:55.573  INFO 56020 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:15:55.699  INFO 56020 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@23e0a1d: startup date [Wed Oct 26 13:15:55 CST 2016]; root of context hierarchy
+2016-10-26 13:15:58.186  INFO 56020 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:15:58.543  INFO 56020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:15:58.725  INFO 56020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:15:58.795  INFO 56020 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:15:58.801  INFO 56020 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:15:58.809  INFO 56020 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:15:59.886  INFO 56020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$322bc921] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:16:00.833  INFO 56020 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:16:00.865  INFO 56020 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:16:00.867  INFO 56020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:16:00.994  INFO 56020 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:16:00.996  INFO 56020 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5303 ms
+2016-10-26 13:16:01.886  WARN 56020 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:16:02.188  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:16:02.197  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:16:02.198  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:16:02.198  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:16:02.198  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:16:02.199  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:16:02.199  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:16:02.199  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:16:02.199  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:16:02.199  INFO 56020 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:16:02.270 DEBUG 56020 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:16:02.270 DEBUG 56020 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:16:02.579  INFO 56020 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:16:03.011  INFO 56020 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:16:03.049  WARN 56020 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+2016-10-26 13:16:03.057  INFO 56020 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2016-10-26 13:16:03.083  INFO 56020 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report enable debug logging (start with --debug)
+
+
+2016-10-26 13:16:03.119 ERROR 56020 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:296) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at com.yimei.warehouse.AegisWareHouseApplication.main(AegisWareHouseApplication.java:16) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:483) [spring-boot-maven-plugin-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_45]
+Caused by: org.flywaydb.core.api.FlywayException: Wrong migration name format: V1_0_1_toolstables.sql(It should look like this: V1_2__Description.sql)
+	at org.flywaydb.core.internal.resolver.MigrationInfoHelper.extractVersionAndDescription(MigrationInfoHelper.java:51) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.extractMigrationInfo(SqlMigrationResolver.java:133) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.resolveMigrations(SqlMigrationResolver.java:112) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationResolver.resolveMigrations(SqlMigrationResolver.java:41) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.collectMigrations(CompositeMigrationResolver.java:126) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.doFindAvailableMigrations(CompositeMigrationResolver.java:108) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:94) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:42) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.info.MigrationInfoServiceImpl.refresh(MigrationInfoServiceImpl.java:96) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate$2.doInTransaction(DbValidate.java:136) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate$2.doInTransaction(DbValidate.java:131) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.util.jdbc.TransactionTemplate.execute(TransactionTemplate.java:72) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.internal.command.DbValidate.validate(DbValidate.java:131) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:1102) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.access$300(Flyway.java:62) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1012) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1418) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 22 common frames omitted
+
+2016-10-26 13:17:01.267  INFO 56036 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 56036 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:17:01.286  INFO 56036 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:17:01.742  INFO 56036 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4ef0a65f: startup date [Wed Oct 26 13:17:01 CST 2016]; root of context hierarchy
+2016-10-26 13:17:03.905  INFO 56036 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:17:04.260  INFO 56036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:17:04.411  INFO 56036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:17:04.458  INFO 56036 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:17:04.463  INFO 56036 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:17:04.471  INFO 56036 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:17:05.609  INFO 56036 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4858768a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:17:06.679  INFO 56036 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:17:06.700  INFO 56036 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:17:06.701  INFO 56036 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:17:06.834  INFO 56036 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:17:06.835  INFO 56036 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5392 ms
+2016-10-26 13:17:07.765  WARN 56036 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:17:08.085  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:17:08.092  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:17:08.093  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:17:08.093  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:17:08.093  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:17:08.093  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:17:08.094  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:17:08.094  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:17:08.094  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:17:08.094  INFO 56036 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:17:08.163 DEBUG 56036 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:17:08.163 DEBUG 56036 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:17:08.472  INFO 56036 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:17:08.992  INFO 56036 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:17:09.111  INFO 56036 --- [main] o.f.core.internal.command.DbValidate     : Validated 3 migrations (execution time 00:00.069s)
+2016-10-26 13:17:09.174  INFO 56036 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `warehouse_db`: 1.0.0
+2016-10-26 13:17:09.174  INFO 56036 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `warehouse_db` to version 1.0.1 - toolstables
+2016-10-26 13:17:09.350  INFO 56036 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `warehouse_db` to version 1.0.2 - userloginlogs
+2016-10-26 13:17:09.414  INFO 56036 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema `warehouse_db` (execution time 00:00.252s).
+2016-10-26 13:17:09.600  INFO 56036 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:17:09.663  INFO 56036 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-10-26 13:17:09.830  INFO 56036 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.9.Final}
+2016-10-26 13:17:09.833  INFO 56036 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-10-26 13:17:09.836  INFO 56036 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-10-26 13:17:10.023  INFO 56036 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-26 13:17:10.441  INFO 56036 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-10-26 13:17:11.743  INFO 56036 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:17:12.040  INFO 56036 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4ef0a65f: startup date [Wed Oct 26 13:17:01 CST 2016]; root of context hierarchy] and template loader path [file:./src/main/resources/templates/site/src/]
+2016-10-26 13:17:12.040  INFO 56036 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4ef0a65f: startup date [Wed Oct 26 13:17:01 CST 2016]; root of context hierarchy] and template loader path [file:./src/main/resources/templates/admin/src/]
+2016-10-26 13:17:12.043  INFO 56036 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2016-10-26 13:17:13.559  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.Object com.yimei.warehouse.controller.IndexController.index()
+2016-10-26 13:17:13.562  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2016-10-26 13:17:13.566  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2016-10-26 13:17:13.567  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2016-10-26 13:17:13.568  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2016-10-26 13:17:13.571  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-26 13:17:13.571  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-26 13:17:13.738  INFO 56036 --- [main] a.s.b.AbstractProcessEngineConfiguration : No process definitions were found for autodeployment
+2016-10-26 13:17:15.433  INFO 56036 --- [main] o.a.engine.impl.ProcessEngineImpl        : ProcessEngine default created
+2016-10-26 13:17:15.436  INFO 56036 --- [main] o.a.e.i.a.AbstractAsyncJobExecutor       : Starting up the default async job executor [org.activiti.spring.SpringAsyncExecutor].
+2016-10-26 13:17:15.438  INFO 56036 --- [Thread-5] o.a.e.i.a.AcquireTimerJobsRunnable       : starting to acquire async jobs due
+2016-10-26 13:17:15.438  INFO 56036 --- [Thread-6] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : starting to acquire async jobs due
+2016-10-26 13:17:16.041  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/activiti/processes/{processDefinitionKey:.*}],methods=[GET],produces=[image/jpeg]}" onto public org.springframework.http.ResponseEntity org.activiti.spring.boot.actuate.endpoint.ProcessEngineMvcEndpoint.processDefinitionDiagram(java.lang.String)
+2016-10-26 13:17:16.041  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/activiti || /activiti.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.043  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.045  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.047  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.058  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2016-10-26 13:17:16.059  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.060  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+2016-10-26 13:17:16.061  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/flyway || /flyway.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.063  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+2016-10-26 13:17:16.064  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.076  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.077  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.078  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2016-10-26 13:17:16.078  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.080  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2016-10-26 13:17:16.081  INFO 56036 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:17:16.354  INFO 56036 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'getAsyncExecutor'
+2016-10-26 13:17:16.642  INFO 56036 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4ef0a65f: startup date [Wed Oct 26 13:17:01 CST 2016]; root of context hierarchy
+2016-10-26 13:17:16.735  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/v2/api-docs] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:17:16.735  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources/configuration/ui] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:17:16.735  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources/configuration/security] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:17:16.735  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:17:16.769  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/admin/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:17:16.769  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/site/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:17:16.769  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/files/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:17:16.769  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-ui.html**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:17:16.769  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:17:16.806  INFO 56036 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalExceptionHandler
+2016-10-26 13:17:16.855  INFO 56036 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:17:17.504  WARN 56036 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [file:./src/main/resources/templates/site/src/, file:./src/main/resources/templates/admin/src/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2016-10-26 13:17:18.059  INFO 56036 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2016-10-26 13:17:18.080  INFO 56036 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2016-10-26 13:17:18.204  INFO 56036 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2016-10-26 13:17:18.204  INFO 56036 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2016-10-26 13:17:18.248  INFO 56036 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2016-10-26 13:17:18.276  INFO 56036 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2016-10-26 13:17:18.350  INFO 56036 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2016-10-26 13:17:18.470  INFO 56036 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8003 (http)
+2016-10-26 13:17:18.482  INFO 56036 --- [main] c.y.warehouse.AegisWareHouseApplication  : Started AegisWareHouseApplication in 18.18 seconds (JVM running for 28.096)
+2016-10-26 13:17:18.483  INFO 56036 --- [main] c.y.warehouse.AegisWareHouseApplication  : Access URLs:
+----------------------------------------------------------
+	Local: 		http://127.0.0.1:8003
+	External: 	http://192.168.1.91:8003
+----------------------------------------------------------
+2016-10-26 13:18:32.347  INFO 56052 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 56052 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:18:32.359  INFO 56052 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:18:32.484  INFO 56052 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5bbc907d: startup date [Wed Oct 26 13:18:32 CST 2016]; root of context hierarchy
+2016-10-26 13:18:35.470  INFO 56052 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:18:35.916  INFO 56052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:18:36.070  INFO 56052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:18:36.119  INFO 56052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:18:36.123  INFO 56052 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:18:36.133  INFO 56052 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:18:37.340  INFO 56052 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f033ace0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:18:38.438  INFO 56052 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:18:38.465  INFO 56052 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:18:38.468  INFO 56052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:18:38.627  INFO 56052 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:18:38.629  INFO 56052 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6152 ms
+2016-10-26 13:18:40.144  WARN 56052 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:18:40.443  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:18:40.451  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:18:40.451  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:18:40.452  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:18:40.452  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:18:40.453  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:18:40.453  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:18:40.453  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:18:40.454  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:18:40.455  INFO 56052 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:18:40.536 DEBUG 56052 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:18:40.536 DEBUG 56052 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:18:40.856  INFO 56052 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:18:41.361  INFO 56052 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:18:41.441  INFO 56052 --- [main] o.f.core.internal.command.DbValidate     : Validated 3 migrations (execution time 00:00.052s)
+2016-10-26 13:18:41.445  WARN 56052 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Validate failed. Migration Checksum mismatch for migration 1.0.0
+-> Applied to database : -1320623996
+-> Resolved locally    : 1956324271
+2016-10-26 13:18:41.457  INFO 56052 --- [main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+2016-10-26 13:18:41.484  INFO 56052 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report enable debug logging (start with --debug)
+
+
+2016-10-26 13:18:41.513 ERROR 56052 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Validate failed. Migration Checksum mismatch for migration 1.0.0
+-> Applied to database : -1320623996
+-> Resolved locally    : 1956324271
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:296) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1076) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:851) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:541) ~[spring-context-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:369) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:313) ~[spring-boot-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at com.yimei.warehouse.AegisWareHouseApplication.main(AegisWareHouseApplication.java:16) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.boot.maven.AbstractRunMojo$LaunchRunner.run(AbstractRunMojo.java:483) [spring-boot-maven-plugin-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_45]
+Caused by: org.flywaydb.core.api.FlywayException: Validate failed. Migration Checksum mismatch for migration 1.0.0
+-> Applied to database : -1320623996
+-> Resolved locally    : 1956324271
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:1108) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.access$300(Flyway.java:62) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1012) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1418) ~[flyway-core-3.2.1.jar:na]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1006) ~[flyway-core-3.2.1.jar:na]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-1.4.0.RELEASE.jar:1.4.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574) ~[spring-beans-4.3.2.RELEASE.jar:4.3.2.RELEASE]
+	... 22 common frames omitted
+
+2016-10-26 13:19:21.866  INFO 56062 --- [main] c.y.warehouse.AegisWareHouseApplication  : Starting AegisWareHouseApplication on yimeideMacBook-Pro.local with PID 56062 (/Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang/target/classes started by liuxinjie in /Users/liuxinjie/Desktop/code/aegis-all/aegis-finance-cang)
+2016-10-26 13:19:21.895  INFO 56062 --- [main] c.y.warehouse.AegisWareHouseApplication  : The following profiles are active: local
+2016-10-26 13:19:22.101  INFO 56062 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d26c477: startup date [Wed Oct 26 13:19:22 CST 2016]; root of context hierarchy
+2016-10-26 13:19:25.072  INFO 56062 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Dbcp; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Dbcp.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]]
+2016-10-26 13:19:25.913  INFO 56062 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:19:26.499  INFO 56062 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2016-10-26 13:19:26.680  INFO 56062 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.NumberRepository.
+2016-10-26 13:19:26.687  INFO 56062 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.yimei.warehouse.repository.DataBookRepository.
+2016-10-26 13:19:26.697  INFO 56062 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'freeMarkerConfiguration' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=freemarkerConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/yimei/warehouse/config/FreemarkerConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration; factoryMethodName=freeMarkerConfiguration; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/freemarker/FreeMarkerAutoConfiguration$FreeMarkerWebConfiguration.class]]
+2016-10-26 13:19:28.585  INFO 56062 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fe767502] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-10-26 13:19:30.938  INFO 56062 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8003 (http)
+2016-10-26 13:19:30.976  INFO 56062 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-10-26 13:19:30.978  INFO 56062 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.4
+2016-10-26 13:19:31.170  INFO 56062 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-10-26 13:19:31.173  INFO 56062 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 9083 ms
+2016-10-26 13:19:33.263  WARN 56062 --- [localhost-startStop-1] o.s.b.a.s.RedisSessionConfiguration      : Spring Session store type is mandatory: set 'spring.session.store-type=redis' in your configuration
+2016-10-26 13:19:34.047  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2016-10-26 13:19:34.061  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'metricFilter' to: [/*]
+2016-10-26 13:19:34.062  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-10-26 13:19:34.062  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2016-10-26 13:19:34.062  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-10-26 13:19:34.066  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-10-26 13:19:34.066  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2016-10-26 13:19:34.067  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2016-10-26 13:19:34.067  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestLoggingFilter' to: [/*]
+2016-10-26 13:19:34.067  INFO 56062 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'applicationContextIdFilter' to: [/*]
+2016-10-26 13:19:34.207 DEBUG 56062 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Initializing filter 'requestLoggingFilter'
+2016-10-26 13:19:34.208 DEBUG 56062 --- [localhost-startStop-1] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'requestLoggingFilter' configured successfully
+2016-10-26 13:19:34.826  INFO 56062 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway 3.2.1 by Boxfuse
+2016-10-26 13:19:36.348  INFO 56062 --- [main] o.f.c.i.dbsupport.DbSupportFactory       : Database: jdbc:mysql://127.0.0.1:3306/warehouse_db (MySQL 5.6)
+2016-10-26 13:19:36.415  INFO 56062 --- [main] o.f.core.internal.command.DbValidate     : Validated 3 migrations (execution time 00:00.030s)
+2016-10-26 13:19:36.601  INFO 56062 --- [main] o.f.c.i.metadatatable.MetaDataTableImpl  : Creating Metadata table: `warehouse_db`.`schema_version`
+2016-10-26 13:19:36.867  INFO 56062 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `warehouse_db`: << Empty Schema >>
+2016-10-26 13:19:36.868  INFO 56062 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `warehouse_db` to version 1.0.0 - init
+2016-10-26 13:19:36.936  INFO 56062 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `warehouse_db` to version 1.0.1 - toolstables
+2016-10-26 13:19:37.007  INFO 56062 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `warehouse_db` to version 1.0.2 - userloginlogs
+2016-10-26 13:19:37.188  INFO 56062 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 3 migrations to schema `warehouse_db` (execution time 00:00.594s).
+2016-10-26 13:19:37.656  INFO 56062 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:19:37.701  INFO 56062 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-10-26 13:19:38.170  INFO 56062 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.9.Final}
+2016-10-26 13:19:38.175  INFO 56062 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-10-26 13:19:38.179  INFO 56062 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-10-26 13:19:38.441  INFO 56062 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-10-26 13:19:39.214  INFO 56062 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-10-26 13:19:42.151  INFO 56062 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2016-10-26 13:19:42.859  INFO 56062 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d26c477: startup date [Wed Oct 26 13:19:22 CST 2016]; root of context hierarchy] and template loader path [file:./src/main/resources/templates/site/src/]
+2016-10-26 13:19:42.859  INFO 56062 --- [main] o.s.ui.freemarker.SpringTemplateLoader   : SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d26c477: startup date [Wed Oct 26 13:19:22 CST 2016]; root of context hierarchy] and template loader path [file:./src/main/resources/templates/admin/src/]
+2016-10-26 13:19:42.862  INFO 56062 --- [main] o.s.w.s.v.f.FreeMarkerConfigurer         : ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2016-10-26 13:19:45.821  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.Object com.yimei.warehouse.controller.IndexController.index()
+2016-10-26 13:19:45.823  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2016-10-26 13:19:45.827  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2016-10-26 13:19:45.828  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2016-10-26 13:19:45.830  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2016-10-26 13:19:45.837  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-10-26 13:19:45.838  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-10-26 13:19:46.293  INFO 56062 --- [main] a.s.b.AbstractProcessEngineConfiguration : No process definitions were found for autodeployment
+2016-10-26 13:19:49.889  INFO 56062 --- [main] o.activiti.engine.impl.db.DbSqlSession   : performing create on engine with resource org/activiti/db/create/activiti.mysql.create.engine.sql
+2016-10-26 13:19:49.893  INFO 56062 --- [main] o.activiti.engine.impl.db.DbSqlSession   : Found MySQL: majorVersion=5 minorVersion=6
+2016-10-26 13:19:51.915  INFO 56062 --- [main] o.activiti.engine.impl.db.DbSqlSession   : performing create on history with resource org/activiti/db/create/activiti.mysql.create.history.sql
+2016-10-26 13:19:51.916  INFO 56062 --- [main] o.activiti.engine.impl.db.DbSqlSession   : Found MySQL: majorVersion=5 minorVersion=6
+2016-10-26 13:19:52.918  INFO 56062 --- [main] o.activiti.engine.impl.db.DbSqlSession   : performing create on identity with resource org/activiti/db/create/activiti.mysql.create.identity.sql
+2016-10-26 13:19:52.918  INFO 56062 --- [main] o.activiti.engine.impl.db.DbSqlSession   : Found MySQL: majorVersion=5 minorVersion=6
+2016-10-26 13:19:53.478  INFO 56062 --- [main] o.a.engine.impl.ProcessEngineImpl        : ProcessEngine default created
+2016-10-26 13:19:53.481  INFO 56062 --- [main] o.a.e.i.a.AbstractAsyncJobExecutor       : Starting up the default async job executor [org.activiti.spring.SpringAsyncExecutor].
+2016-10-26 13:19:53.484  INFO 56062 --- [Thread-5] o.a.e.i.a.AcquireTimerJobsRunnable       : starting to acquire async jobs due
+2016-10-26 13:19:53.485  INFO 56062 --- [Thread-6] o.a.e.i.a.AcquireAsyncJobsDueRunnable    : starting to acquire async jobs due
+2016-10-26 13:19:55.068  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.070  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2016-10-26 13:19:55.072  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.073  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+2016-10-26 13:19:55.075  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2016-10-26 13:19:55.086  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.088  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.092  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/activiti/processes/{processDefinitionKey:.*}],methods=[GET],produces=[image/jpeg]}" onto public org.springframework.http.ResponseEntity org.activiti.spring.boot.actuate.endpoint.ProcessEngineMvcEndpoint.processDefinitionDiagram(java.lang.String)
+2016-10-26 13:19:55.092  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/activiti || /activiti.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.094  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2016-10-26 13:19:55.094  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.096  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+2016-10-26 13:19:55.100  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.103  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/flyway || /flyway.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.104  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.105  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.106  INFO 56062 --- [main] o.s.b.a.e.mvc.EndpointHandlerMapping     : Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2016-10-26 13:19:55.664  INFO 56062 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'getAsyncExecutor'
+2016-10-26 13:19:56.129  INFO 56062 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d26c477: startup date [Wed Oct 26 13:19:22 CST 2016]; root of context hierarchy
+2016-10-26 13:19:56.308  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/v2/api-docs] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:19:56.309  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources/configuration/ui] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:19:56.309  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources/configuration/security] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:19:56.309  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-resources] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2016-10-26 13:19:56.386  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/admin/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:19:56.387  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/static/site/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:19:56.387  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/files/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:19:56.387  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/swagger-ui.html**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:19:56.387  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/swagger/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:19:56.526  INFO 56062 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalExceptionHandler
+2016-10-26 13:19:56.625  INFO 56062 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-10-26 13:19:57.945  WARN 56062 --- [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location(s): [file:./src/main/resources/templates/site/src/, file:./src/main/resources/templates/admin/src/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2016-10-26 13:19:59.487  INFO 56062 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2016-10-26 13:19:59.553  INFO 56062 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2016-10-26 13:20:00.141  INFO 56062 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2016-10-26 13:20:00.142  INFO 56062 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2016-10-26 13:20:00.264  INFO 56062 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2016-10-26 13:20:00.325  INFO 56062 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2016-10-26 13:20:00.411  INFO 56062 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2016-10-26 13:20:00.606  INFO 56062 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8003 (http)
+2016-10-26 13:20:00.621  INFO 56062 --- [main] c.y.warehouse.AegisWareHouseApplication  : Started AegisWareHouseApplication in 39.856 seconds (JVM running for 51.119)
+2016-10-26 13:20:00.621  INFO 56062 --- [main] c.y.warehouse.AegisWareHouseApplication  : Access URLs:
+----------------------------------------------------------
+	Local: 		http://127.0.0.1:8003
+	External: 	http://192.168.1.91:8003
+----------------------------------------------------------
