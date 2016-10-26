@@ -5,12 +5,12 @@ com/yimei/warehouse/utils/creator/LocaleCreator.class
 com/yimei/warehouse/config/FreemarkerConfiguration.class
 com/yimei/warehouse/utils/Jdk8CompatibilityConverter.class
 com/yimei/warehouse/representation/admin/user/validated/EditUser.class
+com/yimei/warehouse/repository/common/NumberRepository.class
 com/yimei/warehouse/ext/jackson/LocalDateDeserializer.class
 com/yimei/warehouse/service/common/file/LocalStorage.class
 com/yimei/warehouse/representation/common/result/Result.class
 com/yimei/warehouse/utils/WebUtils.class
 com/yimei/warehouse/entity/common/Number.class
-com/yimei/warehouse/repository/DataBookRepository.class
 com/yimei/warehouse/service/common/message/SMSClient.class
 com/yimei/warehouse/utils/creator/CreatorFactory.class
 com/yimei/warehouse/controller/IndexController.class
@@ -43,6 +43,7 @@ com/yimei/warehouse/representation/common/enums/EnumCommonError.class
 com/yimei/warehouse/service/common/message/SMS.class
 com/yimei/warehouse/utils/creator/PeriodCreator.class
 com/yimei/warehouse/config/GlobalExceptionHandler.class
+com/yimei/warehouse/entity/admin/user/UserLoginRecord.class
 com/yimei/warehouse/exception/NotFoundException.class
 com/yimei/warehouse/utils/creator/LocalDateTimeCreator.class
 com/yimei/warehouse/representation/common/result/MapObject.class
@@ -53,7 +54,6 @@ com/yimei/warehouse/representation/common/base/BaseObject.class
 com/yimei/warehouse/representation/common/result/Page.class
 com/yimei/warehouse/representation/common/databook/EnumDataBookType.class
 com/yimei/warehouse/representation/admin/user/validated/CreateUser.class
-com/yimei/warehouse/service/common/NumberServiceImpl.class
 com/yimei/warehouse/AegisWareHouseApplication.class
 com/yimei/warehouse/ext/jackson/DateTimeDeserializer.class
 com/yimei/warehouse/exception/UnauthorizedException.class
@@ -64,12 +64,13 @@ com/yimei/warehouse/utils/JdkMissingConverter.class
 com/yimei/warehouse/exception/BusinessException.class
 com/yimei/warehouse/representation/common/file/AttachmentObject.class
 com/yimei/warehouse/utils/creator/DurationCreator.class
+com/yimei/warehouse/service/common/tools/NumberServiceImpl.class
 com/yimei/warehouse/utils/creator/LocalDateCreator.class
 com/yimei/warehouse/representation/common/result/Error.class
 com/yimei/warehouse/ext/intereceptors/AdminACLInterceptor.class
 com/yimei/warehouse/entity/common/DataBook.class
 com/yimei/warehouse/utils/DozerUtils.class
-com/yimei/warehouse/repository/NumberRepository.class
 com/yimei/warehouse/utils/creator/ZoneIdCreator.class
 com/yimei/warehouse/config/QueueConfig.class
+com/yimei/warehouse/repository/common/DataBookRepository.class
 com/yimei/warehouse/representation/common/enums/EnumCommonString.class

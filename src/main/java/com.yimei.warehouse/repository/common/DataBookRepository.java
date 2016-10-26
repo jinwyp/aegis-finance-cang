@@ -1,4 +1,4 @@
-package com.yimei.warehouse.repository;
+package com.yimei.warehouse.repository.common;
 
 import com.yimei.warehouse.entity.common.DataBook;
 import org.springframework.data.jpa.repository.JpaRepository;

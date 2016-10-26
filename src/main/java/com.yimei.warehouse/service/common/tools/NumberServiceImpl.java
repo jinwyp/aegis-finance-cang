@@ -1,7 +1,7 @@
-package com.yimei.warehouse.service.common;
+package com.yimei.warehouse.service.common.tools;
 
 import com.yimei.warehouse.entity.common.Number;
-import com.yimei.warehouse.repository.NumberRepository;
+import com.yimei.warehouse.repository.common.NumberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

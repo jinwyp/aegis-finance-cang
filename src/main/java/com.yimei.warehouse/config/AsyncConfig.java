@@ -9,9 +9,6 @@ import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
 
 import java.util.concurrent.Executor;
 
-/**
- * Created by wangqi on 16/9/6.
- */
 @Configuration
 @EnableAsync(proxyTargetClass = true)
 @Slf4j
@@ -25,7 +22,7 @@ public class AsyncConfig extends AsyncSupportConfigurer {
         executor.setCorePoolSize(2);
         executor.setMaxPoolSize(50);
         executor.setQueueCapacity(10000);
-        executor.setThreadNamePrefix("finance-admin");
+        executor.setThreadNamePrefix("warehouse-admin");
         return executor;
     }
 }
