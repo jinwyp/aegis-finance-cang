@@ -19,8 +19,6 @@ public class SMS  {
 	@Value("${sms.server}")
 	private String server;
 
-
-
 	/**
 	 * 发送短信
 	 */

@@ -21,7 +21,7 @@ public class AsyncConfig extends AsyncSupportConfigurer {
         executor.setCorePoolSize(2);
         executor.setMaxPoolSize(50);
         executor.setQueueCapacity(10000);
-        executor.setThreadNamePrefix("warehouse-admin");
+        executor.setThreadNamePrefix("admin-finance-warehouse");
         return executor;
     }
 }

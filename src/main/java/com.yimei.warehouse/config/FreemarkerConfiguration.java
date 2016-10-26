@@ -38,8 +38,6 @@ public class FreemarkerConfiguration extends FreeMarkerAutoConfiguration.FreeMar
     private String ENV;
 
 
-
-
     @PostConstruct
     void FreeMarkerConfigurer() throws TemplateModelException, IOException {
 
