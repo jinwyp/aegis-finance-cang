@@ -14,7 +14,6 @@ import java.util.concurrent.Executor;
 @Slf4j
 public class AsyncConfig extends AsyncSupportConfigurer {
 
-
     @Bean
     public Executor getAsyncExecutor() {
         log.debug("Creating Async Task Executor");

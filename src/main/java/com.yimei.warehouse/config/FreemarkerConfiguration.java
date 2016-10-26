@@ -10,10 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 
-/**
- * Created by JinWYP on 8/15/16.
- */
-
 @Configuration
 @AutoConfigureAfter({FreeMarkerAutoConfiguration.class})
 public class FreemarkerConfiguration extends FreeMarkerAutoConfiguration.FreeMarkerWebConfiguration {

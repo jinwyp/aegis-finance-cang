@@ -43,8 +43,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     }
 
 
-
-
 //    @Autowired
 //    protected KittHandlerExceptionResolver kittHandlerExceptionResolver;
     @Autowired
@@ -54,7 +52,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(adminACLInterceptor).addPathPatterns("/finance/admin/**", "/api/financing/admin/**").excludePathPatterns("/api/financing/admin/login", "/api/financing/admin");
+        registry.addInterceptor(adminACLInterceptor).addPathPatterns("/warehouse/admin/**", "/api/warehouse/admin/**").excludePathPatterns("/api/warehouse/admin/login", "/api/warehouse/admin");
     }
 
 //    @Override
