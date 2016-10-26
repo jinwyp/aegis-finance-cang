@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @Api(value = "admin-api-tools", description = "公用工具接口")
-@RequestMapping("/api/financing/admin")
+@RequestMapping("/api/warehouse/admin")
 @RestController("adminCommonToolsController")
 public class ToolsController {
     @Autowired
