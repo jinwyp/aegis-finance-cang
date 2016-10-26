@@ -20,7 +20,7 @@ public class Swagger {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("restful-api")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yimei.finance.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.yimei.warehouse.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .pathMapping("/")
