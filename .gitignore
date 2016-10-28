@@ -77,7 +77,6 @@ backend/config/self.js
 
 # Ignore Windows desktop setting file
 desktop.ini
-*.iml
 
 
 
