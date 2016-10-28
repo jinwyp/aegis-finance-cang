@@ -49,23 +49,15 @@ frontend/src/css/stylesheets
 src/main/resources/templates/site/dist
 frontend-site/dist
 frontend-site/src/css/stylesheets
-frontend-site/src/js/page2
 frontend-site/src/js/page-temp-bundle
 
 src/main/resources/templates/admin/dist
 frontend-admin/dist
-frontend-admin/src/tssource-temp-prodution
-frontend-admin/src/jsoutput-temp-prodution
-frontend-admin/src/jsoutput
+frontend-admin/src/js/page-temp-bundle
 frontend-admin/src/css/stylesheets
 
 frontend-admin/src/testing/report
 
-
-frontend-cangya/dist
-frontend-cangya/src/css/stylesheets
-frontend-cangya/src/js/page-temp-bundle
-mockserver
 
 .tmp/
 files
