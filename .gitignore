@@ -15,8 +15,6 @@ README.html
 gradle
 gradlew
 gradlew.bat
-*.ipr
-*.iml
 /files
 *.rdb
 workbench.xmi
@@ -132,7 +130,11 @@ node_modules
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
 
 
 
