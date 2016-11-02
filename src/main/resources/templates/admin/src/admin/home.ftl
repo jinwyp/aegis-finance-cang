@@ -16,12 +16,10 @@
             <!-- START navbar header-->
             <div class="navbar-header">
                 <a href="#/" class="navbar-brand">
-                    <div class="brand-logo">
-                        <img src="img/logo.png" alt="App Logo" class="img-responsive">
+                    <div class="brand-logo" style="padding: 7px 15px!important;">
+                        <img src="${staticPathAdmin}/css/images/logo_wite.png" width="90" height="auto" alt="App Logo" class="img-responsive">
                     </div>
-                    <div class="brand-logo-collapsed">
-                        <img src="img/logo-single.png" alt="App Logo" class="img-responsive">
-                    </div>
+
                 </a>
             </div>
             <!-- END navbar header-->
