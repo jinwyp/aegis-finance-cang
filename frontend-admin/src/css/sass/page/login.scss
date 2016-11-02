@@ -1,5 +1,11 @@
 @import '../helpers/_variables.scss';
 body {
-  background-image: url("#{$assetPath}/css/images/bg_img.jpg");
-  background-color: $bg_body;
+  background-color: #ffffff;
+}
+.borderB{
+  border-bottom: 2px solid #e4e4e4;
+  margin-bottom: 100px;
+}
+.wd-xl{
+  border:1px solid #e4e4e4;
 }

@@ -29,5 +29,12 @@ public class LoginPageController {
         return "admin/login";
     }
 
+    @ApiOperation(value = "管理后台登陆页面", notes = "管理后台登陆页面 不需要登录就可以访问")
+    @RequestMapping(value = "/warehouse/admin/list1", method = RequestMethod.GET)
+    public String homePage() {
+        return "admin/home";
+    }
+
+
 
 }
