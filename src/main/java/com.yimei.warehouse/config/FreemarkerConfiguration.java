@@ -41,7 +41,7 @@ public class FreemarkerConfiguration extends FreeMarkerAutoConfiguration.FreeMar
     @PostConstruct
     void FreeMarkerConfigurer() throws TemplateModelException, IOException {
 
-        configuration.setSharedVariable("staticPath","/static/site");
+        configuration.setSharedVariable("staticPathAdmin","/static/admin");
         configuration.setSharedVariable("title","易煤网");
         configuration.setSharedVariable("ssoMemberUrl",SSOPROTOCOL+"://"+SSOURL);
         configuration.setSharedVariable("payUrl",SSOPROTOCOL+"://"+PAYURL);
