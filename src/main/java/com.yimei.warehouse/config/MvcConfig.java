@@ -24,7 +24,6 @@ import java.util.List;
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
-
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/swagger/v2/api-docs", "/v2/api-docs?group=restful-api");
@@ -52,7 +51,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(adminACLInterceptor).addPathPatterns("/warehouse/admin/**", "/api/warehouse/admin/**").excludePathPatterns("/api/warehouse/admin/login", "/api/warehouse/admin");
+//        registry.addInterceptor(adminACLInterceptor).addPathPatterns("/warehouse/admin/**", "/api/warehouse/admin/**").excludePathPatterns("/api/warehouse/admin/login", "/api/warehouse/admin");
     }
 
 //    @Override

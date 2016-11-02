@@ -49,4 +49,13 @@ public class UserObject implements Serializable {
     private List<String> groupIds;              //用户组id数组
     private List<GroupObject> groupList;        //用户所在组列表
 
+    public UserObject(String id, String username, String name, String phone, String email, Date lastLoginTime) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.lastLoginTime = lastLoginTime;
+    }
+
 }

@@ -1,12 +1,17 @@
 package com.yimei.warehouse;
 
+import com.yimei.warehouse.config.session.AdminSession;
+import com.yimei.warehouse.representation.admin.user.UserObject;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Date;
 
 @SpringBootApplication
 @Slf4j
@@ -21,28 +26,13 @@ public class AegisWareHouseApplication {
                 env.getProperty("server.port"));
     }
 
-//    @Bean
-//    public CommandLineRunner init(final IdentityService identityService) {
-//        return new CommandLineRunner() {
-//            @Override
-//            public void run(String... strings) throws Exception {
-//                for (EnumSpecialGroup specialGroup : EnumSpecialGroup.values()) {
-//                    if (identityService.createGroupQuery().groupId(specialGroup.id).singleResult() == null) {
-//                        Group group = identityService.newGroup(specialGroup.id);
-//                        group.setName(specialGroup.name);
-//                        identityService.saveGroup(group);
-//                    }
-//                }
-//                if (identityService.createUserQuery().userFirstName("adminfinance").singleResult() == null) {
-//                    User user = identityService.newUser("");
-//                    user.setId(null);
-//                    user.setFirstName("adminfinance");
-//                    user.setPassword("961e37962ed659bf4eb45a6f074981a0");
-//                    identityService.saveUser(user);
-//                    identityService.setUserInfo(user.getId(), "username", "adminfinance");
-//                    identityService.createMembership(user.getId(), EnumSpecialGroup.SuperAdminGroup.id);
-//                }
-//            }
-//        };
-//    }
+    @Bean
+    public CommandLineRunner init(AdminSession adminSession) {
+        return new CommandLineRunner() {
+            @Override
+            public void run(String... strings) throws Exception {
+                adminSession.login(new UserObject(String.valueOf(1), "admin", "超级管理员", "15618177577", "1134005157@qq.com", new Date()));
+            }
+        };
+    }
 }
