@@ -29,11 +29,17 @@ public class LoginPageController {
         return "admin/login";
     }
 
-    @ApiOperation(value = "管理后台登陆页面", notes = "管理后台登陆页面 不需要登录就可以访问")
-    @RequestMapping(value = "/warehouse/admin/list1", method = RequestMethod.GET)
-    public String homePage() {
+    @ApiOperation(value = "管理后台form页面", notes = "管理后台form页面 不需要登录就可以访问")
+    @RequestMapping(value = "/warehouse/admin/form", method = RequestMethod.GET)
+    public String formPage() {
         return "admin/home";
     }
+
+    @ApiOperation(value = "管理后台list页面", notes = "管理后台list页面 不需要登录就可以访问")
+        @RequestMapping(value = "/warehouse/admin/listPage", method = RequestMethod.GET)
+        public String listPage() {
+            return "admin/listPage";
+        }
 
 
 
