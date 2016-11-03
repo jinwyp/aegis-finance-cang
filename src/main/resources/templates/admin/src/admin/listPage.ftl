@@ -1327,7 +1327,7 @@
                                             <td>5</td>
                                             <td>C</td>
                                         </tr>
-                                        
+
                                         </tfoot>
                                     </table>
                                 </div>
@@ -1375,8 +1375,8 @@
     <script src="js/adminLogin.bundle.js"></script>
 </#if>
 
-<#--<script src="js/common.js"></script>-->
-<#--<script src="js/adminLogin.bundle.js"></script>-->
+<script src="js/common.js"></script>
+<script src="js/adminLogin.bundle.js"></script>
 
 
 
