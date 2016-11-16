@@ -130,6 +130,7 @@ node_modules
 ## Plugin-specific files:
 
 # IntelliJ
+iml
 *.iml
 *.ipr
 *.iws
