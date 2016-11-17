@@ -3,6 +3,7 @@
 <head>
     <title>供应链金融 - 煤易贷 - 仓押管理平台</title>
     <#include "common/head.ftl" >
+    <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/page/login.css"/>
 </head>
 <body>
 

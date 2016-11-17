@@ -14,4 +14,10 @@ public class ErrorPageController {
         return "admin/http/404";
     }
 
+
+    @RequestMapping(value = "/warehouse/admin/500", method = RequestMethod.GET)
+    public String Page500() {
+        return "admin/http/500";
+    }
+
 }

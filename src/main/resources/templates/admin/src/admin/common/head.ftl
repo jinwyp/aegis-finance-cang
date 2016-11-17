@@ -15,6 +15,6 @@
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/angletheme/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/angletheme/app.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/main.css"/>
-<link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/page/login.css"/>
+
 
 <link type="image/x-icon" rel="shortcut icon" href="${staticPathAdmin}/css/images/favicon.png" />
