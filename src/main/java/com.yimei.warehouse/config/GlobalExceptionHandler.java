@@ -95,14 +95,14 @@ public class GlobalExceptionHandler {
             return Result.error(404, ex.getMessage());
         } else {
             if (currentUrl.contains("/admin")) {
-                response.sendRedirect("/finance/admin/404");
+                response.sendRedirect("/warehouse/admin/404");
+                return null;
             } else {
-                response.sendRedirect("/finance/404");
+                response.sendRedirect("/warehouse/404");
+                return null;
             }
-
         }
 
-        return null;
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)

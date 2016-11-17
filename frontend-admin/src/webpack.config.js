@@ -4,15 +4,69 @@
 
 var path = require("path");
 var webpack = require('webpack');
+var glob = require('glob');
+
+var sourcePath = {
+    'js'            : 'js/**/*',
+    'jsPage'        : 'js/page/**/*',
+    'components'    : 'js/libs/**/*'
+};
+
+var distPath = {
+    'js'                               : '../dist/js/',
+    'jsPage'                           : '../dist/js/page/',
+    'jsPageDevTemp'                    : 'js/page-temp-bundle/',
+    'components'                       : '../dist/js/libs/'
+};
+
+
+
+
+/**
+ * 获得路径
+ * @param globPath: str
+ * @param pathDir: str 对比路径
+ * @returns {{}}
+ */
+function getEntry(globPath, removePrefixDir) {
+    var files = glob.sync(globPath);
+    var entries = {};
+    var entry, dirname, basename, pathname, extname;
+
+    for (var i = 0; i < files.length; i++) {
+        entry = files[i];
+        dirname = path.dirname(entry);
+        extname = path.extname(entry);
+        basename = path.basename(entry, extname);
+        pathname = path.normalize(path.join(dirname,  basename));
+
+        if (removePrefixDir){
+            removePrefixDir = path.normalize(removePrefixDir);
+        }else{
+            removePrefixDir = dirname
+        }
+
+        if(!removePrefixDir.endsWith('/')){
+            removePrefixDir = removePrefixDir + '/'
+        }
+
+        if(pathname.startsWith(removePrefixDir)){
+            pathname = pathname.substring(removePrefixDir.length)
+        }
+
+        entries[pathname] = ['./' + entry];
+
+        // console.log(entry, dirname, basename, extname, pathname, removePrefixDir);
+    }
+    return entries;
+}
+
+
 
 module.exports = {
-    entry: {
-        // common: ['jquery','avalon2'],
-        adminLogin : './js/page/adminLogin.js',
-        adminHome : './js/page/adminHome.js'
-    },
+    entry: getEntry(sourcePath.jsPage),
     output: {
-        path: path.join(__dirname, "js/page-temp-bundle"),
+        path: path.join(__dirname, distPath.jsPageDevTemp),
         filename: "[name].bundle.js",
         chunkFilename: "[id].chunk.js",
         publicPath : '/'
@@ -34,8 +88,8 @@ module.exports = {
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
-            filename: "common.js",
-            name: "common"
+            filename: "common.bundle.js",
+            name: "common" // 注意不要.js后缀
         })
 
     ],
@@ -43,11 +97,11 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname),
-        publicPath: "/js/",
+        publicPath: "/static/admin/js/",
         compress: true,
         port: 9000,
         proxy: {
-            "/api": "http://localhost:3000"
+            "/": "http://localhost:8003"
         }
     }
 };

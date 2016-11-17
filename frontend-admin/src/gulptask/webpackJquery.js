@@ -46,7 +46,7 @@ gulp.task('esLint', function() {
                 "ecmaVersion": 6,
                 "sourceType": "module"
 
-            },
+            }
         }))
         .pipe(eslint.format())
         .pipe(eslint.failOnError())
@@ -54,14 +54,15 @@ gulp.task('esLint', function() {
 
 
 gulp.task('components', function(cb) {
+    gulp.src(sourcePath.components)
+        .pipe(gulp.dest(distPath.components));
+
     exec('npm run build', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
     });
 
-    gulp.src(sourcePath.components)
-        .pipe(gulp.dest(distPath.components));
 });
 
 
@@ -83,21 +84,6 @@ gulp.task('js-build-dev', function(cb) {
     });
 });
 
-
-gulp.task('copydpd', function(cb) {
-    exec('npm run build', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
-
-    gulp.src('*.html')
-        .pipe(gulp.dest('../mockserver/public/'));
-    gulp.src(sourcePath.components)
-        .pipe(gulp.dest('../mockserver/public/js/libs/'));
-    gulp.src(distPath.jsPageDevTemp+'**/*.js')
-        .pipe(gulp.dest('../mockserver/public/js/'));
-});
 
 
 gulp.task('watchJs', [ 'js-build-dev'],function() {
