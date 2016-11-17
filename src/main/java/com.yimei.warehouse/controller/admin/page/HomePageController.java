@@ -17,6 +17,14 @@ public class HomePageController {
     /**
      * 后台管理首页 页面
      */
+
+    @ApiOperation(value = "管理后台登陆页面", notes = "管理后台登陆页面 不需要登录就可以访问")
+    @RequestMapping(value = "/warehouse/admin/login", method = RequestMethod.GET)
+    public String adminLogin() {
+        return "admin/login";
+    }
+
+
     @ApiOperation(value = "管理后台管理员首页", notes = "管理后台管理员首页 需要管理员登录")
     @RequestMapping(value = "/warehouse/admin/home", method = RequestMethod.GET)
     public String adminHome() {
@@ -46,11 +54,6 @@ public class HomePageController {
     }
 
 
-    @ApiOperation(value = "管理后台登陆页面", notes = "管理后台登陆页面 不需要登录就可以访问")
-    @RequestMapping(value = "/warehouse/admin/login", method = RequestMethod.GET)
-    public String adminLogin() {
-        return "admin/login";
-    }
 
 
 

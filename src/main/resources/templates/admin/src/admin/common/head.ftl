@@ -10,12 +10,11 @@
 
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/fontawesome/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/simple-line-icons/css/simple-line-icons.css"/>
-
-<link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/main.css"/>
 <#--<link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/bootstrap/css/bootstrap.min.css">-->
 
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/angletheme/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/angletheme/app.css"/>
+<link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/main.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/page/login.css"/>
 
 <link type="image/x-icon" rel="shortcut icon" href="${staticPathAdmin}/css/images/favicon.ico" />
