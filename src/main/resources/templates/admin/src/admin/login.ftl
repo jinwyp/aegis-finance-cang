@@ -21,28 +21,36 @@
     <div class="block-center mt-xl wd-xl">
         <!-- START panel-->
         <div class="panel panel-dark panel-flat">
-            <div class="panel-body">
-                <p class="text-center pv">系统平台管理员登录</p>
+            <div class="panel-body" ms-controller="loginController">
+                <h4 class="text-center pv">仓押系统登录</h4>
 
-                <form role="form" data-parsley-validate="" novalidate="" class="mb-lg">
-                    <div class="form-group has-feedback">
-                        <input id="exampleInputEmail1" type="email" placeholder="Enter email" autocomplete="off" required class="form-control">
-                        <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" ms-validate="@loginValidate">
+                    <div class="form-group has-feedback " ms-class="[@errorInputName.inputUsername && 'has-error',  @successInputName.inputUsername &&'has-success'] ">
+                        <input id="inputUsername" type="text" placeholder="用户名" class="form-control" ms-duplex="@user.username" ms-rules='{required:true,minlength:4,maxlength:20}'
+                               data-required-message="请输入用户名" data-minlength-message="用户名长度不能少于4位" data-maxlength-message="用户名长度不能大于20位">
+                        <span class="fa fa-user form-control-feedback text-muted"></span>
                     </div>
-                    <div class="form-group has-feedback">
-                        <input id="exampleInputPassword1" type="password" placeholder="Password" required class="form-control">
+
+                    <div class="form-group has-feedback" ms-class="[@errorInputName['inputPassword'] && 'has-error',  @successInputName['inputPassword'] &&'has-success'] ">
+                        <input id="inputPassword" type="password" placeholder="密码" class="form-control" ms-duplex="@user.password" ms-rules='{required:true,minlength:6,maxlength:20}'
+                               data-required-message="请输入密码" data-minlength-message="密码长度不能少于6位" data-maxlength-message="密码长度不能大于20位">
                         <span class="fa fa-lock form-control-feedback text-muted"></span>
                     </div>
-                    <div class="clearfix">
-                        <div class="checkbox c-checkbox pull-left mt0">
-                            <label>
-                                <input type="checkbox" value="" name="remember">
-                                <span class="fa fa-check"></span>Remember Me</label>
-                        </div>
-                        <div class="pull-right"><a href="recover.html" class="text-muted">Forgot your password?</a>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+
+                    <#--<div class="clearfix">-->
+                        <#--<div class="checkbox c-checkbox pull-left mt0">-->
+                            <#--<label>-->
+                                <#--<input type="checkbox" value="" name="remember">-->
+                                <#--<span class="fa fa-check"></span>Remember Me</label>-->
+                        <#--</div>-->
+                        <#--<div class="pull-right"><a href="recover.html" class="text-muted">Forgot your password?</a>-->
+                        <#--</div>-->
+                    <#--</div>-->
+
+                    <span id="error" class="help-block">{{@errorMessage}}</span>
+                    <span id="error" class="help-block">正确时样式：{{@successInputName.inputUsername}}</span>
+                    <span id="error" class="help-block">错误时样式：{{@errorInputName.inputUsername}}</span>
+                    <button type="submit" class="btn btn-block btn-primary mt-lg">登录</button>
                 </form>
                 <#--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>-->
             </div>

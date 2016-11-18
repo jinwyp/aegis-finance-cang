@@ -4,7 +4,7 @@
 
     <title>供应链金融 - 煤易贷 - 仓押管理平台</title>
 
-    <#include "common/head.ftl" >
+    <#include "../common/head.ftl" >
         </head>
 <body>
 <div class="wrapper">
