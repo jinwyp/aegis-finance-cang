@@ -22,16 +22,17 @@
         <!-- START panel-->
         <div class="panel panel-dark panel-flat">
             <div class="panel-body" ms-controller="loginController">
-                <h4 class="text-center pv">仓押系统登录</h4>
+
+                <h4 class="text-center pv">仓押系统登录 {{@errorInputName.indexOf('inputUsername')}}</h4>
 
                 <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" ms-validate="@loginValidate">
-                    <div class="form-group has-feedback " ms-class="[@errorInputName.inputUsername && 'has-error',  @successInputName.inputUsername &&'has-success'] ">
+                    <div class="form-group has-feedback " ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] ">
                         <input id="inputUsername" type="text" placeholder="用户名" class="form-control" ms-duplex="@user.username" ms-rules='{required:true,minlength:4,maxlength:20}'
                                data-required-message="请输入用户名" data-minlength-message="用户名长度不能少于4位" data-maxlength-message="用户名长度不能大于20位">
                         <span class="fa fa-user form-control-feedback text-muted"></span>
                     </div>
 
-                    <div class="form-group has-feedback" ms-class="[@errorInputName['inputPassword'] && 'has-error',  @successInputName['inputPassword'] &&'has-success'] ">
+                    <div class="form-group has-feedback" ms-class="[@errorInputName.indexOf('inputPassword')>-1 && 'has-error',  @successInputName.indexOf('inputPassword')>-1 &&'has-success'] ">
                         <input id="inputPassword" type="password" placeholder="密码" class="form-control" ms-duplex="@user.password" ms-rules='{required:true,minlength:6,maxlength:20}'
                                data-required-message="请输入密码" data-minlength-message="密码长度不能少于6位" data-maxlength-message="密码长度不能大于20位">
                         <span class="fa fa-lock form-control-feedback text-muted"></span>
@@ -48,8 +49,6 @@
                     <#--</div>-->
 
                     <span id="error" class="help-block">{{@errorMessage}}</span>
-                    <span id="error" class="help-block">正确时样式：{{@successInputName.inputUsername}}</span>
-                    <span id="error" class="help-block">错误时样式：{{@errorInputName.inputUsername}}</span>
                     <button type="submit" class="btn btn-block btn-primary mt-lg">登录</button>
                 </form>
                 <#--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>-->
