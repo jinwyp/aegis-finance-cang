@@ -1,5 +1,5 @@
 
-CREATE TABLE `f_warehouse_userlogin_log` (
+CREATE TABLE `a_warehouse_userlogin_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `user_id` varchar(30) NOT NULL COMMENT '用户id',

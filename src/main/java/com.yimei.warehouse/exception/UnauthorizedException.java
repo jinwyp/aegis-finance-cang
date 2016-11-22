@@ -3,9 +3,6 @@ package com.yimei.warehouse.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- * Created by joe on 1/15/15.
- */
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
 public class UnauthorizedException extends RuntimeException {
     protected String url;

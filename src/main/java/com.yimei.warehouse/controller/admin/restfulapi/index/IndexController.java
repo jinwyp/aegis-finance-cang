@@ -1,4 +1,4 @@
-package com.yimei.warehouse.controller;
+package com.yimei.warehouse.controller.admin.restfulapi.index;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

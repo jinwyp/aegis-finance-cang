@@ -1,8 +1,5 @@
 package com.yimei.warehouse.exception;
 
-/**
- * Created by jack on 14/12/5.
- */
 //@ResponseStatus(HttpStatus.NOT_FOUND)
 public class NotFoundException extends RuntimeException{
     private String message;
