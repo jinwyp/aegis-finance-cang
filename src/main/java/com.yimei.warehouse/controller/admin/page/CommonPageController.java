@@ -5,6 +5,7 @@ import com.yimei.warehouse.representation.common.result.Result;
 import com.yimei.warehouse.service.common.file.LocalStorage;
 import com.yimei.warehouse.service.common.message.MessageServiceImpl;
 import com.yimei.warehouse.utils.WebUtils;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,7 @@ public class CommonPageController {
 
     @RequestMapping(value = "/files", method = RequestMethod.GET)
     @ApiOperation(value = "下载文件", notes = "通过文件url路径下载文件")
+    @ApiImplicitParam(name = "url", value = "文件路径", required = true, dataType = "string", paramType = "query")
     public void adminDownloadFile(@RequestParam(value = "url", required = true) String url, HttpServletResponse response) {
         try {
             if (url != null && url.startsWith("/files/")) {
@@ -39,6 +41,7 @@ public class CommonPageController {
     }
 
     @RequestMapping(value = "/test/email", method = RequestMethod.GET)
+    @ApiImplicitParam(name = "email", value = "邮箱", required = true, dataType = "string", paramType = "query")
     @ResponseBody
     public Result testEmail(@RequestParam("email") String email) {
         System.out.println(" ------------------------------ " + email);
@@ -50,6 +53,7 @@ public class CommonPageController {
         String subject = "测试邮件";
         String content = "测试 --------------- 你好: 你的账号已开通, 用户名 请修改密码. [易煤网金融系统]";
         messageService.sendSimpleMail(email, subject, content);
+
         return Result.success();
     }
 

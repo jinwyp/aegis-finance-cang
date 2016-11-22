@@ -54,7 +54,7 @@ public class UserCenterController {
 
     @RequestMapping(value = "/{taskId}", method = RequestMethod.GET)
     @ApiOperation(value = "通过 id 查询任务对象", notes = "通过 id 查询任务对象", response = TaskObject.class)
-    @ApiImplicitParam(name = "taskId", value = "任务id", required = true, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "taskId", value = "任务id", required = true, dataType = "string", paramType = "path")
     public Result getTaskByIdMethod(@PathVariable(value = "taskId") String taskId) {
         HistoricTaskInstance taskInstance = historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult();
         if (taskInstance == null) return Result.error(EnumAdminWarehouseError.不存在此任务.toString());
@@ -106,7 +106,7 @@ public class UserCenterController {
 
     @RequestMapping(value = "/{taskId}/claim", method = RequestMethod.POST)
     @ApiOperation(value = "管理员领取任务", notes = "管理员领取任务操作", response = Boolean.class)
-    @ApiImplicitParam(name = "taskId", value = "任务id", required = true, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "taskId", value = "任务id", required = true, dataType = "string", paramType = "path")
     public Result onlineTraderManagerClaimTaskMethod(@PathVariable(value = "taskId") String taskId) {
         Task task = taskService.createTaskQuery().taskId(taskId).active().singleResult();
         if (task == null) return Result.error(EnumAdminWarehouseError.此任务不存在或者已经完成.toString());
@@ -134,8 +134,8 @@ public class UserCenterController {
     @RequestMapping(value = "/{taskId}/person/{userId}", method = RequestMethod.PUT)
     @ApiOperation(value = "管理员分配任务", notes = "管理员分配任务操作")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "taskId", value = "任务id", required = true, dataType = "String", paramType = "path"),
-            @ApiImplicitParam(name = "userId", value = "被分配人userId", required = true, dataType = "String", paramType = "path")
+            @ApiImplicitParam(name = "taskId", value = "任务id", required = true, dataType = "string", paramType = "path"),
+            @ApiImplicitParam(name = "userId", value = "被分配人userId", required = true, dataType = "string", paramType = "path")
     })
     @Transactional
     public Result assignMYROnlineTraderMethod(@PathVariable(value = "taskId") String taskId,

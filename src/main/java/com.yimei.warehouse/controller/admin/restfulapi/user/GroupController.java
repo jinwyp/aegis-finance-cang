@@ -45,7 +45,7 @@ public class GroupController {
     }
 
     @ApiOperation(value = "通过 groupId 查询用户组", notes = "通过 groupId 查询该用户组信息", response = GroupObject.class)
-    @ApiImplicitParam(name = "groupId", value = "用户组 Id", required = true, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "groupId", value = "用户组 Id", required = true, dataType = "string", paramType = "path")
     @RequestMapping(value = "/{groupId}", method = RequestMethod.GET)
     public Result getGroupByIdMethod(@PathVariable("groupId") String groupId) {
         Group group = identityService.createGroupQuery().groupId(groupId).singleResult();
@@ -56,7 +56,7 @@ public class GroupController {
 
     @ApiOperation(value = "通过 groupId 查询用户组下的用户", notes = "通过 groupId 查询该用户组下的用户", response = UserObject.class, responseContainer = "List")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "groupId", value = "GroupId", required = true, dataType = "String", paramType = "path"),
+            @ApiImplicitParam(name = "groupId", value = "GroupId", required = true, dataType = "string", paramType = "path"),
             @ApiImplicitParam(name = "page", value = "当前页数", required = false, dataType = "int", paramType = "query")
     })
     @RequestMapping(value = "/{groupId}/users", method = RequestMethod.GET)
@@ -88,8 +88,8 @@ public class GroupController {
 
     @ApiOperation(value = "将一个用户添加到指定的组", notes = "将一个用户添加到指定的组", response = UserObject.class)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "groupId", value = "Group 用户组Id", required = true, dataType = "String", paramType = "path"),
-            @ApiImplicitParam(name = "userId", value = "User 用户Id", required = true, dataType = "String", paramType = "path")
+            @ApiImplicitParam(name = "groupId", value = "Group 用户组Id", required = true, dataType = "string", paramType = "path"),
+            @ApiImplicitParam(name = "userId", value = "User 用户Id", required = true, dataType = "string", paramType = "path")
     })
     @RequestMapping(value = "/{groupId}/users/{userId}", method = RequestMethod.POST)
     public Result addUserToGroupMethod(@PathVariable("groupId") String groupId,
@@ -110,8 +110,8 @@ public class GroupController {
 
     @ApiOperation(value = "将一个用户从指定的组移出", notes = "将一个用户从指定的组移出", response = GroupObject.class)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "groupId", value = "Group 用户组Id", required = true, dataType = "String", paramType = "path"),
-            @ApiImplicitParam(name = "userId", value = "User 用户Id", required = true, dataType = "String", paramType = "path")
+            @ApiImplicitParam(name = "groupId", value = "Group 用户组Id", required = true, dataType = "string", paramType = "path"),
+            @ApiImplicitParam(name = "userId", value = "User 用户Id", required = true, dataType = "string", paramType = "path")
     })
     @RequestMapping(value = "/{groupId}/users/{userId}", method = RequestMethod.DELETE)
     public Result deleteUserFromGroupMethod(@PathVariable("groupId") String groupId,
@@ -133,7 +133,7 @@ public class GroupController {
     }
 
     @ApiOperation(value = "修改用户组", notes = "根据Group Id 修改用户组", response = GroupObject.class)
-    @ApiImplicitParam(name = "id", value = "Group 用户组id", required = true, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "id", value = "Group 用户组id", required = true, dataType = "string", paramType = "path")
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public Result updateGroupMethod(@PathVariable("id") String id,
                                     @ApiParam(name = "group", value = "用户组对象", required = true) @Validated @RequestBody GroupObject groupObject) {
@@ -150,7 +150,7 @@ public class GroupController {
     }
 
     @ApiOperation(value = "删除用户组", notes = "根据Group Id 删除用户组", response = GroupObject.class)
-    @ApiImplicitParam(name = "id", value = "Group 用户组Id", required = true, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "id", value = "Group 用户组Id", required = true, dataType = "string", paramType = "path")
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public Result deleteGroupMethod(@PathVariable("id") String id) {
         Result result = userService.checkSuperAdminRight(adminSession.getUser().getId());

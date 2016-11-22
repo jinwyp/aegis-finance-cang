@@ -31,13 +31,14 @@ public class ToolsController {
 
     @RequestMapping(value = "/files", method = RequestMethod.POST)
     @ApiOperation(value = "上传文件", notes = "上传文件", response = AttachmentObject.class)
+    @ApiImplicitParam(name = "file", value = "文件", required = true, dataType = "file", paramType = "query")
     public Result uploadFileMethod(@RequestParam("file") MultipartFile file) throws IOException {
         return Result.success().setData(StoreUtils.save(localStorage, file, "warehouse"));
     }
 
     @RequestMapping(value = "/files/{attachmentId}", method = RequestMethod.DELETE)
     @ApiOperation(value = "删除文件", notes = "删除文件", response = AttachmentObject.class)
-    @ApiImplicitParam(name = "attachmentId", value = "文件id", required = true, dataType = "String", paramType = "path")
+    @ApiImplicitParam(name = "attachmentId", value = "文件id", required = true, dataType = "string", paramType = "path")
     public Result deleteFileMethod(@PathVariable("attachmentId")String attachmentId) {
         Attachment attachment = taskService.getAttachment(attachmentId);
         if (attachment == null) return Result.error(EnumCommonError.此文件不存在.toString());
