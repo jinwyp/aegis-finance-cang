@@ -28,18 +28,18 @@ public class HomePageController {
     @ApiOperation(value = "管理后台平台管理员首页", notes = "管理后台平台管理员首页 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home", method = RequestMethod.GET)
     public String adminHome() {
-        if (adminSession.getUser() == null) {
-            return "redirect:/warehouse/admin/login";
-        }
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
         return "admin/platform/home";
     }
 
     @ApiOperation(value = "管理后台前端路由重定向", notes = "管理页面为了前端路由需要重定向")
     @RequestMapping(value = "/warehouse/admin/home/**", method = RequestMethod.GET)
     public String adminHomeRedirect() {
-        if (adminSession.getUser() == null) {
-            return "redirect:/warehouse/admin/login";
-        }
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
         return "forward:/warehouse/admin/home";
     }
 
@@ -47,9 +47,9 @@ public class HomePageController {
     @ApiOperation(value = "管理后台首页跳转", notes = "管理后台首页跳转 没有登录调转到登录页面, 如果登录了跳转到管理员Home页面")
     @RequestMapping(value = "/warehouse/admin", method = RequestMethod.GET)
     public String adminIndexRedirect() {
-        if (adminSession.getUser() == null) {
-            return "redirect:/warehouse/admin/login";
-        }
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
         return "redirect:/warehouse/admin/home";
     }
 
@@ -58,9 +58,9 @@ public class HomePageController {
     @ApiOperation(value = "管理后台平台管理员范例页面", notes = "管理后台平台管理员范例页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/demo", method = RequestMethod.GET)
     public String adminTest() {
-        if (adminSession.getUser() == null) {
-            return "redirect:/warehouse/admin/login";
-        }
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
         return "admin/platform/demo";
     }
 
