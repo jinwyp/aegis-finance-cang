@@ -2,7 +2,7 @@
 <html lang="zh-cmn-Hans">
 <head>
     <title>供应链金融 - 煤易贷 - 仓押管理平台</title>
-<#include "../common/head.ftl" >
+<#include "../common/headcss.ftl" >
 </head>
 
 
@@ -24,13 +24,13 @@
             </span>
         </div>
         <ul class="list-inline text-center text-sm mb-xl">
-            <li><a href="dashboard.html" class="text-muted">Go to App</a>
+            <li><a href="/warehouse/admin/home" class="text-muted">回到首页</a>
             </li>
             <li class="text-muted">|</li>
-            <li><a href="login.html" class="text-muted">Login</a>
+            <li><a href="/warehouse/admin/login" class="text-muted">登录</a>
             </li>
             <li class="text-muted">|</li>
-            <li><a href="register.html" class="text-muted">Register</a>
+            <li><a href="/warehouse/admin/login" class="text-muted">注册</a>
             </li>
         </ul>
         <div class="p-lg text-center">

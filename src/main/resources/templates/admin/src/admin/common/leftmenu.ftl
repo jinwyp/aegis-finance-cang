@@ -40,18 +40,18 @@
                     <ul id="dashboard" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">Dashboard</li>
                         <li class=" ">
-                            <a href="dashboard.html" title="Dashboard v1">
-                                <span>Dashboard v1</span>
+                            <a href="/warehouse/admin/home" title="范例 - 搜索列表">
+                                <span>范例 - 搜索列表</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="dashboard_v2.html" title="Dashboard v2">
-                                <span>Dashboard v2</span>
+                            <a href="/warehouse/admin/home/demo/form" title="范例 - 表单">
+                                <span>范例 - 表单</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="dashboard_v3.html" title="Dashboard v3">
-                                <span>Dashboard v3</span>
+                            <a href="/warehouse/admin/home/demo/echart" title="范例 - Echart">
+                                <span>范例 - Echart</span>
                             </a>
                         </li>
                     </ul>
