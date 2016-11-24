@@ -15,6 +15,19 @@ public class ErrorPageController {
     }
 
 
+    @RequestMapping(value = "/warehouse/admin/401", method = RequestMethod.GET)
+    public String Page401() {
+        return "admin/http/401";
+    }
+
+
+    @RequestMapping(value = "/warehouse/admin/403", method = RequestMethod.GET)
+    public String Page403() {
+        return "admin/http/403";
+    }
+
+
+
     @RequestMapping(value = "/warehouse/admin/500", method = RequestMethod.GET)
     public String Page500() {
         return "admin/http/500";

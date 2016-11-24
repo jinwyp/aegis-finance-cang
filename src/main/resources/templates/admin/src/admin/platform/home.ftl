@@ -14,7 +14,6 @@
     <#include "../common/header.ftl" >
 
 
-
     <!-- sidebar-->
     <#include "../common/leftmenu.ftl" >
 
