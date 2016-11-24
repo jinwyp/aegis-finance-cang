@@ -16,8 +16,8 @@
 - 使用webpack 前端打包管理工具  ``` npm install webpack webpack-dev-server -g ``` 
 - 进入 frontend-admin/src 下运行 ``` npm install ```  安装前端代码编译工具依赖库 ``` SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install --registry=https://registry.npm.taobao.org --phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs ```
 - 运行 ``` npm install ```  安装前端代码依赖库
-- 开发环境下 运行 npm run dev 进入监视 sass 文件改动自动编译css, 使用 gulp build 进行生产环境打包
-
+- 开发环境下 运行 npm run dev 进入监视 sass 文件改动自动编译css,  http://localhost:9000/warehouse/admin/login
+- 生产环境下 使用 gulp build 进行生产环境打包。
 
 
 
