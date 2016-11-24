@@ -9,7 +9,7 @@
                     <img src="${staticPathAdmin}/css/images/logo_wite.png" alt="App Logo" class="img-responsive">
                 </div>
                 <div class="brand-logo-collapsed ym-header-logo-collapsed">
-                    <img src="${staticPathAdmin}/css/images/logo_wite.png" alt="App Logo" class="img-responsive">
+                    <img src="${staticPathAdmin}/css/images/logo_noText.png" alt="App Logo" class="img-responsive">
                 </div>
             </a>
         </div>
