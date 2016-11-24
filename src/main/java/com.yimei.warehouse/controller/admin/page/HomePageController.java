@@ -25,13 +25,13 @@ public class HomePageController {
     }
 
 
-    @ApiOperation(value = "管理后台平台管理员首页", notes = "管理后台平台管理员首页 需要管理员登录")
+    @ApiOperation(value = "管理后台平台管理员首页", notes = "管理后台平台管理员首页 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home", method = RequestMethod.GET)
     public String adminHome() {
         if (adminSession.getUser() == null) {
             return "redirect:/warehouse/admin/login";
         }
-        return "platform/home";
+        return "admin/platform/home";
     }
 
     @ApiOperation(value = "管理后台前端路由重定向", notes = "管理页面为了前端路由需要重定向")
@@ -53,5 +53,15 @@ public class HomePageController {
         return "redirect:/warehouse/admin/home";
     }
 
+
+
+    @ApiOperation(value = "管理后台平台管理员范例页面", notes = "管理后台平台管理员范例页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/test", method = RequestMethod.GET)
+    public String adminTest() {
+        if (adminSession.getUser() == null) {
+            return "redirect:/warehouse/admin/login";
+        }
+        return "admin/platform/demo";
+    }
 
 }

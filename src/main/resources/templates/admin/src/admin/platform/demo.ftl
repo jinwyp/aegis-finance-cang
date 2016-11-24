@@ -1370,14 +1370,13 @@
 
 
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
-    <!-- 生产环境使用 bundle.js 文件 -->
-    <script src="js/common.js"></script>
-    <script src="js/adminLogin.bundle.js"></script>
-</#if>
-
+<!-- 生产环境使用 bundle.js 文件 -->
 <script src="js/common.js"></script>
-<script src="js/adminLogin.bundle.js"></script>
-
+<script src="js/adminHome.bundle.js"></script>
+<#else>
+<script src="js/common.js"></script>
+<script src="js/adminHome.bundle.js"></script>
+</#if>
 
 
 </body>
