@@ -10,6 +10,7 @@
     "watch": "gulp watchSass"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "avalon2": "^2.1.17",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
