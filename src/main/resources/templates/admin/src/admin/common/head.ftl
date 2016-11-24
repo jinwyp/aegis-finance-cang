@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/fontawesome/css/font-awesome.min.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/simple-line-icons/css/simple-line-icons.css"/>
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/animate.css/animate.min.css"/>
+<link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/angletheme/whirl.min.css"/>
 <#--<link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/bootstrap/css/bootstrap.min.css">-->
 
 <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/js/libs/angletheme/bootstrap.css"/>
