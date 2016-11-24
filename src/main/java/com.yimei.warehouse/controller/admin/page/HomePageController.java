@@ -56,7 +56,7 @@ public class HomePageController {
 
 
     @ApiOperation(value = "管理后台平台管理员范例页面", notes = "管理后台平台管理员范例页面 需要平台管理员登录")
-    @RequestMapping(value = "/warehouse/admin/home/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/warehouse/admin/home/demo", method = RequestMethod.GET)
     public String adminTest() {
         if (adminSession.getUser() == null) {
             return "redirect:/warehouse/admin/login";
