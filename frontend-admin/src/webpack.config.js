@@ -89,18 +89,19 @@ module.exports = {
 
         new webpack.optimize.CommonsChunkPlugin({
             filename: "common.bundle.js",
-            name: "common" // 注意不要.js后缀
+            name: "common" // 注意不要.js后缀,  将公共模块提取，生成名为`common`的chunk
         })
 
     ],
 
 
     devServer: {
-        inline: true,
+        inline: true, //可以监控js变化
+        hot: false, //热启动 Hot Module Replacement
         contentBase: path.join(__dirname),
         publicPath: "/static/admin/js/",
         compress: true,
-        port: 9000,
+        port: 9000,  //默认8080
         proxy: {
             "/": "http://localhost:8003"
         }
