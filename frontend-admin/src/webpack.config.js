@@ -96,6 +96,7 @@ module.exports = {
 
 
     devServer: {
+        inline: true,
         contentBase: path.join(__dirname),
         publicPath: "/static/admin/js/",
         compress: true,
