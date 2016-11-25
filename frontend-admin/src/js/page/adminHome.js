@@ -8,7 +8,7 @@ var $ = require('jquery') ;
 
 
 var home = function() {
-
+    console.log('webpack dev server 启动,自动刷新页面!')
 };
 
 
