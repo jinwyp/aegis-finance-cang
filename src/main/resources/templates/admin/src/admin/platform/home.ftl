@@ -489,10 +489,10 @@
     <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminHome.bundle.js"></script>
 
-    <!-- IE8 环境使用 /page-temp-bundle/ 文件 -->
+    <!-- IE8 环境使用 /page-temp-bundle/ 文件
     <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
     <script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/page-temp-bundle/adminHome.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/page-temp-bundle/adminHome.bundle.js"></script> -->
 </#if>
 
 
