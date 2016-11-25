@@ -3,8 +3,6 @@
  */
 
 var avalon = require('avalon2') ;
-var $ = require('jquery') ;
-require('bootstrap/dist/js/bootstrap.js');
 
 
 var login = function() {
