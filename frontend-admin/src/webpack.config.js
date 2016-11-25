@@ -90,7 +90,9 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             filename: "common.bundle.js",
             name: "common" // 注意不要.js后缀,  将公共模块提取，生成名为`common`的chunk
-        })
+        }),
+
+        new webpack.HotModuleReplacementPlugin() //热加载
 
     ],
 
