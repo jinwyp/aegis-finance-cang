@@ -43,6 +43,11 @@
         </div>
     </section>
 
+
+
+    <!-- Page footer-->
+    <#include "../common/footer.ftl" >
+
 </div>
 
 
