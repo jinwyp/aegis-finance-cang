@@ -28,7 +28,8 @@ myChart.setOption({
     toolbox: {
         feature: {
             saveAsImage: {}
-        }
+        },
+        right:'4%'
     },
     grid: {
         left: '3%',
@@ -84,7 +85,8 @@ myChart2.setOption({
     toolbox: {
         feature: {
             saveAsImage: {}
-        }
+        },
+        right:'4%'
     },
     grid: {
         left: '3%',
