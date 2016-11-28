@@ -47,92 +47,92 @@
             </ul>
             <!-- END Left navbar-->
             <!-- START Right Navbar-->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Search icon-->
-                <li>
-                    <a href="#" data-search-open="">
-                        <em class="icon-magnifier"></em>
-                    </a>
-                </li>
-                <!-- Fullscreen (only desktops)-->
-                <li class="visible-lg">
-                    <a href="#" data-toggle-fullscreen="">
-                        <em class="fa fa-expand"></em>
-                    </a>
-                </li>
-                <!-- START Alert menu-->
-                <li class="dropdown dropdown-list">
-                    <a href="#" data-toggle="dropdown">
-                        <em class="icon-bell"></em>
-                        <div class="label label-danger">11</div>
-                    </a>
-                    <!-- START Dropdown menu-->
-                    <ul class="dropdown-menu animated flipInX">
-                        <li>
-                            <!-- START list group-->
-                            <div class="list-group">
-                                <!-- list item-->
-                                <a href="#" class="list-group-item">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <em class="fa fa-twitter fa-2x text-info"></em>
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <p class="m0">New followers</p>
-                                            <p class="m0 text-muted">
-                                                <small>1 new follower</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- list item-->
-                                <a href="#" class="list-group-item">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <em class="fa fa-envelope fa-2x text-warning"></em>
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <p class="m0">New e-mails</p>
-                                            <p class="m0 text-muted">
-                                                <small>You have 10 new emails</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- list item-->
-                                <a href="#" class="list-group-item">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <em class="fa fa-tasks fa-2x text-success"></em>
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <p class="m0">Pending Tasks</p>
-                                            <p class="m0 text-muted">
-                                                <small>11 pending task</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- last list item-->
-                                <a href="#" class="list-group-item">
-                                    <small>More notifications</small>
-                                    <span class="label label-danger pull-right">14</span>
-                                </a>
-                            </div>
-                            <!-- END list group-->
-                        </li>
-                    </ul>
-                    <!-- END Dropdown menu-->
-                </li>
-                <!-- END Alert menu-->
-                <!-- START Offsidebar button-->
-                <li>
-                    <a href="#" data-toggle-state="offsidebar-open" data-no-persist="true">
-                        <em class="icon-notebook"></em>
-                    </a>
-                </li>
-                <!-- END Offsidebar menu-->
-            </ul>
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--&lt;!&ndash; Search icon&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a href="#" data-search-open="">-->
+                        <!--<em class="icon-magnifier"></em>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--&lt;!&ndash; Fullscreen (only desktops)&ndash;&gt;-->
+                <!--<li class="visible-lg">-->
+                    <!--<a href="#" data-toggle-fullscreen="">-->
+                        <!--<em class="fa fa-expand"></em>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--&lt;!&ndash; START Alert menu&ndash;&gt;-->
+                <!--<li class="dropdown dropdown-list">-->
+                    <!--<a href="#" data-toggle="dropdown">-->
+                        <!--<em class="icon-bell"></em>-->
+                        <!--<div class="label label-danger">11</div>-->
+                    <!--</a>-->
+                    <!--&lt;!&ndash; START Dropdown menu&ndash;&gt;-->
+                    <!--<ul class="dropdown-menu animated flipInX">-->
+                        <!--<li>-->
+                            <!--&lt;!&ndash; START list group&ndash;&gt;-->
+                            <!--<div class="list-group">-->
+                                <!--&lt;!&ndash; list item&ndash;&gt;-->
+                                <!--<a href="#" class="list-group-item">-->
+                                    <!--<div class="media-box">-->
+                                        <!--<div class="pull-left">-->
+                                            <!--<em class="fa fa-twitter fa-2x text-info"></em>-->
+                                        <!--</div>-->
+                                        <!--<div class="media-box-body clearfix">-->
+                                            <!--<p class="m0">New followers</p>-->
+                                            <!--<p class="m0 text-muted">-->
+                                                <!--<small>1 new follower</small>-->
+                                            <!--</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--&lt;!&ndash; list item&ndash;&gt;-->
+                                <!--<a href="#" class="list-group-item">-->
+                                    <!--<div class="media-box">-->
+                                        <!--<div class="pull-left">-->
+                                            <!--<em class="fa fa-envelope fa-2x text-warning"></em>-->
+                                        <!--</div>-->
+                                        <!--<div class="media-box-body clearfix">-->
+                                            <!--<p class="m0">New e-mails</p>-->
+                                            <!--<p class="m0 text-muted">-->
+                                                <!--<small>You have 10 new emails</small>-->
+                                            <!--</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--&lt;!&ndash; list item&ndash;&gt;-->
+                                <!--<a href="#" class="list-group-item">-->
+                                    <!--<div class="media-box">-->
+                                        <!--<div class="pull-left">-->
+                                            <!--<em class="fa fa-tasks fa-2x text-success"></em>-->
+                                        <!--</div>-->
+                                        <!--<div class="media-box-body clearfix">-->
+                                            <!--<p class="m0">Pending Tasks</p>-->
+                                            <!--<p class="m0 text-muted">-->
+                                                <!--<small>11 pending task</small>-->
+                                            <!--</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--&lt;!&ndash; last list item&ndash;&gt;-->
+                                <!--<a href="#" class="list-group-item">-->
+                                    <!--<small>More notifications</small>-->
+                                    <!--<span class="label label-danger pull-right">14</span>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; END list group&ndash;&gt;-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <!--&lt;!&ndash; END Dropdown menu&ndash;&gt;-->
+                <!--</li>-->
+                <!--&lt;!&ndash; END Alert menu&ndash;&gt;-->
+                <!--&lt;!&ndash; START Offsidebar button&ndash;&gt;-->
+                <!--<li>-->
+                    <!--<a href="#" data-toggle-state="offsidebar-open" data-no-persist="true">-->
+                        <!--<em class="icon-notebook"></em>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--&lt;!&ndash; END Offsidebar menu&ndash;&gt;-->
+            <!--</ul>-->
             <!-- END Right Navbar-->
         </div>
         <!-- END Nav wrapper-->
