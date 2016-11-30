@@ -96,7 +96,7 @@
                     <ul id="forms" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">系统设置</li>
                         <li class=" active">
-                            <a href="form-standard.html" title="Standard">
+                            <a href="/warehouse/admin/home/demo/form" title="Standard">
                                 <span data-localize="sidebar.nav.form.STANDARD">用户管理</span>
                             </a>
                         </li>
