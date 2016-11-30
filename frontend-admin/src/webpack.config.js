@@ -105,7 +105,7 @@ module.exports = {
         compress: true,
         port: 9000,  //默认8080
         proxy: {
-            "/": "http://localhost:8003"
+            "/": "http://192.168.168:3030"
         }
     }
 };
