@@ -27,7 +27,7 @@
             </h3>
 
             <!-- START panel-->
-            <div class="panel panel-default">
+            <div class="panel panel-default ms-controller" ms-controller="addUser">
                 <!--<div class="panel-heading">Form elements</div>-->
                 <div class="panel-body">
                     <form method="get" action="/" class="form-horizontal">
@@ -44,19 +44,32 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户类型</label>
                                 <div class="col-sm-10">
-                                    <select name="account" class="form-control m-b">
-                                        <option>港口</option>
-                                        <option>监管</option>
-                                        <option>贸易商</option>
-                                        <option>贸易商财务</option>
-                                        <option>资金方</option>
-                                        <option>资金方财务</option>
+                                    <select name="account" class="form-control m-b" ms-duplex="@searchQuery.addType">
+                                        <option ms-click="@clickType('港口')">港口</option>
+                                        <option ms-click="@clickType('监管')">监管</option>
+                                        <option ms-click="@clickType('贸易商')">贸易商</option>
+                                        <option ms-click="@clickType('贸易商财务')">贸易商财务</option>
+                                        <option ms-click="@clickType('资金方')">资金方</option>
+                                        <option ms-click="@clickType('资金方财务')">资金方财务</option>
                                     </select>
-                                    <span class="help-block m-b-none">选择该类型后，系统将为其生成一个支付帐号</span>
+                                    <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务'"><span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span></span>
                                 </div>
                             </div>
                         </fieldset>
-                        <fieldset>
+                        <fieldset ms-visible="@searchQuery.addType==='贸易商财务'">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">选择贸易商</label>
+                                <div class="col-sm-10">
+                                    <select name="account" class="form-control m-b">
+                                        <option>贸易商1</option>
+                                        <option>贸易商2</option>
+                                        <option>贸易商3</option>
+                                    </select>
+                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset ms-visible="@searchQuery.addType==='资金方财务'">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">选择资金方</label>
                                 <div class="col-sm-10">
@@ -65,7 +78,7 @@
                                         <option>资金方2</option>
                                         <option>资金方3</option>
                                     </select>
-                                    <span class="help-block m-b-none">如没有选择的资金方，请先添加资金方</span>
+                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
                                 </div>
                             </div>
                         </fieldset>
@@ -82,7 +95,7 @@
                                 <label class="col-sm-2 control-label">公司邮箱</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control">
-                                    <span class="help-block m-b-none">为用户发送与找回密码的有效途径</span>
+                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
                                 </div>
                             </div>
                         </fieldset>
