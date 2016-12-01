@@ -56,7 +56,7 @@ public class HomePageController {
 
 
     @ApiOperation(value = "管理后台平台管理员范例页面 - 表单", notes = "管理后台平台管理员范例表单页面 需要平台管理员登录")
-    @RequestMapping(value = "/warehouse/admin/home/demo/form", method = RequestMethod.GET)
+    @RequestMapping(value = "/warehouse/admin/home/user/form", method = RequestMethod.GET)
     public String adminDemoForm() {
 //        if (adminSession.getUser() == null) {
 //            return "redirect:/warehouse/admin/login";
@@ -72,5 +72,22 @@ public class HomePageController {
 //        }
         return "admin/platform/demoEchart";
     }
+
+
+
+
+
+
+
+
+
+
+
+    @ApiOperation(value = "管理后台平台管理员添加的用户列表 - 列表", notes = "管理后台平台管理员添加的用户列表页面 需要平台管理员登录")
+        @RequestMapping(value = "/warehouse/admin/home/userlist", method = RequestMethod.GET)
+        public String adminUserList() {
+            return "admin/platform/userList";
+        }
+
 
 }
