@@ -15,7 +15,7 @@ var chart = function() {
         {name:'mys',text:'贸易商'},
         {name:'mycw',text:'贸易商财务'},
         {name:'zj',text:'资金方'},
-        {name:'zicw',text:'资金方财务'}
+        {name:'zjcw',text:'资金方财务'}
     ];
 
     var vm = avalon.define({
