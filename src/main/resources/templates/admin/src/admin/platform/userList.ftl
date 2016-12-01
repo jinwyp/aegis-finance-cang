@@ -53,15 +53,15 @@
                         <div class="panel-body">
                             <!-- START table-responsive-->
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
+                                <table class="table table-striped table-bordered table-hover text-center">
                                     <thead>
-                                    <tr class="text-center">
-                                        <th>序号</th>
-                                        <th>用户账号</th>
-                                        <th>所属公司名称(全称)</th>
-                                        <th>创建时间</th>
-                                        <th>邮箱地址</th>
-                                        <th>操作</th>
+                                    <tr>
+                                        <th class="text-center">序号</th>
+                                        <th class="text-center">用户账号</th>
+                                        <th class="text-center">所属公司名称<br/>(全称)</th>
+                                        <th class="text-center">创建时间</th>
+                                        <th class="text-center">邮箱地址</th>
+                                        <th class="text-center">操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,7 +71,25 @@
                                         <td>Otto</td>
                                         <td>@mdo</td>
                                         <td>@mdo</td>
+                                        <td>
+                                            <a href="" class="btn btn-default">重置密码</a>
+                                            <a href="" class="btn btn-default">查看</a>
+                                            <a href="" class="btn btn-default">编辑</a>
+                                            <a href="" class="btn btn-default">删除</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
                                         <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>
+                                            <a href="" class="btn btn-default">重置密码</a>
+                                            <a href="" class="btn btn-default">查看</a>
+                                            <a href="" class="btn btn-default">编辑</a>
+                                            <a href="" class="btn btn-default">删除</a>
+                                        </td>
                                     </tr>
 
                                     </tbody>

@@ -35,15 +35,18 @@
                             <!--<legend>Classic inputs</legend>-->
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户帐号</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control form-control-rounded" placeholder="请输入用户账号">
+                                </div>
+                                <div class="col-sm-5 text-danger">
+                                    error
                                 </div>
                             </div>
                         </fieldset>
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">用户类型</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" ms-duplex="@searchQuery.addType">
                                         <option ms-click="@clickType('港口')">港口</option>
                                         <option ms-click="@clickType('监管')">监管</option>
@@ -54,12 +57,15 @@
                                     </select>
                                     <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务'"><span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span></span>
                                 </div>
+                                <div class="col-sm-5 text-danger">
+                                    error
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@searchQuery.addType==='贸易商财务'">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">选择贸易商</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <select name="account" class="form-control m-b">
                                         <option>贸易商1</option>
                                         <option>贸易商2</option>
@@ -67,12 +73,15 @@
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
                                 </div>
+                                <div class="col-lg-5 text-danger">
+                                    error
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@searchQuery.addType==='资金方财务'">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">选择资金方</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <select name="account" class="form-control m-b">
                                         <option>资金方1</option>
                                         <option>资金方2</option>
@@ -80,30 +89,42 @@
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
                                 </div>
+                                <div class="col-sm-5 text-danger">
+                                    error
+                                </div>
                             </div>
                         </fieldset>
                         <fieldset>
                             <div class="form-group">
                                 <label for="input-id-1" class="col-sm-2 control-label">公司名称</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <input id="input-id-1" type="text" class="form-control" placeholder="请输入公司名称">
+                                </div>
+                                <div class="col-sm-5 text-danger">
+                                    error
                                 </div>
                             </div>
                         </fieldset>
                         <fieldset>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">公司邮箱</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <input type="text" class="form-control">
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
+                                </div>
+                                <div class="col-sm-5 text-danger">
+                                    error
                                 </div>
                             </div>
                         </fieldset>
                         <fieldset class="last-child">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">手机号码</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-5">
                                     <input type="text" placeholder="请输入手机号码" class="form-control">
+                                </div>
+                                <div class="col-sm-5 text-danger">
+                                    error
                                 </div>
                             </div>
                         </fieldset>
