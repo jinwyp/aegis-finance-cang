@@ -13,6 +13,25 @@ var url = {
 };
 
 
+var userRoles = [
+    { name:'systemAdmin', displayName : '系统管理员'},
+    { name:'financer', displayName : '融资方'},
+    { name:'harbor', displayName : '港口'},
+    { name:'supervisor', displayName : '监管方'},
+    { name:'traders', displayName : ' 贸易商'},
+    { name:'tradersAccountant', displayName : '贸易商财务'},
+    { name:'fundProvider', displayName : ' 资金方'},
+    { name:'fundProviderAccountant', displayName : '资金方财务'}
+];
+
+
+var userRoleObject = {};
+
+userRoles.forEach(function (role, index){
+    userRoleObject[role.name] = role.displayName;
+});
+
+
 exports.getUserList = function (query){
 
     var params = jQuery.extend({}, query);
@@ -34,8 +53,9 @@ exports.addNewUser = function (user){
         email : '',
         mobilePhone : '',
         companyName : '',
-        role : ''
+        role : userRoleObject.systemAdmin
     }, user);
+
 
     return jQuery.ajax({
         url      : url.userList,
