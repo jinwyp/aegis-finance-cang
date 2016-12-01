@@ -45,6 +45,20 @@ exports.getUserList = function (query){
 
 };
 
+
+exports.getUserInfoById = function (userId, query){
+
+    var params = jQuery.extend({}, query);
+
+    return jQuery.ajax({
+        url      : url.userList + '/' + userId,
+        method   : 'GET',
+        dataType : 'json',
+        data     : params
+    });
+
+};
+
 exports.addNewUser = function (user){
 
     var params = jQuery.extend({
@@ -65,3 +79,25 @@ exports.addNewUser = function (user){
     });
 
 };
+
+exports.updateUserInfoById = function (userId, user){
+
+    var params = jQuery.extend({
+        username : '',
+        password : '',
+        email : '',
+        mobilePhone : '',
+        companyName : '',
+        role : userRoleObject.systemAdmin
+    }, user);
+
+
+    return jQuery.ajax({
+        url      : url.userList + '/' + userId,
+        method   : 'PUT',
+        dataType : 'json',
+        data     : params
+    });
+
+};
+
