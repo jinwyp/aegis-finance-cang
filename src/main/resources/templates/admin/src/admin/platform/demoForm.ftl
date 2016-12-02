@@ -4,142 +4,481 @@
 
     <title>供应链金融 - 煤易贷 - 仓押管理平台</title>
 
-<#include "../common/headcss.ftl" >
-    <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/page/home.css"/>
-</head>
+    <#include "../common/headcss.ftl" >
+        <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/page/home.css"/>
+        </head>
 <body>
 <div class="wrapper">
 
     <!-- top navbar-->
-<#include "../common/header.ftl" >
+    <#include "../common/header.ftl" >
 
 
-    <!-- sidebar-->
-<#include "../common/leftmenu.ftl" >
+        <!-- sidebar-->
+        <#include "../common/leftmenu.ftl" >
 
 
-    <!-- Main section-->
-    <section>
-        <!-- Page content-->
-        <div class="content-wrapper ms-controller" ms-controller="addUser">
+            <!-- Main section-->
+            <section>
+                <!-- Page content-->
+                <div class="content-wrapper">
+                    <h3>Form Elements
+                        <small>Standard and custom elements for any form</small>
+                    </h3>
 
-            <h3 ms-visible="@searchQuery.url === 'info'">基本信息
-                <small>个人信息 >> 基本信息</small>
-            </h3>
-            <h3 ms-visible="@searchQuery.url === 'add'">添加用户
-                <small>系统设置 >> 用户管理 >> 添加用户</small>
-            </h3>
-
-            <!-- START panel-->
-            <div class="panel panel-default " >
-                <!--<div class="panel-heading">Form elements</div>-->
-                <div class="panel-body">
-                    <form method="get" action="/" class="form-horizontal">
-                        <fieldset>
-                            <!--<legend>Classic inputs</legend>-->
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">用户帐号:</label>
-                                <div class="col-sm-5">
-                                    <input type="text" class="form-control form-control-rounded" placeholder="请输入用户账号" ms-visible="@searchQuery.url === 'add'">
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-sm-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">用户类型</label>
-                                <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-duplex="@searchQuery.addType" ms-visible="@searchQuery.url === 'add'">
-                                        <option ms-click="@clickType('港口')">港口</option>
-                                        <option ms-click="@clickType('监管')">监管</option>
-                                        <option ms-click="@clickType('贸易商')">贸易商</option>
-                                        <option ms-click="@clickType('贸易商财务')">贸易商财务</option>
-                                        <option ms-click="@clickType('资金方')">资金方</option>
-                                        <option ms-click="@clickType('资金方财务')">资金方财务</option>
-                                    </select>
-                                    <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务'"><span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span></span>
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-sm-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <fieldset ms-visible="@searchQuery.addType==='贸易商财务'">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">选择贸易商</label>
-                                <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-visible="@searchQuery.url === 'add'">
-                                        <option>贸易商1</option>
-                                        <option>贸易商2</option>
-                                        <option>贸易商3</option>
-                                    </select>
-                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-lg-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <fieldset ms-visible="@searchQuery.addType==='资金方财务'">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">选择资金方</label>
-                                <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-visible="@searchQuery.url === 'add'">
-                                        <option>资金方1</option>
-                                        <option>资金方2</option>
-                                        <option>资金方3</option>
-                                    </select>
-                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-sm-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-group">
-                                <label for="input-id-1" class="col-sm-2 control-label">公司名称</label>
-                                <div class="col-sm-5">
-                                    <input id="input-id-1" type="text" class="form-control" placeholder="请输入公司名称" ms-visible="@searchQuery.url === 'add'">
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-sm-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">公司邮箱</label>
-                                <div class="col-sm-5">
-                                    <input type="text" class="form-control" ms-visible="@searchQuery.url === 'add'">
-                                    <span class="help-block m-b-none" ms-visible="@searchQuery.url === 'add'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-sm-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="last-child">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">手机号码</label>
-                                <div class="col-sm-5">
-                                    <input type="text" placeholder="请输入手机号码" class="form-control" ms-visible="@searchQuery.url === 'add'">
-                                    <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
-                                </div>
-                                <div class="col-sm-5 text-danger"></div>
-                            </div>
-                        </fieldset>
-                        <div class="btn-edit text-center" ms-visible="@searchQuery.url === 'add'">
-                            <button class="btn btn-default btn-lg btn-primary" type="button">保存</button>
-                            <a class="btn btn-default btn-lg marginL" href="/warehouse/admin/home/userlist">返回</a>
+                    <!-- START panel-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Form elements</div>
+                        <div class="panel-body">
+                            <form method="get" action="/" class="form-horizontal">
+                                <fieldset>
+                                    <legend>Classic inputs</legend>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Rounded Corners</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-rounded">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">With help</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control">
+                                            <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
+                                        <div class="col-sm-10">
+                                            <input id="input-id-1" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" name="password" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Placeholder</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" placeholder="placeholder" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Disabled</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" placeholder="Disabled input here..." disabled="" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Static control</label>
+                                        <div class="col-lg-10">
+                                            <p class="form-control-static">email@example.com</p>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Checkboxes and radios</label>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Option one is this and that—be sure to include why it's great</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" checked="">Option one is this and that—be sure to include why it's great</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input id="optionsRadios2" type="radio" name="optionsRadios" value="option2">Option two can be something else and selecting it will deselect option one</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Inline checkboxes</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox checkbox-inline">
+                                                <input id="inlineCheckbox1" type="checkbox" value="option1">a</label>
+                                            <label class="checkbox-inline">
+                                                <input id="inlineCheckbox2" type="checkbox" value="option2">b</label>
+                                            <label class="checkbox-inline">
+                                                <input id="inlineCheckbox3" type="checkbox" value="option3">c</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="last-child">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Select</label>
+                                        <div class="col-sm-10">
+                                            <select name="account" class="form-control m-b">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                            </select>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <select multiple="" class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Input variants</legend>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Custom Checkboxes &amp; radios</label>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox c-checkbox needsclick">
+                                                <label class="needsclick">
+                                                    <input type="checkbox" value="" class="needsclick">
+                                                    <span class="fa fa-check"></span>Option one</label>
+                                            </div>
+                                            <div class="checkbox c-checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked="" value="">
+                                                    <span class="fa fa-check"></span>Option two checked</label>
+                                            </div>
+                                            <div class="checkbox c-checkbox">
+                                                <label>
+                                                    <input type="checkbox" checked="" disabled="" value="">
+                                                    <span class="fa fa-check"></span>Option three checked and disabled</label>
+                                            </div>
+                                            <div class="checkbox c-checkbox">
+                                                <label>
+                                                    <input type="checkbox" disabled="" value="">
+                                                    <span class="fa fa-check"></span>Option four disabled</label>
+                                            </div>
+                                            <div class="radio c-radio">
+                                                <label>
+                                                    <input type="radio" name="a" value="option1">
+                                                    <span class="fa fa-circle"></span>Option one</label>
+                                            </div>
+                                            <div class="radio c-radio">
+                                                <label>
+                                                    <input type="radio" name="a" value="option2" checked="">
+                                                    <span class="fa fa-circle"></span>Option two checked</label>
+                                            </div>
+                                            <div class="radio c-radio">
+                                                <label>
+                                                    <input type="radio" value="option2" checked="" disabled="">
+                                                    <span class="fa fa-circle"></span>Option three checked and disabled</label>
+                                            </div>
+                                            <div class="radio c-radio">
+                                                <label>
+                                                    <input type="radio" name="a" disabled="">
+                                                    <span class="fa fa-circle"></span>Option four disabled</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Inline checkboxes</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox-inline c-checkbox">
+                                                <input id="inlineCheckbox10" type="checkbox" value="option1">
+                                                <span class="fa fa-check"></span>a</label>
+                                            <label class="checkbox-inline c-checkbox">
+                                                <input id="inlineCheckbox20" type="checkbox" value="option2">
+                                                <span class="fa fa-check"></span>b</label>
+                                            <label class="checkbox-inline c-checkbox">
+                                                <input id="inlineCheckbox30" type="checkbox" value="option3">
+                                                <span class="fa fa-check"></span>c</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Rounded</label>
+                                        <div class="col-sm-10">
+                                            <label class="checkbox c-checkbox c-checkbox-rounded">
+                                                <input id="roundedcheckbox10" type="checkbox" checked>
+                                                <span class="fa fa-check"></span>Lorem</label>
+                                            <label class="checkbox c-checkbox c-checkbox-rounded">
+                                                <input id="roundedcheckbox20" type="checkbox">
+                                                <span class="fa fa-check"></span>Ipsum</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Inline radios</label>
+                                        <div class="col-sm-10">
+                                            <label class="radio-inline c-radio">
+                                                <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked>
+                                                <span class="fa fa-circle"></span>a</label>
+                                            <label class="radio-inline c-radio">
+                                                <input id="inlineradio2" type="radio" name="i-radio" value="option2">
+                                                <span class="fa fa-circle"></span>b</label>
+                                            <label class="radio-inline c-radio">
+                                                <input id="inlineradio3" type="radio" name="i-radio" value="option3">
+                                                <span class="fa fa-circle"></span>c</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Custom icons</label>
+                                        <div class="col-sm-10">
+                                            <label class="radio-inline c-radio">
+                                                <input id="inlineradio10" type="radio" name="i-radio" value="option1" checked>
+                                                <span class="fa fa-check"></span>a</label>
+                                            <label class="radio-inline c-radio">
+                                                <input id="inlineradio20" type="radio" name="i-radio" value="option2" checked>
+                                                <span class="fa fa-user"></span>b</label>
+                                            <label class="radio-inline c-radio">
+                                                <input id="inlineradio30" type="radio" name="i-radio" value="option3" checked>
+                                                <span class="fa fa-tint"></span>c</label>
+                                            <br>
+                                            <label class="checkbox-inline c-checkbox">
+                                                <input id="inlinecheckbox10" type="checkbox" value="option1" checked>
+                                                <span class="fa fa-star"></span>a</label>
+                                            <label class="checkbox-inline c-checkbox">
+                                                <input id="inlinecheckbox20" type="checkbox" value="option2" checked>
+                                                <span class="fa fa-heart"></span>b</label>
+                                            <label class="checkbox-inline c-checkbox">
+                                                <input id="inlinecheckbox30" type="checkbox" value="option3" checked>
+                                                <span class="fa fa-bell"></span>c</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group has-success">
+                                        <label class="col-sm-2 control-label">Input with success</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group has-warning">
+                                        <label class="col-sm-2 control-label">Input with warning</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group has-error">
+                                        <label class="col-sm-2 control-label">Input with error</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Control sizing</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" placeholder=".input-lg" class="form-control input-lg m-b">
+                                            <br>
+                                            <input type="text" placeholder="Default input" class="form-control m-b">
+                                            <br>
+                                            <input type="text" placeholder=".input-sm" class="form-control input-sm">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Column sizing</label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <input type="text" placeholder=".col-md-2" class="form-control">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" placeholder=".col-md-3" class="form-control">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder=".col-md-4" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Input groups</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group m-b">
+                                                <span class="input-group-addon">@</span>
+                                                <input type="text" placeholder="Username" class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="input-group m-b">
+                                                <input type="text" class="form-control">
+                                                <span class="input-group-addon">.00</span>
+                                            </div>
+                                            <br>
+                                            <div class="input-group m-b">
+                                                <span class="input-group-addon">$</span>
+                                                <input type="text" class="form-control">
+                                                <span class="input-group-addon">.00</span>
+                                            </div>
+                                            <br>
+                                            <div class="input-group m-b">
+                                 <span class="input-group-addon">
+                                    <input type="checkbox">
+                                 </span>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                 <span class="input-group-addon">
+                                    <input type="radio">
+                                 </span>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Button addons</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group m-b">
+                                 <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default">Go!</button>
+                                 </span>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default">Go!</button>
+                                 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">With dropdowns</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group m-b">
+                                                <div class="input-group-btn">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default">Action
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul id="ddinput1" class="dropdown-menu">
+                                                        <li><a href="#">Action</a>
+                                                        </li>
+                                                        <li><a href="#">Another action</a>
+                                                        </li>
+                                                        <li><a href="#">Something else here</a>
+                                                        </li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                                <div class="input-group-btn">
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default">Action
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul id="ddinput2" class="dropdown-menu pull-right">
+                                                        <li><a href="#">Action</a>
+                                                        </li>
+                                                        <li><a href="#">Another action</a>
+                                                        </li>
+                                                        <li><a href="#">Something else here</a>
+                                                        </li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Segmented</label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group m-b">
+                                                <div class="input-group-btn">
+                                                    <button type="button" tabindex="-1" class="btn btn-default">Action</button>
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul id="ddinput3" class="dropdown-menu">
+                                                        <li><a href="#">Action</a>
+                                                        </li>
+                                                        <li><a href="#">Another action</a>
+                                                        </li>
+                                                        <li><a href="#">Something else here</a>
+                                                        </li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control">
+                                                <div class="input-group-btn">
+                                                    <button type="button" tabindex="-1" class="btn btn-default">Action</button>
+                                                    <button type="button" data-toggle="dropdown" class="btn btn-default">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul id="ddinput4" class="dropdown-menu pull-right">
+                                                        <li><a href="#">Action</a>
+                                                        </li>
+                                                        <li><a href="#">Another action</a>
+                                                        </li>
+                                                        <li><a href="#">Something else here</a>
+                                                        </li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#">Separated link</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+                    <!-- END panel-->
                 </div>
-            </div>
-            <!-- END panel-->
-        </div>
-    </section>
+            </section>
 
 
 
-    <!-- Page footer-->
-    <#include "../common/footer.ftl" >
+            <!-- Page footer-->
+            <#include "../common/footer.ftl" >
 
 </div>
 
@@ -150,10 +489,10 @@
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
-<#else>
-    <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
+    <#else>
+        <script src="${staticPathAdmin}/js/common.bundle.js"></script>
+        <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
+        <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
 </#if>
 
 

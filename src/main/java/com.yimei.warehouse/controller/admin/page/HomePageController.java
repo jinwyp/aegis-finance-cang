@@ -54,15 +54,15 @@ public class HomePageController {
     }
 
 
-
     @ApiOperation(value = "管理后台平台管理员范例页面 - 表单", notes = "管理后台平台管理员范例表单页面 需要平台管理员登录")
-    @RequestMapping(value = "/warehouse/admin/home/user/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/warehouse/admin/home/demo/form", method = RequestMethod.GET)
     public String adminDemoForm() {
 //        if (adminSession.getUser() == null) {
 //            return "redirect:/warehouse/admin/login";
 //        }
         return "admin/platform/demoForm";
     }
+
 
     @ApiOperation(value = "管理后台平台管理员范例页面 - Echart", notes = "管理后台平台管理员范例Echart图表页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/demo/echart", method = RequestMethod.GET)
@@ -83,23 +83,52 @@ public class HomePageController {
 
 
 
-    @ApiOperation(value = "管理后台平台管理员添加的用户列表 - 列表", notes = "管理后台平台管理员添加的用户列表页面 需要平台管理员登录")
-        @RequestMapping(value = "/warehouse/admin/home/userlist", method = RequestMethod.GET)
-        public String adminUserList() {
+    @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 用户列表", notes = "管理后台平台管理员添加的用户列表页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/userlist", method = RequestMethod.GET)
+    public String adminUserList() {
             return "admin/platform/userList";
         }
 
 
+    @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 添加用户", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/user/add", method = RequestMethod.GET)
+    public String adminUserAdd() {
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
+        return "admin/platform/userInfo";
+    }
+
+    @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 编辑用户", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/user/edit", method = RequestMethod.GET)
+    public String adminUserEdit() {
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
+        return "admin/platform/userInfo";
+    }
+
+    @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 用户信息", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/user/info", method = RequestMethod.GET)
+    public String adminUserInfo() {
+//        if (adminSession.getUser() == null) {
+//            return "redirect:/warehouse/admin/login";
+//        }
+        return "admin/platform/userInfo";
+    }
+
+
+
     @ApiOperation(value = "管理后台平台管理员添加的个人信息 - 修改密码", notes = "管理后台平台管理员添加的个人信息 - 修改密码 需要平台管理员登录")
-        @RequestMapping(value = "/warehouse/admin/home/modifypassport", method = RequestMethod.GET)
-        public String adminModifyPassport() {
-            return "admin/platform/modifyPassport";
+    @RequestMapping(value = "/warehouse/admin/home/session/password", method = RequestMethod.GET)
+    public String adminCurrentUserModifyPassport() {
+            return "admin/platform/modifyPassword";
         }
 
     @ApiOperation(value = "管理后台平台管理员添加的个人信息 - 基本信息", notes = "管理后台平台管理员添加的基本信息页面 需要平台管理员登录")
-        @RequestMapping(value = "/warehouse/admin/home/user/info", method = RequestMethod.GET)
-        public String adminUserInfo() {
-            return "admin/platform/demoForm";
+    @RequestMapping(value = "/warehouse/admin/home/session/info", method = RequestMethod.GET)
+    public String adminCurrentUserInfo() {
+            return "admin/platform/userInfo";
         }
 
 

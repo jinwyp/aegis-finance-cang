@@ -7,6 +7,9 @@
 var avalon = require('avalon2') ;
 var $ = require('jquery') ;
 
+var userService = require('../service/user.js') ;
+
+
 var url = window.location.href;
 var index = url .lastIndexOf("\/");
 
@@ -17,14 +20,7 @@ url  = url .substring(index + 1, url .length);
 var chart = function() {
 
 
-    var addType = [
-        {name:'gk',text:'港口'},
-        {name:'jg',text:'监管'},
-        {name:'mys',text:'贸易商'},
-        {name:'mycw',text:'贸易商财务'},
-        {name:'zj',text:'资金方'},
-        {name:'zjcw',text:'资金方财务'}
-    ];
+    var addType = userService.userRoleList;
 
     var vm = avalon.define({
         $id : 'addUser',

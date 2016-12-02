@@ -3,6 +3,8 @@
  */
 
 var avalon = require('avalon2') ;
+var $ = require('jquery') ;
+var userService = require('../service/user.js') ;
 
 
 var login = function() {
@@ -11,6 +13,7 @@ var login = function() {
         $id: "loginController",
         user : {
             username : '',
+            email : '',
             password : ''
         },
         errorMessage : '',
@@ -32,11 +35,26 @@ var login = function() {
                 if (reasons.length) {
                     console.log('有表单项没有通过')
                 } else {
-                    console.log('表单全部通过')
+                    console.log('表单全部通过');
+
+                    userService.login({
+                        email : vm.user.email,
+                        password : vm.user.password
+                    }).done(function( data, textStatus, jqXHR ) {
+                        if (data.success){
+                            console.log('登录成功', data);
+                            window.location.href = '/warehouse/admin/home'
+                        }else{
+
+                        }
+                    })
                 }
             }
         }
+
     });
+
+
 
 
 };

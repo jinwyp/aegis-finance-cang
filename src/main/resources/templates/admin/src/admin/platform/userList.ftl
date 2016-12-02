@@ -49,7 +49,6 @@
                                     <a href="/warehouse/admin/home/user/add" class="btn btn-default btn-primary">添加用户</a>
                                 </div>
 
-
                             </form>
 
                         </div>
@@ -59,22 +58,20 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover text-center">
                                     <tr>
-                                        <td class="text-center">序号</td>
                                         <td class="text-center">用户账号</td>
-                                        <td class="text-center">所属公司名称<br/>(全称)</td>
-                                        <td class="text-center">创建时间</td>
+                                        <td class="text-center">手机</td>
                                         <td class="text-center">邮箱地址</td>
+                                        <td class="text-center">所属公司名称<br/>(全称)</td>
                                         <td class="text-center">操作</td>
                                     </tr>
-                                    <tr ms-for="(index, list) in @userList">
-                                        <td>{{index}}</td>
-                                        <td>{{list.username || '--'}}</td>
-                                        <td>{{list.mobilePhone || '--'}}</td>
-                                        <td>{{list.createdAt || '--'}}</td>
-                                        <td>{{list.email || '--'}}</td>
+                                    <tr ms-for="(index, user) in @userList">
+                                        <td><a href="">{{ user.username || '--'}}</a></td>
+                                        <td>{{ user.mobilePhone || '--'}}</td>
+                                        <td>{{ user.email || '--'}}</td>
+                                        <td>{{ user.companyName || '--'}}</td>
+
                                         <td>
                                             <a href="" class="btn btn-default">重置密码</a>
-                                            <a href="" class="btn btn-default marginL">查看</a>
                                             <a href="" class="btn btn-default marginL">编辑</a>
                                             <a href="" class="btn btn-default marginL">删除</a>
                                         </td>
@@ -85,6 +82,7 @@
                             </div>
                             <!-- END table-responsive-->
                         </div>
+
                         <div class="panel-footer">
                             <div class="table-pagination">
                                 <span class="table-pagination-first"></span>
