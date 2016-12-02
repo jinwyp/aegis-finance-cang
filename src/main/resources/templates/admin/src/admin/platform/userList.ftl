@@ -54,17 +54,14 @@
                             <!-- START table-responsive-->
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover text-center">
-                                    <thead>
                                     <tr>
-                                        <th class="text-center">序号</th>
-                                        <th class="text-center">用户账号</th>
-                                        <th class="text-center">所属公司名称<br/>(全称)</th>
-                                        <th class="text-center">创建时间</th>
-                                        <th class="text-center">邮箱地址</th>
-                                        <th class="text-center">操作</th>
+                                        <td class="text-center">序号</td>
+                                        <td class="text-center">用户账号</td>
+                                        <td class="text-center">所属公司名称<br/>(全称)</td>
+                                        <td class="text-center">创建时间</td>
+                                        <td class="text-center">邮箱地址</td>
+                                        <td class="text-center">操作</td>
                                     </tr>
-                                    </thead>
-                                    <tbody>
                                     <tr ms-for="(index, list) in @userList">
                                         <td>{{index}}</td>
                                         <td>{{list.username || '--'}}</td>
@@ -79,8 +76,6 @@
                                         </td>
                                     </tr>
 
-
-                                    </tbody>
                                 </table>
 
                             </div>
