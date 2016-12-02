@@ -33,6 +33,8 @@ userRoles.forEach(function (role, index){
 });
 
 
+exports.userRole = userRoleObject;
+
 exports.login = function (user){
 
     var params = jQuery.extend({
@@ -85,6 +87,7 @@ exports.addNewUser = function (user){
         email : '',
         mobilePhone : '',
         companyName : '',
+        belongToUser : '', // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
         role : userRoleObject.systemAdmin
     }, user);
 
