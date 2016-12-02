@@ -73,12 +73,12 @@
                     <ul id="layout" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">个人信息</li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/user/info" title="Horizontal">
+                            <a href="/warehouse/admin/home/session/info" title="Horizontal">
                                 <span>基本信息</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/modifypassport" title="Horizontal">
+                            <a href="/warehouse/admin/home/session/password" title="Horizontal">
                                 <span>修改密码</span>
                             </a>
                         </li>
