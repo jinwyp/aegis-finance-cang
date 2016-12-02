@@ -33,18 +33,22 @@
 
                         <div class="panel-body">
                             <form role="form" class="form-inline">
-                                <div class="form-group">
-                                    <label for="input-email" class="sr-only">管理员帐号</label>
+                                <div class="form-group marginL">
+                                    <label for="input-email" class="">用户帐号:&nbsp;&nbsp;</label>
                                     <input id="input-email" type="text" placeholder="管理员帐号" class="form-control">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="input-password" class="sr-only"> 公司名称</label>
+                                <div class="form-group marginL">
+                                    <label for="input-password" class="">公司名称:&nbsp;&nbsp;</label>
                                     <input id="input-password" type="text" placeholder="公司名称" class="form-control">
                                 </div>
+                                <div class="form-group marginL">
+                                    <button type="submit" class="btn btn-default btn-primary">查询</button>
+                                </div>
+                                <div class="form-group marginL">
+                                    <a href="/warehouse/admin/home/user/add" class="btn btn-default btn-primary">添加用户</a>
+                                </div>
 
-                                <button type="submit" class="btn btn-default">查询</button>
-                                <a href="/warehouse/admin/home/user/add" class="btn btn-default">添加用户</a>
 
                             </form>
 
@@ -70,9 +74,9 @@
                                         <td>{{list.email || '--'}}</td>
                                         <td>
                                             <a href="" class="btn btn-default">重置密码</a>
-                                            <a href="" class="btn btn-default">查看</a>
-                                            <a href="" class="btn btn-default">编辑</a>
-                                            <a href="" class="btn btn-default">删除</a>
+                                            <a href="" class="btn btn-default marginL">查看</a>
+                                            <a href="" class="btn btn-default marginL">编辑</a>
+                                            <a href="" class="btn btn-default marginL">删除</a>
                                         </td>
                                     </tr>
 
