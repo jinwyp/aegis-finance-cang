@@ -18,6 +18,7 @@
         <#include "../common/leftmenu.ftl" >
 
 
+
             <!-- Main section-->
             <section>
                 <!-- Page content-->
@@ -30,17 +31,35 @@
                         <!-- START panel-->
                         <div class="panel panel-default">
                             <div class="panel-heading"></div>
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td class="text-center">用户帐号：</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">用户名称：</td>
-                                        <td>400</td>
-                                    </tr>
-                                </table>
+                            <div class="panel-body ">
+                                <div class="col-sm-8 col-md-offset-2">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="text-right col-sm-3">用户帐号：</td>
+                                            <td >200</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right">用户名称：</td>
+                                            <td>400</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right">用户类型：</td>
+                                            <td>400</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right">公司邮箱：</td>
+                                            <td>400
+                                                <a href="/warehouse/admin/home/modifypassport" class="btn btn-primary">重置密码</a>
+                                                <span class="text-danger">重置后，该密码将发送至该邮箱</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right">手机号码：</td>
+                                            <td>400</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
 
                             </div>
 

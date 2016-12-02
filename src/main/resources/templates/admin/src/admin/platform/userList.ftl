@@ -44,7 +44,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-default">查询</button>
-                                <a href="/warehouse/admin/home/user/form" class="btn btn-default">添加用户</a>
+                                <a href="/warehouse/admin/home/user/add" class="btn btn-default">添加用户</a>
 
                             </form>
 
