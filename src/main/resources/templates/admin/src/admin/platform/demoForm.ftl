@@ -127,7 +127,7 @@
                         </fieldset>
                         <div class="btn-edit text-center" ms-visible="@searchQuery.url === 'add'">
                             <button class="btn btn-default btn-lg btn-primary" type="button">保存</button>
-                            <a class="btn btn-default btn-lg" href="/warehouse/admin/home/userlist">返回</a>
+                            <a class="btn btn-default btn-lg marginL" href="/warehouse/admin/home/userlist">返回</a>
                         </div>
                     </form>
                 </div>
