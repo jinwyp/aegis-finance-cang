@@ -9,7 +9,8 @@ var  jQuery = require('jquery');
 var prefix = '/api';
 
 var url = {
-    userList : prefix + '/users'
+    userList : prefix + '/users',
+    login : prefix + '/auth/login'
 };
 
 
@@ -30,6 +31,23 @@ var userRoleObject = {};
 userRoles.forEach(function (role, index){
     userRoleObject[role.name] = role.displayName;
 });
+
+
+exports.login = function (user){
+
+    var params = jQuery.extend({
+        email : '',
+        password : ''
+    }, user);
+
+    return jQuery.ajax({
+        url      : url.login,
+        method   : 'POST',
+        dataType : 'json',
+        data     : params
+    });
+
+};
 
 
 exports.getUserList = function (query){
@@ -82,15 +100,7 @@ exports.addNewUser = function (user){
 
 exports.updateUserInfoById = function (userId, user){
 
-    var params = jQuery.extend({
-        username : '',
-        password : '',
-        email : '',
-        mobilePhone : '',
-        companyName : '',
-        role : userRoleObject.systemAdmin
-    }, user);
-
+    var params = jQuery.extend({}, user);
 
     return jQuery.ajax({
         url      : url.userList + '/' + userId,

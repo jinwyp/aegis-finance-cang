@@ -26,9 +26,15 @@
                 <h4 class="text-center pv">仓押系统登录 {{@errorInputName.indexOf('inputUsername')}}</h4>
 
                 <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" ms-validate="@loginValidate">
-                    <div class="form-group has-feedback " ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] ">
-                        <input id="inputUsername" type="text" placeholder="用户名" class="form-control" ms-duplex="@user.username" ms-rules='{required:true,minlength:4,maxlength:20}'
-                               data-required-message="请输入用户名" data-minlength-message="用户名长度不能少于4位" data-maxlength-message="用户名长度不能大于20位">
+                    <#--<div class="form-group has-feedback " ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] ">-->
+                        <#--<input id="inputUsername" type="text" placeholder="用户名" class="form-control" ms-duplex="@user.username" ms-rules='{required:true,minlength:4,maxlength:20}'-->
+                               <#--data-required-message="请输入用户名" data-minlength-message="用户名长度不能少于4位" data-maxlength-message="用户名长度不能大于20位">-->
+                        <#--<span class="fa fa-user form-control-feedback text-muted"></span>-->
+                    <#--</div>-->
+
+                    <div class="form-group has-feedback " ms-class="[@errorInputName.indexOf('inputEmail')>-1 && 'has-error',  @successInputName.indexOf('inputEmail')>-1 &&'has-success'] ">
+                        <input id="inputEmail" type="email" placeholder="邮箱" class="form-control" ms-duplex="@user.email" ms-rules='{required:true, email:true}'
+                               data-required-message="请输入邮箱" data-email-message="邮箱格式不正确">
                         <span class="fa fa-user form-control-feedback text-muted"></span>
                     </div>
 
