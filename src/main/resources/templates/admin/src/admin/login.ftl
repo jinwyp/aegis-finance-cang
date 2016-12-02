@@ -23,7 +23,7 @@
         <div class="panel panel-dark panel-flat">
             <div class="panel-body" ms-controller="loginController">
 
-                <h4 class="text-center pv">仓押系统登录 {{@errorInputName.indexOf('inputUsername')}}</h4>
+                <h4 class="text-center pv">仓押系统登录</h4>
 
                 <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" ms-validate="@loginValidate">
                     <#--<div class="form-group has-feedback " ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] ">-->
