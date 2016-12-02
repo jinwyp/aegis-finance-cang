@@ -11,7 +11,7 @@ var url = window.location.href;
 var index = url .lastIndexOf("\/");
 
 url  = url .substring(index + 1, url .length);
-console.log(url);
+// console.log(url);
 
 
 var chart = function() {
@@ -40,10 +40,7 @@ var chart = function() {
             vm.searchQuery.addType = value;
         }
 
-
-
-    })
-
+    });
 
 
 };

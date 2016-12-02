@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- START panel-->
-                    <div class="panel panel-default">
+                    <div class="panel panel-default ms-controller" ms-controller="userList">
                         <div class="panel-heading">用户列表</div>
 
                         <div class="panel-body">
@@ -65,12 +65,12 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+                                    <tr ms-for="(index, list) in @userList">
+                                        <td>{{index}}</td>
+                                        <td>{{list.username || '--'}}</td>
+                                        <td>{{list.mobilePhone || '--'}}</td>
+                                        <td>{{list.createdAt || '--'}}</td>
+                                        <td>{{list.email || '--'}}</td>
                                         <td>
                                             <a href="" class="btn btn-default">重置密码</a>
                                             <a href="" class="btn btn-default">查看</a>
@@ -78,19 +78,7 @@
                                             <a href="" class="btn btn-default">删除</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <a href="" class="btn btn-default">重置密码</a>
-                                            <a href="" class="btn btn-default">查看</a>
-                                            <a href="" class="btn btn-default">编辑</a>
-                                            <a href="" class="btn btn-default">删除</a>
-                                        </td>
-                                    </tr>
+
 
                                     </tbody>
                                 </table>
