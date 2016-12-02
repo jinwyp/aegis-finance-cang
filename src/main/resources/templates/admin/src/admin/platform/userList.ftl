@@ -35,7 +35,7 @@
                             <form role="form" class="form-inline">
                                 <div class="form-group marginL">
                                     <label for="input-email" class="">用户帐号:&nbsp;&nbsp;</label>
-                                    <input id="input-email" type="text" placeholder="管理员帐号" class="form-control">
+                                    <input id="input-email" type="text" placeholder="用户帐号" class="form-control">
                                 </div>
 
                                 <div class="form-group marginL">
