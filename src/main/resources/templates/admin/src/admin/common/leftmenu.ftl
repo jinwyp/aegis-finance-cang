@@ -73,7 +73,7 @@
                     <ul id="layout" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">个人信息</li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/userinfo" title="Horizontal">
+                            <a href="/warehouse/admin/home/user/info" title="Horizontal">
                                 <span>基本信息</span>
                             </a>
                         </li>

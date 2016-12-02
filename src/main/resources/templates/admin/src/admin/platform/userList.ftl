@@ -28,23 +28,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- START panel-->
-                    <div class="panel panel-default">
+                    <div class="panel panel-default ms-controller" ms-controller="userList">
                         <div class="panel-heading">用户列表</div>
 
                         <div class="panel-body">
                             <form role="form" class="form-inline">
-                                <div class="form-group">
-                                    <label for="input-email" class="sr-only">管理员帐号</label>
-                                    <input id="input-email" type="text" placeholder="管理员帐号" class="form-control">
+                                <div class="form-group marginL">
+                                    <label for="input-email" class="">用户帐号:&nbsp;&nbsp;</label>
+                                    <input id="input-email" type="text" placeholder="用户帐号" class="form-control">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="input-password" class="sr-only"> 公司名称</label>
+                                <div class="form-group marginL">
+                                    <label for="input-password" class="">公司名称:&nbsp;&nbsp;</label>
                                     <input id="input-password" type="text" placeholder="公司名称" class="form-control">
                                 </div>
+                                <div class="form-group marginL">
+                                    <button type="submit" class="btn btn-default btn-primary">查询</button>
+                                </div>
+                                <div class="form-group marginL">
+                                    <a href="/warehouse/admin/home/user/add" class="btn btn-default btn-primary">添加用户</a>
+                                </div>
 
-                                <button type="submit" class="btn btn-default">查询</button>
-                                <a href="/warehouse/admin/home/user/form" class="btn btn-default">添加用户</a>
 
                             </form>
 
@@ -54,45 +58,28 @@
                             <!-- START table-responsive-->
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover text-center">
-                                    <thead>
                                     <tr>
-                                        <th class="text-center">序号</th>
-                                        <th class="text-center">用户账号</th>
-                                        <th class="text-center">所属公司名称<br/>(全称)</th>
-                                        <th class="text-center">创建时间</th>
-                                        <th class="text-center">邮箱地址</th>
-                                        <th class="text-center">操作</th>
+                                        <td class="text-center">序号</td>
+                                        <td class="text-center">用户账号</td>
+                                        <td class="text-center">所属公司名称<br/>(全称)</td>
+                                        <td class="text-center">创建时间</td>
+                                        <td class="text-center">邮箱地址</td>
+                                        <td class="text-center">操作</td>
                                     </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+                                    <tr ms-for="(index, list) in @userList">
+                                        <td>{{index}}</td>
+                                        <td>{{list.username || '--'}}</td>
+                                        <td>{{list.mobilePhone || '--'}}</td>
+                                        <td>{{list.createdAt || '--'}}</td>
+                                        <td>{{list.email || '--'}}</td>
                                         <td>
                                             <a href="" class="btn btn-default">重置密码</a>
-                                            <a href="" class="btn btn-default">查看</a>
-                                            <a href="" class="btn btn-default">编辑</a>
-                                            <a href="" class="btn btn-default">删除</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <a href="" class="btn btn-default">重置密码</a>
-                                            <a href="" class="btn btn-default">查看</a>
-                                            <a href="" class="btn btn-default">编辑</a>
-                                            <a href="" class="btn btn-default">删除</a>
+                                            <a href="" class="btn btn-default marginL">查看</a>
+                                            <a href="" class="btn btn-default marginL">编辑</a>
+                                            <a href="" class="btn btn-default marginL">删除</a>
                                         </td>
                                     </tr>
 
-                                    </tbody>
                                 </table>
 
                             </div>
