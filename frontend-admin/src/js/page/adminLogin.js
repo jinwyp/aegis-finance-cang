@@ -43,13 +43,14 @@ var login = function() {
                     }).done(function( data, textStatus, jqXHR ) {
                         if (data.success){
                             console.log('登录成功', data);
+                            window.location.href = '/warehouse/admin/home'
                         }else{
 
                         }
                     })
                 }
             }
-        },
+        }
 
     });
 
