@@ -93,27 +93,18 @@ public class HomePageController {
     @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 添加用户", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/user/add", method = RequestMethod.GET)
     public String adminUserAdd() {
-//        if (adminSession.getUser() == null) {
-//            return "redirect:/warehouse/admin/login";
-//        }
         return "admin/platform/userInfo";
     }
 
     @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 编辑用户", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/user/edit", method = RequestMethod.GET)
     public String adminUserEdit() {
-//        if (adminSession.getUser() == null) {
-//            return "redirect:/warehouse/admin/login";
-//        }
         return "admin/platform/userInfo";
     }
 
     @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 用户信息", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/user/info", method = RequestMethod.GET)
     public String adminUserInfo() {
-//        if (adminSession.getUser() == null) {
-//            return "redirect:/warehouse/admin/login";
-//        }
         return "admin/platform/userInfo";
     }
 
@@ -122,14 +113,14 @@ public class HomePageController {
     @ApiOperation(value = "管理后台平台管理员添加的个人信息 - 修改密码", notes = "管理后台平台管理员添加的个人信息 - 修改密码 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/session/password", method = RequestMethod.GET)
     public String adminCurrentUserModifyPassport() {
-            return "admin/platform/modifyPassword";
-        }
+        return "admin/platform/sessionModifyPassword";
+    }
 
     @ApiOperation(value = "管理后台平台管理员添加的个人信息 - 基本信息", notes = "管理后台平台管理员添加的基本信息页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/session/info", method = RequestMethod.GET)
     public String adminCurrentUserInfo() {
-            return "admin/platform/userInfo";
-        }
+        return "admin/platform/userInfo";
+    }
 
 
 }

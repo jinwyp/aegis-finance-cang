@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- START panel-->
-                    <div class="panel panel-default ms-controller" ms-controller="userList">
+                    <div class="panel panel-default ms-controller" ms-controller="userListController">
                         <div class="panel-heading">用户列表</div>
 
                         <div class="panel-body">

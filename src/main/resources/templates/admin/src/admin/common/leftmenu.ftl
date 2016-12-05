@@ -57,13 +57,6 @@
                     </ul>
                 </li>
 
-                <li class=" ">
-                    <a href="widgets.html" title="Widgets">
-                        <!--<div class="pull-right label label-success">30</div>-->
-                        <em class="icon-grid"></em>
-                        <span data-localize="sidebar.nav.WIDGETS">Widgets</span>
-                    </a>
-                </li>
 
                 <li class=" ">
                     <a href="#layout" title="Layouts" data-toggle="collapse">
@@ -90,7 +83,7 @@
                 <!--</li>-->
                 <li class=" ">
                     <a href="#forms" title="Forms" data-toggle="collapse">
-                        <em class="icon-note"></em>
+                        <em class="icon-grid"></em>
                         <span data-localize="sidebar.nav.form.FORM">系统设置</span>
                     </a>
                     <ul id="forms" class="nav sidebar-subnav collapse">
