@@ -14,7 +14,7 @@ var url = window.location.href;
 var index = url.lastIndexOf("\/");
 
 url  = url.substring(index + 1, url.length);
-// console.log(url);
+console.log(url);
 
 
 var chart = function() {
@@ -43,9 +43,12 @@ var chart = function() {
 
     });
 
-    if (url !== 'add'){
+    if (url === 'edit'){
+        vm.pageShowStatus = 'edit'
+    }else if (url !== 'add'){
         vm.pageShowStatus = 'info'
     }
+console.log(vm.pageShowStatus)
 
 
 
