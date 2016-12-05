@@ -4,6 +4,7 @@
 
 
 var  jQuery = require('jquery');
+var  headers = require('./token').headers;
 
 
 var prefix = '/api';
@@ -61,7 +62,8 @@ exports.getUserList = function (query){
         url      : url.userList,
         method   : 'GET',
         dataType : 'json',
-        data     : params
+        data     : params,
+        headers : headers
     });
 
 };
@@ -75,7 +77,8 @@ exports.getUserInfoById = function (userId, query){
         url      : url.userList + '/' + userId,
         method   : 'GET',
         dataType : 'json',
-        data     : params
+        data     : params,
+        headers : headers
     });
 
 };
@@ -97,7 +100,8 @@ exports.addNewUser = function (user){
         url      : url.userList,
         method   : 'POST',
         dataType : 'json',
-        data     : params
+        data     : params,
+        headers : headers
     });
 
 };
@@ -110,7 +114,8 @@ exports.updateUserInfoById = function (userId, user){
         url      : url.userList + '/' + userId,
         method   : 'PUT',
         dataType : 'json',
-        data     : params
+        data     : params,
+        headers : headers
     });
 
 };
