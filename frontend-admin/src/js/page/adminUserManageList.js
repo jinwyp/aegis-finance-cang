@@ -29,9 +29,15 @@ var userList = function(query) {
             vm.searchQuery.addType = value;
         },
 
-        clickModal:function () {
+        clickResetPassword:function () {
             $(".modal_1").modal();
+        },
+
+        clickDelete:function () {
+            $(".modal_2").modal();
         }
+
+
 
 
 

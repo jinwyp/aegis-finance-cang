@@ -1,5 +1,5 @@
 <!--modal start-->
-<!--两个按钮取消、确认 modal-->
+<!--reset password-->
 <div class="container modalPublic">
     <div class="row clearfix">
         <div class="modal_1 modal fade" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -26,6 +26,39 @@
                             <div class="buttons">
                                 <input type="button" data-dismiss="modal" class="btn cancel" value="取消" id="md_cancel_1">
                                 <input type="button" class="btn confirm" value="确认" id="md_ok_1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--delete user-->
+<div class="container modalPublic">
+    <div class="row clearfix">
+        <div class="modal_2 modal fade" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button"  class="close close_modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="modal_title_2">提示信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div class="bg_img attention" id="modalImg_2"></div>
+                            <div class="modalInfo">
+                                <span id="modalInfo_2" >您确定要删除该用户？</span>
+                            </div>
+                            <div class="tip">
+                                <em class="modalEm_1">
+                                    *该用户被删除后，其历史操作记录将被保存
+                                </em>
+                            </div>
+                            <div class="buttons">
+                                <input type="button" data-dismiss="modal" class="btn cancel" value="取消" id="md_cancel_2">
+                                <input type="button" class="btn confirm" value="确认" id="md_ok_2">
                             </div>
                         </div>
                     </div>
