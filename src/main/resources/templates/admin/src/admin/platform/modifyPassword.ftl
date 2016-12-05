@@ -45,6 +45,7 @@
                                         <label class="col-lg-2 control-label">新密码</label>
                                         <div class="col-lg-5">
                                             <input type="password" placeholder="Password" class="form-control">
+                                            <p class="form-control-static">密码长度必须为6-20位字符，由数字、字母组成，区分大小写</p>
                                         </div>
                                         <div class="col-lg-5 text-danger">
                                             error

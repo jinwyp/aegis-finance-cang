@@ -58,7 +58,7 @@
                                         <option ms-click="@clickType('资金方')">资金方</option>
                                         <option ms-click="@clickType('资金方财务')">资金方财务</option>
                                     </select>
-                                    <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务'"><span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span></span>
+                                    <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务' || @searchQuery.addType==='贸易商财务'"><span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span></span>
                                     <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
                                 </div>
                                 <div class="col-sm-5 text-danger"></div>
@@ -111,6 +111,10 @@
                                     <input type="text" class="form-control" ms-visible="@searchQuery.url === 'add'">
                                     <span class="help-block m-b-none" ms-visible="@searchQuery.url === 'add'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
                                     <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
+                                </div>
+                                <div class="col-sm-5" ms-visible="@searchQuery.url === 'info'">
+                                    <a href="/warehouse/admin/home/session/password" class="btn btn-primary">重置密码</a>
+                                    <span class="text-danger marginL">重置后，该密码将发送至该邮箱</span>
                                 </div>
                                 <div class="col-sm-5 text-danger"></div>
                             </div>
