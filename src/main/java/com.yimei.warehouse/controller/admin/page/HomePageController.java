@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -97,14 +98,14 @@ public class HomePageController {
     }
 
     @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 编辑用户", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
-    @RequestMapping(value = "/warehouse/admin/home/user/edit", method = RequestMethod.GET)
-    public String adminUserEdit() {
+    @RequestMapping(value = "/warehouse/admin/home/user/{userId}/edit", method = RequestMethod.GET)
+    public String adminUserEdit(@PathVariable(value = "userId") String userId) {
         return "admin/platform/userInfo";
     }
 
     @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 用户信息", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
-    @RequestMapping(value = "/warehouse/admin/home/user/info", method = RequestMethod.GET)
-    public String adminUserInfo() {
+    @RequestMapping(value = "/warehouse/admin/home/user/{userId}", method = RequestMethod.GET)
+    public String adminUserInfo(@PathVariable(value = "userId") String userId) {
         return "admin/platform/userInfo";
     }
 
