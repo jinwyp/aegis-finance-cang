@@ -58,7 +58,7 @@
                                         <option ms-click="@clickType('资金方')">资金方</option>
                                         <option ms-click="@clickType('资金方财务')">资金方财务</option>
                                     </select>
-                                    <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务' || @searchQuery.addType==='贸易商财务'"><span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span></span>
+                                    <span class="help-block m-b-none" ms-visible="@searchQuery.addType==='资金方财务' || @searchQuery.addType==='贸易商财务'"></span>
                                     <p class="form-control-static" ms-visible="@searchQuery.url === 'info'">23232323</p>
                                 </div>
                                 <div class="col-sm-5 text-danger"></div>
