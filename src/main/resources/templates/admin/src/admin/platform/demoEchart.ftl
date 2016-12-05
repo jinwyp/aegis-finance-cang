@@ -28,15 +28,9 @@
 
             <!-- START panel-->
             <div class="panel panel-default">
-                <div class="panel-heading">demo1</div>
+                <div class="panel-heading">货值趋势图</div>
                 <div class="panel-body">
                     <div id="main" style="width: 100%;height: 400px;border: 1px solid gray;"></div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">demo2</div>
-                <div class="panel-body">
-                    <div id="main2" style="width: 100%;height: 400px;border: 1px solid gray;"></div>
                 </div>
             </div>
             <!-- END panel-->
