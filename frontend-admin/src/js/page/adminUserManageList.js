@@ -5,7 +5,7 @@
 
 
 var avalon = require('avalon2') ;
-var $ = require('jquery') ;
+var jQuery = require('jquery') ;
 var userService = require('../service/user.js') ;
 
 
@@ -27,7 +27,13 @@ var userList = function(query) {
 
         clickType :function(value){
             vm.searchQuery.addType = value;
+        },
+
+        clickModal:function () {
+            $(".modal_1").modal();
         }
+
+
 
     });
 
@@ -60,9 +66,9 @@ var userList = function(query) {
             console.log(data.error);
         }
     })
+
+
 };
-
-
 
 userList();
 

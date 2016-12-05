@@ -71,7 +71,7 @@
                                         <td>{{ user.companyName || '--'}}</td>
 
                                         <td>
-                                            <a href="" class="btn btn-default">重置密码</a>
+                                            <span class="btn btn-default resetPassword" ms-click="@clickModal">重置密码</span>
                                             <a href="" class="btn btn-default marginL">编辑</a>
                                             <a href="" class="btn btn-default marginL">删除</a>
                                         </td>
@@ -119,9 +119,10 @@
     <!-- Page footer-->
     <#include "../common/footer.ftl" >
 
+
 </div>
 
-
+<#include "../common/modal.ftl" >
 
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
