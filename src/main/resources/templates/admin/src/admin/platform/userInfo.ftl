@@ -117,7 +117,7 @@
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputEmail')>-1">{{@errorMessage.inputEmail}}</div>
                             </div>
                         </fieldset>
-                        <fieldset class="last-child">
+                        <fieldset>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>手机号码:</label>
                                 <div class="col-sm-5">
@@ -128,6 +128,14 @@
                                     <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.mobilePhone}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputMobilePhone')>-1">{{@errorMessage.inputMobilePhone}}</div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="last-child" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">创建时间:</label>
+                                <div class="col-sm-5">
+                                    <p class="form-control-static lineH" >{{@currentUser.createdAt || '--'}}</p>
+                                </div>
                             </div>
                         </fieldset>
 
