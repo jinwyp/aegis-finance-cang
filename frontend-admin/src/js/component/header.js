@@ -33,6 +33,8 @@ var header = function() {
     var tempLeftMenuExpanded = localStorage.getItem('leftMenuExpanded');
     var leftMenuExpanded = [];
 
+
+
     if (tempLeftMenuExpanded) {
         leftMenuExpanded = tempLeftMenuExpanded.split(',')
     }
@@ -55,6 +57,17 @@ var header = function() {
     });
 
 
+    var leftMenuActive = localStorage.getItem('leftMenuActive') || '';
+    
+    if (leftMenuActive) {
+        $( '#'+leftMenuActive ).parent().addClass('active')
+    }
+
+    $('.collapse li a').on('click', function() {
+
+        leftMenuActive = ($( this ).attr('id'));
+        localStorage.setItem('leftMenuActive', leftMenuActive.toString());
+    });
 
 };
 

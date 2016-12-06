@@ -66,12 +66,12 @@
                     <ul id="layout" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">个人信息</li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/session/info" title="Horizontal">
+                            <a href="/warehouse/admin/home/session/info" id="21">
                                 <span>基本信息</span>
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/session/password" title="Horizontal">
+                            <a href="/warehouse/admin/home/session/password" id="22">
                                 <span>修改密码</span>
                             </a>
                         </li>
@@ -89,7 +89,7 @@
                     <ul id="forms" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">系统设置</li>
                         <li>
-                            <a href="/warehouse/admin/home/userlist" title="Standard">
+                            <a href="/warehouse/admin/home/userlist" id="31" >
                                 <span>用户管理</span>
                             </a>
                         </li>
