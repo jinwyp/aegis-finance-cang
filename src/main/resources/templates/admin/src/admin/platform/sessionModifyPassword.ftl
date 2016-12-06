@@ -84,7 +84,7 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/adminSessionUser.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminSessionUser.bundle.js"></script>
