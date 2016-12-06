@@ -23,9 +23,9 @@
         <!-- Page content-->
         <div class="content-wrapper ms-controller" ms-controller="userAddController">
 
-            <h3 ms-visible="@pageShowStatus === 'info'">系统设置 >> 用户管理 >> 查看用户信息 </h3>
-            <h3 ms-visible="@pageShowStatus === 'add'">系统设置 >> 用户管理 >> 添加用户 </h3>
-            <h3 ms-visible="@pageShowStatus === 'edit'">系统设置 >> 用户管理 >> 修改用户信息 </h3>
+            <h3 ms-visible="@pageShowStatus === 'info'">用户管理 - 查看用户信息 </h3>
+            <h3 ms-visible="@pageShowStatus === 'add'">用户管理 - 添加用户 </h3>
+            <h3 ms-visible="@pageShowStatus === 'edit'">用户管理 - 修改用户信息 </h3>
 
             <!-- START panel-->
             <div class="panel panel-default " >
