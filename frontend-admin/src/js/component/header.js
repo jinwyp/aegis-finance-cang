@@ -8,10 +8,11 @@ var $ = require('jquery') ;
 require('bootstrap/dist/js/bootstrap.js');
 
 var rawToken = require('../service/token.js').rawToken ;
+var sessionUserId = require('../service/token.js').sessionUserId ;
 
 var header = function() {
 
-    if (!rawToken){
+    if (!rawToken || !sessionUserId){
         window.location.href = '/warehouse/admin/login'
     }
 
