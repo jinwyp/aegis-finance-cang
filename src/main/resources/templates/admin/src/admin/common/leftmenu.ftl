@@ -88,7 +88,7 @@
                     </a>
                     <ul id="forms" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">系统设置</li>
-                        <li ms-class="active:url='userlist'">
+                        <li>
                             <a href="/warehouse/admin/home/userlist" title="Standard">
                                 <span>用户管理</span>
                             </a>

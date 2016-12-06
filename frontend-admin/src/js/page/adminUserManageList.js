@@ -23,6 +23,7 @@ var userList = function(query) {
             role : '港口',
             companyName : ""
         },
+        pageShowStatus:urlShowStatus,
 
 
         clickResetPassword:function () {

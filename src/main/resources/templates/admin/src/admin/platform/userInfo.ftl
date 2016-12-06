@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择资金方:</label>
                                 <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-visible="@pageShowStatus === 'add' || 'edit'" ms-duplex="@currentUser.belongToUser">
+                                    <select name="account" class="form-control m-b" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'" ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
