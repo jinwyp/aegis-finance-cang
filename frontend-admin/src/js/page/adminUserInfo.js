@@ -11,10 +11,12 @@ var userService = require('../service/user.js') ;
 
 
 var url = window.location.href;
-var index = url.lastIndexOf("\/");
+var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
+var userId = url.match(/\/user\/[a-zA-Z_0-9]{24,24}/);
+if (userId){ userId = userId[0].split('/')[2] }
 
-url  = url.substring(index + 1, url.length);
-console.log(url);
+console.log(userId);
+console.log(urlShowStatus);
 
 
 var chart = function() {
@@ -43,28 +45,48 @@ var chart = function() {
 
     });
 
-    if (url === 'edit'){
-        vm.pageShowStatus = 'edit'
-    }else if (url !== 'add'){
-        vm.pageShowStatus = 'info'
+    if (urlShowStatus === 'add'){
+        vm.pageShowStatus = 'add';
+    }else if (urlShowStatus === 'edit'){
+        vm.pageShowStatus = 'edit';
+
+        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.currentUser = data.data;
+                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
+            }else{
+                console.log(data.error);
+            }
+        });
+
+
+    }else {
+        vm.pageShowStatus = 'info';
+
+        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.currentUser = data.data;
+                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
+            }else{
+                console.log(data.error);
+            }
+        });
     }
-console.log(vm.pageShowStatus)
 
 
 
-    userService.getUserList({role : 'traders'}).done(function(data, textStatus, jqXHR) {
+
+    userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
         if (data.success){
             vm.traderList = data.data;
-            // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
         }else{
             console.log(data.error);
         }
-    })
+    });
 
-    userService.getUserList({role : 'fundProvider'}).done(function(data, textStatus, jqXHR) {
+    userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
         if (data.success){
             vm.fundProviderList = data.data;
-            // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
         }else{
             console.log(data.error);
         }
