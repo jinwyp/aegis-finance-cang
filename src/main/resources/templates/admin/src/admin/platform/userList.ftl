@@ -43,7 +43,7 @@
                                     <input id="input-password" type="text" placeholder="公司名称" class="form-control">
                                 </div>
                                 <div class="form-group marginL">
-                                    <button type="submit" class="btn btn-default btn-primary">查询</button>
+                                    <button class="btn btn-default btn-primary" ms-click="@clickSearchButton($event)">查询</button>
                                 </div>
                                 <div class="form-group marginL">
                                     <a href="/warehouse/admin/home/user/add" class="btn btn-default btn-primary">添加用户</a>
@@ -89,18 +89,20 @@
                                 <span class="table-pagination-prev"></span>
                                 <span class="separator"></span>
 
-                                <span class="table-pagination-input" >页数: <input class="ui-pg-input ui-corner-all" type="text" size="2" maxlength="7" value="0" role="textbox"> of 7</span>
+                                <span class="table-pagination-input" >页数:
+                                    <input class="ui-pg-input ui-corner-all" type="text" size="2" maxlength="2" ms-duplex="@pagination.currentPage"> of {{@pagination.totalPage}}
+                                </span>
                                 <span class="separator"></span>
                                 <span class="table-pagination-next"></span>
                                 <span class="table-pagination-last"></span>
 
                                 <select class="ui-pg-selbox ui-widget-content ui-corner-all" role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
                                     <option role="option" value="10">10</option>
-                                    <option role="option" value="20" selected="selected">20</option>
+                                    <option role="option" value="20">20</option>
                                     <option role="option" value="30">30</option>
                                 </select>
 
-                                <span class="table-pagination-total">当前 {{@pagination.offset + 1}} - {{@pagination.offset}},  共 {{@pagination.total}} 条 </span>
+                                <span class="table-pagination-total">当前 {{@pagination.from}} - {{@pagination.to}},  共 {{@pagination.total}} 条 </span>
                             </div>
 
                         </div>

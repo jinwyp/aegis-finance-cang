@@ -10,9 +10,6 @@ require('../component/header.js');
 var userService = require('../service/user.js') ;
 
 
-var url = window.location.href;
-var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
-console.log(urlShowStatus);
 
 var userList = function(query) {
 
@@ -23,14 +20,19 @@ var userList = function(query) {
             username : '',
             companyName : ''
         },
-        pageShowStatus:urlShowStatus,
         pagination : {
             total : 0,
-            offset : 0,
             currentPage : 1,
-            countPerPage : 10
+            countPerPage : 10,
+            totalPage : 1,
+            from : 1,
+            to : 10
         },
 
+        clickSearchButton : function (event) {
+            event.preventDefault();
+            getUsers();
+        },
 
         clickResetPassword:function () {
             $(".modal_1").modal();
@@ -44,16 +46,22 @@ var userList = function(query) {
 
 
     function getUsers(){
+
         var query = {
-            $limit: vm.pagination.countPerPage,
-            $skip : 1 + vm.pagination.currentPage * vm.pagination.countPerPage,
+            $limit: Number(vm.pagination.countPerPage),
+            $skip : (Number(vm.pagination.currentPage)-1) * Number(vm.pagination.countPerPage)
         };
         userService.getUserList(query).done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.userList = data.data;
                 vm.pagination.total = data.meta.total;
-                vm.pagination.offset = data.meta.offset;
-                vm.pagination.currentPage = data.meta.page;
+                vm.pagination.totalPage = Math.ceil(data.meta.total / data.meta.count);
+
+                vm.pagination.from = data.meta.offset + 1;
+                vm.pagination.to = Number(vm.pagination.countPerPage) * data.meta.page;
+
+                if (vm.pagination.to > data.meta.total) vm.pagination.to = data.meta.total;
+                if (vm.pagination.from >= data.meta.total) vm.pagination.from = 1;
 
                 // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
             }else{
