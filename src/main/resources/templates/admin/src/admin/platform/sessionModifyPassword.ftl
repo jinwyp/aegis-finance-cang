@@ -86,11 +86,9 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminSessionUser.bundle.js"></script>
 
 
@@ -99,7 +97,6 @@
 
 <!--[if lt IE 9]>
 <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
-<script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
 <script src="${staticPathAdmin}/js/page-temp-bundle/adminSessionUser.bundle.js"></script>
 
 <![endif]-->

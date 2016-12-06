@@ -5,7 +5,8 @@
 
 
 var avalon = require('avalon2') ;
-var jQuery = require('jquery') ;
+require('../component/header.js');
+
 var userService = require('../service/user.js') ;
 
 

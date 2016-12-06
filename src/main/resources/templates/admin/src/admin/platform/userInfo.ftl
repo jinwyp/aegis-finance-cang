@@ -145,18 +145,15 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminUserInfo.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminUserInfo.bundle.js"></script>
 
 <!-- 开发环境下 IE8 环境使用 /page-temp-bundle/ 文件 -->
 
 <!--[if lt IE 9]>
 <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
-<script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
 <script src="${staticPathAdmin}/js/page-temp-bundle/adminUserInfo.bundle.js"></script>
 
 <![endif]-->
