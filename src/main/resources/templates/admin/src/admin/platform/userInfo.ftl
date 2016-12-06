@@ -41,7 +41,7 @@
                                            placeholder="请输入用户账号" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.username" ms-rules='{required:true}' data-required-message="请输入用户账号" >
                                     <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.username}}</p>
                                 </div>
-                                <div class="col-sm-5 text-danger">{{@errorMessage.inputUsername}}</div>
+                                <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputUsername')>-1">{{@errorMessage.inputUsername}}</div>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -94,7 +94,7 @@
                                            ms-duplex="@currentUser.companyName" ms-rules='{required:true}' data-required-message="请输入公司名称">
                                     <p class="form-control-static" ms-visible="@pageShowStatus === 'info'">{{@currentUser.companyName}}</p>
                                 </div>
-                                <div class="col-sm-5 text-danger">{{@errorMessage.inputCompanyName}}</div>
+                                <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputCompanyName')>-1">{{@errorMessage.inputCompanyName}}</div>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -114,7 +114,7 @@
                                     <a href="/warehouse/admin/home/session/password" class="btn btn-primary">重置密码</a>
                                     <span class="text-danger marginL">重置后，该密码将发送至该邮箱</span>
                                 </div>
-                                <div class="col-sm-5 text-danger">{{@errorMessage.inputEmail}}</div>
+                                <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputEmail')>-1">{{@errorMessage.inputEmail}}</div>
                             </div>
                         </fieldset>
                         <fieldset class="last-child">
@@ -127,7 +127,7 @@
                                            ms-rules='{required:true, pattern:/^1[358][0123456789]\d{8}$/}' data-required-message="请输入手机号码" data-pattern-message="手机号码不正确">
                                     <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.mobilePhone}}</p>
                                 </div>
-                                <div class="col-sm-5 text-danger">{{@errorMessage.inputMobilePhone}}</div>
+                                <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputMobilePhone')>-1">{{@errorMessage.inputMobilePhone}}</div>
                             </div>
                         </fieldset>
 
