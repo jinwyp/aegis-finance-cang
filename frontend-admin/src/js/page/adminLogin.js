@@ -3,7 +3,7 @@
  */
 
 var avalon = require('avalon2') ;
-var $ = require('jquery') ;
+
 var userService = require('../service/user.js') ;
 
 
@@ -16,7 +16,10 @@ var login = function() {
             email : '',
             password : ''
         },
-        errorMessage : '',
+        errorMessage : {
+            inputEmail : '',
+            inputPassword : ''
+        },
         successInputName : [],
         errorInputName : [],
         loginValidate : {
@@ -25,7 +28,8 @@ var login = function() {
                 if (vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id),1);
             },
             onError: function (reasons) {
-                vm.errorMessage = reasons[0].getMessage();
+
+                vm.errorMessage[this.id.toString()] = reasons[0].getMessage();
 
                 if (vm.successInputName.indexOf(this.id) > -1) vm.successInputName.splice(vm.successInputName.indexOf(this.id),1);
                 if (vm.errorInputName.indexOf(this.id.toString()) === -1) vm.errorInputName.push(this.id.toString());
@@ -44,6 +48,7 @@ var login = function() {
                         if (data.success){
                             console.log('登录成功', data);
                             localStorage.setItem('feathers-jwt', data.data.token);
+                            localStorage.setItem('sessionUserId', data.data.data._id);
                             window.location.href = '/warehouse/admin/home'
                         }else{
 

@@ -5,6 +5,8 @@
 
 
 var $ = require('jquery') ;
+require('bootstrap/dist/js/bootstrap.js');
+
 
 var header = function() {
 

@@ -5,6 +5,8 @@
 
 var avalon = require('avalon2') ;
 var $ = require('jquery') ;
+require('../component/header.js');
+
 
 
 var home = function() {

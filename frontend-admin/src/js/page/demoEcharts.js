@@ -1,4 +1,5 @@
 
+require('../component/header.js');
 var echarts = require('echarts');
 
 

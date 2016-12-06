@@ -4,6 +4,7 @@
 
 
 var token = 'Bearer ' + localStorage.getItem('feathers-jwt');
+var sessionUserId = localStorage.getItem('sessionUserId');
 var headers = {
     "X-Authorization" : token
 };
@@ -11,5 +12,6 @@ var headers = {
 
 module.exports = {
     token : token,
-    headers : headers
+    headers : headers,
+    sessionUserId : sessionUserId
 };

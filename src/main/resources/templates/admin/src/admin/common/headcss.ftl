@@ -27,4 +27,7 @@
 <!--[if lt IE 9]>
 <script src="${staticPathAdmin}/js/libs/html5shiv/html5shiv.min.js"></script>
 <script src="${staticPathAdmin}/js/libs/respond/respond.min.js"></script>
+
 <![endif]-->
+
+<script src="${staticPathAdmin}/js/libs/es6-promise/dist/es6-promise.auto.min.js"></script>

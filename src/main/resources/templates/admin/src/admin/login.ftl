@@ -36,12 +36,14 @@
                         <input id="inputEmail" type="email" placeholder="邮箱" class="form-control" ms-duplex="@user.email" ms-rules='{required:true, email:true}'
                                data-required-message="请输入邮箱" data-email-message="邮箱格式不正确">
                         <span class="fa fa-user form-control-feedback text-muted"></span>
+                        <span class="help-block" ms-visible="@errorInputName.indexOf('inputEmail')>-1">{{@errorMessage.inputEmail}}</span>
                     </div>
 
                     <div class="form-group has-feedback" ms-class="[@errorInputName.indexOf('inputPassword')>-1 && 'has-error',  @successInputName.indexOf('inputPassword')>-1 &&'has-success'] ">
                         <input id="inputPassword" type="password" placeholder="密码" class="form-control" ms-duplex="@user.password" ms-rules='{required:true,minlength:6,maxlength:20}'
                                data-required-message="请输入密码" data-minlength-message="密码长度不能少于6位" data-maxlength-message="密码长度不能大于20位">
                         <span class="fa fa-lock form-control-feedback text-muted"></span>
+                        <span class="help-block" ms-visible="@errorInputName.indexOf('inputPassword')>-1">{{@errorMessage.inputPassword}}</span>
                     </div>
 
                     <#--<div class="clearfix">-->
@@ -54,7 +56,7 @@
                         <#--</div>-->
                     <#--</div>-->
 
-                    <span id="error" class="help-block">{{@errorMessage}}</span>
+                    <#--<span id="error" class="help-block">{{@errorMessage}}</span>-->
                     <button type="submit" class="btn btn-block btn-primary mt-lg">登录</button>
                 </form>
                 <#--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>-->
@@ -69,11 +71,21 @@
 
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
 <!-- 生产环境使用 bundle.js 文件 -->
-<script src="${staticPathAdmin}/js/common.bundle.js"></script>
-<script src="${staticPathAdmin}/js/adminLogin.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/common.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/adminLogin.bundle.js"></script>
 <#else>
-<script src="${staticPathAdmin}/js/common.bundle.js"></script>
-<script src="${staticPathAdmin}/js/adminLogin.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/common.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/adminLogin.bundle.js"></script>
+
+<!-- 开发环境下 IE8 环境使用 /page-temp-bundle/ 文件 -->
+
+<!--[if lt IE 9]>
+<script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
+<script src="${staticPathAdmin}/js/page-temp-bundle/adminLogin.bundle.js"></script>
+
+<![endif]-->
+
+
 </#if>
 
 
