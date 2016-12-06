@@ -98,8 +98,8 @@
                                 <label class="col-sm-2 control-label">公司邮箱</label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.email">
-                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'add' || 'edit'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.email}}</p>
+                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || 'info'">{{@currentUser.email}}</span>
+                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'edit' || 'add'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></p>
                                 </div>
                                 <div class="col-sm-5" ms-visible="@pageShowStatus === 'info'">
                                     <a href="/warehouse/admin/home/session/password" class="btn btn-primary">重置密码</a>
