@@ -134,10 +134,15 @@
     <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminHome.bundle.js"></script>
 
-    <!-- IE8 环境使用 /page-temp-bundle/ 文件
-    <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/page-temp-bundle/adminHome.bundle.js"></script> -->
+
+<!-- 开发环境下 IE8 环境使用 /page-temp-bundle/ 文件 -->
+
+<!--[if lt IE 9]>
+<script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
+<script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
+<script src="${staticPathAdmin}/js/page-temp-bundle/adminHome.bundle.js"></script>
+
+<![endif]-->
 </#if>
 
 

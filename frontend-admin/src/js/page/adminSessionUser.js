@@ -12,14 +12,11 @@ var userService = require('../service/user.js') ;
 
 var url = window.location.href;
 var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
-var userId = url.match(/\/user\/[a-zA-Z_0-9]{24,24}/);
-if (userId){ userId = userId[0].split('/')[2] }
 
-console.log(userId);
 console.log(urlShowStatus);
 
 
-var userInfo = function() {
+var sessionUser = function() {
 
     var vm = avalon.define({
         $id : 'userAddController',
@@ -98,7 +95,7 @@ var userInfo = function() {
 
 
 
-userInfo();
+sessionUser();
 
 
-module.exports = userInfo;
+module.exports = sessionUser;
