@@ -48,40 +48,49 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>用户类型:</label>
                                 <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-duplex="@currentUser.role" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'" ms-duplex="@currentUser.role">
+                                    <select name="account" class="form-control m-b" ms-class="[@errorInputName.indexOf('inputUserRole')>-1 && 'has-error',  @successInputName.indexOf('inputUserRole')>-1 &&'has-success']"
+                                            id="inputUserRole" ms-duplex="@currentUser.role"
+                                            ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
+                                            ms-rules='{required:true}' data-required-message="请选择用户类型">
                                         <option ms-for="role in @roleList" ms-attr="{value: role.name}" >{{role.displayName}} </option>
                                     </select>
                                     <span class="help-block m-b-none" ms-visible="@currentUser.role==='tradersAccountant' || @currentUser.role==='fundProviderAccountant'">
                                     </span>
                                     <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.role}}</p>
                                 </div>
-                                <div class="col-sm-5 text-danger"></div>
+                                <div class="col-sm-5 text-danger">{{@errorMessage.inputUserRole}}</div>
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@currentUser.role ==='tradersAccountant'">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择贸易商:</label>
                                 <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'" ms-duplex="@currentUser.belongToUser">
+                                    <select name="account" class="form-control m-b" id="inputMYSFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
+                                            ms-class="[@errorInputName.indexOf('inputMYSFinance')>-1 && 'has-error',  @successInputName.indexOf('inputMYSFinance')>-1 &&'has-success']"
+                                            ms-rules='{required:true}' data-required-message="请选择贸易商"
+                                            ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
                                     <!--<p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
-                                <div class="col-lg-5 text-danger"></div>
+                                <div class="col-lg-5 text-danger">{{@errorMessage.inputMYSFinance}}</div>
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@currentUser.role ==='fundProviderAccountant'">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择资金方:</label>
                                 <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'" ms-duplex="@currentUser.belongToUser">
+                                    <select name="account" class="form-control m-b" id="inputZJFFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'"
+                                            ms-class="[@errorInputName.indexOf('inputZJFFinance')>-1 && 'has-error',  @successInputName.indexOf('inputZJFFinance')>-1 &&'has-success']"
+                                            ms-rules='{required:true}' data-required-message="请选择资金方"
+                                            ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
                                     <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
-                                <div class="col-sm-5 text-danger"></div>
+                                <div class="col-sm-5 text-danger">{{@errorMessage.inputZJFFinance}}</div>
                             </div>
                         </fieldset>
                         <fieldset>

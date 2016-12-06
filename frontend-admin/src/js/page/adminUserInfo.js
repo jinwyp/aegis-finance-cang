@@ -43,7 +43,10 @@ var userInfo = function() {
             inputUsername : '',
             inputEmail : '',
             inputMobilePhone : '',
-            inputCompanyName : ''
+            inputCompanyName : '',
+            inputUserRole:'',
+            inputMYSFinance:'',
+            inputZJFFinance:''
         },
         successInputName : [],
         errorInputName : [],
@@ -65,6 +68,7 @@ var userInfo = function() {
                     console.log('有表单项没有通过')
                 } else {
                     console.log('表单全部通过');
+                    console.log(reasons);
 
                     userService.login({
                         email : vm.user.email,

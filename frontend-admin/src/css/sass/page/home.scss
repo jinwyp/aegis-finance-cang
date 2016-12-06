@@ -642,9 +642,9 @@
 .lineH{
   line-height: 25px;
 }
-input.has-error{
+input.has-error,select.has-error{
   border:1px solid #ff0000;
 }
-input.has-success{
+input.has-success,select.has-success{
   border:1px solid #e0e0e0;
 }
