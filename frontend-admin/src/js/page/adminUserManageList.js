@@ -51,8 +51,6 @@ var userList = function(query) {
 
 
 
-
-
 };
 
 userList();

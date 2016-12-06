@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
-    "avalon2": "^2.1.17",
+    "avalon2": "^2.2.2",
     "bootstrap": "^3.3.7",
     "echarts": "^3.3.2",
     "font-awesome": "^4.7.0",
