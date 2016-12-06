@@ -9,7 +9,11 @@ var jQuery = require('jquery') ;
 var userService = require('../service/user.js') ;
 
 
+var url = window.location.href;
+var index = url .lastIndexOf("\/");
 
+url  = url .substring(index + 1, url .length);
+console.log(url);
 
 var userList = function(query) {
 
@@ -23,6 +27,7 @@ var userList = function(query) {
         //     url:url
         //
         // },
+        url:url,
 
 
         clickType :function(value){
