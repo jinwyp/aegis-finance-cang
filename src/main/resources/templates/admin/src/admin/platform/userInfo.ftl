@@ -65,7 +65,7 @@
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>
+                                    <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
                                 <div class="col-lg-5 text-danger"></div>
                             </div>
@@ -78,7 +78,7 @@
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>
+                                    <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
                                 <div class="col-sm-5 text-danger"></div>
                             </div>
@@ -98,8 +98,10 @@
                                 <label class="col-sm-2 control-label">公司邮箱</label>
                                 <div class="col-sm-5">
                                     <input type="text" class="form-control" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.email">
-                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'add' || 'edit'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.email}}</p>
+                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || 'info'">{{@currentUser.email}}</span>
+                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || 'add'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
+
+                                    <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'edit' || 'info'">{{@currentUser.email}}</p>-->
                                 </div>
                                 <div class="col-sm-5" ms-visible="@pageShowStatus === 'info'">
                                     <a href="/warehouse/admin/home/session/password" class="btn btn-primary">重置密码</a>
@@ -122,7 +124,7 @@
                         <div class="btn-edit text-center">
                             <button class="btn btn-default btn-lg btn-primary" type="button" ms-click="@addUser()" ms-visible="@pageShowStatus === 'add'">保存</button>
                             <button class="btn btn-default btn-lg btn-primary" type="button" ms-click="@editUser()" ms-visible="@pageShowStatus ===  'edit'">保存</button>
-                            <a class="btn btn-default btn-lg" href="/warehouse/admin/home/userlist">返回</a>
+                            <a class="btn btn-default btn-lg marginL" href="/warehouse/admin/home/userlist">返回</a>
                         </div>
                     </form>
                 </div>
