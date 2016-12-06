@@ -29,6 +29,29 @@ var userList = function(query) {
             to : 10
         },
 
+        pageFirst : function(){
+            vm.pagination.currentPage = 1;
+            getUsers();
+        },
+        pageLast : function(){
+            vm.pagination.currentPage = vm.pagination.totalPage;
+            getUsers();
+        },
+        pagePrevious : function(){
+            if (vm.pagination.currentPage - 1 >= 1) {
+                vm.pagination.currentPage = vm.pagination.currentPage - 1;
+            }
+
+            getUsers();
+        },
+        pageNext : function(){
+            if (vm.pagination.currentPage + 1 <= vm.pagination.totalPage) {
+                vm.pagination.currentPage = vm.pagination.currentPage + 1;
+            }
+            getUsers();
+        },
+
+
         clickSearchButton : function (event) {
             event.preventDefault();
             getUsers();

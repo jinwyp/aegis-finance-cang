@@ -85,21 +85,23 @@
 
                         <div class="panel-footer">
                             <div class="table-pagination">
-                                <span class="table-pagination-first"></span>
-                                <span class="table-pagination-prev"></span>
+                                <span class="table-pagination-first" ms-click="@pageFirst"></span>
+                                <span class="table-pagination-prev" ms-click="@pagePrevious"></span>
                                 <span class="separator"></span>
 
                                 <span class="table-pagination-input" >页数:
                                     <input class="ui-pg-input ui-corner-all" type="text" size="2" maxlength="2" ms-duplex="@pagination.currentPage"> of {{@pagination.totalPage}}
                                 </span>
                                 <span class="separator"></span>
-                                <span class="table-pagination-next"></span>
-                                <span class="table-pagination-last"></span>
+                                <span class="table-pagination-next" ms-click="@pageNext"></span>
+                                <span class="table-pagination-last" ms-click="@pageLast"></span>
 
-                                <select class="ui-pg-selbox ui-widget-content ui-corner-all" role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
+                                <select class="pagination select ui-pg-selbox ui-widget-content ui-corner-all " role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
                                     <option role="option" value="10">10</option>
                                     <option role="option" value="20">20</option>
                                     <option role="option" value="30">30</option>
+                                    <option role="option" value="50">50</option>
+                                    <option role="option" value="80">80</option>
                                 </select>
 
                                 <span class="table-pagination-total">当前 {{@pagination.from}} - {{@pagination.to}},  共 {{@pagination.total}} 条 </span>
