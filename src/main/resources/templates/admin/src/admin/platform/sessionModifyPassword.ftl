@@ -21,10 +21,8 @@
             <!-- Main section-->
             <section>
                 <!-- Page content-->
-                <div class="content-wrapper">
-                    <h3>修改密码
-                        <small>个人信息 >> 修改密码</small>
-                    </h3>
+                <div class="content-wrapper ms-controller" ms-controller="passwordController">
+                    <h3>修改密码</h3>
 
                     <div class="col-sm-12">
                         <!-- START panel-->
@@ -86,11 +84,9 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminSessionUser.bundle.js"></script>
 
 
@@ -99,7 +95,6 @@
 
 <!--[if lt IE 9]>
 <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
-<script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
 <script src="${staticPathAdmin}/js/page-temp-bundle/adminSessionUser.bundle.js"></script>
 
 <![endif]-->

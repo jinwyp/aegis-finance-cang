@@ -3,7 +3,7 @@
  */
 
 var avalon = require('avalon2') ;
-var $ = require('jquery') ;
+
 var userService = require('../service/user.js') ;
 
 
@@ -48,6 +48,7 @@ var login = function() {
                         if (data.success){
                             console.log('登录成功', data);
                             localStorage.setItem('feathers-jwt', data.data.token);
+                            localStorage.setItem('sessionUserId', data.data.data._id);
                             window.location.href = '/warehouse/admin/home'
                         }else{
 

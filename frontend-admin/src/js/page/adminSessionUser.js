@@ -5,7 +5,7 @@
 
 
 var avalon = require('avalon2') ;
-var $ = require('jquery') ;
+require('../component/header.js');
 
 var userService = require('../service/user.js') ;
 
@@ -19,7 +19,7 @@ console.log(urlShowStatus);
 var sessionUser = function() {
 
     var vm = avalon.define({
-        $id : 'userAddController',
+        $id : 'passwordController',
 
         currentUser : {
             username : '',
@@ -32,9 +32,7 @@ var sessionUser = function() {
         traderList : [],
         fundProviderList : [],
 
-        roleList : userService.userRoleList,
-
-        pageShowStatus : 'add',
+        pageShowStatus : 'password',
 
         addUser :function(){
             console.log(vm.currentUser.role)
@@ -42,52 +40,41 @@ var sessionUser = function() {
 
     });
 
-    if (urlShowStatus === 'add'){
-        vm.pageShowStatus = 'add';
-    }else if (urlShowStatus === 'edit'){
-        vm.pageShowStatus = 'edit';
-
-        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.currentUser = data.data;
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
-            }else{
-                console.log(data.error);
-            }
-        });
-
-
+    if (urlShowStatus === 'password'){
+        vm.pageShowStatus = 'password';
     }else {
         vm.pageShowStatus = 'info';
 
-        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
+        userService.getSessionUser().done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.currentUser = data.data;
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
             }else{
                 console.log(data.error);
             }
         });
+
+        userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.traderList = data.data;
+            }else{
+                console.log(data.error);
+            }
+        });
+
+        userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.fundProviderList = data.data;
+            }else{
+                console.log(data.error);
+            }
+        })
+
     }
 
 
 
 
-    userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
-        if (data.success){
-            vm.traderList = data.data;
-        }else{
-            console.log(data.error);
-        }
-    });
 
-    userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
-        if (data.success){
-            vm.fundProviderList = data.data;
-        }else{
-            console.log(data.error);
-        }
-    })
 
 };
 

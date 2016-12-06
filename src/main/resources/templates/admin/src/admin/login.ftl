@@ -43,7 +43,7 @@
                         <input id="inputPassword" type="password" placeholder="密码" class="form-control" ms-duplex="@user.password" ms-rules='{required:true,minlength:6,maxlength:20}'
                                data-required-message="请输入密码" data-minlength-message="密码长度不能少于6位" data-maxlength-message="密码长度不能大于20位">
                         <span class="fa fa-lock form-control-feedback text-muted"></span>
-                        <span class="help-block" ms-visible="@errorInputName.indexOf('inputPassword')>-1">{{@errorMessage}}</span>
+                        <span class="help-block" ms-visible="@errorInputName.indexOf('inputPassword')>-1">{{@errorMessage.inputPassword}}</span>
                     </div>
 
                     <#--<div class="clearfix">-->

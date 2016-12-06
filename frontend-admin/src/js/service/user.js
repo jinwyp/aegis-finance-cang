@@ -5,6 +5,7 @@
 
 var  jQuery = require('jquery');
 var  headers = require('./token').headers;
+var  sessionUserId = require('./token').sessionUserId;
 
 
 var prefix = '/api';
@@ -53,6 +54,28 @@ exports.login = function (user){
 
 };
 
+exports.getSessionUser = function (query){
+
+    if (sessionUserId){
+        var params = jQuery.extend({}, query);
+
+        return jQuery.ajax({
+            url      : url.userList + '/' + sessionUserId,
+            method   : 'GET',
+            dataType : 'json',
+            data     : params,
+            headers : headers
+        });
+    }else{
+        return {
+            done : function () {
+                
+            }
+        }
+    }
+
+
+};
 
 exports.getUserList = function (query){
 

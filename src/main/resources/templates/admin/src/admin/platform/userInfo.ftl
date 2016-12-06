@@ -23,9 +23,9 @@
         <!-- Page content-->
         <div class="content-wrapper ms-controller" ms-controller="userAddController">
 
-            <h3 ms-visible="@pageShowStatus === 'info'">系统设置 >> 用户管理 >> 查看用户信息 </h3>
-            <h3 ms-visible="@pageShowStatus === 'add'">系统设置 >> 用户管理 >> 添加用户 </h3>
-            <h3 ms-visible="@pageShowStatus === 'edit'">系统设置 >> 用户管理 >> 修改用户信息 </h3>
+            <h3 ms-visible="@pageShowStatus === 'info'">用户管理 - 查看用户信息 </h3>
+            <h3 ms-visible="@pageShowStatus === 'add'">用户管理 - 添加用户 </h3>
+            <h3 ms-visible="@pageShowStatus === 'edit'">用户管理 - 修改用户信息 </h3>
 
             <!-- START panel-->
             <div class="panel panel-default " >
@@ -155,18 +155,15 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminUserInfo.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminUserInfo.bundle.js"></script>
 
 <!-- 开发环境下 IE8 环境使用 /page-temp-bundle/ 文件 -->
 
 <!--[if lt IE 9]>
 <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
-<script src="${staticPathAdmin}/js/page-temp-bundle/adminHeader.bundle.js"></script>
 <script src="${staticPathAdmin}/js/page-temp-bundle/adminUserInfo.bundle.js"></script>
 
 <![endif]-->
