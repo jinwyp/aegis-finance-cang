@@ -39,7 +39,7 @@
                                 <div class="col-sm-5">
                                     <input type="text" id="inputUsername" class="form-control form-control-rounded" ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] "
                                            placeholder="请输入用户账号" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.username" ms-rules='{required:true}' data-required-message="请输入用户账号" >
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.username}}</p>
+                                    <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.username}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputUsername')>-1">{{@errorMessage.inputUsername}}</div>
                             </div>
@@ -53,7 +53,7 @@
                                     </select>
                                     <span class="help-block m-b-none" ms-visible="@currentUser.role==='tradersAccountant' || @currentUser.role==='fundProviderAccountant'">
                                     </span>
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info'">{{@currentUser.role}}</p>
+                                    <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.role}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger"></div>
                             </div>
@@ -66,7 +66,7 @@
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
-                                    <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
+                                    <!--<p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
                                 <div class="col-lg-5 text-danger"></div>
                             </div>
@@ -92,7 +92,7 @@
                                            ms-class="[@errorInputName.indexOf('inputCompanyName')>-1 && 'has-error',  @successInputName.indexOf('inputCompanyName')>-1 &&'has-success'] "
                                            ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                            ms-duplex="@currentUser.companyName" ms-rules='{required:true}' data-required-message="请输入公司名称">
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info'">{{@currentUser.companyName}}</p>
+                                    <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.companyName}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputCompanyName')>-1">{{@errorMessage.inputCompanyName}}</div>
                             </div>
@@ -103,9 +103,9 @@
                                 <div class="col-sm-5">
                                     <input type="text" id="inputEmail" class="form-control"
                                            ms-class="[@errorInputName.indexOf('inputEmail')>-1 && 'has-error',  @successInputName.indexOf('inputEmail')>-1 &&'has-success'] "
-                                           ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.email"
+                                           ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit' " ms-duplex="@currentUser.email"
                                            ms-rules='{required:true, email:true}' data-required-message="请输入公司邮箱" data-email-message="邮箱格式不正确">
-                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || @pageShowStatus === 'info'">{{@currentUser.email}}</span>
+                                    <p class="form-control-static lineH" ms-visible=" @pageShowStatus === 'info'">{{@currentUser.email}}</p>
                                     <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || @pageShowStatus === 'add'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
 
                                     <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'edit' || 'info'">{{@currentUser.email}}</p>-->
@@ -117,17 +117,25 @@
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputEmail')>-1">{{@errorMessage.inputEmail}}</div>
                             </div>
                         </fieldset>
-                        <fieldset class="last-child">
+                        <fieldset>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>手机号码:</label>
                                 <div class="col-sm-5">
                                     <input type="text" id="inputMobilePhone" placeholder="请输入手机号码" class="form-control"
                                            ms-class="[@errorInputName.indexOf('inputMobilePhone')>-1 && 'has-error',  @successInputName.indexOf('inputMobilePhone')>-1 &&'has-success'] "
-                                           ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.mobilePhone"
+                                           ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit' " ms-duplex="@currentUser.mobilePhone"
                                            ms-rules='{required:true, pattern:/^1[358][0123456789]\d{8}$/}' data-required-message="请输入手机号码" data-pattern-message="手机号码不正确">
-                                    <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.mobilePhone}}</p>
+                                    <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.mobilePhone}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputMobilePhone')>-1">{{@errorMessage.inputMobilePhone}}</div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="last-child" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">创建时间:</label>
+                                <div class="col-sm-5">
+                                    <p class="form-control-static lineH" >{{@currentUser.createdAt || '--'}}</p>
+                                </div>
                             </div>
                         </fieldset>
 
