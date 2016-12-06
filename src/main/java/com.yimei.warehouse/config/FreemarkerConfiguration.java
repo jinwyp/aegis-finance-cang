@@ -3,13 +3,15 @@ package com.yimei.warehouse.config;
 import freemarker.template.TemplateModelException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
+import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 
-//@Configuration
-//@AutoConfigureAfter({FreeMarkerAutoConfiguration.class})
+@Configuration
+@AutoConfigureAfter({FreeMarkerAutoConfiguration.class})
 public class FreemarkerConfiguration extends FreeMarkerAutoConfiguration.FreeMarkerWebConfiguration {
 
     @Autowired
@@ -40,7 +42,7 @@ public class FreemarkerConfiguration extends FreeMarkerAutoConfiguration.FreeMar
     void FreeMarkerConfigurer() throws TemplateModelException, IOException {
 
         configuration.setSharedVariable("staticPathAdmin","/static/admin");
-        configuration.setSharedVariable("staticPathSite","/static/site");
+//        configuration.setSharedVariable("staticPathSite","/static/site");
         configuration.setSharedVariable("title","易煤网");
         configuration.setSharedVariable("ssoMemberUrl",SSOPROTOCOL+"://"+SSOURL);
         configuration.setSharedVariable("payUrl",SSOPROTOCOL+"://"+PAYURL);
