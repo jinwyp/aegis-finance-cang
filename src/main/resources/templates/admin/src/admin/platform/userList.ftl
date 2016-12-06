@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- START panel-->
-                    <div class="panel panel-default ms-controller" ms-controller="userList">
+                    <div class="panel panel-default ms-controller" ms-controller="userListController">
                         <div class="panel-heading">用户列表</div>
 
                         <div class="panel-body">
@@ -65,14 +65,14 @@
                                         <td class="text-center">操作</td>
                                     </tr>
                                     <tr ms-for="(index, user) in @userList">
-                                        <td><a href="/warehouse/admin/home/user/add">{{ user.username || '--'}}</a></td>
+                                        <td><a ms-attr="{href:'/warehouse/admin/home/user/'+ user._id }" >{{ user.username || '--'}}</a></td>
                                         <td>{{ user.mobilePhone || '--'}}</td>
                                         <td>{{ user.email || '--'}}</td>
                                         <td>{{ user.companyName || '--'}}</td>
 
                                         <td>
                                             <span class="btn btn-default resetPassword" ms-click="@clickResetPassword">重置密码</span>
-                                            <a href="" class="btn btn-default marginL">编辑</a>
+                                            <a class="btn btn-default marginL" ms-attr="{href:'/warehouse/admin/home/user/'+ user._id + '/edit'}">编辑</a>
                                             <span class="btn btn-default marginL" ms-click="@clickDelete">删除</span>
                                         </td>
                                     </tr>

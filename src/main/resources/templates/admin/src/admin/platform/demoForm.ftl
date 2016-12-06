@@ -489,10 +489,10 @@
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
     <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
-    <#else>
-        <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-        <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
-        <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
+<#else>
+    <script src="${staticPathAdmin}/js/common.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/adminHeader.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/adminDemoForm.bundle.js"></script>
 </#if>
 
 
