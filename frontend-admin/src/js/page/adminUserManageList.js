@@ -10,10 +10,8 @@ var userService = require('../service/user.js') ;
 
 
 var url = window.location.href;
-var index = url .lastIndexOf("\/");
-
-url  = url .substring(index + 1, url .length);
-console.log(url);
+var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
+console.log(urlShowStatus);
 
 var userList = function(query) {
 
