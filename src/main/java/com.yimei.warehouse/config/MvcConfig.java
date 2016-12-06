@@ -1,22 +1,17 @@
 package com.yimei.warehouse.config;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yimei.warehouse.ext.intereceptors.AdminACLInterceptor;
-import com.yimei.warehouse.ext.jackson.Java8TimeModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import javax.annotation.PostConstruct;
 import javax.validation.Validator;
 import java.nio.charset.Charset;
 import java.util.List;
@@ -44,8 +39,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
 //    @Autowired
 //    protected KittHandlerExceptionResolver kittHandlerExceptionResolver;
-    @Autowired
-    protected AdminACLInterceptor adminACLInterceptor;
+//    @Autowired
+//    protected AdminACLInterceptor adminACLInterceptor;
     @Autowired
     protected ObjectMapper objectMapper;
 
@@ -84,20 +79,20 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return new LocalValidatorFactoryBean();
     }
 
-    @PostConstruct
-    private void jacksonConfig() {
-        objectMapper.registerModule(new Java8TimeModule());
-        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-    }
+//    @PostConstruct
+//    private void jacksonConfig() {
+//        objectMapper.registerModule(new Java8TimeModule());
+//        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+//    }
 
-    @Bean
-    public CommonsRequestLoggingFilter requestLoggingFilter() {
-        CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
-        filter.setIncludeClientInfo(true);
-        filter.setIncludeQueryString(true);
-        filter.setIncludePayload(true);
-        filter.setIncludeHeaders(true);
-        filter.setMaxPayloadLength(5120);
-        return filter;
-    }
+//    @Bean
+//    public CommonsRequestLoggingFilter requestLoggingFilter() {
+//        CommonsRequestLoggingFilter filter = new CommonsRequestLoggingFilter();
+//        filter.setIncludeClientInfo(true);
+//        filter.setIncludeQueryString(true);
+//        filter.setIncludePayload(true);
+//        filter.setIncludeHeaders(true);
+//        filter.setMaxPayloadLength(5120);
+//        return filter;
+//    }
 }
