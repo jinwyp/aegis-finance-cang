@@ -94,13 +94,13 @@
                                 <span class="table-pagination-next"></span>
                                 <span class="table-pagination-last"></span>
 
-                                <select class="ui-pg-selbox ui-widget-content ui-corner-all" role="listbox" title="Records per Page">
+                                <select class="ui-pg-selbox ui-widget-content ui-corner-all" role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
                                     <option role="option" value="10">10</option>
                                     <option role="option" value="20" selected="selected">20</option>
                                     <option role="option" value="30">30</option>
                                 </select>
 
-                                <span class="table-pagination-total">当前 1 - 20,  共 131 条 </span>
+                                <span class="table-pagination-total">当前 {{@pagination.offset + 1}} - {{@pagination.offset}},  共 {{@pagination.total}} 条 </span>
                             </div>
 
                         </div>
