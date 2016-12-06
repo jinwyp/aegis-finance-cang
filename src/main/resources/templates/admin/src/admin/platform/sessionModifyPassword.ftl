@@ -21,7 +21,7 @@
             <!-- Main section-->
             <section>
                 <!-- Page content-->
-                <div class="content-wrapper">
+                <div class="content-wrapper ms-controller" ms-controller="passwordController">
                     <h3>修改密码
                         <small>个人信息 >> 修改密码</small>
                     </h3>

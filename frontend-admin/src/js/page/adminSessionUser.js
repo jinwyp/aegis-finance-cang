@@ -19,7 +19,7 @@ console.log(urlShowStatus);
 var sessionUser = function() {
 
     var vm = avalon.define({
-        $id : 'userAddController',
+        $id : 'passwordController',
 
         currentUser : {
             username : '',
@@ -34,7 +34,7 @@ var sessionUser = function() {
 
         roleList : userService.userRoleList,
 
-        pageShowStatus : 'add',
+        pageShowStatus : 'password',
 
         addUser :function(){
             console.log(vm.currentUser.role)
