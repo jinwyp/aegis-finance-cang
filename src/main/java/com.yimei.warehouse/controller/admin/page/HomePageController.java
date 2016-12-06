@@ -116,7 +116,7 @@ public class HomePageController {
     @ApiOperation(value = "管理后台平台管理员添加的个人信息 - 基本信息", notes = "管理后台平台管理员添加的基本信息页面 需要平台管理员登录")
     @RequestMapping(value = "/warehouse/admin/home/session/info", method = RequestMethod.GET)
     public String adminCurrentUserInfo() {
-        return "admin/platform/userInfo";
+        return "admin/platform/sessionInfo";
     }
 
 
