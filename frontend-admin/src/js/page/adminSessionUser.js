@@ -32,8 +32,6 @@ var sessionUser = function() {
         traderList : [],
         fundProviderList : [],
 
-        roleList : userService.userRoleList,
-
         pageShowStatus : 'password',
 
         addUser :function(){
@@ -47,46 +45,36 @@ var sessionUser = function() {
     }else {
         vm.pageShowStatus = 'info';
 
-        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
+        userService.getSessionUser().done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.currentUser = data.data;
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
             }else{
                 console.log(data.error);
             }
         });
 
-        vm.pageShowStatus = 'edit';
-
-        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
+        userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
             if (data.success){
-                vm.currentUser = data.data;
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
+                vm.traderList = data.data;
             }else{
                 console.log(data.error);
             }
         });
+
+        userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.fundProviderList = data.data;
+            }else{
+                console.log(data.error);
+            }
+        })
 
     }
 
 
 
 
-    userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
-        if (data.success){
-            vm.traderList = data.data;
-        }else{
-            console.log(data.error);
-        }
-    });
 
-    userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
-        if (data.success){
-            vm.fundProviderList = data.data;
-        }else{
-            console.log(data.error);
-        }
-    })
 
 };
 

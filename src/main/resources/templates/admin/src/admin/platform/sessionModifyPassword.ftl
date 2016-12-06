@@ -22,9 +22,7 @@
             <section>
                 <!-- Page content-->
                 <div class="content-wrapper ms-controller" ms-controller="passwordController">
-                    <h3>修改密码
-                        <small>个人信息 >> 修改密码</small>
-                    </h3>
+                    <h3>修改密码</h3>
 
                     <div class="col-sm-12">
                         <!-- START panel-->

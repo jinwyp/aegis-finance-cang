@@ -66,6 +66,12 @@ exports.getSessionUser = function (query){
             data     : params,
             headers : headers
         });
+    }else{
+        return {
+            done : function () {
+                
+            }
+        }
     }
 
 
