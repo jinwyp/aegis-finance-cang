@@ -96,7 +96,7 @@
                                 <span class="table-pagination-next" ms-click="@pageNext"></span>
                                 <span class="table-pagination-last" ms-click="@pageLast"></span>
 
-                                <select class="pagination select ui-pg-selbox ui-widget-content ui-corner-all " role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
+                                <select class="select ui-pg-selbox ui-widget-content ui-corner-all " role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
                                     <option role="option" value="10">10</option>
                                     <option role="option" value="20">20</option>
                                     <option role="option" value="30">30</option>
