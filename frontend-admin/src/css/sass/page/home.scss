@@ -633,3 +633,12 @@
 .marginL{
   margin-left: 10px;
 }
+.text-danger{
+  line-height: 40px;
+}
+input.has-error{
+  border:1px solid #ff0000;
+}
+input.has-success{
+  border:1px solid #e0e0e0;
+}
