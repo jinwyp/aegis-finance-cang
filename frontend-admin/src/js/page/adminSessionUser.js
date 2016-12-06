@@ -42,21 +42,8 @@ var sessionUser = function() {
 
     });
 
-    if (urlShowStatus === 'add'){
-        vm.pageShowStatus = 'add';
-    }else if (urlShowStatus === 'edit'){
-        vm.pageShowStatus = 'edit';
-
-        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.currentUser = data.data;
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
-            }else{
-                console.log(data.error);
-            }
-        });
-
-
+    if (urlShowStatus === 'password'){
+        vm.pageShowStatus = 'password';
     }else {
         vm.pageShowStatus = 'info';
 
@@ -68,6 +55,18 @@ var sessionUser = function() {
                 console.log(data.error);
             }
         });
+
+        vm.pageShowStatus = 'edit';
+
+        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.currentUser = data.data;
+                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
+            }else{
+                console.log(data.error);
+            }
+        });
+
     }
 
 
