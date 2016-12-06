@@ -51,7 +51,6 @@
                                         <option ms-for="role in @roleList" ms-attr="{value: role.name}" >{{role.displayName}} </option>
                                     </select>
                                     <span class="help-block m-b-none" ms-visible="@currentUser.role==='tradersAccountant' || @currentUser.role==='fundProviderAccountant'">
-                                        <span class="text-danger">*&nbsp;选择该类型后，系统将为其生成一个支付帐号</span>
                                     </span>
                                     <p class="form-control-static" ms-visible="@pageShowStatus === 'info'">{{@currentUser.role}}</p>
                                 </div>
