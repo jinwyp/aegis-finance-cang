@@ -60,26 +60,26 @@ var userInfo = function() {
                 if (vm.errorInputName.indexOf(this.id.toString()) === -1) vm.errorInputName.push(this.id.toString());
 
             },
-            // onValidateAll: function (reasons) {
-            //     if (reasons.length) {
-            //         console.log('有表单项没有通过')
-            //     } else {
-            //         console.log('表单全部通过');
-            //
-            //         userService.login({
-            //             email : vm.user.email,
-            //             password : vm.user.password
-            //         }).done(function( data, textStatus, jqXHR ) {
-            //             if (data.success){
-            //                 console.log('登录成功', data);
-            //                 localStorage.setItem('feathers-jwt', data.data.token);
-            //                 window.location.href = '/warehouse/admin/home'
-            //             }else{
-            //
-            //             }
-            //         })
-            //     }
-            // }
+            onValidateAll: function (reasons) {
+                if (reasons.length) {
+                    console.log('有表单项没有通过')
+                } else {
+                    console.log('表单全部通过');
+
+                    userService.login({
+                        email : vm.user.email,
+                        password : vm.user.password
+                    }).done(function( data, textStatus, jqXHR ) {
+                        if (data.success){
+                            console.log('登录成功', data);
+                            localStorage.setItem('feathers-jwt', data.data.token);
+                            window.location.href = '/warehouse/admin/home'
+                        }else{
+
+                        }
+                    })
+                }
+            }
         },
 
         addUser :function(){
