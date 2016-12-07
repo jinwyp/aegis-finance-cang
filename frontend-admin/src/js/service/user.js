@@ -110,12 +110,12 @@ exports.addNewUser = function (user){
 
     var params = jQuery.extend({
         username : '',
-        password : '',
+        // password : '',
         email : '',
         mobilePhone : '',
         companyName : '',
-        belongToUser : '', // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
-        role : userRoleObject.systemAdmin
+        // belongToUser : '', // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
+        // role : userRoleObject.systemAdmin
     }, user);
 
 

@@ -52,7 +52,9 @@
                                             id="inputUserRole" ms-duplex="@currentUser.role"
                                             ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                             ms-rules='{required:true}' data-required-message="请选择用户类型">
+                                        <option value="" > - </option>
                                         <option ms-for="role in @roleList" ms-attr="{value: role.name}" >{{role.displayName}} </option>
+
                                     </select>
                                     <span class="help-block m-b-none" ms-visible="@currentUser.role==='tradersAccountant' || @currentUser.role==='fundProviderAccountant'">
                                     </span>
@@ -67,8 +69,8 @@
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputMYSFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                             ms-class="[@errorInputName.indexOf('inputMYSFinance')>-1 && 'has-error',  @successInputName.indexOf('inputMYSFinance')>-1 &&'has-success']"
-
                                             ms-duplex="@currentUser.belongToUser">
+                                        <option value="" > - </option>
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none">*&nbsp;如没有选择的贸易商，请先添加贸易商</span>
@@ -83,8 +85,8 @@
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputZJFFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'"
                                             ms-class="[@errorInputName.indexOf('inputZJFFinance')>-1 && 'has-error',  @successInputName.indexOf('inputZJFFinance')>-1 &&'has-success']"
-
                                             ms-duplex="@currentUser.belongToUser">
+                                        <option value="" > - </option>
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
                                     <span class="help-block m-b-none">*&nbsp;如没有选择的资金方，请先添加资金方</span>
