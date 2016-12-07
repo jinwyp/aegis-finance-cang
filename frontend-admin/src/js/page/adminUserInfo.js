@@ -55,7 +55,7 @@ var userInfo = function() {
                 if (vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id),1);
             },
             onError: function (reasons) {
-                console.log(reasons[0].getMessage())
+                console.log(reasons[0].getMessage());
                 vm.errorMessage[this.id.toString()] = reasons[0].getMessage();
 
                 if (vm.successInputName.indexOf(this.id) > -1) vm.successInputName.splice(vm.successInputName.indexOf(this.id),1);
@@ -63,29 +63,50 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
-                console.log(reasons);
                 if (reasons.length) {
                     console.log('表单项没有通过');
                     $("input").focus().blur();
                     $("select").focus().blur();
                 } else {
                     console.log('表单全部通过');
-                    var user = {
-                        username : vm.currentUser.username,
-                        email : vm.currentUser.email,
-                        mobilePhone : vm.currentUser.mobilePhone,
-                        companyName : vm.currentUser.companyName,
-                        role : vm.currentUser.role
-                    };
 
-                    if (vm.currentUser.belongToUser) {
-                        user.belongToUser = vm.currentUser.belongToUser
-                    }
-                    userService.addNewUser(user).done(function( data, textStatus, jqXHR ) {
-                        if (data.success){
-                            $.notify("创建用户成功!", 'success');
+                    var isValid = true;
+
+                    if (vm.currentUser.role === "tradersAccountant"){
+                        if (!vm.currentUser.belongToUser){
+                            vm.errorInputName.push('inputMYSFinance')
+                            isValid = false;
                         }
-                    })
+                    }else if (vm.currentUser.role === "fundProviderAccountant"){
+                        if (!vm.currentUser.belongToUser){
+                            vm.errorInputName.push('inputZJFFinance')
+                            isValid = false;
+                        }
+                    }
+
+                    if (isValid){
+                        var user = {
+                            username : vm.currentUser.username,
+                            email : vm.currentUser.email,
+                            mobilePhone : vm.currentUser.mobilePhone,
+                            companyName : vm.currentUser.companyName,
+                            role : vm.currentUser.role
+                        };
+
+                        if (vm.currentUser.belongToUser) {
+                            user.belongToUser = vm.currentUser.belongToUser
+                        }
+                        userService.addNewUser(user).done(function( data, textStatus, jqXHR ) {
+                            if (data.success){
+                                // vm.successInputName = [];
+                                // vm.errorInputName = [];
+                                $.notify("创建用户成功!", 'success');
+                            }
+                        })
+                    }
+
+
+
                 }
             }
         },
@@ -98,15 +119,17 @@ var userInfo = function() {
 
 
 
-    function getUserInfo(){
-        userService.getUserInfoById(userId).done(function(data, textStatus, jqXHR) {
-            if (data.success){
+    function getUserInfo() {
+        userService.getUserInfoById(userId).done(function (data, textStatus, jqXHR) {
+            if (data.success) {
                 vm.currentUser = data.data;
                 // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
-            }else{
+            } else {
                 console.log(data.error);
             }
         });
+    }
+    function getUsersOfRoles(){
 
         userService.getUserList({role : 'traders', $limit : 500}).done(function(data, textStatus, jqXHR) {
             if (data.success){
@@ -128,10 +151,11 @@ var userInfo = function() {
 
     if (urlShowStatus === 'add'){
         vm.pageShowStatus = 'add';
+        getUsersOfRoles()
     }else if (urlShowStatus === 'edit'){
         vm.pageShowStatus = 'edit';
         getUserInfo()
-
+        getUsersOfRoles()
     }else {
         vm.pageShowStatus = 'info';
         getUserInfo()
