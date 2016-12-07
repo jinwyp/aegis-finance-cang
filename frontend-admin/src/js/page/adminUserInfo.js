@@ -73,9 +73,13 @@ var userInfo = function() {
                     console.log('表单全部通过');
                     console.log(reasons);
 
-                    userService.login({
-                        email : vm.user.email,
-                        password : vm.user.password
+                    userService.addNewUser({
+                        username : vm.currentUser.username,
+                        email : vm.currentUser.email,
+                        mobilePhone : vm.currentUser.mobilePhone,
+                        companyName : vm.currentUser.companyName,
+                        belongToUser : vm.currentUser.belongToUser, // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
+                        role : vm.currentUser.role
                     }).done(function( data, textStatus, jqXHR ) {
                         if (data.success){
                             console.log('登录成功', data);
@@ -90,7 +94,7 @@ var userInfo = function() {
         },
 
         addUser :function(){
-            console.log(vm.currentUser.role)
+            console.log(vm.currentUser.role, vm.currentUser.belongToUser)
         }
 
     });
@@ -126,7 +130,7 @@ var userInfo = function() {
 
 
 
-    userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
+    userService.getUserList({role : 'traders', $limit : 500}).done(function(data, textStatus, jqXHR) {
         if (data.success){
             vm.traderList = data.data;
         }else{
@@ -134,7 +138,7 @@ var userInfo = function() {
         }
     });
 
-    userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
+    userService.getUserList({role : 'fundProvider', $limit : 500}).done(function(data, textStatus, jqXHR) {
         if (data.success){
             vm.fundProviderList = data.data;
         }else{
