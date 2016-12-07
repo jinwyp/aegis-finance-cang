@@ -67,7 +67,7 @@
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputMYSFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                             ms-class="[@errorInputName.indexOf('inputMYSFinance')>-1 && 'has-error',  @successInputName.indexOf('inputMYSFinance')>-1 &&'has-success']"
-                                            ms-rules='{required:true}' data-required-message="请选择贸易商"
+
                                             ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
@@ -83,7 +83,7 @@
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputZJFFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'"
                                             ms-class="[@errorInputName.indexOf('inputZJFFinance')>-1 && 'has-error',  @successInputName.indexOf('inputZJFFinance')>-1 &&'has-success']"
-                                            ms-rules='{required:true}' data-required-message="请选择资金方"
+
                                             ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
