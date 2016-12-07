@@ -50,7 +50,7 @@ var login = function() {
                             console.log('登录成功', data);
                             localStorage.setItem('feathers-jwt', data.data.token);
                             localStorage.setItem('sessionUserId', data.data.data._id);
-                            window.location.href = '/warehouse/admin/home'
+                            window.location.href = '/warehouse/admin/home/userlist'
                         }else{
                             vm.errorMessage.ajax = data.error.message;
                         }
