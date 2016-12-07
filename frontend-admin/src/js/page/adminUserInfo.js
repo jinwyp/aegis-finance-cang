@@ -65,7 +65,9 @@ var userInfo = function() {
             },
             onValidateAll: function (reasons) {
                 if (reasons.length) {
-                    console.log('有表单项没有通过')
+                    console.log('有表单项没有通过');
+                    $("input").focus().blur();
+                    $("select").focus().blur();
                 } else {
                     console.log('表单全部通过');
                     console.log(reasons);
