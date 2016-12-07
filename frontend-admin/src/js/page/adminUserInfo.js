@@ -56,7 +56,7 @@ var userInfo = function() {
                 if (vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id),1);
             },
             onError: function (reasons) {
-
+                console.log(reasons[0].getMessage())
                 vm.errorMessage[this.id.toString()] = reasons[0].getMessage();
 
                 if (vm.successInputName.indexOf(this.id) > -1) vm.successInputName.splice(vm.successInputName.indexOf(this.id),1);
@@ -64,6 +64,7 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
+                console.log(reasons)
                 if (reasons.length) {
                     console.log('有表单项没有通过');
                     $("input").focus().blur();
