@@ -71,7 +71,7 @@
                                             ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
-                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的贸易商，请先添加贸易商</span></span>
+                                    <span class="help-block m-b-none">*&nbsp;如没有选择的贸易商，请先添加贸易商</span>
                                     <!--<p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
                                 <div class="col-lg-5 text-danger">{{@errorMessage.inputMYSFinance}}</div>
@@ -87,7 +87,7 @@
                                             ms-duplex="@currentUser.belongToUser">
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
-                                    <span class="help-block m-b-none"><span class="text-danger">*&nbsp;如没有选择的资金方，请先添加资金方</span></span>
+                                    <span class="help-block m-b-none">*&nbsp;如没有选择的资金方，请先添加资金方</span>
                                     <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'info'">23232323</p>-->
                                 </div>
                                 <div class="col-sm-5 text-danger">{{@errorMessage.inputZJFFinance}}</div>
@@ -115,7 +115,7 @@
                                            ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit' " ms-duplex="@currentUser.email"
                                            ms-rules='{required:true, email:true}' data-required-message="请输入公司邮箱" data-email-message="邮箱格式不正确">
                                     <p class="form-control-static lineH" ms-visible=" @pageShowStatus === 'info'">{{@currentUser.email}}</p>
-                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || @pageShowStatus === 'add'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
+                                    <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'edit' || @pageShowStatus === 'add'">*&nbsp;为用户发送与找回密码的有效途径</span>
 
                                     <!--<p class="form-control-static" ms-visible="@pageShowStatus === 'edit' || 'info'">{{@currentUser.email}}</p>-->
                                 </div>
