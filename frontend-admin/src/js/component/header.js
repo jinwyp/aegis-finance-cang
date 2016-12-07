@@ -6,6 +6,7 @@
 
 var $ = require('jquery') ;
 require('bootstrap/dist/js/bootstrap.js');
+require('./notify.js');
 
 var rawToken = require('../service/token.js').rawToken ;
 var sessionUserId = require('../service/token.js').sessionUserId ;
@@ -15,6 +16,27 @@ var header = function() {
     if (!rawToken || !sessionUserId){
         window.location.href = '/warehouse/admin/login'
     }
+
+    // 全局AJAX错误处理
+    $( document ).ajaxError(function(event, jqXHR, settings, thrownError) {
+        if (jqXHR.status === 401 || jqXHR.status === 403){
+            window.location.href = '/warehouse/admin/login'
+        }else{
+            var data = JSON.parse(jqXHR.responseText);
+            $.notify(data.error.message, 'error');
+        }
+    });
+
+    $( document ).ajaxSuccess(function( event, jqXHR, settings, data ) {
+        if (!data.success) {
+            if (data.error.code === 401 || data.error.code === 403){
+                window.location.href = '/warehouse/admin/login'
+            }else {
+                $.notify(data.error.message, 'error');
+            }
+        }
+
+    });
 
 
     // 点击隐藏的左部菜单
@@ -34,8 +56,6 @@ var header = function() {
     var tempLeftMenuExpanded = localStorage.getItem('leftMenuExpanded');
     var leftMenuExpanded = [];
 
-
-
     if (tempLeftMenuExpanded) {
         leftMenuExpanded = tempLeftMenuExpanded.split(',')
     }
@@ -44,7 +64,6 @@ var header = function() {
             $( menuId ).addClass('collapse in')
         })
     }
-
     $('a[data-toggle="collapse"]').on('click', function() {
         var index = leftMenuExpanded.indexOf($( this ).attr('href'));
 
@@ -58,12 +77,11 @@ var header = function() {
     });
 
 
+    // 记住点击的二级菜单
     var leftMenuActive = localStorage.getItem('leftMenuActive') || '';
-    
     if (leftMenuActive) {
         $( '#'+leftMenuActive ).parent().addClass('active')
     }
-
     $('.collapse li a').on('click', function() {
 
         leftMenuActive = ($( this ).attr('id'));

@@ -18,7 +18,8 @@ var login = function() {
         },
         errorMessage : {
             inputEmail : '',
-            inputPassword : ''
+            inputPassword : '',
+            ajax : ''
         },
         successInputName : [],
         errorInputName : [],
@@ -51,13 +52,15 @@ var login = function() {
                             localStorage.setItem('sessionUserId', data.data.data._id);
                             window.location.href = '/warehouse/admin/home'
                         }else{
-
+                            vm.errorMessage.ajax = data.error.message;
                         }
-                    })
+                    }).fail(function( jqXHR, textStatus, errorThrown ) {
+                        var result = JSON.parse(jqXHR.responseText);
+                        vm.errorMessage.ajax = result.error.message;
+                    });
                 }
             }
         }
-
     });
 
 

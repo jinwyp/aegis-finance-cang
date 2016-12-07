@@ -56,7 +56,7 @@
                         <#--</div>-->
                     <#--</div>-->
 
-                    <#--<span id="error" class="help-block">{{@errorMessage}}</span>-->
+                    <span id="error" class="help-block">{{@errorMessage.ajax}}</span>
                     <button type="submit" class="btn btn-block btn-primary mt-lg">登录</button>
                 </form>
                 <#--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>-->
