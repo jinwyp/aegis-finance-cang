@@ -135,7 +135,7 @@ exports.updateUserInfoById = function (userId, user){
 
     return jQuery.ajax({
         url      : url.userList + '/' + userId,
-        method   : 'PUT',
+        method   : 'PATCH',
         dataType : 'json',
         data     : params,
         headers : headers
