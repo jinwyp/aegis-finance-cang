@@ -50,13 +50,22 @@
                                         <div class="col-sm-5 text-danger"></div>
                                     </div>
                                 </fieldset>
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label for="input-id-1" class="col-sm-2 control-label">用户类型</label>
+                                        <div class="col-sm-5">
+                                            <p class="form-control-static" >{{@currentUser.companyName}}</p>
+                                        </div>
+                                        <div class="col-sm-5 text-danger"></div>
+                                    </div>
+                                </fieldset>
+
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">公司邮箱</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.email">
-                                            <span class="help-block m-b-none" ms-visible="@pageShowStatus === 'add' || 'edit'"><span class="text-danger">*&nbsp;为用户发送与找回密码的有效途径</span></span>
-                                            <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.email}}</p>
+                                            <input type="text" class="form-control" ms-visible="@pageShowStatus === 'info' " ms-duplex="@currentUser.email">
                                         </div>
                                         <div class="col-sm-5" ms-visible="@pageShowStatus === 'info'">
                                             <a href="/warehouse/admin/home/session/password" class="btn btn-primary">重置密码</a>
@@ -69,8 +78,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">手机号码</label>
                                         <div class="col-sm-5">
-                                            <input type="text" placeholder="请输入手机号码" class="form-control" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.mobilePhone">
-                                            <p class="form-control-static" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.mobilePhone}}</p>
+                                            <input type="text" placeholder="请输入手机号码" class="form-control" ms-duplex="@currentUser.mobilePhone">
                                         </div>
                                         <div class="col-sm-5 text-danger"></div>
                                     </div>
