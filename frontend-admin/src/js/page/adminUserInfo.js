@@ -43,9 +43,7 @@ var userInfo = function() {
             inputEmail : '',
             inputMobilePhone : '',
             inputCompanyName : '',
-            inputUserRole:'',
-            inputMYSFinance:'',
-            inputZJFFinance:''
+            inputUserRole:''
         },
         successInputName : [],
         errorInputName : [],
