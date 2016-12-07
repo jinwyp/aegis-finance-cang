@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>用户帐号:</label>
                                 <div class="col-sm-5">
-                                    <input type="text" id="inputUsername" class="form-control form-control-rounded" ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] "
+                                    <input type="text" id="inputUsername" class="form-control" ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error',  @successInputName.indexOf('inputUsername')>-1 &&'has-success'] "
                                            placeholder="请输入用户账号" ms-visible="@pageShowStatus === 'add' " ms-duplex="@currentUser.username" ms-rules='{required:true}' data-required-message="请输入用户账号" >
                                     <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info' || @pageShowStatus === 'edit'">{{@currentUser.username}}</p>
                                 </div>
