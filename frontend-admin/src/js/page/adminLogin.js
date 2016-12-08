@@ -27,6 +27,7 @@ var login = function() {
             onSuccess : function (reasons){
                 if (vm.successInputName.indexOf(this.id) === -1) vm.successInputName.push(this.id.toString());
                 if (vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id),1);
+                console.log('有表单项通过')
             },
             onError: function (reasons) {
 
@@ -34,6 +35,7 @@ var login = function() {
 
                 if (vm.successInputName.indexOf(this.id) > -1) vm.successInputName.splice(vm.successInputName.indexOf(this.id),1);
                 if (vm.errorInputName.indexOf(this.id.toString()) === -1) vm.errorInputName.push(this.id.toString());
+                console.log(vm.errorInputName)
 
             },
             onValidateAll: function (reasons) {
