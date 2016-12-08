@@ -13,7 +13,7 @@ var userService = require('../service/user.js') ;
 var url = window.location.href;
 var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
 
-console.log(urlShowStatus);
+// console.log(urlShowStatus);
 
 
 var sessionUser = function() {
@@ -30,26 +30,52 @@ var sessionUser = function() {
             role : ''
         },
 
-        pageShowStatus : 'password',
+        errorMessage : {
+            inputEmail : '',
+            inputPhone : ''
+        },
+        successInputName : [],
+        errorInputName : [],
+        validate: {
+            onSuccess: function (reasons) {
+                console.log(reasons.length);
+                if(vm.successInputName.indexOf(this.id) === -1) vm.successInputName.push(this.id.toString());
+                if(vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id), 1);
+            },
+            onError: function (reasons) {
+                console.log(reasons[0].getMessage());
+                vm.errorMessage[this.id.toString()] = reasons[0].getMessage();
 
-        editUser :function(){
-            if (vm.pageShowStatus === 'info') {
+                if (vm.successInputName.indexOf(this.id) > -1) vm.successInputName.splice(vm.successInputName.indexOf(this.id),1);
+                if (vm.errorInputName.indexOf(this.id.toString()) === -1) vm.errorInputName.push(this.id.toString());
+            },
+            onValidateAll: function (reasons) {
+                if (reasons.length) {
+                    console.log('有表单没有通过');
+                    $("input").focus().blur();
+                } else {
+                    console.log('全部通过');
+                    if (vm.pageShowStatus === 'info') {
 
-                var user = {
-                    username : vm.currentUser.username,
-                    email : vm.currentUser.email,
-                    mobilePhone : vm.currentUser.mobilePhone,
-                    companyName : vm.currentUser.companyName,
-                    role : vm.currentUser.role
-                };
+                        var user = {
+                            username : vm.currentUser.username,
+                            email : vm.currentUser.email,
+                            mobilePhone : vm.currentUser.mobilePhone,
+                            companyName : vm.currentUser.companyName,
+                            role : vm.currentUser.role
+                        };
 
-                userService.updateUserInfoById(vm.currentUser._id, user).done(function (data, textStatus, jqXHR) {
-                    if (data.success) {
-                        $.notify("用户修改信息成功!", 'success');
+                        userService.updateUserInfoById(vm.currentUser._id, user).done(function (data, textStatus, jqXHR) {
+                            if (data.success) {
+                                $.notify("用户修改信息成功!", 'success');
+                            }
+                        })
                     }
-                })
+                }
             }
-        }
+        },
+
+        pageShowStatus : 'password'
 
     });
 
@@ -60,6 +86,7 @@ var sessionUser = function() {
 
         userService.getSessionUser().done(function(data, textStatus, jqXHR) {
             if (data.success){
+                // console.log(data.data);
                 vm.currentUser = data.data;
             }else{
                 console.log(data.error);
@@ -67,36 +94,6 @@ var sessionUser = function() {
         });
 
     }
-
-
-
-
-    avalon.define({
-        $id: "AAA",
-        name: "aaa",
-        color: "aaa"
-    });
-
-    avalon.define({
-        $id: "BBB",
-        name: "bbb",
-        color: "bbb"
-    });
-
-    avalon.define({
-        $id: "CCC",
-        name: "ccc",
-        color: "ccc"
-    });
-
-    avalon.define({
-        $id: "DDD",
-        name: "ddd",
-        color: "ddd"
-    });
-
-
-
 };
 
 
