@@ -61,8 +61,6 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
-                isValid();
-
                 if (isValid){
                     if (reasons.length) {
                         console.log('表单项没有通过');
