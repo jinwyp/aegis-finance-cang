@@ -32,7 +32,6 @@
                             <form method="get" action="/" class="form-horizontal" ms-validate="@validate">
                                 
                                 <fieldset>
-                                    <!--<legend>Classic inputs</legend>-->
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">用户帐号:</label>
                                         <div class="col-sm-5">
@@ -66,11 +65,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">公司邮箱</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" ms-visible="@pageShowStatus === 'info' " ms-duplex="@currentUser.email">
-                                        </div>
-                                        <div class="col-sm-5" ms-visible="@pageShowStatus === 'info'">
-                                            <a href="/warehouse/admin/home/session/password" class="btn btn-primary">重置密码</a>
-                                            <span class="text-danger marginL">重置后，该密码将发送至该邮箱</span>
+                                            <input type="text" class="form-control" ms-duplex="@currentUser.email">
                                         </div>
                                         <div class="col-sm-5 text-danger"></div>
                                     </div>
@@ -79,7 +74,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">手机号码</label>
                                         <div class="col-sm-5">
-                                            <input type="text" placeholder="请输入手机号码" class="form-control" ms-duplex="@currentUser.mobilePhone">
+                                            <input type="text" class="form-control" placeholder="请输入手机号码" ms-duplex="@currentUser.mobilePhone">
                                         </div>
                                         <div class="col-sm-5 text-danger"></div>
                                     </div>

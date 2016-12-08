@@ -60,64 +60,63 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
-                if (reasons.length) {
-                    console.log('表单项没有通过');
-                    $("input").focus().blur();
-                    $("select").focus().blur();
-                } else {
-                    console.log('表单全部通过');
+                var isValid = true;
 
-                    var isValid = true;
-
-                    if (vm.currentUser.role === "tradersAccountant"){
-                        if (!vm.currentUser.belongToUser){
-                            vm.errorInputName.push('inputMYSFinance')
-                            isValid = false;
-                        }
-                    }else if (vm.currentUser.role === "fundProviderAccountant"){
-                        if (!vm.currentUser.belongToUser){
-                            vm.errorInputName.push('inputZJFFinance')
-                            isValid = false;
-                        }
+                if (vm.currentUser.role === "tradersAccountant"){
+                    if (!vm.currentUser.belongToUser){
+                        vm.errorInputName.push('inputMYSFinance');
+                        isValid = false;
                     }
-
-                    if (isValid){
-                        var user = {
-                            username : vm.currentUser.username,
-                            email : vm.currentUser.email,
-                            mobilePhone : vm.currentUser.mobilePhone,
-                            companyName : vm.currentUser.companyName,
-                            role : vm.currentUser.role
-                        };
-
-                        if (vm.currentUser.belongToUser) {
-                            user.belongToUser = vm.currentUser.belongToUser
-                        }
-
-                        if (vm.pageShowStatus === 'add') {
-                            userService.addNewUser(user).done(function( data, textStatus, jqXHR ) {
-                                if (data.success){
-                                    vm.successInputName = [];
-                                    vm.errorInputName = [];
-                                    $.notify("创建用户成功!", 'success');
-                                }
-                            })
-                        }
-
-                        if (vm.pageShowStatus === 'edit'){
-                            userService.updateUserInfoById(vm.currentUser._id, user).done(function( data, textStatus, jqXHR ) {
-                                if (data.success){
-                                    vm.successInputName = [];
-                                    vm.errorInputName = [];
-                                    $.notify("用户修改信息成功!", 'success');
-                                }
-                            })
-                        }
+                }else if (vm.currentUser.role === "fundProviderAccountant"){
+                    if (!vm.currentUser.belongToUser){
+                        vm.errorInputName.push('inputZJFFinance');
+                        isValid = false;
                     }
-
-
-
                 }
+
+                if (isValid){
+                    if (reasons.length) {
+                        console.log('表单项没有通过');
+                        $("input").focus().blur();
+                        $("select").focus().blur();
+                    } else {
+                        console.log('表单全部通过');
+
+                    }
+                    var user = {
+                        username : vm.currentUser.username,
+                        email : vm.currentUser.email,
+                        mobilePhone : vm.currentUser.mobilePhone,
+                        companyName : vm.currentUser.companyName,
+                        role : vm.currentUser.role
+                    };
+
+                    if (vm.currentUser.belongToUser) {
+                        user.belongToUser = vm.currentUser.belongToUser
+                    }
+
+                    if (vm.pageShowStatus === 'add') {
+                        userService.addNewUser(user).done(function( data, textStatus, jqXHR ) {
+                            if (data.success){
+                                vm.successInputName = [];
+                                vm.errorInputName = [];
+                                $.notify("创建用户成功!", 'success');
+                            }
+                        })
+                    }
+
+                    if (vm.pageShowStatus === 'edit'){
+                        userService.updateUserInfoById(vm.currentUser._id, user).done(function( data, textStatus, jqXHR ) {
+                            if (data.success){
+                                vm.successInputName = [];
+                                vm.errorInputName = [];
+                                $.notify("用户修改信息成功!", 'success');
+                            }
+                        })
+                    }
+                }
+
+
             }
         },
 
