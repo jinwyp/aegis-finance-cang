@@ -72,7 +72,7 @@
                                     </select>
                                     <span class="help-block m-b-none">*&nbsp;如没有选择的贸易商，请先添加贸易商</span>
                                 </div>
-                                <div class="col-lg-5 text-danger" ms-visible="@errorInputName.indexOf('inputMYSFinance')>-1">请选择贸易商</div>
+                                <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputMYSFinance')>-1">请选择贸易商</div>
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@currentUser.role ==='fundProviderAccountant'">

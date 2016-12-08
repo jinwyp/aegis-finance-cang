@@ -107,7 +107,7 @@ module.exports = {
         proxy: {
             "/warehouse": "http://localhost:8003",
             "/static": "http://localhost:8003",
-            "/api": "http://192.168.1.41:3030"
+            "/api": "http://192.168.1.37:3030"
 
         }
     }

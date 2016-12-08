@@ -93,13 +93,26 @@ var userInfo = function() {
                         if (vm.currentUser.belongToUser) {
                             user.belongToUser = vm.currentUser.belongToUser
                         }
-                        userService.addNewUser(user).done(function( data, textStatus, jqXHR ) {
-                            if (data.success){
-                                // vm.successInputName = [];
-                                // vm.errorInputName = [];
-                                $.notify("创建用户成功!", 'success');
-                            }
-                        })
+
+                        if (vm.pageShowStatus === 'add') {
+                            userService.addNewUser(user).done(function( data, textStatus, jqXHR ) {
+                                if (data.success){
+                                    vm.successInputName = [];
+                                    vm.errorInputName = [];
+                                    $.notify("创建用户成功!", 'success');
+                                }
+                            })
+                        }
+
+                        if (vm.pageShowStatus === 'edit'){
+                            userService.updateUserInfoById(vm.currentUser._id, user).done(function( data, textStatus, jqXHR ) {
+                                if (data.success){
+                                    vm.successInputName = [];
+                                    vm.errorInputName = [];
+                                    $.notify("用户修改信息成功!", 'success');
+                                }
+                            })
+                        }
                     }
 
 
