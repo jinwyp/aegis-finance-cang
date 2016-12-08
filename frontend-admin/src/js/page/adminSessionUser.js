@@ -29,13 +29,26 @@ var sessionUser = function() {
             belongToUser : '', // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
             role : ''
         },
-        traderList : [],
-        fundProviderList : [],
 
         pageShowStatus : 'password',
 
-        addUser :function(){
-            console.log(vm.currentUser.role)
+        editUser :function(){
+            if (vm.pageShowStatus === 'info') {
+
+                var user = {
+                    username : vm.currentUser.username,
+                    email : vm.currentUser.email,
+                    mobilePhone : vm.currentUser.mobilePhone,
+                    companyName : vm.currentUser.companyName,
+                    role : vm.currentUser.role
+                };
+
+                userService.updateUserInfoById(vm.currentUser._id, user).done(function (data, textStatus, jqXHR) {
+                    if (data.success) {
+                        $.notify("用户修改信息成功!", 'success');
+                    }
+                })
+            }
         }
 
     });
@@ -53,23 +66,35 @@ var sessionUser = function() {
             }
         });
 
-        userService.getUserList({role : 'traders', limit : 500}).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.traderList = data.data;
-            }else{
-                console.log(data.error);
-            }
-        });
-
-        userService.getUserList({role : 'fundProvider', limit : 500}).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.fundProviderList = data.data;
-            }else{
-                console.log(data.error);
-            }
-        })
-
     }
+
+
+
+
+    avalon.define({
+        $id: "AAA",
+        name: "aaa",
+        color: "aaa"
+    });
+
+    avalon.define({
+        $id: "BBB",
+        name: "bbb",
+        color: "bbb"
+    });
+
+    avalon.define({
+        $id: "CCC",
+        name: "ccc",
+        color: "ccc"
+    });
+
+    avalon.define({
+        $id: "DDD",
+        name: "ddd",
+        color: "ddd"
+    });
+
 
 
 };
