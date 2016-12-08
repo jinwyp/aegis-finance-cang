@@ -121,7 +121,7 @@
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>手机号码:</label>
                                 <div class="col-sm-5">
                                     <input type="text" id="inputMobilePhone" placeholder="请输入手机号码" class="form-control" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit' " ms-duplex="@currentUser.mobilePhone"
-                                           ms-rules="{ required:true, pattern:'/^1[358][0123456789]\d{8}$/'}" data-required-message="请输入手机号码" data-pattern-message="手机号码不正确">
+                                           ms-rules="{ required:true, pattern: /^1[358][0123456789]\d{8}$/ }" data-required-message="请输入手机号码" data-pattern-message="手机号码不正确">
                                     <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.mobilePhone}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputMobilePhone')>-1">{{@errorMessage.inputMobilePhone}}</div>

@@ -22,7 +22,6 @@ var userInfo = function() {
 
     var vm = avalon.define({
         $id : 'userAddController',
-
         currentUser : {
             username : '',
             email : '',
