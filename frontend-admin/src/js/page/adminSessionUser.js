@@ -30,15 +30,23 @@ var sessionUser = function() {
             role : ''
         },
 
+        modifyPassword : {
+            oldPwd : '',
+            newPwd : '',
+            rePwd : ''
+        },
+
         errorMessage : {
             inputEmail : '',
-            inputPhone : ''
+            inputPhone : '',
+            inputOldPwd : '',
+            inputNewPwd : '',
+            inputRePwd : ''
         },
         successInputName : [],
         errorInputName : [],
         validate: {
             onSuccess: function (reasons) {
-                console.log(reasons.length);
                 if(vm.successInputName.indexOf(this.id) === -1) vm.successInputName.push(this.id.toString());
                 if(vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id), 1);
             },
@@ -71,6 +79,14 @@ var sessionUser = function() {
                             }
                         })
                     }
+                    if (vm.pageShowStatus === 'password') {
+
+                        userService.updateUserInfoById(vm.currentUser._id, vm.modifyPassword.newPwd).done(function (data, textStatus, jqXHR) {
+                            if (data.success) {
+                                $.notify("密码修改成功!", 'success');
+                            }
+                        })
+                    }
                 }
             }
         },
@@ -83,17 +99,15 @@ var sessionUser = function() {
         vm.pageShowStatus = 'password';
     }else {
         vm.pageShowStatus = 'info';
-
-        userService.getSessionUser().done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                // console.log(data.data);
-                vm.currentUser = data.data;
-            }else{
-                console.log(data.error);
-            }
-        });
-
     }
+
+    userService.getSessionUser().done(function(data, textStatus, jqXHR) {
+        if (data.success){
+            vm.currentUser = data.data;
+        }else{
+            console.log(data.error);
+        }
+    });
 };
 
 

@@ -62,7 +62,7 @@
                                 </fieldset>
 
                                 <fieldset>
-                                    <div class="form-group">
+                                    <div class="form-group" ms-class="[@errorInputName.indexOf('inputEmail')>-1 && 'has-error']">
                                         <label class="col-sm-2 control-label">公司邮箱</label>
                                         <div class="col-sm-5">
                                             <input type="text" id="inputEmail" class="form-control" placeholder="请输入公司邮箱" ms-duplex="@currentUser.email" ms-rules="{required:true, email:true}"
@@ -72,7 +72,7 @@
                                     </div>
                                 </fieldset>
                                 <fieldset class="last-child">
-                                    <div class="form-group">
+                                    <div class="form-group" ms-class="[@errorInputName.indexOf('inputPhone')>-1 && 'has-error']">
                                         <label class="col-sm-2 control-label">手机号码</label>
                                         <div class="col-sm-5">
                                             <input type="text" id="inputPhone" class="form-control" placeholder="请输入手机号码" ms-duplex="@currentUser.mobilePhone" ms-rules="{required:true, pattern: /^1[358][0123456789]\d{8}$/ }"
