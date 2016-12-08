@@ -65,23 +65,25 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">公司邮箱</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" ms-duplex="@currentUser.email">
+                                            <input type="text" id="inputEmail" class="form-control" placeholder="请输入公司邮箱" ms-duplex="@currentUser.email" ms-rules="{required:true, email:true}"
+                                                data-required-message="请输入公司邮箱" data-email-message="邮箱格式错误">
                                         </div>
-                                        <div class="col-sm-5 text-danger"></div>
+                                        <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputEmail')>-1">{{@errorMessage.inputEmail}}</div>
                                     </div>
                                 </fieldset>
                                 <fieldset class="last-child">
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">手机号码</label>
                                         <div class="col-sm-5">
-                                            <input type="text" class="form-control" placeholder="请输入手机号码" ms-duplex="@currentUser.mobilePhone">
+                                            <input type="text" id="inputPhone" class="form-control" placeholder="请输入手机号码" ms-duplex="@currentUser.mobilePhone" ms-rules="{required:true, pattern: /^1[358][0123456789]\d{8}$/ }"
+                                                   data-required-message="请输入手机号码" data-pattern-message="手机号码格式错误">
                                         </div>
-                                        <div class="col-sm-5 text-danger"></div>
+                                        <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputPhone')>-1">{{@errorMessage.inputPhone}}</div>
                                     </div>
                                 </fieldset>
 
                                 <div class="btn-edit text-center">
-                                    <button class="btn btn-default btn-lg btn-primary" type="button" ms-click="@editUser()">保存</button>
+                                    <button class="btn btn-default btn-lg btn-primary" type="submit">保存</button>
                                 </div>
                             </form>
                         </div>
