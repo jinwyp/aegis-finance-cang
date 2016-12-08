@@ -44,6 +44,7 @@ var userInfo = function() {
             inputCompanyName : '',
             inputUserRole:''
         },
+        isMYSCWValid : false,
         successInputName : [],
         errorInputName : [],
         addValidate : {
@@ -61,15 +62,17 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
-                if (isValid){
-                    if (reasons.length) {
-                        console.log('表单项没有通过');
-                        $("input").focus().blur();
-                        $("select").focus().blur();
-                    } else {
-                        console.log('表单全部通过');
+                console.log(vm.isMYSCWValid)
+                if (reasons.length || !vm.isMYSCWValid) {
+                    console.log('表单项没有通过');
+                    console.log(reasons.length);
+                    $("input").focus().blur();
+                    $("select").focus().blur()
 
-                    }
+                } else {
+                    console.log('表单全部通过');
+
+
                     var user = {
                         username : vm.currentUser.username,
                         email : vm.currentUser.email,
@@ -104,39 +107,31 @@ var userInfo = function() {
                 }
 
 
+
+
             }
         },
 
         addUser :function(){
             console.log(vm.currentUser.role, vm.currentUser.belongToUser)
         },
-        isValid : function () {
-            isValid();
-        }
+        isValid : checkMYS
 
     });
 
-
-    function isValid() {
-        var isValid = true;
+    function checkMYS() {
 
         if (vm.currentUser.role === "tradersAccountant"){
-            if (!vm.currentUser.belongToUser){
-                vm.errorInputName.push('inputMYSFinance');
-                isValid = false;
+            if (vm.currentUser.belongToUser){
+                vm.isMYSCWValid = true;
             }else{
-                var num = vm.errorInputName.indexOf('inputMYSFinance');
-                vm.errorInputName.splice(num,1);
-                isValid = true;
+                vm.isMYSCWValid = false;
             }
         }else if (vm.currentUser.role === "fundProviderAccountant"){
-            if (!vm.currentUser.belongToUser){
-                vm.errorInputName.push('inputZJFFinance');
-                isValid = false;
+            if (vm.currentUser.belongToUser){
+                vm.isMYSCWValid = true;
             }else{
-                var num = vm.errorInputName.indexOf('inputZJFFinance');
-                vm.errorInputName.splice(num,1);
-                isValid = true;
+                vm.isMYSCWValid = false;
             }
         }
     }

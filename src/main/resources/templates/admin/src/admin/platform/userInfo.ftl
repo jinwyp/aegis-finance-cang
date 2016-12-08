@@ -62,7 +62,7 @@
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@currentUser.role ==='tradersAccountant'">
-                            <div class="form-group" ms-class="[@errorInputName.indexOf('inputMYSFinance')>-1 && 'has-error']">
+                            <div class="form-group" ms-class="[!@isMYSCWValid && 'has-error']">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择贸易商:</label>
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputMYSFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
@@ -72,11 +72,11 @@
                                     </select>
                                     <span class="help-block m-b-none">*&nbsp;如没有选择的贸易商，请先添加贸易商</span>
                                 </div>
-                                <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputMYSFinance')>-1">请选择贸易商</div>
+                                <div class="col-sm-5 text-danger" ms-visible="!@isMYSCWValid">请选择贸易商</div>
                             </div>
                         </fieldset>
                         <fieldset ms-visible="@currentUser.role ==='fundProviderAccountant'">
-                            <div class="form-group" ms-class="[@errorInputName.indexOf('inputZJFFinance')>-1 && 'has-error']">
+                            <div class="form-group" ms-class="[!@isMYSCWValid && 'has-error']">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择资金方:</label>
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputZJFFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'"
@@ -86,7 +86,7 @@
                                     </select>
                                     <span class="help-block m-b-none">*&nbsp;如没有选择的资金方，请先添加资金方</span>
                                 </div>
-                                <div class="col-sm-5 text-danger"  ms-visible="@errorInputName.indexOf('inputZJFFinance')>-1">请选择资金方</div>
+                                <div class="col-sm-5 text-danger"  ms-visible="!@isMYSCWValid">请选择资金方</div>
                             </div>
                         </fieldset>
                         <fieldset>
