@@ -80,7 +80,7 @@
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择资金方:</label>
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputZJFFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus ==='edit'"
-                                            ms-duplex="@currentUser.belongToUser">
+                                            ms-duplex="@currentUser.belongToUser" ms-blur="@isValid">
                                         <option value="" > - </option>
                                         <option ms-for="fundProvider in @fundProviderList" ms-attr="{value: fundProvider._id}" >{{fundProvider.username}} </option>
                                     </select>
