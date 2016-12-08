@@ -62,17 +62,24 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
-                console.log(vm.isMYSCWValid)
-                if (reasons.length || !vm.isMYSCWValid) {
+                console.log(vm.isMYSCWValid);
+
+                var isValid = true;
+                if(vm.currentUser.role === "tradersAccountant" || vm.currentUser.role === "fundProviderAccountant"){
+                    if (reasons.length || !vm.isMYSCWValid ) {
+                        isValid = false;
+                    }
+                }else{
+                    if (reasons.length ) {
+                        isValid = false;
+                    }
+                }
+
+                if(!isValid){
                     console.log('表单项没有通过');
-                    console.log(reasons.length);
                     $("input").focus().blur();
                     $("select").focus().blur()
-
-                } else {
-                    console.log('表单全部通过');
-
-
+                } else{
                     var user = {
                         username : vm.currentUser.username,
                         email : vm.currentUser.email,
