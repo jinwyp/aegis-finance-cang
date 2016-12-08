@@ -29,7 +29,8 @@
                     <div class="panel panel-default " >
                         <!--<div class="panel-heading">Form elements</div>-->
                         <div class="panel-body">
-                            <form method="get" action="/" class="form-horizontal">
+                            <form method="get" action="/" class="form-horizontal" ms-validate="@validate">
+                                
                                 <fieldset>
                                     <!--<legend>Classic inputs</legend>-->
                                     <div class="form-group">
@@ -55,7 +56,7 @@
                                     <div class="form-group">
                                         <label for="input-id-1" class="col-sm-2 control-label">用户类型</label>
                                         <div class="col-sm-5">
-                                            <p class="form-control-static" >{{@currentUser.companyName}}</p>
+                                            <p class="form-control-static" >{{@currentUser.role}}</p>
                                         </div>
                                         <div class="col-sm-5 text-danger"></div>
                                     </div>
