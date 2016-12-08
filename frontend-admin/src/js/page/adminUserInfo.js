@@ -47,6 +47,7 @@ var userInfo = function() {
         successInputName : [],
         errorInputName : [],
         addValidate : {
+
             onSuccess : function (reasons){
                 if (vm.successInputName.indexOf(this.id) === -1) vm.successInputName.push(this.id.toString());
                 if (vm.errorInputName.indexOf(this.id) > -1) vm.errorInputName.splice(vm.errorInputName.indexOf(this.id),1);
@@ -60,19 +61,7 @@ var userInfo = function() {
 
             },
             onValidateAll: function (reasons) {
-                var isValid = true;
-
-                if (vm.currentUser.role === "tradersAccountant"){
-                    if (!vm.currentUser.belongToUser){
-                        vm.errorInputName.push('inputMYSFinance');
-                        isValid = false;
-                    }
-                }else if (vm.currentUser.role === "fundProviderAccountant"){
-                    if (!vm.currentUser.belongToUser){
-                        vm.errorInputName.push('inputZJFFinance');
-                        isValid = false;
-                    }
-                }
+                isValid();
 
                 if (isValid){
                     if (reasons.length) {
@@ -122,11 +111,37 @@ var userInfo = function() {
 
         addUser :function(){
             console.log(vm.currentUser.role, vm.currentUser.belongToUser)
+        },
+        isValid : function () {
+            isValid();
         }
 
     });
 
 
+    function isValid() {
+        var isValid = true;
+
+        if (vm.currentUser.role === "tradersAccountant"){
+            if (!vm.currentUser.belongToUser){
+                vm.errorInputName.push('inputMYSFinance');
+                isValid = false;
+            }else{
+                var num = vm.errorInputName.indexOf('inputMYSFinance');
+                vm.errorInputName.splice(num,1);
+                isValid = true;
+            }
+        }else if (vm.currentUser.role === "fundProviderAccountant"){
+            if (!vm.currentUser.belongToUser){
+                vm.errorInputName.push('inputZJFFinance');
+                isValid = false;
+            }else{
+                var num = vm.errorInputName.indexOf('inputZJFFinance');
+                vm.errorInputName.splice(num,1);
+                isValid = true;
+            }
+        }
+    }
 
     function getUserInfo() {
         userService.getUserInfoById(userId).done(function (data, textStatus, jqXHR) {

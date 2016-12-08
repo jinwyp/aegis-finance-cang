@@ -66,7 +66,7 @@
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>选择贸易商:</label>
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control m-b" id="inputMYSFinance" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
-                                            ms-duplex="@currentUser.belongToUser">
+                                            ms-duplex="@currentUser.belongToUser" ms-blur="@isValid">
                                         <option value="" > - </option>
                                         <option ms-for="trader in @traderList" ms-attr="{value: trader._id}" >{{trader.username}} </option>
                                     </select>
