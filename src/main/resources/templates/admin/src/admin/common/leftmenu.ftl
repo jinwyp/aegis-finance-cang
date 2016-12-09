@@ -12,7 +12,7 @@
                             <!-- User picture-->
                             <div class="user-block-picture">
                                 <div class="user-block-status">
-                                    <img src="img/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
+                                    <img src="${staticPathAdmin}/css/images/avatar.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
                                     <div class="circle circle-success circle-lg"></div>
                                 </div>
                             </div>
@@ -56,6 +56,27 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class=" ">
+                    <a href="#manage" title="Layouts" data-toggle="collapse">
+                        <em class="icon-note"></em>
+                        <span>融资管理</span>
+                    </a>
+                    <ul id="manage" class="nav sidebar-subnav collapse">
+                        <li class="sidebar-subnav-header">个人信息</li>
+                        <li class=" ">
+                            <a href="/warehouse/admin/home/finance/manage" id="11">
+                                <span>业务列表</span>
+                            </a>
+                        </li>
+                        <!--<li class=" ">-->
+                            <!--<a href="/warehouse/admin/home/session/password" id="12">-->
+                                <!--<span>管理</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                </li>
+
 
 
                 <li class=" ">

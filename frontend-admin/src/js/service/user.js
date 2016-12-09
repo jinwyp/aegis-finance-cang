@@ -12,7 +12,8 @@ var prefix = '/api';
 
 var url = {
     userList : prefix + '/users',
-    login : prefix + '/auth/login'
+    login : prefix + '/auth/login',
+    password : prefix + '/user/password'
 };
 
 
@@ -136,6 +137,24 @@ exports.updateUserInfoById = function (userId, user){
     return jQuery.ajax({
         url      : url.userList + '/' + userId,
         method   : 'PATCH',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+
+exports.modifyPassword = function (userId, oldPassword, newPassword){
+
+    var params = jQuery.extend({}, {
+        userId : userId,
+        oldPassword : oldPassword,
+        newPassword : newPassword
+    });
+
+    return jQuery.ajax({
+        url      : url.password,
+        method   : 'POST',
         dataType : 'json',
         data     : params,
         headers : headers
