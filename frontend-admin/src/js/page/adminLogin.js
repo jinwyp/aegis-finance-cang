@@ -58,7 +58,8 @@ var login = function() {
                         }
                     }).fail(function( jqXHR, textStatus, errorThrown ) {
                         var result = JSON.parse(jqXHR.responseText);
-                        vm.errorMessage.ajax = result.error.message;
+                        console.error(result.error.message);
+                        vm.errorMessage.ajax = "用户名或密码错误!";
                     });
                 }
             }
