@@ -81,7 +81,7 @@
                                                 <td>{{ user.companyName || '--'}}</td>
 
                                                 <td>
-                                                    <span class="btn btn-primary resetPassword" ms-click="@clickResetPassword">进入详情</span>
+                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/manage/'+user._id}">进入详情</a>
 
                                                 </td>
                                             </tr>
