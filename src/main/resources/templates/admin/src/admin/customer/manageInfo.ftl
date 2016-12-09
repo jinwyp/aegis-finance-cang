@@ -89,6 +89,31 @@
                             </div>
 
                         </div>
+                        
+                        <div class="panel-body" style="padding:30px;">
+                            <a href="">查看所有合同及单据</a>
+                            <h4 class="lineH40">放货记录：</h4>
+                            <table class="table table-striped table-bordered table-hover text-center">
+                                <tr>
+                                    <th>11</th>
+                                    <th>11</th>
+                                    <th>11</th>
+                                    <th>11</th>
+                                    <th>11</th>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="panel-footer text-center">
+                            <a class="btn btn-default" href="/warehouse/admin/home/finance/manage">返回</a>
+                        </div>
                     </div>
 
                     <!-- END panel-->
