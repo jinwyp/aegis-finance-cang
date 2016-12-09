@@ -11,9 +11,19 @@ var headers = {
     "X-Authorization" : token
 };
 
+var prefix = '/api';
+
+var url = {
+    financeOrderList : prefix + '/financeOrders',
+    userList : prefix + '/users',
+    login : prefix + '/auth/login',
+    password : prefix + '/user/password'
+};
+
 
 
 module.exports = {
+    url : url,
     rawToken : rawToken,
     token : token,
     headers : headers,

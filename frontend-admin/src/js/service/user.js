@@ -3,18 +3,11 @@
  */
 
 
-var  jQuery = require('jquery');
-var  headers = require('./token').headers;
-var  sessionUserId = require('./token').sessionUserId;
+var jQuery = require('jquery');
+var headers = require('./token').headers;
+var sessionUserId = require('./token').sessionUserId;
 
-
-var prefix = '/api';
-
-var url = {
-    userList : prefix + '/users',
-    login : prefix + '/auth/login',
-    password : prefix + '/user/password'
-};
+var url = require('./token').url;
 
 
 var userRoles = [
