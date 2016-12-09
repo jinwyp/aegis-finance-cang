@@ -11,14 +11,31 @@
 .text-danger{
   line-height: 32px;
 }
-.lineH{
-  line-height: 25px;
+.lineH40{
+  line-height: 40px;
 }
-input.has-error,select.has-error{
-  border:1px solid #ff0000;
+.border0{
+  border:0!important;
 }
-input.has-success,select.has-success{
-  border:1px solid #e0e0e0;
+.paddingT0{
+  padding-top: 0!important;
 }
-
-
+.H300{
+  height: 300px;
+}
+.goods{
+  width: 162px;
+  height: 36px;
+  border-radius: 3px;
+  border: 1px solid #dde6e9;
+  padding-left: 10px;
+  font-size: 16px;
+}
+.positionR{
+  position: relative;
+}
+.positionA{
+  position: absolute;
+  left:56%;
+  top: 10px;
+}
