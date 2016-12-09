@@ -23,3 +23,19 @@
 .H300{
   height: 300px;
 }
+.goods{
+  width: 162px;
+  height: 36px;
+  border-radius: 3px;
+  border: 1px solid #dde6e9;
+  padding-left: 10px;
+  font-size: 16px;
+}
+.positionR{
+  position: relative;
+}
+.positionA{
+  position: absolute;
+  left:56%;
+  top: 10px;
+}

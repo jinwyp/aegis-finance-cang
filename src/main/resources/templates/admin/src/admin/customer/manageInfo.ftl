@@ -77,12 +77,13 @@
                                     <div class="panel-body H300">
                                         <h4 class="lineH40">
                                             已确认当前有
-                                            <input type="text">
+                                            <input type="text" class="goods">
                                             吨货物属于 <span>*************************</span>所有,并承诺与实际情况相符。
                                         </h4>
                                     </div>
-                                    <div class="panel-footer text-center">
+                                    <div class="panel-footer text-center positionR">
                                         <button class="btn btn-warning" type="button">确认</button>
+                                        <p class="positionA"><span class="text-danger">*</span>&nbsp;确认后，将自动发送给资金方，供其查阅</p>
                                     </div>
                                 </div>
                             </div>
