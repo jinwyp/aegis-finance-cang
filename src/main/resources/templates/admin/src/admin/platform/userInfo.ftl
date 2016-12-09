@@ -48,7 +48,7 @@
                             <div class="form-group" ms-class="[@errorInputName.indexOf('inputUserRole')>-1 && 'has-error' ]">
                                 <label class="col-sm-2 control-label"><span class="text-danger marginR">*</span>用户类型:</label>
                                 <div class="col-sm-5">
-                                    <select name="account" class="form-control m-b" id="inputUserRole" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
+                                    <select name="account" class="form-control" id="inputUserRole" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                             ms-duplex="@currentUser.role" ms-rules='{required:true}' data-required-message="请选择用户类型">
                                         <option value="" > - </option>
                                         <option ms-for="role in @roleList" ms-attr="{value: role.name}" >{{role.displayName}} </option>

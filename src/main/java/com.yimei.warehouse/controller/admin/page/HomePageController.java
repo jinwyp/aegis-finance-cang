@@ -120,4 +120,11 @@ public class HomePageController {
     }
 
 
+    @ApiOperation(value = "管理后台平台管理员融资管理", notes = "管理后台平台管理员融资管理")
+        @RequestMapping(value = "/warehouse/admin/home/finance/manage", method = RequestMethod.GET)
+        public String adminFinanceManage() {
+            return "admin/customer/manageList";
+        }
+
+
 }
