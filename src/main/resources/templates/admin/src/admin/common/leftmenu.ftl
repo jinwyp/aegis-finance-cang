@@ -57,6 +57,27 @@
                     </ul>
                 </li>
 
+                <li class=" ">
+                    <a href="#manage" title="Layouts" data-toggle="collapse">
+                        <em class="icon-note"></em>
+                        <span>融资管理</span>
+                    </a>
+                    <ul id="manage" class="nav sidebar-subnav collapse">
+                        <li class="sidebar-subnav-header">个人信息</li>
+                        <li class=" ">
+                            <a href="/warehouse/admin/home/finance/manage" id="11">
+                                <span>业务列表</span>
+                            </a>
+                        </li>
+                        <!--<li class=" ">-->
+                            <!--<a href="/warehouse/admin/home/session/password" id="12">-->
+                                <!--<span>管理</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+                </li>
+
+
 
                 <li class=" ">
                     <a href="#layout" title="Layouts" data-toggle="collapse">
