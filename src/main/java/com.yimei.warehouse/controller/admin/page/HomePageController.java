@@ -124,7 +124,13 @@ public class HomePageController {
         @RequestMapping(value = "/warehouse/admin/home/finance/manage", method = RequestMethod.GET)
         public String adminFinanceManage() {
             return "admin/customer/manageList";
-        }
+    }
+
+    @ApiOperation(value = "管理后台平台管理员融资管理详细", notes = "管理后台平台管理员融资管理详细")
+        @RequestMapping(value = "/warehouse/admin/home/finance/manage/{id}", method = RequestMethod.GET)
+        public String adminFinanceManageInfo() {
+            return "admin/customer/manageInfo";
+    }
 
 
 }

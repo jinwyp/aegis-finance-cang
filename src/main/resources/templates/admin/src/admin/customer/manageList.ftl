@@ -62,22 +62,27 @@
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover text-center">
                                             <tr>
-                                                <td class="text-center">用户账号</td>
-                                                <td class="text-center">手机</td>
-                                                <td class="text-center">邮箱地址</td>
-                                                <td class="text-center">所属公司名称<br/>(全称)</td>
+                                                <td class="text-center">业务编号</td>
+                                                <td class="text-center">业务类型</td>
+                                                <td class="text-center">货主<br/>(资金方)</td>
+                                                <td class="text-center">原有总库存<br/>(吨)</td>
+                                                <td class="text-center">实时库存<br/>(吨)</td>
+                                                <td class="text-center">合同上传剩余期限</td>
+                                                <td class="text-center">业务状态</td>
                                                 <td class="text-center">操作</td>
                                             </tr>
                                             <tr ms-for="(index, user) in @userList">
                                                 <td><a ms-attr="{href:'/warehouse/admin/home/user/'+ user._id }" >{{ user.username || '--'}}</a></td>
                                                 <td>{{ user.mobilePhone || '--'}}</td>
+                                                <td>{{ user.mobilePhone || '--'}}</td>
+                                                <td>{{ user.mobilePhone || '--'}}</td>
+                                                <td>{{ user.mobilePhone || '--'}}</td>
                                                 <td>{{ user.email || '--'}}</td>
                                                 <td>{{ user.companyName || '--'}}</td>
 
                                                 <td>
-                                                    <span class="btn btn-default resetPassword" ms-click="@clickResetPassword">重置密码</span>
-                                                    <a class="btn btn-default marginL" ms-attr="{href:'/warehouse/admin/home/user/'+ user._id + '/edit'}">编辑</a>
-                                                    <span class="btn btn-default marginL" ms-click="@clickDelete">删除</span>
+                                                    <span class="btn btn-primary resetPassword" ms-click="@clickResetPassword">进入详情</span>
+
                                                 </td>
                                             </tr>
 

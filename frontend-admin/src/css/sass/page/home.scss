@@ -11,14 +11,15 @@
 .text-danger{
   line-height: 32px;
 }
-.lineH{
+.lineH25{
   line-height: 25px;
 }
-input.has-error,select.has-error{
-  border:1px solid #ff0000;
+.lineH40{
+  line-height: 40px;
 }
-input.has-success,select.has-success{
-  border:1px solid #e0e0e0;
+.border0{
+  border:0!important;
 }
-
-
+.H300{
+  height: 300px;
+}
