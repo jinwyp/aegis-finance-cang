@@ -55,7 +55,7 @@
                                     <div class="form-group">
                                         <label for="input-id-1" class="col-sm-2 control-label">用户类型</label>
                                         <div class="col-sm-5">
-                                            <p class="form-control-static" >{{@currentUser.role}}</p>
+                                            <p class="form-control-static" >{{@currentUser.role | rolename}}</p>
                                         </div>
                                         <div class="col-sm-5 text-danger"></div>
                                     </div>

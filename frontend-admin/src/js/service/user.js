@@ -28,16 +28,33 @@ var userRoles = [
     { name:'fundProviderAccountant', displayName : '资金方财务'}
 ];
 
+var userRolesAll = [
+    { name:'systemAdmin', displayName : '系统管理员'},
+    { name:'financer', displayName : '融资方'},
+    { name:'harbor', displayName : '港口'},
+    { name:'supervisor', displayName : '监管'},
+    { name:'traders', displayName : ' 贸易商'},
+    { name:'tradersAccountant', displayName : '贸易商财务'},
+    { name:'fundProvider', displayName : ' 资金方'},
+    { name:'fundProviderAccountant', displayName : '资金方财务'}
+];
+
 
 var userRoleObject = {};
+var userRoleAllObject = {};
 
 userRoles.forEach(function (role, index){
     userRoleObject[role.name] = role.displayName;
 });
-
+userRolesAll.forEach(function (role, index){
+    userRoleAllObject[role.name] = role.displayName;
+});
 
 exports.userRoleList = userRoles;
 exports.userRoleObject = userRoleObject;
+exports.userRoleAllList = userRolesAll;
+exports.userRoleAllObject = userRoleAllObject;
+
 
 exports.login = function (user){
 
@@ -114,7 +131,7 @@ exports.addNewUser = function (user){
         // password : '',
         email : '',
         mobilePhone : '',
-        companyName : '',
+        companyName : ''
         // belongToUser : '', // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
         // role : userRoleObject.systemAdmin
     }, user);

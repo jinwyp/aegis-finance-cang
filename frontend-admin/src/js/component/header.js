@@ -7,6 +7,7 @@
 var $ = require('jquery') ;
 require('bootstrap/dist/js/bootstrap.js');
 require('./notify.js');
+require('./avalonFilter.js');
 
 var rawToken = require('../service/token.js').rawToken ;
 var sessionUserId = require('../service/token.js').sessionUserId ;
@@ -95,7 +96,7 @@ var header = function() {
     userService.getSessionUser().done(function(data, textStatus, jqXHR) {
         if (data.success){
             $('.user-block-name').html(data.data.username);
-            $('.user-block-role').html(data.data.role);
+            $('.user-block-role').html(userService.userRoleAllObject[data.data.role]);
         }else{
             console.log(data.error);
         }

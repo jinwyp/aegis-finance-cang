@@ -56,7 +56,7 @@
                                     </select>
                                     <span class="help-block m-b-none" ms-visible="@currentUser.role==='tradersAccountant' || @currentUser.role==='fundProviderAccountant'">
                                     </span>
-                                    <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.role}}</p>
+                                    <p class="form-control-static lineH" ms-visible="@pageShowStatus === 'info'">{{@currentUser.role | rolename}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputUserRole')>-1">{{@errorMessage.inputUserRole}}</div>
                             </div>
