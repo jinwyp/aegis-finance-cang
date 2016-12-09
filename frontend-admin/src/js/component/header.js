@@ -11,6 +11,8 @@ require('./notify.js');
 var rawToken = require('../service/token.js').rawToken ;
 var sessionUserId = require('../service/token.js').sessionUserId ;
 
+var userService = require('../service/user.js') ;
+
 var header = function() {
 
     if (!rawToken || !sessionUserId){
@@ -86,6 +88,17 @@ var header = function() {
 
         leftMenuActive = ($( this ).attr('id'));
         localStorage.setItem('leftMenuActive', leftMenuActive.toString());
+    });
+
+
+
+    userService.getSessionUser().done(function(data, textStatus, jqXHR) {
+        if (data.success){
+            $('.user-block-name').html(data.data.username);
+            $('.user-block-role').html(data.data.role);
+        }else{
+            console.log(data.error);
+        }
     });
 
 };

@@ -31,7 +31,7 @@
                             <div class="panel-body">
                                 <form method="post" action="/" class="form-horizontal" ms-validate="@validate">
                                     <div class="form-group" ms-class="[@errorInputName.indexOf('inputOldPwd')>-1 && 'has-error']">
-                                        <label class="col-lg-2 control-label">旧密码</label>
+                                        <label class="col-lg-2 control-label">当前密码</label>
                                         <div class="col-lg-5">
                                             <input type="password" id="inputOldPwd" placeholder="请输入旧密码" class="form-control" ms-duplex="@modifyPassword.oldPwd" ms-rules="{required:true}"
                                                    data-required-message="请输入旧密码">
