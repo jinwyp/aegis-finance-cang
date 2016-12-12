@@ -127,9 +127,9 @@ public class HomePageController {
     }
 
     @ApiOperation(value = "管理后台平台管理员融资管理详细", notes = "管理后台平台管理员融资管理详细")
-        @RequestMapping(value = "/warehouse/admin/home/finance/manage/{id}", method = RequestMethod.GET)
-        public String adminFinanceManageInfo() {
-            return "admin/customer/manageInfo";
+        @RequestMapping(value = "/warehouse/admin/home/finance/contract/{id}", method = RequestMethod.GET)
+        public String adminFinanceContractUpload() {
+            return "admin/customer/contractUpload";
     }
 
 
