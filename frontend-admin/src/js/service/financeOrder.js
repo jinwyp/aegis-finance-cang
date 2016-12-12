@@ -37,9 +37,28 @@ statusObject.forEach(function (item, index){
     statusObject[item.name] = item.displayName;
 });
 
+var actions = [
+    {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '完成上传资料'},
+    {statusAt:"financingStep11", operator : 'harbor', name : 'a12FinishedUpload', displayName : '完成上传资料'},
+    {statusAt:"financingStep11", operator : 'traders', name : 'a13SelectSupervisor', displayName : '完成选择监管方'},
+    {statusAt:"financingStep14", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '完成上传资料'},
+
+    {statusAt:"financingStep11", operator : 'traders', name : 'a15Approved', displayName : '贸易商审核通过'},
+    {statusAt:"financingStep11", operator : 'traders', name : 'a16NotApproved', displayName : '贸易商审核不通过'},
+];
+
+var actionObject = {};
+
+actions.forEach(function (item, index){
+    actionObject[item.name] = item.name;
+});
+
 
 exports.statusList = status;
 exports.statusObject = statusObject;
+exports.actionList = actions;
+exports.actionObject = actionObject;
+
 
 exports.getFinanceOrderList = function (query){
 
