@@ -97,7 +97,25 @@ exports.addNewFinanceOrder = function (order){
 
 
     return jQuery.ajax({
-        url      : url.userList,
+        url      : url.financeOrderList,
+        method   : 'POST',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+
+exports.auditFinanceOrder = function (action){
+
+    var params = jQuery.extend({
+        "orderId": orderId,
+        "operator": "financer",
+        "action": actionObject.a11FinishedUpload
+    }, action);
+
+    return jQuery.ajax({
+        url      : url.financeOrderList + '/audit',
         method   : 'POST',
         dataType : 'json',
         data     : params,
