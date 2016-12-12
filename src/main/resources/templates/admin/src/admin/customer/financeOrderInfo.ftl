@@ -21,7 +21,7 @@
             <!-- 贸易商财务   查看详情模块-->
             <section>
                 <!-- Page content-->
-                <div class="content-wrapper ms-controller" ms-controller="userAddController">
+                <div class="content-wrapper">
 
                     <!--需要修改,暂不确定-->
                     <h3>财务管理 -  我的财务 - 详情 </h3>

@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!-- START panel-->
-                            <div class="panel panel-default ms-controller" ms-controller="userListController">
+                            <div class="panel panel-default ms-controller" ms-controller="orderListController">
                                 <div class="panel-heading">融资订单</div>
 
                                 <div class="panel-body">
@@ -71,17 +71,17 @@
                                                 <td class="text-center">业务状态</td>
                                                 <td class="text-center">操作</td>
                                             </tr>
-                                            <tr ms-for="(index, user) in @userList">
-                                                <td><a ms-attr="{href:'/warehouse/admin/home/user/'+ user._id }" >{{ user.username || '--'}}</a></td>
-                                                <td>{{ user.mobilePhone || '--'}}</td>
-                                                <td>{{ user.mobilePhone || '--'}}</td>
-                                                <td>{{ user.mobilePhone || '--'}}</td>
-                                                <td>{{ user.mobilePhone || '--'}}</td>
-                                                <td>{{ user.email || '--'}}</td>
-                                                <td>{{ user.companyName || '--'}}</td>
+                                            <tr ms-for="(index, order) in @orderList">
+                                                <td><a ms-attr="{href:'/warehouse/admin/home/user/'+ user._id }" >{{ order.orderNo || '--'}}</a></td>
+                                                <td>{{ order.orderType || '--'}}</td>
+                                                <td>{{ order.mobilePhone || '--'}}</td>
+                                                <td>{{ order.mobilePhone || '--'}}</td>
+                                                <td>{{ order.mortgageAmount || '--'}}</td>
+                                                <td>{{ order.email || '--'}}</td>
+                                                <td>{{ order.companyName || '--'}}</td>
 
                                                 <td>
-                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/contract/'+user._id}">进入详情</a>
+                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">进入详情</a>
                                                 </td>
                                             </tr>
 
