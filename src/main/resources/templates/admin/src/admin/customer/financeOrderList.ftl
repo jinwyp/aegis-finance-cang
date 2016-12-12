@@ -82,7 +82,6 @@
 
                                                 <td>
                                                     <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/contract/'+user._id}">进入详情</a>
-
                                                 </td>
                                             </tr>
 

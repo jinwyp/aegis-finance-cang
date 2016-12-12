@@ -84,6 +84,8 @@
                         </div>
 
                         <div class="panel-footer">
+
+
                             <div class="table-pagination">
                                 <span class="table-pagination-first" ms-click="@pageFirst"></span>
                                 <span class="table-pagination-prev" ms-click="@pagePrevious"></span>
