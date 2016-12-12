@@ -126,9 +126,16 @@ public class HomePageController {
             return "admin/customer/manageList";
     }
 
+    @ApiOperation(value = "管理后台平台管理员融资管理合同上传", notes = "管理后台平台管理员融资管理合同上传")
+        @RequestMapping(value = "/warehouse/admin/home/finance/contract/{id}", method = RequestMethod.GET)
+        public String adminFinanceContractUpload() {
+            return "admin/customer/contractUpload";
+    }
+
+
     @ApiOperation(value = "管理后台平台管理员融资管理详细", notes = "管理后台平台管理员融资管理详细")
-        @RequestMapping(value = "/warehouse/admin/home/finance/manage/{id}", method = RequestMethod.GET)
-        public String adminFinanceManageInfo() {
+        @RequestMapping(value = "/warehouse/admin/home/finance/orderDetails/{id}", method = RequestMethod.GET)
+        public String adminFinanceOrderDetails() {
             return "admin/customer/manageInfo";
     }
 

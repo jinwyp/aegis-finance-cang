@@ -18,29 +18,46 @@
         <#include "../common/leftmenu.ftl" >
 
 
-            <!-- Main section-->
+            <!-- 贸易商财务   查看详情模块-->
             <section>
                 <!-- Page content-->
                 <div class="content-wrapper ms-controller" ms-controller="userAddController">
 
-                    <h3 ms-visible="@pageShowStatus === 'info'">融资管理 - 上传合同及确认货物 </h3>
-                    <h3 ms-visible="@pageShowStatus === 'add'">融资管理 - 上传合同及确认货物 </h3>
-                    <h3 ms-visible="@pageShowStatus === 'edit'">融资管理 - 上传合同及确认货物 </h3>
+                    <!--需要修改,暂不确定-->
+                    <h3>财务管理 -  我的财务 - 详情 </h3>
 
-                    <!-- START panel-->
                     <div class="panel panel-default " >
-                        <!--<div class="panel-heading">Form elements</div>-->
+                        <div class="panel-heading">基本信息</div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <td colspan="4" class="marginL border0">业务编号:234567865432</td>
+                                        <th class="text-right">融资类型:</th>
+                                        <td>煤易融</td>
+                                        <th class="text-right">融资用户:</th>
+                                        <td>********公司</td>
+                                        <th class="text-right">关联业务编号:</th>
+                                        <td>234569876543</td>
                                     </tr>
                                     <tr>
-                                        <td class="marginL">煤种&nbsp;: <span class="marginL">*******公司</span></td>
-                                        <td>当前货物数量&nbsp;:<span class="marginL">29999吨</span></td>
-                                        <td>港口地点&nbsp;:<span class="marginL">某港口</span></td>
-                                        <td>货主&nbsp;:<span class="marginL">*******公司</span></td>
+                                        <th class="text-right">拟融资金额:</th>
+                                        <td>煤易融</td>
+                                        <th class="text-right">申请时间:</th>
+                                        <td>********公司</td>
+                                        <th class="text-right">使用时长:</th>
+                                        <td>234569876543</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right">审批总额:</th>
+                                        <td>煤易融</td>
+                                        <th class="text-right">已放款:</th>
+                                        <td>********公司</td>
+                                        <th class="text-right">已回款本金:</th>
+                                        <td>234569876543</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right">待回款本金:</th>
+                                        <td colspan="5">煤易融</td>
                                     </tr>
 
                                 </table>
@@ -49,49 +66,66 @@
                         </div>
 
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="col-sm-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading text-center">上传合同及单据</div>
-                                    <div class="panel-body H300">
-                                        <table class="table table-hover">
-                                            <tr>
-                                                <td class="border0 text-center">**合同</td>
-                                                <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="border0 text-center">**合同</td>
-                                                <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="panel-footer text-center">
-                                        <button class="btn btn-warning" type="button">点击上传</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading text-center">确认货物</div>
-                                    <div class="panel-body H300">
-                                        <h4 class="lineH40">
-                                            已确认当前有
-                                            <input type="text" class="goods">
-                                            吨货物属于 <span>*************************</span>所有,并承诺与实际情况相符。
-                                        </h4>
-                                    </div>
-                                    <div class="panel-footer text-center positionR">
-                                        <button class="btn btn-warning" type="button">确认</button>
-                                        <p class="positionA"><span class="text-danger">*</span>&nbsp;确认后，将自动发送给资金方，供其查阅</p>
-                                    </div>
-                                </div>
-                            </div>
 
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">审批详情</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th class="text-right">审批状态:</th>
+                                        <td>煤易融</td>
+                                        <th class="text-right">审批时间:</th>
+                                        <td>********公司</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right">审批金额:</th>
+                                        <td>234569876543</td>
+                                        <th class="text-right">审批人:</th>
+                                        <td>234569876543</td>
+                                    </tr>
+
+
+                                </table>
+
+                            </div>
                         </div>
+
                     </div>
 
-                    <!-- END panel-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">交易记录</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped table-bordered text-center">
+                                    <tr>
+                                        <th class="text-center">交易流水</th>
+                                        <th class="text-center">交易日期</th>
+                                        <th class="text-center">交易类型</th>
+                                        <th class="text-center">赎货金额(万元)</th>
+                                        <th class="text-center">剩余归还金额(万元)</th>
+                                        <th class="text-center">交易金额</th>
+                                    </tr>
+                                    <tr>
+                                        <td>23423</td>
+                                        <td>2016-09-12</td>
+                                        <td>回款</td>
+                                        <td>234323</td>
+                                        <td>23432</td>
+                                        <td>+1000</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">暂无任何数据</td>
+                                    </tr>
+
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </section>
 
