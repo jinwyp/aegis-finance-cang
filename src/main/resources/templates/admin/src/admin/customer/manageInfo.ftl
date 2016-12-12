@@ -26,13 +26,14 @@
                     <!--需要修改,暂不确定-->
                     <h3>财务管理 -  我的财务 - 详情 </h3>
 
+                    <!--基本信息-->
                     <div class="panel panel-default " >
                         <div class="panel-heading">基本信息</div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th class="text-right">融资类型:</th>
+                                        <th class="text-right width263">融资类型:</th>
                                         <td>煤易融</td>
                                         <th class="text-right">融资用户:</th>
                                         <td>********公司</td>
@@ -40,7 +41,7 @@
                                         <td>234569876543</td>
                                     </tr>
                                     <tr>
-                                        <th class="text-right">拟融资金额:</th>
+                                        <th class="text-right width263">拟融资金额:</th>
                                         <td>煤易融</td>
                                         <th class="text-right">申请时间:</th>
                                         <td>********公司</td>
@@ -48,7 +49,7 @@
                                         <td>234569876543</td>
                                     </tr>
                                     <tr>
-                                        <th class="text-right">审批总额:</th>
+                                        <th class="text-right width263">审批总额:</th>
                                         <td>煤易融</td>
                                         <th class="text-right">已放款:</th>
                                         <td>********公司</td>
@@ -56,7 +57,7 @@
                                         <td>234569876543</td>
                                     </tr>
                                     <tr>
-                                        <th class="text-right">待回款本金:</th>
+                                        <th class="text-right width263">待回款本金:</th>
                                         <td colspan="5">煤易融</td>
                                     </tr>
 
@@ -67,19 +68,71 @@
 
                     </div>
 
+                    <!--各方合同查看-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">各方合同查看</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover ">
+                                    <tr>
+                                        <th class="text-right width263">融资用户合同及单据:</th>
+                                        <td>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right width263">融资用户下游合同及单据:</th>
+                                        <td>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right width263">港口方合同及单据:</th>
+                                        <td>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right width263">监管方合同及单据:</th>
+                                        <td>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a href="" class="marginL marginR">合同1</a>
+                                        </td>
+                                    </tr>
+
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--审批详情-->
                     <div class="panel panel-default " >
                         <div class="panel-heading">审批详情</div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th class="text-right">审批状态:</th>
+                                        <th class="text-right width263">审批状态:</th>
                                         <td>煤易融</td>
                                         <th class="text-right">审批时间:</th>
                                         <td>********公司</td>
                                     </tr>
                                     <tr>
-                                        <th class="text-right">审批金额:</th>
+                                        <th class="text-right width263">审批金额:</th>
                                         <td>234569876543</td>
                                         <th class="text-right">审批人:</th>
                                         <td>234569876543</td>
@@ -93,6 +146,16 @@
 
                     </div>
 
+                    <!--货值趋势图-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">货值趋势图</div>
+                        <div class="panel-body">
+                            <div id="main" style="width: 100%;height: 400px;border: 1px solid gray;"></div>
+                        </div>
+
+                    </div>
+
+                    <!--交易信息-->
                     <div class="panel panel-default " >
                         <div class="panel-heading">交易记录</div>
                         <div class="panel-body">
