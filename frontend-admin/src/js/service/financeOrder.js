@@ -106,7 +106,7 @@ exports.addNewFinanceOrder = function (order){
 
 };
 
-exports.updateUserInfoById = function (id, order){
+exports.updateFinanceOrderInfoById = function (id, order){
 
     var params = jQuery.extend({}, order);
 
