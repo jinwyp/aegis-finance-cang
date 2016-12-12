@@ -42,15 +42,7 @@ exports.getFinanceOrderInfoById = function (id, query){
 
 exports.addNewFinanceOrder = function (order){
 
-    var params = jQuery.extend({
-        username : '',
-        // password : '',
-        email : '',
-        mobilePhone : '',
-        companyName : ''
-        // belongToUser : '', // 资金方财务关联资金方用户ID, 贸易商财务关联贸易商用户ID
-        // role : userRoleObject.systemAdmin
-    }, order);
+    var params = jQuery.extend({}, order);
 
 
     return jQuery.ajax({
