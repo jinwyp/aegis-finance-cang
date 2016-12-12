@@ -33,7 +33,7 @@ var status = [
 
 var statusObject = {};
 
-statusObject.forEach(function (item, index){
+status.forEach(function (item, index){
     statusObject[item.name] = item.displayName;
 });
 

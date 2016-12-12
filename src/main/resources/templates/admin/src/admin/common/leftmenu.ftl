@@ -65,7 +65,7 @@
                     <ul id="manage" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">个人信息</li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/finance/manage" id="11">
+                            <a href="/warehouse/admin/home/finance" id="11">
                                 <span>业务列表</span>
                             </a>
                         </li>

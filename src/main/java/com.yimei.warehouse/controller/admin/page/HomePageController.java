@@ -120,24 +120,28 @@ public class HomePageController {
     }
 
 
-    @ApiOperation(value = "管理后台平台管理员融资管理", notes = "管理后台平台管理员融资管理")
-        @RequestMapping(value = "/warehouse/admin/home/finance/manage", method = RequestMethod.GET)
+
+
+    @ApiOperation(value = "管理后台平台管理员 - 融资管理 - 订单列表", notes = "管理后台平台管理员融资管理")
+        @RequestMapping(value = "/warehouse/admin/home/finance", method = RequestMethod.GET)
         public String adminFinanceManage() {
-            return "admin/customer/manageList";
+            return "admin/customer/financeOrderList";
     }
 
-    @ApiOperation(value = "管理后台平台管理员融资管理合同上传", notes = "管理后台平台管理员融资管理合同上传")
+    @ApiOperation(value = "管理后台平台管理员 - 融资管理 - 订单详细", notes = "管理后台平台管理员融资管理详细")
+    @RequestMapping(value = "/warehouse/admin/home/finance/{id}", method = RequestMethod.GET)
+    public String adminFinanceOrderDetails() {
+        return "admin/customer/financeOrderInfo";
+    }
+
+
+    @ApiOperation(value = "管理后台平台管理员 - 融资管理 - 订单合同上传", notes = "管理后台平台管理员融资管理合同上传")
         @RequestMapping(value = "/warehouse/admin/home/finance/contract/{id}", method = RequestMethod.GET)
         public String adminFinanceContractUpload() {
             return "admin/customer/contractUpload";
     }
 
 
-    @ApiOperation(value = "管理后台平台管理员融资管理详细", notes = "管理后台平台管理员融资管理详细")
-        @RequestMapping(value = "/warehouse/admin/home/finance/orderDetails/{id}", method = RequestMethod.GET)
-        public String adminFinanceOrderDetails() {
-            return "admin/customer/manageInfo";
-    }
 
 
 }
