@@ -29,7 +29,7 @@
                         <div class="col-md-12">
                             <!-- START panel-->
                             <div class="panel panel-default ms-controller" ms-controller="userListController">
-                                <div class="panel-heading">我的代办</div>
+                                <div class="panel-heading">融资订单</div>
 
                                 <div class="panel-body">
                                     <form role="form" class="form-inline">
