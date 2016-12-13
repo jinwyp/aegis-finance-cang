@@ -209,16 +209,16 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/financeOrderList.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/financeOrderInfo.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/financeOrderList.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/financeOrderInfo.bundle.js"></script>
 
     <!-- 开发环境下 IE8 环境使用 /page-temp-bundle/ 文件 -->
 
     <!--[if lt IE 9]>
     <script src="${staticPathAdmin}/js/page-temp-bundle/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/page-temp-bundle/financeOrderList.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/page-temp-bundle/financeOrderInfo.bundle.js"></script>
 
     <![endif]-->
 
