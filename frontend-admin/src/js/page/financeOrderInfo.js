@@ -70,7 +70,7 @@ var orderList = function(query) {
             trigger: 'axis'
         },
         legend: {
-            data:['警戒线','货值','参考指数货值']
+            data:['当前警戒线','当前货值','待还款金额']
         },
         toolbox: {
             feature: {
@@ -97,40 +97,34 @@ var orderList = function(query) {
             }
         ],
         series : [
-            {
-                name:'警戒线',
-                type:'line',
-                stack: '总量',
-                areaStyle: {
-                    normal: {
-                        opacity:'0'
-                    }
-                },
-                data:[120, 132, 101, 134, 90, 230, 210]
-            },
-            {
-                name:'货值',
-                type:'line',
-                stack: '总量',
-                areaStyle: {
-                    normal: {
-                        opacity:'0'
-                    }
-                },
-                data:[220, 182, 191, 234, 290, 330, 310]
-            },
-            {
-                name:'参考指数货值',
-                type:'line',
-                stack: '总量',
-                areaStyle: {
-                    normal: {
-                        opacity:'0'
-                    }
-                },
-                data:[150, 232, 201, 154, 190, 330, 410]
-            }
 
+            {
+                name:'当前警戒线',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {opacity:'0'}},
+                data:[150, 150, 150, 150, 150, 150, 150]
+            },
+            {
+                name:'待还款金额',
+                type:'line',
+                stack: '总量',
+                areaStyle: {normal: {opacity:'0'}},
+                data:[320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+                name:'当前货值',
+                type:'line',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
+                areaStyle: {normal: {opacity:'0'}},
+                data:[820, 932, 901, 934, 1290, 1330, 1320]
+            }
         ]
     });
 
