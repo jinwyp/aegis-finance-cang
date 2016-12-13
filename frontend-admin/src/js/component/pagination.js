@@ -118,7 +118,7 @@ avalon.component('ms-pagination2', {
         _showPaginations : function (totalPages) {
             var vm = this;
 
-            console.log('Total count: ', vm.totalCount, vm.countPerPage)
+            // console.log('Total count: ', vm.totalCount, vm.countPerPage)
             vm._totalPage = Math.ceil(vm.totalCount / vm.countPerPage);
 
             vm._from = Number(vm.countPerPage) * (Number(vm.currentPage) - 1) + 1;

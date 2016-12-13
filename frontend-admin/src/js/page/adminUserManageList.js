@@ -12,7 +12,7 @@ var userService = require('../service/user.js') ;
 
 
 
-var userList = function(query) {
+var userList = function() {
 
     var vm = avalon.define({
         $id : 'userListController',
@@ -20,13 +20,6 @@ var userList = function(query) {
         searchQuery : {
             username : '',
             companyName : ''
-        },
-        pagination : {
-            total : 0,
-            currentPage : 1,
-            totalPage : 1,
-            from : 1,
-            to : 10
         },
 
         configPagination : {

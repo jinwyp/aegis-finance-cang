@@ -72,7 +72,7 @@
                                                 <td class="text-center">操作</td>
                                             </tr>
                                             <tr ms-for="(index, order) in @orderList">
-                                                <td><a ms-attr="{href:'/warehouse/admin/home/user/'+ user._id }" >{{ order.orderNo || '--'}}</a></td>
+                                                <td><a ms-attr="{href:'/warehouse/admin/home/finance/'+ order._id }" >{{ order.orderNo || '--'}}</a></td>
                                                 <td>{{ order.orderType || '--'}}</td>
                                                 <td>{{ order.mobilePhone || '--'}}</td>
                                                 <td>{{ order.mobilePhone || '--'}}</td>
@@ -92,28 +92,7 @@
                                 </div>
 
                                 <div class="panel-footer">
-                                    <div class="table-pagination">
-                                        <span class="table-pagination-first" ms-click="@pageFirst"></span>
-                                        <span class="table-pagination-prev" ms-click="@pagePrevious"></span>
-                                        <span class="separator"></span>
-
-                                        <span class="table-pagination-input" >页数:
-                                    <input class="ui-pg-input ui-corner-all" type="text" size="2" maxlength="2" ms-duplex="@pagination.currentPage"> of {{@pagination.totalPage}}
-                                </span>
-                                        <span class="separator"></span>
-                                        <span class="table-pagination-next" ms-click="@pageNext"></span>
-                                        <span class="table-pagination-last" ms-click="@pageLast"></span>
-
-                                        <select class="select ui-pg-selbox ui-widget-content ui-corner-all " role="listbox" title="Records per Page" ms-duplex="@pagination.countPerPage">
-                                            <option role="option" value="10">10</option>
-                                            <option role="option" value="20">20</option>
-                                            <option role="option" value="30">30</option>
-                                            <option role="option" value="50">50</option>
-                                            <option role="option" value="80">80</option>
-                                        </select>
-
-                                        <span class="table-pagination-total">当前 {{@pagination.from}} - {{@pagination.to}},  共 {{@pagination.total}} 条 </span>
-                                    </div>
+                                    <xmp is="ms-pagination2" ms-widget="@configPagination"></xmp>
 
                                 </div>
                             </div>
