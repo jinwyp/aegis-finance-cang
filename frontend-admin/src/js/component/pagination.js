@@ -10,26 +10,24 @@ var paginationTemplate = heredoc(function() {
     /*
 
      <div class="table-pagination">
-     <span class="table-pagination-first" ms-click="@pageFirst"></span>
-     <span class="table-pagination-prev" ms-click="@pagePrevious"></span>
-     <span class="separator"></span>
+         <span class="table-pagination-first" ms-class="{disabled: @isDisabled('first', 1)}" ms-click="@_changePage($event, 'first', 1)"></span>
+         <span class="table-pagination-prev" ms-class="{disabled: @isDisabled('prev', 1)}" ms-click="@_changePage($event, 'prev', @currentPage-1)"></span>
+         <span class="separator"></span>
 
-     <span class="table-pagination-input" >页数:
-     <input class="ui-pg-input ui-corner-all" type="text" size="2" maxlength="2" ms-duplex="@inputCurrentPages"> of {{@totalPages}}
-     </span>
-     <span class="separator"></span>
-     <span class="table-pagination-next" ms-click="@pageNext"></span>
-     <span class="table-pagination-last" ms-click="@pageLast"></span>
+         <span class="table-pagination-input" >页数:
+            <input class="ui-pg-input ui-corner-all" type="text" size="2" maxlength="2" ms-duplex="@_inputCurrentPages" ms-blur="@_changePage($event, 'input', @_inputCurrentPages)"> of {{@_totalPage}}
+         </span>
 
-     <select class="select ui-pg-selbox ui-widget-content ui-corner-all " role="listbox" title="Records per Page" ms-duplex="@countPerPage">
-     <option role="option" value="10">10</option>
-     <option role="option" value="20">20</option>
-     <option role="option" value="30">30</option>
-     <option role="option" value="50">50</option>
-     <option role="option" value="80">80</option>
-     </select>
+         <span class="separator"></span>
+         <span class="table-pagination-next" ms-class="{disabled: @isDisabled('next', @_totalPage)}" ms-click="@_changePage($event, 'next', @currentPage+1)"></span>
+         <span class="table-pagination-last" ms-class="{disabled: @isDisabled('last', @_totalPage)}" ms-click="@_changePage($event, 'last', @_totalPage)"></span>
 
-     <span class="table-pagination-total">当前 {{@from}} - {{@to}},  共 {{@total}} 条 </span>
+         <select class="select ui-pg-selbox ui-widget-content ui-corner-all"  ms-duplex="@countPerPage">
+             <option role="option" value="50">50</option>
+             <option role="option" value="20">20</option>
+             <option role="option" value="10">10</option>
+         </select>
+         <span class="table-pagination-total">当前 {{@_from}} - {{@_to}},  共 {{@totalCount}} 条 </span>
      </div>
 
 
@@ -38,30 +36,42 @@ var paginationTemplate = heredoc(function() {
 });
 
 
-avalon.component('ms-pagination', {
+avalon.component('ms-pagination2', {
     template: paginationTemplate,
     defaults: {
 
-        totalPages : 1,
         currentPage : 1,
         countPerPage : 10,
-        from : 1,
-        to : 10,
-        total : 0,
-
-        inputCurrentPages : 1,
+        totalCount : 0,
+        skip : 0,
         isShowPagination : true,
         changePageNo : avalon.noop,
 
         _isShow : false,
-
+        _inputCurrentPages : 1,
+        _totalPage : 1,
+        _from : 1,
+        _to : 10,
         $buttons: {},
 
         onInit : function() {
             var vm = this;
+
             vm._showPaginations();
             //console.log('init', this.totalPages);
-            this.$watch('totalPages', function(){
+            this.$watch('currentPage', function(){
+                setTimeout(function(){
+                    vm._showPaginations();
+                },2);
+            });
+
+            this.$watch('totalCount', function(){
+                setTimeout(function(){
+                    vm._showPaginations();
+                },2);
+            });
+
+            this.$watch('countPerPage', function(){
                 setTimeout(function(){
                     vm._showPaginations();
                 },2);
@@ -77,12 +87,12 @@ avalon.component('ms-pagination', {
         },
 
         isDisabled: function (name, page) {
-            this.$buttons[name] = (this.currentPage === page);
+            this.$buttons[name] = (this.currentPage === Number(page));
             return this.$buttons[name];
         },
 
-        _changePage : function(event, pageNo, name){
-            if (this.$buttons[name] || pageNo === this.currentPage) {
+        _changePage : function(event, name, pageNo ){
+            if (this.$buttons[name] || Number(pageNo) === this.currentPage) {
                 return;  //disabled, active不会触发
             }
 
@@ -91,33 +101,27 @@ avalon.component('ms-pagination', {
 
             if (tempNo < 1){
                 tempNo = 1 ;
-            }else if (tempNo > this.totalPages){
-                tempNo = this.totalPages;
+            }else if (tempNo > this._totalPage){
+                tempNo = this._totalPage;
             }
             this.currentPage = tempNo;
-            this.changePageNo(tempNo);
+            var tempskip = (tempNo - 1) * Number(vm.countPerPage);
+            this.changePageNo(tempNo, tempskip, vm.countPerPage);
         },
 
+        _showPaginations : function (totalPages) {
+            var vm = this;
 
-        pageFirst : function(){
-            vm.pagination.currentPage = 1;
-        },
-        pageLast : function(){
-            vm.pagination.currentPage = vm.pagination.totalPage;
-        },
-        pagePrevious : function(){
-            if (vm.pagination.currentPage - 1 >= 1) {
-                vm.pagination.currentPage = vm.pagination.currentPage - 1;
-            }
+            console.log(vm.countPerPage)
+            console.log(vm.totalCount)
+            vm._totalPage = Math.ceil(vm.totalCount / vm.countPerPage);
 
-        },
-        pageNext : function(){
-            if (vm.pagination.currentPage + 1 <= vm.pagination.totalPage) {
-                vm.pagination.currentPage = vm.pagination.currentPage + 1;
-            }
+            vm._from = vm.skip + 1;
+            vm._to = Number(vm.countPerPage) * Number(vm.currentPage);
+
+            if (vm._to > vm.totalCount) vm._to = vm.totalCount;
+            if (vm._from >= vm.total) vm._from = 1;
         }
-
-
     }
 
 });
