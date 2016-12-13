@@ -60,9 +60,43 @@ exports.actionList = actions;
 exports.actionObject = actionObject;
 
 
+
+
+
 exports.getFinanceOrderList = function (query){
 
-    var params = jQuery.extend({}, query);
+    var user = {};
+
+    if (typeof query.userRole !== 'undefined'){
+
+        if (query.userRole === 'financer') {
+            user = {financerUserId : query.userId}
+        }
+        if (query.userRole === 'harbor') {
+            user = {harborUserId : query.userId}
+        }
+        if (query.userRole === 'supervisor') {
+            user = {supervisorUserId : query.userId}
+        }
+        if (query.userRole === 'traders') {
+            user = {tradersUserId : query.userId}
+        }
+        if (query.userRole === 'tradersAccountant') {
+            user = {tradersAccountantUserId : query.userId}
+        }
+        if (query.userRole === 'fundProvider') {
+            user = {fundProviderUserId : query.userId}
+        }
+        if (query.userRole === 'fundProviderAccountant') {
+            user = {fundProviderAccountantUserId : query.userId}
+        }
+
+    }
+
+    delete query.userRole;
+    delete query.userId;
+
+    var params = jQuery.extend({}, query, user);
 
     return jQuery.ajax({
         url      : url.financeOrderList,

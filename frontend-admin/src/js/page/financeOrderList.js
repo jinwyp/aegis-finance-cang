@@ -5,6 +5,10 @@ require('../component/header.js');
 require('../component/pagination.js');
 
 var orderService = require('../service/financeOrder.js') ;
+var sessionUserRole = localStorage.getItem('sessionUserRole');
+var sessionUserId = localStorage.getItem('sessionUserId');
+
+
 
 
 
@@ -25,7 +29,9 @@ var orderList = function() {
             changePageNo : function(currentPageNo, skip, countPerPage){
                 var query = {
                     $limit: countPerPage,
-                    $skip : skip
+                    $skip : skip,
+                    userRole : sessionUserRole,
+                    userId : sessionUserId
                 };
 
                 getOrders(query)
@@ -36,7 +42,10 @@ var orderList = function() {
 
 
     function getOrders(query){
-        query = query || {};
+        query = query || {
+            userRole : sessionUserRole,
+            userId : sessionUserId
+        };
 
         orderService.getFinanceOrderList(query).done(function(data, textStatus, jqXHR) {
             if (data.success){
