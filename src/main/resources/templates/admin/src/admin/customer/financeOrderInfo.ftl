@@ -75,6 +75,11 @@
                             <div class="table-responsive">
                                 <table class="table table-hover ">
                                     <tr>
+                                        <td colspan="2" class="text-right border0">
+                                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/'+order._id}">上传合同</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th class="text-right width263">融资用户合同及单据:</th>
                                         <td>
                                             <a href="" class="marginL marginR">合同1</a>
