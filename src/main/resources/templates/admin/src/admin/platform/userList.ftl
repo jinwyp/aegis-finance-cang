@@ -85,6 +85,9 @@
 
                         <div class="panel-footer">
 
+                            <xmp is="ms-pagination2" ms-widget="@configPagination"></xmp>
+
+                            <!--
 
                             <div class="table-pagination">
                                 <span class="table-pagination-first" ms-click="@pageFirst"></span>
@@ -108,6 +111,7 @@
 
                                 <span class="table-pagination-total">当前 {{@pagination.from}} - {{@pagination.to}},  共 {{@pagination.total}} 条 </span>
                             </div>
+                            -->
 
                         </div>
                     </div>
