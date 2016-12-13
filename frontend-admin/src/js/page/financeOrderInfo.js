@@ -75,7 +75,8 @@ var orderList = function(query) {
         toolbox: {
             feature: {
                 saveAsImage: {}
-            }
+            },
+            right:'4%'
         },
         grid: {
             left: '3%',
@@ -100,21 +101,33 @@ var orderList = function(query) {
                 name:'警戒线',
                 type:'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: {
+                    normal: {
+                        opacity:'0'
+                    }
+                },
                 data:[120, 132, 101, 134, 90, 230, 210]
             },
             {
                 name:'货值',
                 type:'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: {
+                    normal: {
+                        opacity:'0'
+                    }
+                },
                 data:[220, 182, 191, 234, 290, 330, 310]
             },
             {
                 name:'参考指数货值',
                 type:'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: {
+                    normal: {
+                        opacity:'0'
+                    }
+                },
                 data:[150, 232, 201, 154, 190, 330, 410]
             }
 
