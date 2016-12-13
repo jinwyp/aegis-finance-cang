@@ -103,6 +103,7 @@ var orderList = function(query) {
                 type:'line',
                 stack: '总量',
                 areaStyle: {normal: {opacity:'0'}},
+                lineStyle: {normal: {type:'dotted'}},
                 data:[150, 150, 150, 150, 150, 150, 150]
             },
             {
