@@ -8,10 +8,10 @@ var url = require('./token').url;
 
 
 var status = [
-    {name : 'financingStep11', displayName:'等待融资方,港口上传合同及单据,等待贸易商选择监管方'},
+    {name : 'financingStep11', displayName:'等待融资方上传合同及单据,等待贸易商选择港口和监管方'},
     {name : 'financingStep12', displayName:'融资方完成上传合同,待贸易商审核'},
-    {name : 'financingStep13', displayName:'港口完成上传合同,待贸易商审核'},
-    {name : 'financingStep14', displayName:'贸易商已选择监管方,待监管上传合同及单据'},
+    {name : 'financingStep13', displayName:'贸易商已选择港口和监管方,待港口和监管上传合同及单据'},
+    {name : 'financingStep14', displayName:'港口完成上传合同,待贸易商审核'},
     {name : 'financingStep15', displayName:'监管方完成上传合同,待贸易商审核'},
     {name : 'financingStep51', displayName:'贸易商审核不通过，流程结束'},
     {name : 'financingStep16', displayName:'贸易商审核通过,待贸易商财务放款建议'},
@@ -28,7 +28,6 @@ var status = [
     {name : 'repaymentStep53', displayName:'贸易商已扣押货物（处置货权）,融资方未回款, 待贸易商确认回款给资金方'},
     {name : 'repaymentStep35', displayName:'贸易商已确认回款给资金方,待贸易商财务放款'},
     {name : 'repaymentStep36', displayName:'贸易商财务已回款给资金方，流程结束'}
-
 ];
 
 var statusObject = {};

@@ -17,6 +17,10 @@ var orderList = function() {
     var vm = avalon.define({
         $id : 'orderListController',
         orderList : [],
+        currentUser : {
+            id : sessionUserId,
+            role : sessionUserRole
+        },
         searchQuery : {
             username : '',
             companyName : ''
