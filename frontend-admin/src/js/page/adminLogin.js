@@ -53,7 +53,7 @@ var login = function() {
                             localStorage.setItem('feathers-jwt', data.data.token);
                             localStorage.setItem('sessionUserId', data.data.data._id);
                             localStorage.setItem('sessionUserRole', data.data.data.role);
-                            window.location.href = '/warehouse/admin/home/userlist'
+                            window.location.href = '/warehouse/admin/home/finance'
                         }else{
                             vm.errorMessage.ajax = data.error.message;
                         }

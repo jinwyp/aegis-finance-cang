@@ -21,7 +21,7 @@
     <div class="block-center mt-xl wd-xl">
         <!-- START panel-->
         <div class="panel panel-dark panel-flat">
-            <div class="panel-body" ms-controller="loginController">
+            <div class="panel-body ms-controller" ms-controller="loginController">
 
                 <h4 class="text-center pv">仓押系统登录</h4>
 
