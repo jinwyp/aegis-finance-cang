@@ -195,9 +195,9 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-success">Success</button></div>
-                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-danger">Success</button></div>
-                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-info">Success</button></div>
+                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-success">{{@action.a11FinishedUpload}}</button></div>
+                        <#--<div class="col-sm-2"><button type="button" class="mb-sm btn btn-danger">Success</button></div>-->
+                        <#--<div class="col-sm-2"><button type="button" class="mb-sm btn btn-info">Success</button></div>-->
                     </div>
                 </div>
             </section>
