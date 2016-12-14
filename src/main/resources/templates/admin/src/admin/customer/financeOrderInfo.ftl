@@ -24,7 +24,7 @@
                 <div class="content-wrapper" ms-controller="orderInfoController">
 
                     <!--需要修改,暂不确定-->
-                    <h3>财务管理 -  我的财务 - 详情 </h3>
+                    <h3>融资管理 - 详情 </h3>
 
                     <!--基本信息-->
                     <div class="panel panel-default " >
@@ -194,6 +194,11 @@
 
                     </div>
 
+                    <div class="row">
+                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-success">Success</button></div>
+                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-danger">Success</button></div>
+                        <div class="col-sm-2"><button type="button" class="mb-sm btn btn-info">Success</button></div>
+                    </div>
                 </div>
             </section>
 

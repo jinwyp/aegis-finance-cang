@@ -4,60 +4,33 @@ var avalon = require('avalon2') ;
 require('../component/header.js');
 
 var echarts = require('echarts');
-
-var userService = require('../service/user.js') ;
 var orderService = require('../service/financeOrder.js') ;
-
 
 var url = window.location.href;
 var orderId = url.substring(url.lastIndexOf("\/") + 1, url.length);
 console.log(orderId);
 
-var orderList = function(query) {
+var orderInfo = function(query) {
 
     var vm = avalon.define({
         $id : 'orderInfoController',
-        currenOrder : {},
-        orderId : orderId,
-        pagination : {
-            total : 0,
-            currentPage : 1,
-            countPerPage : 10,
-            totalPage : 1,
-            from : 1,
-            to : 10
-        }
-
+        currentOrderId : orderId,
+        currentOrder : {}
     });
 
 
 
-    function getOrders(){
-
-        var query = {
-            $limit: Number(vm.pagination.countPerPage),
-            $skip : (Number(vm.pagination.currentPage)-1) * Number(vm.pagination.countPerPage)
-        };
-        orderService.getFinanceOrderList(query).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.orderList = data.data;
-                vm.pagination.total = data.meta.total;
-                vm.pagination.totalPage = Math.ceil(data.meta.total / data.meta.count);
-
-                vm.pagination.from = data.meta.offset + 1;
-                vm.pagination.to = Number(vm.pagination.countPerPage) * data.meta.page;
-
-                if (vm.pagination.to > data.meta.total) vm.pagination.to = data.meta.total;
-                if (vm.pagination.from >= data.meta.total) vm.pagination.from = 1;
-
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
-            }else{
+    function getOrderInfo() {
+        orderService.getFinanceOrderInfoById(orderId).done(function (data, textStatus, jqXHR) {
+            if (data.success) {
+                vm.currentOrder = data.data;
+            } else {
                 console.log(data.error);
             }
-        })
+        });
     }
 
-    getOrders();
+    getOrderInfo();
     
 
     //折线图
@@ -132,7 +105,7 @@ var orderList = function(query) {
 
 };
 
-orderList();
+orderInfo();
 
 
-module.exports = orderList;
+module.exports = orderInfo;

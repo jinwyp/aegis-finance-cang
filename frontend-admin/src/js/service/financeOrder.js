@@ -37,19 +37,35 @@ status.forEach(function (item, index){
 });
 
 var actions = [
-    {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '完成上传资料'},
-    {statusAt:"financingStep11", operator : 'harbor', name : 'a12FinishedUpload', displayName : '完成上传资料'},
-    {statusAt:"financingStep11", operator : 'traders', name : 'a13SelectSupervisor', displayName : '完成选择监管方'},
-    {statusAt:"financingStep14", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '完成上传资料'},
+    {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep11", operator : 'traders', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口和监管方'},
 
-    {statusAt:"financingStep11", operator : 'traders', name : 'a15Approved', displayName : '贸易商审核通过'},
-    {statusAt:"financingStep11", operator : 'traders', name : 'a16NotApproved', displayName : '贸易商审核不通过'},
+    {statusAt:"financingStep13", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep13", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
+
+    {statusAt:"financingStep12", operator : 'traders', name : 'a15Approved', displayName : '审核通过'},
+    {statusAt:"financingStep12", operator : 'traders', name : 'a16NotApproved', displayName : '审核不通过'},
+
+    {statusAt:"financingStep16", operator : 'tradersAccountant', name : 'a17Approved', displayName : '确认放款'},
+
+    {statusAt:"financingStep17", operator : 'fundProvider', name : 'a18Approved', displayName : '审核通过'},
+    {statusAt:"financingStep17", operator : 'fundProvider', name : 'a19NotApproved', displayName : '审核不通过'},
+
+
+    {statusAt:"financingStep18", operator : 'fundProviderAccountant', name : 'a20Approved', displayName : '确认放款'},
+    {statusAt:"financingStep19", operator : 'fundProviderAccountant', name : 'a21auto', displayName : '自动确认收款'},
+    {statusAt:"financingStep20", operator : 'fundProviderAccountant', name : 'a22auto', displayName : '自动确认收款'},
+
+
+    {statusAt:"financingStep21", operator : 'financer', name : 'a22ReturnMoney', displayName : '确认回款'},
+
+
 ];
 
 var actionObject = {};
 
 actions.forEach(function (item, index){
-    actionObject[item.name] = item.name;
+    actionObject[item.name] = item.displayName;
 });
 
 
