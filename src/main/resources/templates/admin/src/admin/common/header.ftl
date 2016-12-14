@@ -39,7 +39,7 @@
                 <!-- END User avatar toggle-->
                 <!-- START lock screen-->
                 <li>
-                    <a href="lock.html" title="Lock screen">
+                    <a id="user-logout" href="#" title="Lock screen">
                         <em class="icon-lock"></em>
                     </a>
                 </li>

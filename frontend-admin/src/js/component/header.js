@@ -42,6 +42,12 @@ var header = function() {
     });
 
 
+    // 退出登录
+    $("#user-logout").on("click", function() {
+        userService.logout();
+    });
+
+
     // 点击隐藏的左部菜单
     var buttonToggleLeftMenu = $("[data-trigger-resize]");
     var body = $("body");
