@@ -18,12 +18,7 @@ var orderList = function(query) {
 
     var vm = avalon.define({
         $id : 'orderInfoController',
-        orderList : [],
-        searchQuery : {
-            username : '',
-            companyName : '',
-            orderId : orderId
-        },
+        currenOrder : {},
         pagination : {
             total : 0,
             currentPage : 1,
