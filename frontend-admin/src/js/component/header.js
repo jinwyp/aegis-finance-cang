@@ -92,7 +92,7 @@ var header = function() {
     });
 
 
-
+    // 左侧菜单用户信息
     userService.getSessionUser().done(function(data, textStatus, jqXHR) {
         if (data.success){
             $('.user-block-name').html(data.data.username);

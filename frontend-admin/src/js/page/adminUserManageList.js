@@ -12,7 +12,7 @@ var userService = require('../service/user.js') ;
 
 
 
-var userList = function(query) {
+var userList = function() {
 
     var vm = avalon.define({
         $id : 'userListController',
@@ -21,20 +21,12 @@ var userList = function(query) {
             username : '',
             companyName : ''
         },
-        pagination : {
-            total : 0,
-            currentPage : 1,
-            totalPage : 1,
-            from : 1,
-            to : 10
-        },
 
         configPagination : {
             id : 'pagination',
             totalCount : 0,
-            skip : 0,
             currentPage : 1,
-            countPerPage : 20,
+            countPerPage : 10,
             changePageNo : function(currentPageNo, skip, countPerPage){
                 var query = {
                     $limit: countPerPage,
@@ -42,7 +34,6 @@ var userList = function(query) {
                 };
 
                 getUsers(query)
-
             }
         },
 
@@ -72,7 +63,6 @@ var userList = function(query) {
 
                 vm.configPagination.currentPage = data.meta.page;
                 vm.configPagination.totalCount = data.meta.total;
-                vm.configPagination.skip = data.meta.offset;
 
             }else{
                 console.log(data.error);

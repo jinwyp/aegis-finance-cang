@@ -22,7 +22,7 @@ var paginationTemplate = heredoc(function() {
          <span class="table-pagination-next" ms-class="{disabled: @isDisabled('next', @_totalPage)}" ms-click="@_changePage($event, 'next', @currentPage+1)"></span>
          <span class="table-pagination-last" ms-class="{disabled: @isDisabled('last', @_totalPage)}" ms-click="@_changePage($event, 'last', @_totalPage)"></span>
 
-         <select class="select ui-pg-selbox ui-widget-content ui-corner-all"  ms-duplex="@countPerPage">
+         <select class="select ui-pg-selbox ui-widget-content ui-corner-all"  ms-duplex-number="@countPerPage" data-duplex-changed="@_changeCountPerPage($event)">
              <option role="option" value="50">50</option>
              <option role="option" value="20">20</option>
              <option role="option" value="10">10</option>
@@ -43,7 +43,6 @@ avalon.component('ms-pagination2', {
         currentPage : 1,
         countPerPage : 10,
         totalCount : 0,
-        skip : 0,
         isShowPagination : true,
         changePageNo : avalon.noop,
 
@@ -51,7 +50,7 @@ avalon.component('ms-pagination2', {
         _inputCurrentPages : 1,
         _totalPage : 1,
         _from : 1,
-        _to : 10,
+        _to : 1,
         $buttons: {},
 
         onInit : function() {
@@ -59,11 +58,6 @@ avalon.component('ms-pagination2', {
 
             vm._showPaginations();
             //console.log('init', this.totalPages);
-            this.$watch('currentPage', function(){
-                setTimeout(function(){
-                    vm._showPaginations();
-                },2);
-            });
 
             this.$watch('totalCount', function(){
                 setTimeout(function(){
@@ -72,6 +66,12 @@ avalon.component('ms-pagination2', {
             });
 
             this.$watch('countPerPage', function(){
+                setTimeout(function(){
+                    vm._showPaginations();
+                },2);
+            });
+
+            this.$watch('currentPage', function(){
                 setTimeout(function(){
                     vm._showPaginations();
                 },2);
@@ -91,7 +91,13 @@ avalon.component('ms-pagination2', {
             return this.$buttons[name];
         },
 
+        _changeCountPerPage : function(event ){
+            var tempskip = (this.currentPage - 1) * Number(this.countPerPage);
+            this.changePageNo(this.currentPage, tempskip, this.countPerPage);
+        },
+
         _changePage : function(event, name, pageNo ){
+
             if (this.$buttons[name] || Number(pageNo) === this.currentPage) {
                 return;  //disabled, active不会触发
             }
@@ -105,18 +111,17 @@ avalon.component('ms-pagination2', {
                 tempNo = this._totalPage;
             }
             this.currentPage = tempNo;
-            var tempskip = (tempNo - 1) * Number(vm.countPerPage);
-            this.changePageNo(tempNo, tempskip, vm.countPerPage);
+            var tempskip = (tempNo - 1) * Number(this.countPerPage);
+            this.changePageNo(tempNo, tempskip, this.countPerPage);
         },
 
         _showPaginations : function (totalPages) {
             var vm = this;
 
-            console.log(vm.countPerPage)
-            console.log(vm.totalCount)
+            // console.log('Total count: ', vm.totalCount, vm.countPerPage)
             vm._totalPage = Math.ceil(vm.totalCount / vm.countPerPage);
 
-            vm._from = vm.skip + 1;
+            vm._from = Number(vm.countPerPage) * (Number(vm.currentPage) - 1) + 1;
             vm._to = Number(vm.countPerPage) * Number(vm.currentPage);
 
             if (vm._to > vm.totalCount) vm._to = vm.totalCount;

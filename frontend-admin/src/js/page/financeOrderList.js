@@ -2,13 +2,17 @@
 
 var avalon = require('avalon2') ;
 require('../component/header.js');
+require('../component/pagination.js');
 
-var userService = require('../service/user.js') ;
 var orderService = require('../service/financeOrder.js') ;
+var sessionUserRole = localStorage.getItem('sessionUserRole');
+var sessionUserId = localStorage.getItem('sessionUserId');
 
 
 
-var orderList = function(query) {
+
+
+var orderList = function() {
 
     var vm = avalon.define({
         $id : 'orderListController',
@@ -17,44 +21,44 @@ var orderList = function(query) {
             username : '',
             companyName : ''
         },
-        pagination : {
-            total : 0,
+        configPagination : {
+            id : 'pagination',
+            totalCount : 0,
             currentPage : 1,
             countPerPage : 10,
-            totalPage : 1,
-            from : 1,
-            to : 10
+            changePageNo : function(currentPageNo, skip, countPerPage){
+                var query = {
+                    $limit: countPerPage,
+                    $skip : skip,
+                    userRole : sessionUserRole,
+                    userId : sessionUserId
+                };
+
+                getOrders(query)
+            }
         }
 
     });
 
 
-
-    function getOrders(){
-
-        var query = {
-            $limit: Number(vm.pagination.countPerPage),
-            $skip : (Number(vm.pagination.currentPage)-1) * Number(vm.pagination.countPerPage)
+    function getOrders(query){
+        query = query || {
+            userRole : sessionUserRole,
+            userId : sessionUserId
         };
+
         orderService.getFinanceOrderList(query).done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.orderList = data.data;
-                vm.pagination.total = data.meta.total;
-                vm.pagination.totalPage = Math.ceil(data.meta.total / data.meta.count);
 
-                vm.pagination.from = data.meta.offset + 1;
-                vm.pagination.to = Number(vm.pagination.countPerPage) * data.meta.page;
+                vm.configPagination.currentPage = data.meta.page;
+                vm.configPagination.totalCount = data.meta.total;
 
-                if (vm.pagination.to > data.meta.total) vm.pagination.to = data.meta.total;
-                if (vm.pagination.from >= data.meta.total) vm.pagination.from = 1;
-
-                // vm.configPagination.totalPages = Math.ceil(data.meta.total / data.meta.count);
             }else{
                 console.log(data.error);
             }
         })
     }
-
 
     getOrders();
 

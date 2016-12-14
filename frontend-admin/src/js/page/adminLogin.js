@@ -52,6 +52,7 @@ var login = function() {
                             console.log('登录成功', data);
                             localStorage.setItem('feathers-jwt', data.data.token);
                             localStorage.setItem('sessionUserId', data.data.data._id);
+                            localStorage.setItem('sessionUserRole', data.data.data.role);
                             window.location.href = '/warehouse/admin/home/userlist'
                         }else{
                             vm.errorMessage.ajax = data.error.message;
