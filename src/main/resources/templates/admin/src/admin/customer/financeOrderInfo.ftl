@@ -21,7 +21,7 @@
             <!-- 贸易商财务   查看详情模块-->
             <section>
                 <!-- Page content-->
-                <div class="content-wrapper">
+                <div class="content-wrapper" ms-controller="orderInfoController">
 
                     <!--需要修改,暂不确定-->
                     <h3>财务管理 -  我的财务 - 详情 </h3>
@@ -76,7 +76,7 @@
                                 <table class="table table-hover ">
                                     <tr>
                                         <td colspan="2" class="text-right border0">
-                                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/'+order._id}">上传合同</a>
+                                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @searchQuery.orderId}">上传合同</a>
                                         </td>
                                     </tr>
                                     <tr>

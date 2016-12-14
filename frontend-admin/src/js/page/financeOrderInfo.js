@@ -9,15 +9,20 @@ var userService = require('../service/user.js') ;
 var orderService = require('../service/financeOrder.js') ;
 
 
+var url = window.location.href.match(/\/finance\/\d{1,8}/);
+var orderId = 0;
+if (url) orderId = Number(url[0].split('/')[2]);
+console.log(orderId+'---------');
 
 var orderList = function(query) {
 
     var vm = avalon.define({
-        $id : 'orderListController',
+        $id : 'orderInfoController',
         orderList : [],
         searchQuery : {
             username : '',
-            companyName : ''
+            companyName : '',
+            orderId : orderId
         },
         pagination : {
             total : 0,
