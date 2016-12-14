@@ -65,6 +65,14 @@ exports.login = function (user){
 
 };
 
+exports.logout = function (user){
+
+    localStorage.removeItem('feathers-jwt');
+    localStorage.removeItem('sessionUserId');
+    localStorage.removeItem('sessionUserRole');
+    window.location.href = '/warehouse/admin/login'
+};
+
 exports.getSessionUser = function (query){
 
     if (sessionUserId){
