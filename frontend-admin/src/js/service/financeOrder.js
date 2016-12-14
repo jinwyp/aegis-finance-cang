@@ -65,7 +65,7 @@ var actions = [
 var actionObject = {};
 
 actions.forEach(function (item, index){
-    actionObject[item.name] = item.displayName;
+    actionObject[item.name] = item;
 });
 
 
@@ -155,14 +155,13 @@ exports.addNewFinanceOrder = function (order){
 
 };
 
-exports.auditFinanceOrder = function (action){
-
-    var params = jQuery.extend({
+exports.auditFinanceOrder = function (orderId, userRole, actionName){
+    console.log("流程:%s, 角色 %s 发出的动作: %s", orderId, userRole, actionName)
+    var params = jQuery.extend({}, {
         "orderId": orderId,
-        "operator": "financer",
-        "action": actionObject.a11FinishedUpload
-    }, action);
-
+        "action": actionName,
+        "operator": userRole
+    });
     return jQuery.ajax({
         url      : url.financeOrderList + '/audit',
         method   : 'POST',
@@ -172,6 +171,7 @@ exports.auditFinanceOrder = function (action){
     });
 
 };
+
 
 exports.updateFinanceOrderInfoById = function (id, order){
 

@@ -5,6 +5,9 @@ require('../component/header.js');
 
 var echarts = require('echarts');
 var orderService = require('../service/financeOrder.js') ;
+var sessionUserRole = localStorage.getItem('sessionUserRole');
+var sessionUserId = localStorage.getItem('sessionUserId');
+
 
 var url = window.location.href;
 var orderId = url.substring(url.lastIndexOf("\/") + 1, url.length);
@@ -16,7 +19,16 @@ var orderInfo = function(query) {
         $id : 'orderInfoController',
         currentOrderId : orderId,
         currentOrder : {},
-        action : orderService.actionObject
+        action : orderService.actionObject,
+        doAction : function (actionName){
+            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName).done(function (data, textStatus, jqXHR) {
+                if (data.success) {
+                    $.notify("提交成功!", 'success');
+                } else {
+                    console.log(data.error);
+                }
+            });
+        }
     });
 
 
