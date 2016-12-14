@@ -9,10 +9,10 @@ var userService = require('../service/user.js') ;
 var orderService = require('../service/financeOrder.js') ;
 
 
-var url = window.location.href.match(/\/finance\/\d{1,8}/);
-var orderId = 0;
-if (url) orderId = Number(url[0].split('/')[2]);
-console.log(orderId+'---------');
+var url = window.location.href;
+var orderId = url.substring(url.lastIndexOf("\/") + 1, url.length);
+console.log(orderId);
+console.log(url+'---------');
 
 var orderList = function(query) {
 
