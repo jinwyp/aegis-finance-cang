@@ -12,13 +12,13 @@ var orderService = require('../service/financeOrder.js') ;
 var url = window.location.href;
 var orderId = url.substring(url.lastIndexOf("\/") + 1, url.length);
 console.log(orderId);
-console.log(url+'---------');
 
 var orderList = function(query) {
 
     var vm = avalon.define({
         $id : 'orderInfoController',
         currenOrder : {},
+        orderId : orderId,
         pagination : {
             total : 0,
             currentPage : 1,
