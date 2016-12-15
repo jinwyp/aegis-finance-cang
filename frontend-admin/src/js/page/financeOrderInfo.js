@@ -17,6 +17,10 @@ var orderInfo = function(query) {
 
     var vm = avalon.define({
         $id : 'orderInfoController',
+        currentUser : {
+            id : sessionUserId,
+            role : sessionUserRole
+        },
         currentOrderId : orderId,
         currentOrder : {},
         action : orderService.actionObject,

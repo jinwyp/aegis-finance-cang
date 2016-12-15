@@ -21,7 +21,7 @@
             <!-- 贸易商财务   查看详情模块-->
             <section>
                 <!-- Page content-->
-                <div class="content-wrapper" ms-controller="orderInfoController">
+                <div class="content-wrapper ms-controller" ms-controller="orderInfoController">
 
                     <!--需要修改,暂不确定-->
                     <h3>融资管理 - 详情 </h3>
@@ -194,12 +194,97 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row" ms-if="@currentUser.role === 'financer' ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a11FinishedUpload.statusAt" ms-click="doAction(@action.a11FinishedUpload.name)">{{@action.a11FinishedUpload.displayName}}</button>
                         </div>
+
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a31FirstReturnMoney.statusAt" ms-click="doAction(@action.a31FirstReturnMoney.name)">{{@action.a31FirstReturnMoney.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a32SecondReturnMoney.statusAt" ms-click="doAction(@action.a32SecondReturnMoney.name)">{{@action.a32SecondReturnMoney.displayName}}</button>
+                        </div>
+
                         <#--<div class="col-sm-2"><button type="button" class="mb-sm btn btn-danger">Success</button></div>-->
                         <#--<div class="col-sm-2"><button type="button" class="mb-sm btn btn-info">Success</button></div>-->
+                    </div>
+
+
+                    <div class="row" ms-if="@currentUser.role === 'traders' ">
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a12SelectHarborAndSupervisor.statusAt" ms-click="doAction(@action.a12SelectHarborAndSupervisor.name)">{{@action.a12SelectHarborAndSupervisor.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a15Approved.statusAt" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a16NotApproved.statusAt" ms-click="doAction(@action.a16NotApproved.name)">{{@action.a16NotApproved.displayName}}</button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a32ReturnPortionCargo.statusAt" ms-click="doAction(@action.a32ReturnPortionCargo.name)">{{@action.a32ReturnPortionCargo.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a33ReturnAllCargo.statusAt" ms-click="doAction(@action.a33ReturnAllCargo.name)">{{@action.a33ReturnAllCargo.displayName}}</button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a36ReturnMoney.statusAt" ms-click="doAction(@action.a36ReturnMoney.name)">{{@action.a36ReturnMoney.displayName}}</button>
+                        </div>
+
+                    </div>
+
+                    <div class="row" ms-if="@currentUser.role === 'tradersAccountant' ">
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a17Approved.statusAt" ms-click="doAction(@action.a17Approved.name)">{{@action.a17Approved.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a37Approved.statusAt" ms-click="doAction(@action.a37Approved.name)">{{@action.a37Approved.displayName}}</button>
+                        </div>
+                    </div>
+
+
+                    <div class="row" ms-if="@currentUser.role === 'harbor' ">
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a13FinishedUpload.statusAt" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a34ConfirmPortionCargo.statusAt" ms-click="doAction(@action.a34ConfirmPortionCargo.name)">{{@action.a34ConfirmPortionCargo.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a35ConfirmAllCargo.statusAt" ms-click="doAction(@action.a35ConfirmAllCargo.name)">{{@action.a35ConfirmAllCargo.displayName}}</button>
+                        </div>
+                    </div>
+
+                    <div class="row" ms-if="@currentUser.role === 'supervisor' ">
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a14FinishedUpload.statusAt" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row" ms-if="@currentUser.role === 'fundProvider' ">
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a18Approved.statusAt" ms-click="doAction(@action.a18Approved.name)">{{@action.a18Approved.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a19NotApproved.statusAt" ms-click="doAction(@action.a19NotApproved.name)">{{@action.a19NotApproved.displayName}}</button>
+                        </div>
+                    </div>
+
+                    <div class="row" ms-if="@currentUser.role === 'fundProviderAccountant' ">
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a20Approved.statusAt" ms-click="doAction(@action.a20Approved.name)">{{@action.a20Approved.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a21auto.statusAt" ms-click="doAction(@action.a21auto.name)">{{@action.a21auto.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a22auto.statusAt" ms-click="doAction(@action.a22auto.name)">{{@action.a22auto.displayName}}</button>
+                        </div>
                     </div>
                 </div>
             </section>
