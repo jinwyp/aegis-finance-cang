@@ -23,9 +23,11 @@ var paginationTemplate = heredoc(function() {
          <span class="table-pagination-last" ms-class="{disabled: @isDisabled('last', @_totalPage)}" ms-click="@_changePage($event, 'last', @_totalPage)"></span>
 
          <select class="select ui-pg-selbox ui-widget-content ui-corner-all"  ms-duplex-number="@countPerPage" data-duplex-changed="@_changeCountPerPage($event)">
-             <option role="option" value="50">50</option>
-             <option role="option" value="20">20</option>
              <option role="option" value="10">10</option>
+             <option role="option" value="20">20</option>
+             <option role="option" value="30">30</option>
+             <option role="option" value="50">50</option>
+             <option role="option" value="100">100</option>
          </select>
          <span class="table-pagination-total">当前 {{@_from}} - {{@_to}},  共 {{@totalCount}} 条 </span>
      </div>

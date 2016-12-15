@@ -157,7 +157,7 @@
                                         </table>
 
 
-                                        <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'supervisor' || ">
+                                        <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'supervisor' ">
                                             <tr>
                                                 <td class="text-center">业务编号</td>
                                                 <td class="text-center">业务类型</td>
