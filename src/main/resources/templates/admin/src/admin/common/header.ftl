@@ -32,7 +32,10 @@
                 <!-- START User avatar toggle-->
                 <li>
                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                    <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
+                    <!--<a id="user-block-toggle" href="#user-block" data-toggle="collapse">-->
+                        <!--<em class="icon-user"></em>-->
+                    <!--</a>-->
+                    <a href="/warehouse/admin/home/session/info">
                         <em class="icon-user"></em>
                     </a>
                 </li>
