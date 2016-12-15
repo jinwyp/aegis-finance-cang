@@ -9,7 +9,8 @@ var sessionUserId = localStorage.getItem('sessionUserId') || '';
 var sessionUserRole = localStorage.getItem('sessionUserRole') || '';
 
 var headers = {
-    "X-Authorization" : token
+    "X-Authorization" : token,
+    "X-Authorization-UserId" : sessionUserId
 };
 
 var prefix = '/api';
