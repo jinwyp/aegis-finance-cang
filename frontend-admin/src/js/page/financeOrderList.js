@@ -5,8 +5,8 @@ require('../component/header.js');
 require('../component/pagination.js');
 
 var orderService = require('../service/financeOrder.js') ;
-var sessionUserRole = localStorage.getItem('sessionUserRole');
-var sessionUserId = localStorage.getItem('sessionUserId');
+var sessionUserId = require('../service/token.js').sessionUserId ;
+var sessionUserRole = require('../service/token.js').sessionUserRole ;
 
 
 

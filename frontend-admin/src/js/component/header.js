@@ -11,8 +11,10 @@ require('./avalonFilter.js');
 
 var rawToken = require('../service/token.js').rawToken ;
 var sessionUserId = require('../service/token.js').sessionUserId ;
+var sessionUserRole = require('../service/token.js').sessionUserRole ;
 
 var userService = require('../service/user.js') ;
+
 
 var header = function() {
 
@@ -107,6 +109,13 @@ var header = function() {
             console.log(data.error);
         }
     });
+
+    // 非管理员隐藏用户管理菜单
+    if (sessionUserRole === userService.userRoleAllList[0].name){
+        $('.admin-user-management').removeClass('hidden');
+
+    }
+
 
 };
 

@@ -102,7 +102,7 @@
                 <!--<li class="nav-heading ">-->
                     <!--<span data-localize="sidebar.heading.COMPONENTS">Components</span>-->
                 <!--</li>-->
-                <li class=" ">
+                <li class="admin-user-management hidden">
                     <a href="#forms" title="Forms" data-toggle="collapse">
                         <em class="icon-grid"></em>
                         <span data-localize="sidebar.nav.form.FORM">系统设置</span>
