@@ -35,6 +35,9 @@
                     <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
                         <em class="icon-user"></em>
                     </a>
+                    <!--<a href="/warehouse/admin/home/session/info">-->
+                        <!--<em class="icon-user"></em>-->
+                    <!--</a>-->
                 </li>
                 <!-- END User avatar toggle-->
                 <!-- START lock screen-->

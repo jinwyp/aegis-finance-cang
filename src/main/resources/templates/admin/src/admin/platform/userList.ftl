@@ -70,7 +70,7 @@
                                         <td>{{ user.mobilePhone || '--'}}</td>
                                         <td>{{ user.email || '--'}}</td>
                                         <td>{{ user.companyName || '--'}}</td>
-                                        <td>{{user.role}}</td>
+                                        <td>{{user.role | rolename}}</td>
 
                                         <td>
                                             <span class="btn btn-default resetPassword" ms-click="@clickResetPassword">重置密码</span>
