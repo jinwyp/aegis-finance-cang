@@ -62,6 +62,7 @@
                                         <td class="text-center">手机</td>
                                         <td class="text-center">邮箱地址</td>
                                         <td class="text-center">所属公司名称<br/>(全称)</td>
+                                        <td class="text-center">用户类型</td>
                                         <td class="text-center">操作</td>
                                     </tr>
                                     <tr ms-for="(index, user) in @userList">
@@ -69,6 +70,7 @@
                                         <td>{{ user.mobilePhone || '--'}}</td>
                                         <td>{{ user.email || '--'}}</td>
                                         <td>{{ user.companyName || '--'}}</td>
+                                        <td>{{user.role}}</td>
 
                                         <td>
                                             <span class="btn btn-default resetPassword" ms-click="@clickResetPassword">重置密码</span>
