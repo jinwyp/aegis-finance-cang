@@ -99,7 +99,7 @@
                                         </table>
 
 
-                                        <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'traders' || @currentUser.role === 'tradersAccountant'">
+                                        <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'trader' || @currentUser.role === 'traderAccountant'">
                                             <tr>
                                                 <td class="text-center">业务编号</td>
                                                 <td class="text-center">申请时间</td>
