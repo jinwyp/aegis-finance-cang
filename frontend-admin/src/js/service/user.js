@@ -24,7 +24,7 @@ var userRolePartial = userRoleAll.slice(2);
 
 var userRoleAllObject = {};
 
-userRolesAll.forEach(function (role, index){
+userRoleAll.forEach(function (role, index){
     userRoleAllObject[role.name] = role.displayName;
 });
 
