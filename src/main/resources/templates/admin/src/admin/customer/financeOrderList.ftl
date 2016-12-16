@@ -44,8 +44,9 @@
                                         </div>
                                         <div class="form-group marginL">
                                             <label class="">业务状态:&nbsp;&nbsp;</label>
-                                            <select id="input-status"  class="form-control" style="width: 128px;">
+                                            <select id="input-status"  class="form-control"  >
                                                 <option value="">--</option>
+                                                <option ms-for="(index, status) in @status" value="">{{ status }}</option>
                                             </select>
                                         </div>
                                         <div class="form-group marginL">

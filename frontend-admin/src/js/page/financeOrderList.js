@@ -10,8 +10,6 @@ var sessionUserRole = require('../service/token.js').sessionUserRole ;
 
 
 
-
-
 var orderList = function() {
 
     var vm = avalon.define({
@@ -21,6 +19,7 @@ var orderList = function() {
             id : sessionUserId,
             role : sessionUserRole
         },
+        status : orderService.statusObject,
         searchQuery : {
             username : '',
             companyName : ''
@@ -43,6 +42,8 @@ var orderList = function() {
         }
 
     });
+
+
 
 
     function getOrders(query){
