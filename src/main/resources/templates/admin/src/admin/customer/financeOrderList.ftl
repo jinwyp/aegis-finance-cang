@@ -70,7 +70,7 @@
                                                 <td class="text-center">质押总数量<br/>(吨)</td>
                                                 <td class="text-center">待赎回数量<br/>(吨)</td>
                                                 <td class="text-center">融资金额<br/>(万元)</td>
-                                                <td class="text-center">融资期限<br/>(万元)</td>
+                                                <td class="text-center">融资期限<br/>(天)</td>
                                                 <td class="text-center">保证金金额<br/>(万元)</td>
                                                 <td class="text-center">待还金额<br/>(万元)</td>
                                                 <td class="text-center">资金成本<br/>(万元)</td>
@@ -102,27 +102,39 @@
                                         <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'traders' || @currentUser.role === 'tradersAccountant'">
                                             <tr>
                                                 <td class="text-center">业务编号</td>
-                                                <td class="text-center">业务类型</td>
                                                 <td class="text-center">申请时间</td>
+                                                <td class="text-center">融资方</td>
+                                                <td class="text-center">下游采购方</td>
                                                 <td class="text-center">存放港口</td>
                                                 <td class="text-center">质押总数量<br/>(吨)</td>
                                                 <td class="text-center">待赎回数量<br/>(吨)</td>
+                                                <td class="text-center">利率</td>
+                                                <td class="text-center">利息</td>
                                                 <td class="text-center">保证金金额<br/>(万元)</td>
+                                                <td class="text-center">已回款金额<br/>(万元)</td>
                                                 <td class="text-center">待还金额<br/>(万元)</td>
-                                                <td class="text-center">资金成本<br/>(万元)</td>
+                                                <td class="text-center">实际放款金额<br/>(万元)</td>
+                                                <td class="text-center">放款时间</td>
+                                                <td class="text-center">实际结息时间</td>
                                                 <td class="text-center">业务状态</td>
                                                 <td class="text-center">操作</td>
                                             </tr>
                                             <tr ms-for="(index, order) in @orderList">
                                                 <td><a ms-attr="{href:'/warehouse/admin/home/finance/'+ order._id }" >{{ order.orderNo || '--'}}</a></td>
-                                                <td>{{ order.orderType || '--'}}</td>
                                                 <td>{{ order.requestTime | date("yyyy-MM-dd") }}</td>
+                                                <td>{{ order.financerCompanyName || '--'}}</td>
+                                                <td>{{ order.downstreamCompanyName || '--'}}</td>
                                                 <td>{{ order.harbor || '--'}}</td>
                                                 <td>{{ order.mortgageAmount || '--'}}</td>
                                                 <td>{{ order.redemptionAmountLeft || '--'}}</td>
-                                                <td>{{ order.depositValue || '--'}}</td>
-                                                <td>{{ order.repaymentValue || '--'}}</td>
+                                                <td>{{ order.loanInterestRate || '--'}}</td>
                                                 <td>需要计算</td>
+                                                <td>{{ order.depositValue || '--'}}</td>
+                                                <td>{{ order.returnValue || '--'}}</td>
+                                                <td>{{ order.repaymentValue || '--'}}</td>
+                                                <td>{{ order.loanValue || '--'}}</td>
+                                                <td>暂无</td>
+                                                <td>暂无</td>
                                                 <td>{{ order.status | statusname }}</td>
 
                                                 <td>
@@ -136,7 +148,6 @@
                                         <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'harbor' ">
                                             <tr>
                                                 <td class="text-center">业务编号</td>
-                                                <td class="text-center">业务类型</td>
                                                 <td class="text-center">货主</td>
                                                 <td class="text-center">质押总数量<br/>(吨)</td>
                                                 <td class="text-center">实时库存<br/>(吨)</td>
@@ -145,7 +156,6 @@
                                             </tr>
                                             <tr ms-for="(index, order) in @orderList">
                                                 <td><a ms-attr="{href:'/warehouse/admin/home/finance/'+ order._id }" >{{ order.orderNo || '--'}}</a></td>
-                                                <td>{{ order.orderType || '--'}}</td>
                                                 <td>{{ order.cargoOwner || '--'}}</td>
                                                 <td>{{ order.mortgageAmount || '--'}}</td>
                                                 <td>{{ order.mortgageAmount - order.redemptionAmount || '--'}}</td>
@@ -161,7 +171,6 @@
                                         <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'supervisor' ">
                                             <tr>
                                                 <td class="text-center">业务编号</td>
-                                                <td class="text-center">业务类型</td>
                                                 <td class="text-center">货主</td>
                                                 <td class="text-center">质押总数量<br/>(吨)</td>
                                                 <td class="text-center">已赎回数量<br/>(吨)</td>
@@ -171,7 +180,6 @@
                                             </tr>
                                             <tr ms-for="(index, order) in @orderList">
                                                 <td><a ms-attr="{href:'/warehouse/admin/home/finance/'+ order._id }" >{{ order.orderNo || '--'}}</a></td>
-                                                <td>{{ order.orderType || '--'}}</td>
                                                 <td>{{ order.cargoOwner || '--'}}</td>
                                                 <td>{{ order.mortgageAmount || '--'}}</td>
                                                 <td>{{ order.redemptionAmount || '--'}}</td>
@@ -185,30 +193,39 @@
                                         </table>
 
 
-                                        <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'fundProvider' || @currentUser.role === 'fundProviderAccountant'" ">
+                                        <table class="table table-striped table-bordered table-hover text-center" ms-if="@currentUser.role === 'fundProvider' || @currentUser.role === 'fundProviderAccountant' ">
                                             <tr>
                                                 <td class="text-center">业务编号</td>
-                                                <td class="text-center">业务类型</td>
                                                 <td class="text-center">申请时间</td>
+                                                <td class="text-center">融资方</td>
                                                 <td class="text-center">存放港口</td>
+                                                <td class="text-center">融资金额<br/>(万元)</td>
+                                                <td class="text-center">融资期限<br/>(天)</td>
                                                 <td class="text-center">质押总数量<br/>(吨)</td>
                                                 <td class="text-center">待赎回数量<br/>(吨)</td>
+                                                <td class="text-center">利率</td>
+                                                <td class="text-center">利息</td>
                                                 <td class="text-center">保证金金额<br/>(万元)</td>
+                                                <td class="text-center">已回款金额<br/>(万元)</td>
                                                 <td class="text-center">待还金额<br/>(万元)</td>
-                                                <td class="text-center">资金成本<br/>(万元)</td>
+
                                                 <td class="text-center">业务状态</td>
                                                 <td class="text-center">操作</td>
                                             </tr>
                                             <tr ms-for="(index, order) in @orderList">
                                                 <td><a ms-attr="{href:'/warehouse/admin/home/finance/'+ order._id }" >{{ order.orderNo || '--'}}</a></td>
-                                                <td>{{ order.orderType || '--'}}</td>
                                                 <td>{{ order.requestTime | date("yyyy-MM-dd") }}</td>
+                                                <td>{{ order.financerCompanyName || '--'}}</td>
                                                 <td>{{ order.harbor || '--'}}</td>
+                                                <td>{{ order.mortgageValue || '--'}}</td>
+                                                <td>{{ order.mortgageDeadline || '--'}}</td>
                                                 <td>{{ order.mortgageAmount || '--'}}</td>
                                                 <td>{{ order.redemptionAmountLeft || '--'}}</td>
-                                                <td>{{ order.depositValue || '--'}}</td>
-                                                <td>{{ order.repaymentValue || '--'}}</td>
+                                                <td>{{ order.loanFundProviderInterestRate || '--'}}</td>
                                                 <td>需要计算</td>
+                                                <td>{{ order.depositValue || '--'}}</td>
+                                                <td>{{ order.returnValue || '--'}}</td>
+                                                <td>{{ order.repaymentValue || '--'}}</td>
                                                 <td>{{ order.status | statusname }}</td>
 
                                                 <td>
