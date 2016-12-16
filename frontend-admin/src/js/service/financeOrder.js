@@ -5,7 +5,7 @@
 var jQuery = require('jquery');
 var headers = require('./token').headers;
 var url = require('./token').url;
-var role = require('./user.js').userRoleNameObject;
+var role = require('./user.js').userRoleKeyObject;
 
 var status = [
     {name : 'financingStep11', displayName:'等待融资方上传合同及单据,等待贸易商选择港口和监管方'},

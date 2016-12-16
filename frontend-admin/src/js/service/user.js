@@ -33,6 +33,7 @@ userRoleAll.forEach(function (role, index){
 exports.userRoleList = userRolePartial;
 exports.userRoleAllList = userRoleAll;
 exports.userRoleAllObject = userRoleAllObject;
+exports.userRoleKeyObject = userRoleNameObject;
 
 
 exports.login = function (user){
