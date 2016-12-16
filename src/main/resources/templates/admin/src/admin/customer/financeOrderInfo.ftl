@@ -211,14 +211,14 @@
 
                     <div class="row" ms-if="@currentUser.role === 'financer' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a11FinishedUpload.statusAt && !@currentOrder.statusChild11Financer" ms-click="doAction(@action.a11FinishedUpload.name)">{{@action.a11FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a11FinishedUpload.statusAt && !@currentOrder.statusChild11Financer" ms-click="doAction(@action.a11FinishedUpload.name)">{{@action.a11FinishedUpload.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a31FirstReturnMoney.statusAt" ms-click="doAction(@action.a31FirstReturnMoney.name)">{{@action.a31FirstReturnMoney.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a31FirstReturnMoney.statusAt" ms-click="doAction(@action.a31FirstReturnMoney.name)">{{@action.a31FirstReturnMoney.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a32SecondReturnMoney.statusAt" ms-click="doAction(@action.a32SecondReturnMoney.name)">{{@action.a32SecondReturnMoney.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a32SecondReturnMoney.statusAt" ms-click="doAction(@action.a32SecondReturnMoney.name)">{{@action.a32SecondReturnMoney.displayName}}</button>
                         </div>
 
                         <#--<div class="col-sm-2"><button type="button" class="mb-sm btn btn-danger">Success</button></div>-->
@@ -228,54 +228,61 @@
 
                     <div class="row" ms-if="@currentUser.role === 'trader' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a12SelectHarborAndSupervisor.statusAt && !@currentOrder.statusChild12Trader" ms-click="doAction(@action.a12SelectHarborAndSupervisor.name)">{{@action.a12SelectHarborAndSupervisor.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a12SelectHarborAndSupervisor.statusAt && !@currentOrder.statusChild12Trader" ms-click="doAction(@action.a12SelectHarborAndSupervisor.name)">{{@action.a12SelectHarborAndSupervisor.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a15Approved.statusAt && @currentOrder.statusChild21Harbor && @currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a15Approved.statusAt && @currentOrder.statusChild21Harbor && @currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a16NotApproved.statusAt" ms-click="doAction(@action.a16NotApproved.name)">{{@action.a16NotApproved.displayName}}</button>
-                        </div>
-
-                        <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-info" ms-visible="@currentOrder.status === @action.a32ReturnPortionCargo.statusAt" ms-click="doAction(@action.a32ReturnPortionCargo.name)">{{@action.a32ReturnPortionCargo.displayName}}</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a33ReturnAllCargo.statusAt" ms-click="doAction(@action.a33ReturnAllCargo.name)">{{@action.a33ReturnAllCargo.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-danger" ms-if="@currentOrder.status === @action.a16NotApproved.statusAt" ms-click="doAction(@action.a16NotApproved.name)">{{@action.a16NotApproved.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a36ReturnMoney.statusAt" ms-click="doAction(@action.a36ReturnMoney.name)">{{@action.a36ReturnMoney.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-info" ms-if="@currentOrder.status === @action.a32ReturnPortionCargo.statusAt" ms-click="doAction(@action.a32ReturnPortionCargo.name)">{{@action.a32ReturnPortionCargo.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a33ReturnAllCargo.statusAt" ms-click="doAction(@action.a33ReturnAllCargo.name)">{{@action.a33ReturnAllCargo.displayName}}</button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a37Punishment.statusAt" ms-click="doAction(@action.a37Punishment.name)">{{@action.a37Punishment.displayName}}</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a38Punishment.statusAt" ms-click="doAction(@action.a38Punishment.name)">{{@action.a38Punishment.displayName}}</button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a36ReturnMoney.statusAt" ms-click="doAction(@action.a36ReturnMoney.name)">{{@action.a36ReturnMoney.displayName}}</button>
                         </div>
 
                     </div>
 
                     <div class="row" ms-if="@currentUser.role === 'traderAccountant' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a17Approved.statusAt" ms-click="doAction(@action.a17Approved.name)">{{@action.a17Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a17Approved.statusAt" ms-click="doAction(@action.a17Approved.name)">{{@action.a17Approved.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a37Approved.statusAt" ms-click="doAction(@action.a37Approved.name)">{{@action.a37Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a37Approved.statusAt" ms-click="doAction(@action.a37Approved.name)">{{@action.a37Approved.displayName}}</button>
                         </div>
                     </div>
 
 
                     <div class="row" ms-if="@currentUser.role === 'harbor' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a13FinishedUpload.statusAt && !@currentOrder.statusChild21Harbor" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a13FinishedUpload.statusAt && !@currentOrder.statusChild21Harbor" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a34ConfirmPortionCargo.statusAt" ms-click="doAction(@action.a34ConfirmPortionCargo.name)">{{@action.a34ConfirmPortionCargo.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a34ConfirmPortionCargo.statusAt" ms-click="doAction(@action.a34ConfirmPortionCargo.name)">{{@action.a34ConfirmPortionCargo.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a35ConfirmAllCargo.statusAt" ms-click="doAction(@action.a35ConfirmAllCargo.name)">{{@action.a35ConfirmAllCargo.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a35ConfirmAllCargo.statusAt" ms-click="doAction(@action.a35ConfirmAllCargo.name)">{{@action.a35ConfirmAllCargo.displayName}}</button>
                         </div>
                     </div>
 
                     <div class="row" ms-if="@currentUser.role === 'supervisor' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a14FinishedUpload.statusAt && !@currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a14FinishedUpload.statusAt && !@currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
                         </div>
                     </div>
 
@@ -283,22 +290,22 @@
 
                     <div class="row" ms-if="@currentUser.role === 'fundProvider' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a18Approved.statusAt" ms-click="doAction(@action.a18Approved.name)">{{@action.a18Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a18Approved.statusAt" ms-click="doAction(@action.a18Approved.name)">{{@action.a18Approved.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a19NotApproved.statusAt" ms-click="doAction(@action.a19NotApproved.name)">{{@action.a19NotApproved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-danger" ms-if="@currentOrder.status === @action.a19NotApproved.statusAt" ms-click="doAction(@action.a19NotApproved.name)">{{@action.a19NotApproved.displayName}}</button>
                         </div>
                     </div>
 
                     <div class="row" ms-if="@currentUser.role === 'fundProviderAccountant' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a20Approved.statusAt" ms-click="doAction(@action.a20Approved.name)">{{@action.a20Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a20Approved.statusAt" ms-click="doAction(@action.a20Approved.name)">{{@action.a20Approved.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a21auto.statusAt" ms-click="doAction(@action.a21auto.name)">{{@action.a21auto.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a21auto.statusAt" ms-click="doAction(@action.a21auto.name)">{{@action.a21auto.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a22auto.statusAt" ms-click="doAction(@action.a22auto.name)">{{@action.a22auto.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a22auto.statusAt" ms-click="doAction(@action.a22auto.name)">{{@action.a22auto.displayName}}</button>
                         </div>
                     </div>
                 </div>

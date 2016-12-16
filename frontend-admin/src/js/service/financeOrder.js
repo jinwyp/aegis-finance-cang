@@ -68,6 +68,9 @@ var actions = [
 
     {statusAt:"repaymentStep35", operator : 'trader', name : 'a36ReturnMoney', displayName : '确认回款给资金方'},
     {statusAt:"repaymentStep36", operator : 'traderAccountant', name : 'a37Approved', displayName : '放款给资金方'},
+
+    {statusAt:"financingStep21", operator : 'trader', name : 'a37Punishment', displayName : '扣押货物(处置货权)'},
+    {statusAt:"repaymentStep34", operator : 'trader', name : 'a38Punishment', displayName : '扣押货物(处置货权)'},
 ];
 
 var actionObject = {};
