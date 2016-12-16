@@ -19,7 +19,7 @@ var orderList = function() {
             id : sessionUserId,
             role : sessionUserRole
         },
-        status : orderService.statusObject,
+        status : orderService.statusList,
         searchQuery : {
             username : '',
             companyName : ''
