@@ -65,7 +65,7 @@ var userInfo = function() {
                 console.log(vm.isMYSCWValid);
 
                 var isValid = true;
-                if(vm.currentUser.role === "tradersAccountant" || vm.currentUser.role === "fundProviderAccountant"){
+                if(vm.currentUser.role === "traderAccountant" || vm.currentUser.role === "fundProviderAccountant"){
                     if (reasons.length || !vm.isMYSCWValid ) {
                         isValid = false;
                     }
@@ -128,7 +128,7 @@ var userInfo = function() {
 
     function checkMYS() {
 
-        if (vm.currentUser.role === "tradersAccountant"){
+        if (vm.currentUser.role === "traderAccountant"){
             if (vm.currentUser.belongToUser){
                 vm.isMYSCWValid = true;
             }else{
@@ -155,7 +155,7 @@ var userInfo = function() {
     }
     function getUsersOfRoles(){
 
-        userService.getUserList({role : 'traders', $limit : 500}).done(function(data, textStatus, jqXHR) {
+        userService.getUserList({role : 'trader', $limit : 500}).done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.traderList = data.data;
             }else{
