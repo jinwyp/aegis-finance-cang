@@ -34,15 +34,15 @@
                                 <table class="table table-hover">
                                     <tr>
                                         <th class="text-right width263">融资类型:</th>
-                                        <td>煤易融</td>
+                                        <td>{{@currentOrder.orderType | typename}}</td>
                                         <th class="text-right">融资用户:</th>
                                         <td>********公司</td>
-                                        <th class="text-right">关联业务编号:</th>
-                                        <td>234569876543</td>
+                                        <th class="text-right">业务编号:</th>
+                                        <td>{{@currentOrder.orderNo}}</td>
                                     </tr>
                                     <tr>
                                         <th class="text-right width263">拟融资金额:</th>
-                                        <td>煤易融</td>
+                                        <td>{{@currentOrder.mortgageValue}}</td>
                                         <th class="text-right">申请时间:</th>
                                         <td>********公司</td>
                                         <th class="text-right">使用时长:</th>
@@ -60,6 +60,46 @@
                                         <th class="text-right width263">待回款本金:</th>
                                         <td colspan="5">煤易融</td>
                                     </tr>
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--审批详情-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">审批详情</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th class="text-right width263">审批状态:</th>
+                                        <td>{{@currentOrder.status | statusname}} </td>
+
+                                        <th class="text-right">审批时间:</th>
+                                        <td>********公司</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right width263">审批子状态:</th>
+                                        <td> <span ms-visible="@currentOrder.statusChild11Financer"> {{@currentOrder.statusChild11Financer | statusname}} <br> </span>
+                                            <span ms-visible="@currentOrder.statusChild12Trader"> {{@currentOrder.statusChild12Trader | statusname}} </span>
+                                        </td>
+                                        <th class="text-right width263">审批子状态:</th>
+                                        <td><span ms-visible="@currentOrder.statusChild21Harbor"> {{@currentOrder.statusChild21Harbor | statusname}} <br> </span>
+                                            <span ms-visible="@currentOrder.statusChild22Supervisor"> {{@currentOrder.statusChild22Supervisor | statusname}} </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-right width263">审批金额:</th>
+                                        <td>234569876543</td>
+                                        <th class="text-right">审批人:</th>
+                                        <td>234569876543</td>
+
+
+                                    </tr>
+
 
                                 </table>
 
@@ -124,32 +164,7 @@
 
                     </div>
 
-                    <!--审批详情-->
-                    <div class="panel panel-default " >
-                        <div class="panel-heading">审批详情</div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th class="text-right width263">审批状态:</th>
-                                        <td>煤易融</td>
-                                        <th class="text-right">审批时间:</th>
-                                        <td>********公司</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-right width263">审批金额:</th>
-                                        <td>234569876543</td>
-                                        <th class="text-right">审批人:</th>
-                                        <td>234569876543</td>
-                                    </tr>
 
-
-                                </table>
-
-                            </div>
-                        </div>
-
-                    </div>
 
                     <!--货值趋势图-->
                     <div class="panel panel-default " >
@@ -196,14 +211,14 @@
 
                     <div class="row" ms-if="@currentUser.role === 'financer' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a11FinishedUpload.statusAt" ms-click="doAction(@action.a11FinishedUpload.name)">{{@action.a11FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a11FinishedUpload.statusAt && !@currentOrder.statusChild11Financer" ms-click="doAction(@action.a11FinishedUpload.name)">{{@action.a11FinishedUpload.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a31FirstReturnMoney.statusAt" ms-click="doAction(@action.a31FirstReturnMoney.name)">{{@action.a31FirstReturnMoney.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a31FirstReturnMoney.statusAt" ms-click="doAction(@action.a31FirstReturnMoney.name)">{{@action.a31FirstReturnMoney.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a32SecondReturnMoney.statusAt" ms-click="doAction(@action.a32SecondReturnMoney.name)">{{@action.a32SecondReturnMoney.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a32SecondReturnMoney.statusAt" ms-click="doAction(@action.a32SecondReturnMoney.name)">{{@action.a32SecondReturnMoney.displayName}}</button>
                         </div>
 
                         <#--<div class="col-sm-2"><button type="button" class="mb-sm btn btn-danger">Success</button></div>-->
@@ -211,31 +226,31 @@
                     </div>
 
 
-                    <div class="row" ms-if="@currentUser.role === 'traders' ">
+                    <div class="row" ms-if="@currentUser.role === 'trader' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a12SelectHarborAndSupervisor.statusAt" ms-click="doAction(@action.a12SelectHarborAndSupervisor.name)">{{@action.a12SelectHarborAndSupervisor.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a12SelectHarborAndSupervisor.statusAt && !@currentOrder.statusChild12Trader" ms-click="doAction(@action.a12SelectHarborAndSupervisor.name)">{{@action.a12SelectHarborAndSupervisor.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a15Approved.statusAt" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a15Approved.statusAt && @currentOrder.statusChild21Harbor && @currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a16NotApproved.statusAt" ms-click="doAction(@action.a16NotApproved.name)">{{@action.a16NotApproved.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a32ReturnPortionCargo.statusAt" ms-click="doAction(@action.a32ReturnPortionCargo.name)">{{@action.a32ReturnPortionCargo.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-info" ms-visible="@currentOrder.status === @action.a32ReturnPortionCargo.statusAt" ms-click="doAction(@action.a32ReturnPortionCargo.name)">{{@action.a32ReturnPortionCargo.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a33ReturnAllCargo.statusAt" ms-click="doAction(@action.a33ReturnAllCargo.name)">{{@action.a33ReturnAllCargo.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a33ReturnAllCargo.statusAt" ms-click="doAction(@action.a33ReturnAllCargo.name)">{{@action.a33ReturnAllCargo.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-danger" ms-visible="@currentOrder.status === @action.a36ReturnMoney.statusAt" ms-click="doAction(@action.a36ReturnMoney.name)">{{@action.a36ReturnMoney.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a36ReturnMoney.statusAt" ms-click="doAction(@action.a36ReturnMoney.name)">{{@action.a36ReturnMoney.displayName}}</button>
                         </div>
 
                     </div>
 
-                    <div class="row" ms-if="@currentUser.role === 'tradersAccountant' ">
+                    <div class="row" ms-if="@currentUser.role === 'traderAccountant' ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a17Approved.statusAt" ms-click="doAction(@action.a17Approved.name)">{{@action.a17Approved.displayName}}</button>
                         </div>
@@ -247,7 +262,7 @@
 
                     <div class="row" ms-if="@currentUser.role === 'harbor' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a13FinishedUpload.statusAt" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a13FinishedUpload.statusAt && !@currentOrder.statusChild21Harbor" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
@@ -260,7 +275,7 @@
 
                     <div class="row" ms-if="@currentUser.role === 'supervisor' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a14FinishedUpload.statusAt" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-visible="@currentOrder.status === @action.a14FinishedUpload.statusAt && !@currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
                         </div>
                     </div>
 

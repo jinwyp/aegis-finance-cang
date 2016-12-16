@@ -39,13 +39,13 @@ status.forEach(function (item, index){
 
 var actions = [
     {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '确认完成上传资料并提交'},
-    {statusAt:"financingStep11", operator : 'trader', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口和监管方'},
+    {statusAt:"financingStep11", operator : 'trader', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口,监管方和资金方'},
 
-    {statusAt:"financingStep13", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
-    {statusAt:"financingStep13", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep11", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep11", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
 
-    {statusAt:"financingStep12", operator : 'trader', name : 'a15Approved', displayName : '审核通过'},
-    {statusAt:"financingStep12", operator : 'trader', name : 'a16NotApproved', displayName : '审核不通过'},
+    {statusAt:"financingStep11", operator : 'trader', name : 'a15Approved', displayName : '审核通过'},
+    {statusAt:"financingStep11", operator : 'trader', name : 'a16NotApproved', displayName : '审核不通过'},
 
     {statusAt:"financingStep16", operator : 'traderAccountant', name : 'a17Approved', displayName : '确认放款'},
 
@@ -54,8 +54,8 @@ var actions = [
 
 
     {statusAt:"financingStep18", operator : 'fundProviderAccountant', name : 'a20Approved', displayName : '确认放款'},
-    {statusAt:"financingStep19", operator : 'fundProviderAccountant', name : 'a21auto', displayName : '自动确认收款'},
-    {statusAt:"financingStep20", operator : 'fundProviderAccountant', name : 'a22auto', displayName : '自动确认收款'},
+    {statusAt:"financingStep19", operator : 'fundProviderAccountant', name : 'a21auto', displayName : '自动确认收款1'},
+    {statusAt:"financingStep20", operator : 'fundProviderAccountant', name : 'a22auto', displayName : '自动确认收款2'},
 
 
     {statusAt:"financingStep21", operator : 'financer', name : 'a31FirstReturnMoney', displayName : '确认回款'},

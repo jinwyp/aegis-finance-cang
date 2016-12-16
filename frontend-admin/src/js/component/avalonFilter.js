@@ -20,3 +20,16 @@ avalon.filters.statusname= function (str) {
     }
     return orderService.statusObject[str]
 };
+
+avalon.filters.typename= function (str) {
+    if (!str){
+        return str
+    }else {
+        if (str === 'MYR') return '煤易融';
+        if (str === 'MYD') return '煤易贷';
+        if (str === 'MYG') return '煤易购';
+    }
+
+
+    return orderService.statusObject[str]
+};

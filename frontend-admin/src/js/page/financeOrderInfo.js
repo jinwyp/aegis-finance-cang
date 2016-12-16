@@ -27,6 +27,7 @@ var orderInfo = function(query) {
         doAction : function (actionName){
             orderService.auditFinanceOrder(orderId, sessionUserRole, actionName).done(function (data, textStatus, jqXHR) {
                 if (data.success) {
+                    // getOrderInfo();
                     $.notify("提交成功!", 'success');
                 } else {
                     console.log(data.error);
