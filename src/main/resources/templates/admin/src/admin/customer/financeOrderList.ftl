@@ -40,7 +40,7 @@
 
                                         <div class="form-group marginL">
                                             <label class="">业务状态:&nbsp;&nbsp;</label>
-                                            <select class="form-control" ms-duplex="@searchQuery.status" >
+                                            <select class="form-control search-select" ms-duplex="@searchQuery.status" >
                                                 <option value="">全部</option>
                                                 <option ms-for="($index, item) in @status" ms-attr="{value: item.name}">{{ item.displayName }}</option>
                                             </select>

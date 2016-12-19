@@ -74,6 +74,7 @@ avalon.component('ms-pagination2', {
             });
 
             this.$watch('currentPage', function(){
+                vm._inputCurrentPages = vm.currentPage
                 setTimeout(function(){
                     vm._showPaginations();
                 },2);
