@@ -89,7 +89,7 @@
                                                 <td>{{ order.status | statusname }}</td>
 
                                                 <td>
-                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">进入详情</a>
+                                                    <a class="btn btn-info resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">查看</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -134,7 +134,7 @@
                                                 <td>{{ order.status | statusname }}</td>
 
                                                 <td>
-                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">进入详情</a>
+                                                    <a class="btn btn-info resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">查看</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -158,7 +158,7 @@
                                                 <td>{{ order.status | statusname}}</td>
 
                                                 <td>
-                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">进入详情</a>
+                                                    <a class="btn btn-info resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">查看</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -183,7 +183,7 @@
                                                 <td>{{ order.status | statusname}}</td>
 
                                                 <td>
-                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">进入详情</a>
+                                                    <a class="btn btn-info resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">查看</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -225,7 +225,7 @@
                                                 <td>{{ order.status | statusname }}</td>
 
                                                 <td>
-                                                    <a class="btn btn-primary resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">进入详情</a>
+                                                    <a class="btn btn-info resetPassword" ms-attr="{href:'/warehouse/admin/home/finance/'+order._id}">查看</a>
                                                 </td>
                                             </tr>
                                         </table>
