@@ -51,8 +51,8 @@
                                         <th class="text-right">库存港口:</th>
                                         <td><span ms-if="@currentOrder.harborUser">{{@currentOrder.harborUser.username}}</span></td>
 
-                                        <th class="text-right"></th>
-                                        <td></td>
+                                        <th class="text-right">当前货主:</th>
+                                        <td><span ms-if="@currentOrder.cargoOwner">{{@currentOrder.cargoOwner}}</span></td>
                                     </tr>
 
                                     <tr>
@@ -64,7 +64,6 @@
 
                                         <th class="text-right">已缴纳保证金(万元):</th>
                                         <td>{{@currentOrder.depositValue || 0}}</td>
-
                                     </tr>
 
                                     <tr>
