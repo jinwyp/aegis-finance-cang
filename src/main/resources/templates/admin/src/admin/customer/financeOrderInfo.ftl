@@ -33,33 +33,86 @@
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th class="text-right width263">融资类型:</th>
+                                        <th class="text-right ">融资类型:</th>
                                         <td>{{@currentOrder.orderType | typename}}</td>
-                                        <th class="text-right">融资用户:</th>
-                                        <td>********公司</td>
+
                                         <th class="text-right">业务编号:</th>
                                         <td>{{@currentOrder.orderNo}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-right width263">拟融资金额:</th>
-                                        <td>{{@currentOrder.mortgageValue}}</td>
+
                                         <th class="text-right">申请时间:</th>
-                                        <td>********公司</td>
-                                        <th class="text-right">使用时长:</th>
-                                        <td>234569876543</td>
+                                        <td>{{@currentOrder.requestTime | date("yyyy-MM-dd")}}</td>
+
                                     </tr>
+
                                     <tr>
-                                        <th class="text-right width263">审批总额:</th>
-                                        <td>煤易融</td>
-                                        <th class="text-right">已放款:</th>
-                                        <td>********公司</td>
-                                        <th class="text-right">已回款本金:</th>
-                                        <td>234569876543</td>
+                                        <th class="text-right">融资用户:</th>
+                                        <td><span ms-if="@currentOrder.financerUser">{{@currentOrder.financerUser.username}}</span></td>
+
+                                        <th class="text-right">库存港口:</th>
+                                        <td><span ms-if="@currentOrder.harborUser">{{@currentOrder.harborUser.username}}</span></td>
+
+                                        <th class="text-right"></th>
+                                        <td></td>
                                     </tr>
+
                                     <tr>
-                                        <th class="text-right width263">待回款本金:</th>
-                                        <td colspan="5">煤易融</td>
+                                        <th class="text-right">融资金额(万元):</th>
+                                        <td>{{@currentOrder.mortgageValue}}</td>
+
+                                        <th class="text-right">融资期限(天):</th>
+                                        <td>{{@currentOrder.mortgageDeadline}}</td>
+
+                                        <th class="text-right">已缴纳保证金(万元):</th>
+                                        <td>{{@currentOrder.depositValue || 0}}</td>
+
                                     </tr>
+
+                                    <tr>
+                                        <th class="text-right">放款总金额(万元):</th>
+                                        <td>{{@currentOrder.loanValue || 0}}</td>
+
+                                        <th class="text-right">已回款金额(万元):</th>
+                                        <td>{{@currentOrder.returnValue || 0 }}</td>
+
+                                        <th class="text-right">待还款(万元):</th>
+                                        <td>{{@currentOrder.repaymentValue || 0}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="text-right">质押总数量(吨):</th>
+                                        <td>{{@currentOrder.mortgageAmount}}</td>
+
+                                        <th class="text-right">已赎回数量(吨):</th>
+                                        <td>{{@currentOrder.redemptionAmount || 0}} </td>
+
+                                        <th class="text-right">待赎回数量(吨):</th>
+                                        <td>{{@currentOrder.redemptionAmountLeft || 0}} </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th class="text-right">港口已确认数量(吨):</th>
+                                        <td>{{@currentOrder.harborConfirmAmount || 0}} </td>
+
+                                        <th class="text-right">监管已确认数量(吨):</th>
+                                        <td>{{@currentOrder.harborConfirmAmount || 0}} </td>
+
+                                        <th class="text-right">煤种:</th>
+                                        <td>{{@currentOrder.infoCoalType || '--'}} </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th class="text-right">热值:</th>
+                                        <td>{{@currentOrder.infoCalorificValue || '--' }} </td>
+
+                                        <th class="text-right">收到基硫分:</th>
+                                        <td>{{@currentOrder.infoSulfur || '--' }} </td>
+
+                                        <th class="text-right">空干基挥发分:</th>
+                                        <td>{{@currentOrder.infoVolatile || '--'}} </td>
+                                    </tr>
+
 
                                 </table>
 
@@ -75,32 +128,28 @@
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th class="text-right width263">审批状态:</th>
+                                        <th class="text-right">审批状态:</th>
                                         <td>{{@currentOrder.status | statusname}} </td>
-
-                                        <th class="text-right">审批时间:</th>
-                                        <td>********公司</td>
                                     </tr>
+
                                     <tr>
-                                        <th class="text-right width263">审批子状态:</th>
+                                        <th class="text-right">审批子状态:</th>
                                         <td> <span ms-visible="@currentOrder.statusChild11Financer"> {{@currentOrder.statusChild11Financer | statusname}} <br> </span>
                                             <span ms-visible="@currentOrder.statusChild12Trader"> {{@currentOrder.statusChild12Trader | statusname}} </span>
                                         </td>
-                                        <th class="text-right width263">审批子状态:</th>
+                                        <th class="text-right">审批子状态:</th>
                                         <td><span ms-visible="@currentOrder.statusChild21Harbor"> {{@currentOrder.statusChild21Harbor | statusname}} <br> </span>
                                             <span ms-visible="@currentOrder.statusChild22Supervisor"> {{@currentOrder.statusChild22Supervisor | statusname}} </span>
                                         </td>
                                     </tr>
+
                                     <tr>
-                                        <th class="text-right width263">审批金额:</th>
-                                        <td>234569876543</td>
+                                        <th class="text-right">审批时间:</th>
+                                        <td>{{@currentOrder.requestTime | date("yyyy-MM-dd")}}</td>
+
                                         <th class="text-right">审批人:</th>
                                         <td>234569876543</td>
-
-
                                     </tr>
-
-
                                 </table>
 
                             </div>
