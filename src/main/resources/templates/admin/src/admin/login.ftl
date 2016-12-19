@@ -33,14 +33,14 @@
                     <#--</div>-->
 
                     <div class="form-group has-feedback " ms-class="[@errorInputName.indexOf('inputEmail')>-1 && 'has-error',  @successInputName.indexOf('inputEmail')>-1 &&'has-success'] ">
-                        <input id="inputEmail" type="email" placeholder="邮箱" class="form-control" ms-duplex="@user.email" ms-rules='{required:true, email:true}'
+                        <input id="inputEmail" type="email" placeholder="邮箱" class="form-control" ms-duplex="@user.email | change" ms-rules='{required:true, email:true}'
                                data-required-message="请输入邮箱" data-email-message="邮箱格式不正确">
                         <span class="fa fa-user form-control-feedback text-muted"></span>
                         <span class="help-block" ms-visible="@errorInputName.indexOf('inputEmail')>-1">{{@errorMessage.inputEmail}}</span>
                     </div>
 
                     <div class="form-group has-feedback" ms-class="[@errorInputName.indexOf('inputPassword')>-1 && 'has-error',  @successInputName.indexOf('inputPassword')>-1 &&'has-success'] ">
-                        <input id="inputPassword" type="password" placeholder="密码" class="form-control" ms-duplex="@user.password" ms-rules='{required:true,minlength:6,maxlength:20}'
+                        <input id="inputPassword" type="password" placeholder="密码" class="form-control" ms-duplex="@user.password | change" ms-rules='{required:true,minlength:6,maxlength:20}'
                                data-required-message="请输入密码" data-minlength-message="密码长度不能少于6位" data-maxlength-message="密码长度不能大于20位">
                         <span class="fa fa-lock form-control-feedback text-muted"></span>
                         <span class="help-block" ms-visible="@errorInputName.indexOf('inputPassword')>-1">{{@errorMessage.inputPassword}}</span>
