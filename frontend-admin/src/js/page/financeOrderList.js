@@ -19,10 +19,10 @@ var orderList = function() {
             id : sessionUserId,
             role : sessionUserRole
         },
-        status : orderService.statusObject,
+        status : orderService.statusList,
         searchQuery : {
-            username : '',
-            companyName : ''
+            orderNo : '',
+            status : ''
         },
         configPagination : {
             id : 'pagination',
@@ -32,13 +32,15 @@ var orderList = function() {
             changePageNo : function(currentPageNo, skip, countPerPage){
                 var query = {
                     $limit: countPerPage,
-                    $skip : skip,
-                    userRole : sessionUserRole,
-                    userId : sessionUserId
+                    $skip : skip
                 };
 
                 getOrders(query)
             }
+        },
+
+        clickSearchButton : function(event){
+            getOrders()
         }
 
     });
@@ -51,6 +53,9 @@ var orderList = function() {
             userRole : sessionUserRole,
             userId : sessionUserId
         };
+
+        if (vm.searchQuery.orderNo) query.orderNo = vm.searchQuery.orderNo
+        if (vm.searchQuery.status) query.status = vm.searchQuery.status
 
         orderService.getFinanceOrderList(query).done(function(data, textStatus, jqXHR) {
             if (data.success){

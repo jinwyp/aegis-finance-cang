@@ -34,19 +34,15 @@
                                 <div class="panel-body">
                                     <form role="form" class="form-inline">
                                         <div class="form-group marginL">
-                                            <label for="input-email" class="">业务编号:&nbsp;&nbsp;</label>
-                                            <input id="input-email" type="text" placeholder="用户帐号" class="form-control">
+                                            <label class="">业务编号:&nbsp;&nbsp;</label>
+                                            <input type="text" class="form-control" ms-duplex="@searchQuery.orderNo">
                                         </div>
 
                                         <div class="form-group marginL">
-                                            <label for="input-password" class="">业务类型:&nbsp;&nbsp;</label>
-                                            <input id="input-password" type="text" placeholder="公司名称" class="form-control">
-                                        </div>
-                                        <div class="form-group marginL">
                                             <label class="">业务状态:&nbsp;&nbsp;</label>
-                                            <select id="input-status"  class="form-control"  >
-                                                <option value="">--</option>
-                                                <option ms-for="(index, status) in @status" value="">{{ status }}</option>
+                                            <select class="form-control" ms-duplex="@searchQuery.status" >
+                                                <option value="">全部</option>
+                                                <option ms-for="($index, item) in @status" ms-attr="{value: item.name}">{{ item.displayName }}</option>
                                             </select>
                                         </div>
                                         <div class="form-group marginL">
