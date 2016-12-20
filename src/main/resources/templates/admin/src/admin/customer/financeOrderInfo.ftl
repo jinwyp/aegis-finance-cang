@@ -41,7 +41,6 @@
 
                                         <th class="text-right">申请时间:</th>
                                         <td>{{@currentOrder.requestTime | date("yyyy-MM-dd")}}</td>
-
                                     </tr>
 
                                     <tr>
@@ -164,7 +163,7 @@
                                 <table class="table table-hover ">
                                     <tr>
                                         <td colspan="2" class="text-right border0">
-                                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @orderId}">上传合同</a>
+                                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @currentOrderId}">上传合同</a>
                                         </td>
                                     </tr>
                                     <tr>
