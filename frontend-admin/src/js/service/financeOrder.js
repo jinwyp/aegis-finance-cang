@@ -236,11 +236,6 @@ exports.getContractListByOrderId = function (orderId, query){
 exports.getContractById = function (id, query){
     var params = jQuery.extend({}, query);
 
-    return jQuery.ajax({
-        url      : url.contractList + '/' + id,
-        method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
-    });
+    window.location = url.financeOrderList + '/file/' + id;
+
 };

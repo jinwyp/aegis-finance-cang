@@ -52,13 +52,7 @@ var orderInfo = function(query) {
 
         getFile : function (event, file){
             event.preventDefault();
-            orderService.getContractById(file._id).done(function (data, textStatus, jqXHR) {
-                if (data.success) {
-                    console.log(data);
-                } else {
-                    console.log(data.error);
-                }
-            });
+            orderService.getContractById(file._id);
         },
 
         contractFilter: function (el, i, role) {
