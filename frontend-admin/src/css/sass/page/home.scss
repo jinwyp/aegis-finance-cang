@@ -1,5 +1,4 @@
 @import '../helpers/_variables.scss';
-@import '../components/_table-pagination.scss';
 
 
 .marginL{
@@ -41,4 +40,8 @@
 }
 .width263{
   width: 263px;
+}
+
+.search-select {
+  width:100px !important;
 }
