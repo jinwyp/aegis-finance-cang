@@ -157,56 +157,46 @@
 
                     <!--各方合同查看-->
                     <div class="panel panel-default " >
-                        <div class="panel-heading">各方合同查看</div>
+                        <div class="panel-heading">合同信息</div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-hover ">
+                                <table class="table table-hover contract-table">
                                     <tr>
-                                        <td colspan="2" class="text-right border0">
-                                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @currentOrderId}">上传合同</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-right width263">融资用户合同及单据:</th>
+                                        <th class="text-right ">融资用户合同及单据:</th>
                                         <td>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a class="" ms-for="(index, contract) in @contractList | filterBy(@contractFilter, @role.financer)" ms-click="@getFile($event, contract)">{{contract.originalFileName}}</a>
                                         </td>
                                     </tr>
+                                </table>
+                                <table class="table table-hover contract-table">
                                     <tr>
-                                        <th class="text-right width263">融资用户下游合同及单据:</th>
+                                        <th class="text-right contract-table">融资用户下游合同及单据:</th>
                                         <td>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a class="" ms-for="(index, contract) in @contractList | filterBy(@contractFilter, @role.financer)" ms-click="@getFile($event, contract)">{{contract.originalFileName}}</a>
                                         </td>
                                     </tr>
+                                </table>
+                                <table class="table table-hover contract-table">
                                     <tr>
-                                        <th class="text-right width263">港口方合同及单据:</th>
+                                        <th class="text-right contract-table">港口方合同及单据:</th>
                                         <td>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a class="" ms-for="(index, contract) in @contractList | filterBy(@contractFilter, @role.harbor)" ms-click="@getFile($event, contract)">{{contract.originalFileName}}</a>
                                         </td>
                                     </tr>
+                                </table>
+                                <table class="table table-hover contract-table">
                                     <tr>
-                                        <th class="text-right width263">监管方合同及单据:</th>
+                                        <th class="text-right contract-table">监管方合同及单据:</th>
                                         <td>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
-                                            <a href="" class="marginL marginR">合同1</a>
+                                            <a class="" ms-for="(index, contract) in @contractList | filterBy(@contractFilter, @role.supervisor)" ms-click="@getFile($event, contract)">{{contract.originalFileName}}</a>
                                         </td>
                                     </tr>
-
-
                                 </table>
 
                             </div>
+                        </div>
+                        <div class="panel-footer text-center">
+                            <a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @currentOrderId}">上传合同</a>
                         </div>
 
                     </div>

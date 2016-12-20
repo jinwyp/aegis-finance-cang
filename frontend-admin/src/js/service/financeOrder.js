@@ -80,10 +80,17 @@ actions.forEach(function (item, index){
 });
 
 
+var contractType = {
+    contract : '合同',
+    finance  : '财务单据',
+    business : '业务单据类(质量和数量单据, 运输单据, 货转证明)'
+}
+
 exports.statusList = status;
 exports.statusObject = statusObject;
 exports.actionList = actions;
 exports.actionObject = actionObject;
+exports.contractType = contractType;
 
 
 
@@ -207,4 +214,33 @@ exports.updateFinanceOrderInfoById = function (id, order){
         headers : headers
     });
 
+};
+
+
+
+
+exports.getContractListByOrderId = function (orderId, query){
+
+    var params = jQuery.extend({}, query, {orderId : orderId});
+
+    return jQuery.ajax({
+        url      : url.contractList,
+        method   : 'GET',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+
+exports.getContractById = function (id, query){
+    var params = jQuery.extend({}, query);
+
+    return jQuery.ajax({
+        url      : url.contractList + '/' + id,
+        method   : 'GET',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
 };

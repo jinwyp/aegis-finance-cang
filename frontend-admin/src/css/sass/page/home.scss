@@ -38,10 +38,23 @@
   left:56%;
   top: 10px;
 }
-.width263{
-  width: 263px;
+.contract-table{
+
+  th {
+    width: 200px;
+  }
+
+  a {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 
 .search-select {
   width:100px !important;
+}
+
+.contract-type-select {
+  margin-top: 10px;
+  width:150px !important;
 }

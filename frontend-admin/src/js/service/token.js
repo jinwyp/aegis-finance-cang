@@ -17,6 +17,7 @@ var prefix = '/api';
 
 var url = {
     financeOrderList : prefix + '/financeOrders',
+    contractList : prefix + '/files',
     userList : prefix + '/users',
     login : prefix + '/auth/login',
     password : prefix + '/user/password'
