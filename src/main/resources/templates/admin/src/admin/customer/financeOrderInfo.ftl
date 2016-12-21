@@ -126,27 +126,25 @@
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th class="text-right">审批状态:</th>
+                                        <th class="text-right">当前状态:</th>
                                         <td>{{@currentOrder.status | statusname}} </td>
                                     </tr>
 
                                     <tr>
-                                        <th class="text-right">审批子状态:</th>
-                                        <td> <span ms-visible="@currentOrder.statusChild11Financer"> {{@currentOrder.statusChild11Financer | statusname}} <br> </span>
-                                            <span ms-visible="@currentOrder.statusChild12Trader"> {{@currentOrder.statusChild12Trader | statusname}} </span>
-                                        </td>
-                                        <th class="text-right">审批子状态:</th>
-                                        <td><span ms-visible="@currentOrder.statusChild21Harbor"> {{@currentOrder.statusChild21Harbor | statusname}} <br> </span>
-                                            <span ms-visible="@currentOrder.statusChild22Supervisor"> {{@currentOrder.statusChild22Supervisor | statusname}} </span>
+                                        <th class="text-right">子状态:</th>
+                                        <td>
+                                            <span ms-visible="@currentOrder.statusChild1Financer"> {{@currentOrder.statusChild1Financer | statusname}} <br> </span>
+                                            <span ms-visible="@currentOrder.statusChild2Harbor"> {{@currentOrder.statusChild2Harbor | statusname}} <br> </span>
+                                            <span ms-visible="@currentOrder.statusChild3Supervisor"> {{@currentOrder.statusChild3Supervisor | statusname}} </span>
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr ms-for="(index, audit) in @currentOrder.auditHistory">
                                         <th class="text-right">审批时间:</th>
-                                        <td>{{@currentOrder.requestTime | date("yyyy-MM-dd")}}</td>
+                                        <td>{{audit.updatedAt | date("yyyy-MM-dd:HH:mm:ss ")}}</td>
 
                                         <th class="text-right">审批人:</th>
-                                        <td>234569876543</td>
+                                        <td>{{audit.username}}</td>
                                     </tr>
                                 </table>
 
@@ -168,14 +166,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table class="table table-hover contract-table">
-                                    <tr>
-                                        <th class="text-right contract-table">融资用户下游合同及单据:</th>
-                                        <td>
-                                            <a class="" ms-for="(index, contract) in @contractList | filterBy(@contractFilter, @role.financer)" ms-click="@getFile($event, contract)">{{contract.originalFileName}}</a>
-                                        </td>
-                                    </tr>
-                                </table>
+
                                 <table class="table table-hover contract-table">
                                     <tr>
                                         <th class="text-right contract-table">港口方合同及单据:</th>

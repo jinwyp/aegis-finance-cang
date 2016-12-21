@@ -29,7 +29,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"></div>
                             <div class="panel-body">
-                                <form method="post" action="/" class="form-horizontal" ms-validate="@validate">
+                                <form class="form-horizontal" ms-validate="@validate">
                                     <div class="form-group" ms-class="[@errorInputName.indexOf('inputOldPwd')>-1 && 'has-error']">
                                         
                                         <label class="col-sm-2 control-label">当前密码</label>
@@ -37,7 +37,7 @@
                                             <input type="password" id="inputOldPwd" placeholder="请输入旧密码" class="form-control" ms-duplex="@modifyPassword.oldPwd" ms-rules="{required:true}"
                                                    data-required-message="请输入旧密码">
                                         </div>
-                                        <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputOldPwd')>-1">{{@errorMessage.inputOldPwd}}</div>
+                                        <div class="col-sm-5" ms-visible="@errorInputName.indexOf('inputOldPwd')>-1">{{@errorMessage.inputOldPwd}}</div>
                                     </div>
 
                                     <div class="form-group" ms-class="[@errorInputName.indexOf('inputNewPwd')>-1 && 'has-error']">
@@ -46,7 +46,7 @@
                                             <input type="password" id="inputNewPwd" placeholder="请输入新密码" class="form-control" ms-duplex="@modifyPassword.newPwd" ms-rules="{required:true, minlength:6, maxlength:20}"
                                                    data-required-message="请输入新密码" data-minlength-message="密码长度必须为6-20位字符" data-maxlength-message="密码长度必须为6-20位字符">
                                         </div>
-                                        <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputNewPwd')>-1">{{@errorMessage.inputNewPwd}}</div>
+                                        <div class="col-sm-5" ms-visible="@errorInputName.indexOf('inputNewPwd')>-1">{{@errorMessage.inputNewPwd}}</div>
                                     </div>
 
                                     <div class="form-group" ms-class="[@errorInputName.indexOf('inputRePwd')>-1 && 'has-error']">
@@ -55,7 +55,7 @@
                                             <input type="password" id="inputRePwd" placeholder="请再次输入新密码" class="form-control" ms-duplex="@modifyPassword.rePwd" ms-rules="{required:true, minlength:6, maxlength:20, equalto:'inputNewPwd'}"
                                                    data-required-message="请再次输入新密码" data-minlength-message="密码长度必须为6-20位字符" data-maxlength-message="密码长度必须为6-20位字符" data-equalto-message="两次密码输入不一致">
                                         </div>
-                                        <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputRePwd')>-1">{{@errorMessage.inputRePwd}}</div>
+                                        <div class="col-sm-5" ms-visible="@errorInputName.indexOf('inputRePwd')>-1">{{@errorMessage.inputRePwd}}</div>
                                     </div>
 
                                     <div class="form-group">

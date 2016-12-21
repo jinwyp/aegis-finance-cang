@@ -10,7 +10,7 @@ var sessionUserRole = localStorage.getItem('sessionUserRole') || '';
 
 var headers = {
     "X-Authorization" : token,
-    "X-Authorization-UserId" : sessionUserId
+    "x-authorization-userid" : sessionUserId
 };
 
 var prefix = '/api';

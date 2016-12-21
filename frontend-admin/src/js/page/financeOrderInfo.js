@@ -94,7 +94,29 @@ var orderInfo = function(query) {
         },
         harborList : [],
         supervisorList : [],
-        fundProviderList : []
+        fundProviderList : [],
+
+        inputHarborConfirmAmount : 0,
+        errorHarborConfirmAmount : '',
+        saveOrder : function (){
+            vm.errorHarborConfirmAmount = false;
+
+            if (vm.inputHarborConfirmAmount < 100){
+                vm.errorHarborConfirmAmount = true;
+            }else {
+                var tempOrder = {
+                    harborConfirmAmount : vm.inputHarborConfirmAmount
+                }
+                orderService.updateFinanceOrderInfoById(orderId, tempOrder).done(function (data, textStatus, jqXHR) {
+                    if (data.success) {
+                        $.notify("保存成功, 并会通知贸易商!", 'success');
+                    } else {
+                        console.log(data.error);
+                    }
+                });
+            }
+
+        }
     });
 
 
