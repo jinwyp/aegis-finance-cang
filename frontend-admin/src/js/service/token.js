@@ -16,7 +16,8 @@ var headers = {
 var prefix = '/api';
 
 var url = {
-    financeOrderList : prefix + '/financeOrders',
+    financeOrderList : prefix + '/financeorders',
+    paymentOrderList : prefix + '/paymentorders',
     contractList : prefix + '/files',
     userList : prefix + '/users',
     login : prefix + '/auth/login',

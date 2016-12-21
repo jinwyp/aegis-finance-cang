@@ -141,7 +141,7 @@
 
                                     <tr ms-for="(index, audit) in @currentOrder.auditHistory">
                                         <th class="text-right">审批时间:</th>
-                                        <td>{{audit.updatedAt | date("yyyy-MM-dd:HH:mm:ss ")}}</td>
+                                        <td>{{audit.updatedAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
 
                                         <th class="text-right">审批人:</th>
                                         <td>{{audit.username}}</td>
@@ -240,7 +240,7 @@
 
 
                     <!-- 贸易商选择 资金方 港口 监管方-->
-                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader && !@currentOrder.harborUserId && !@currentOrder.fundProviderUserId" >
                         <div class="panel-heading">选择资金方,港口和监管方 </div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
@@ -288,6 +288,67 @@
                         </div>
 
                     </div>
+
+                    <!-- 贸易商通知融资方缴纳保证金-->
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
+                        <div class="panel-heading">通知融资方缴纳保证金 </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@errorDepositValue && 'has-error']">
+                                    <label class="col-sm-3 control-label">保证金金额(万元):</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" ms-duplex-number="@inputDepositValue" >
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@errorDepositValue">
+                                        <span class="help-block">*&nbsp;金额数量不正确, 最少10万元!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveDeposit($event)">提交保证金缴纳通知</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <!-- 融资方查看缴纳保证金通知 -->
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.financer || @currentUser.role === @role.trader" >
+                        <div class="panel-heading" ms-visible="@currentUser.role === @role.financer" >需要缴纳的保证金 </div>
+                        <div class="panel-heading" ms-visible="@currentUser.role === @role.trader" >保证金缴纳通知记录 </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>创建时间</th>
+                                    <th>要缴纳的金额(万元)</th>
+                                    <th>交易流水号</th>
+                                    <th>当前状态</th>
+                                    <th ms-visible="@currentUser.role === @role.financer">操作</th>
+                                </tr>
+
+                                <tr ms-for="(index, paymentOrder) in @paymentList">
+                                    <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
+                                    <td>{{ paymentOrder.depositValue}}</td>
+                                    <td>{{ paymentOrder.paymentNo || '--'}}</td>
+                                    <td>{{ paymentOrder.paymentType | paymenttype}}</td>
+                                    <td ms-visible="@currentUser.role === @role.financer && paymentOrder.paymentType ==='notified' ">
+                                        <input type="text" class="payment-no" placeholder="交易流水号" ms-duplex="@inputPaymentOrderNo">
+                                        <button class="btn btn-info" type="button" ms-click="@savePaymentOrder(paymentOrder._id)">确认已缴</button>
+                                        <span class="text-danger" ms-visible="@errorPaymentOrderNo">流水号不正确!</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+
 
                     <!-- 动作按钮 -->
 

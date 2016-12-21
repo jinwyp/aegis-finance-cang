@@ -86,11 +86,18 @@ var contractType = {
     business : '业务单据类(质量和数量单据, 运输单据, 货转证明)'
 }
 
-exports.statusList = status;
+var paymentType = {
+    notified    : '保证金已通知',
+    alreadyPaid : '保证金已缴纳',
+    transferred : '保证金已到账'
+}
+
+exports.statusList   = status;
 exports.statusObject = statusObject;
-exports.actionList = actions;
+exports.actionList   = actions;
 exports.actionObject = actionObject;
 exports.contractType = contractType;
+exports.paymentType  = paymentType;
 
 
 
@@ -232,10 +239,53 @@ exports.getContractListByOrderId = function (orderId, query){
     });
 
 };
-
 exports.getContractById = function (id, query){
     var params = jQuery.extend({}, query);
 
     window.location = url.financeOrderList + '/file/' + id;
+
+};
+
+
+
+
+
+exports.getPaymentOrderListByOrderId = function (orderId, query){
+
+    var params = jQuery.extend({}, query, {orderId : orderId});
+
+    return jQuery.ajax({
+        url      : url.paymentOrderList,
+        method   : 'GET',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+exports.addNewPaymentOrder = function (order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        url      : url.paymentOrderList,
+        method   : 'POST',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+exports.updatePaymentOrderInfoById = function (id, order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        url      : url.paymentOrderList + '/' + id,
+        method   : 'PATCH',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
 
 };
