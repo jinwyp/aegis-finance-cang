@@ -41,24 +41,29 @@ var orderInfo = function (query) {
         currentOrder         : {},
         action               : orderService.actionObject,
         doAction             : function (actionName) {
+            console.log(actionName)
             var selectUser = {};
             if (sessionUserRole === vm.role.trader) {
 
-                vm.traderFormError.fundProvider = false;
-                vm.traderFormError.harbor       = false;
-                vm.traderFormError.supervisor   = false;
+                if (vm.currentOrder.statusChild1Financer && vm.currentOrder.statusChild2Harbor && vm.currentOrder.statusChild3Supervisor){
 
-                if (!vm.traderForm.selectedFundProvider) vm.traderFormError.fundProvider = true;
-                if (!vm.traderForm.selectedHarbor) vm.traderFormError.harbor = true;
-                if (!vm.traderForm.selectedSupervisor) vm.traderFormError.supervisor = true;
+                }else{
+                    vm.traderFormError.fundProvider = false;
+                    vm.traderFormError.harbor       = false;
+                    vm.traderFormError.supervisor   = false;
 
-                if (vm.traderFormError.fundProvider || vm.traderFormError.harbor || vm.traderFormError.supervisor) {
-                    return;
-                }
-                selectUser = {
-                    "harborUserId"       : vm.traderForm.selectedHarbor,
-                    "supervisorUserId"   : vm.traderForm.selectedSupervisor,
-                    "fundProviderUserId" : vm.traderForm.selectedFundProvider
+                    if (!vm.traderForm.selectedFundProvider) vm.traderFormError.fundProvider = true;
+                    if (!vm.traderForm.selectedHarbor) vm.traderFormError.harbor = true;
+                    if (!vm.traderForm.selectedSupervisor) vm.traderFormError.supervisor = true;
+
+                    if (vm.traderFormError.fundProvider || vm.traderFormError.harbor || vm.traderFormError.supervisor) {
+                        return;
+                    }
+                    selectUser = {
+                        "harborUserId"       : vm.traderForm.selectedHarbor,
+                        "supervisorUserId"   : vm.traderForm.selectedSupervisor,
+                        "fundProviderUserId" : vm.traderForm.selectedFundProvider
+                    }
                 }
 
             }

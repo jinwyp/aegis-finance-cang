@@ -192,9 +192,9 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser)
         "orderId": orderId,
         "action": actionName,
         "operator": userRole,
-        "harborUserId": "583ea0b1f17d22ecde1ecb17",
-        "supervisorUserId": "583fc370e6e14eedaa51d2a0",
-        "fundProviderUserId": "583fd13e75a02a0f2935374e",
+        // "harborUserId": "583ea0b1f17d22ecde1ecb17",
+        // "supervisorUserId": "583fc370e6e14eedaa51d2a0",
+        // "fundProviderUserId": "583fd13e75a02a0f2935374e",
         "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
     });
 
