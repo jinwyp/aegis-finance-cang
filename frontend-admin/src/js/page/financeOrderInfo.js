@@ -15,7 +15,6 @@ var orderService = require('../service/financeOrder.js') ;
 var sessionUserId = require('../service/token.js').sessionUserId ;
 var sessionUserRole = require('../service/token.js').sessionUserRole ;
 
-
 var url = window.location.href;
 var orderId = url.substring(url.lastIndexOf("\/") + 1, url.length);
 var urlShowStatus = 'orderInfo'
@@ -40,7 +39,28 @@ var orderInfo = function(query) {
         currentOrder : {},
         action : orderService.actionObject,
         doAction : function (actionName){
-            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName).done(function (data, textStatus, jqXHR) {
+            var selectUser = {};
+            if(sessionUserRole === vm.role.trader){
+
+                vm.traderFormError.fundProvider = false;
+                vm.traderFormError.harbor = false;
+                vm.traderFormError.supervisor = false;
+
+                if (!vm.traderForm.selectedFundProvider) vm.traderFormError.fundProvider = true;
+                if (!vm.traderForm.selectedHarbor) vm.traderFormError.harbor = true;
+                if (!vm.traderForm.selectedSupervisor) vm.traderFormError.supervisor = true;
+
+                if (vm.traderFormError.fundProvider || vm.traderFormError.harbor || vm.traderFormError.supervisor){
+                    return;
+                }
+                selectUser = {
+                    "harborUserId": vm.traderForm.selectedHarbor,
+                    "supervisorUserId": vm.traderForm.selectedSupervisor,
+                    "fundProviderUserId": vm.traderForm.selectedFundProvider
+                }
+
+            }
+            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, selectUser).done(function (data, textStatus, jqXHR) {
                 if (data.success) {
                     getOrderInfo();
                     $.notify("提交成功!", 'success');
@@ -97,7 +117,7 @@ var orderInfo = function(query) {
         });
     }
 
-    getOrderInfo();
+
 
     function getUsersOfRoles(){
 
@@ -124,11 +144,13 @@ var orderInfo = function(query) {
         })
     }
 
+    getOrderInfo();
 
-    //折线图
+
     if (urlShowStatus === 'orderInfo'){
         getUsersOfRoles()
 
+        //折线图
         var myChart = echarts.init(document.getElementById('main'));
         myChart.setOption({
             title: {

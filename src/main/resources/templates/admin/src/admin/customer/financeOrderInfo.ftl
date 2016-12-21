@@ -249,8 +249,8 @@
 
 
                     <!-- 贸易商选择 资金方 港口 监管方-->
-                    <div class="panel panel-default " >
-                        <div class="panel-heading">选择资金方,港口和监管方</div>
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
+                        <div class="panel-heading">选择资金方,港口和监管方 {{@currentUser.role}} - {{@role.trader}}</div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
 
@@ -300,7 +300,7 @@
 
                     <!-- 动作按钮 -->
 
-                    <div class="row" ms-if="@currentUser.role === 'financer' ">
+                    <div class="row" ms-if="@currentUser.role === @role.financer ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a12FinishedUpload.statusAt && !@currentOrder.statusChild1Financer" ms-click="doAction(@action.a12FinishedUpload.name)">{{@action.a12FinishedUpload.displayName}}</button>
                         </div>
@@ -317,7 +317,7 @@
                     </div>
 
 
-                    <div class="row" ms-if="@currentUser.role === 'trader' ">
+                    <div class="row" ms-if="@currentUser.role === @role.trader ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a11SelectHarborAndSupervisor.statusAt" ms-click="doAction(@action.a11SelectHarborAndSupervisor.name)">{{@action.a11SelectHarborAndSupervisor.displayName}}</button>
                         </div>
@@ -349,7 +349,7 @@
                     </div>
 
 
-                    <div class="row" ms-if="@currentUser.role === 'traderAccountant' ">
+                    <div class="row" ms-if="@currentUser.role === @role.traderAccountant ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a17Approved.statusAt" ms-click="doAction(@action.a17Approved.name)">{{@action.a17Approved.displayName}}</button>
                         </div>
@@ -359,7 +359,7 @@
                     </div>
 
 
-                    <div class="row" ms-if="@currentUser.role === 'harbor' ">
+                    <div class="row" ms-if="@currentUser.role === @role.harbor ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a13FinishedUpload.statusAt && !@currentOrder.statusChild2Harbor" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
                         </div>
@@ -373,7 +373,7 @@
                     </div>
 
 
-                    <div class="row" ms-if="@currentUser.role === 'supervisor' ">
+                    <div class="row" ms-if="@currentUser.role === @role.supervisor ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a14FinishedUpload.statusAt && !@currentOrder.statusChild3Supervisor" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
                         </div>
@@ -381,7 +381,7 @@
 
 
 
-                    <div class="row" ms-if="@currentUser.role === 'fundProvider' ">
+                    <div class="row" ms-if="@currentUser.role === @role.fundProvider ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a18Approved.statusAt" ms-click="doAction(@action.a18Approved.name)">{{@action.a18Approved.displayName}}</button>
                         </div>
@@ -390,7 +390,7 @@
                         </div>
                     </div>
 
-                    <div class="row" ms-if="@currentUser.role === 'fundProviderAccountant' ">
+                    <div class="row" ms-if="@currentUser.role === @role.fundProviderAccountant ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a20Approved.statusAt" ms-click="doAction(@action.a20Approved.name)">{{@action.a20Approved.displayName}}</button>
                         </div>
