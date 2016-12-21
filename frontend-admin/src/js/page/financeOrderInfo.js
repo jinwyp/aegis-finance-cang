@@ -109,6 +109,7 @@ var orderInfo = function(query) {
                 }
                 orderService.updateFinanceOrderInfoById(orderId, tempOrder).done(function (data, textStatus, jqXHR) {
                     if (data.success) {
+                        getOrderInfo();
                         $.notify("保存成功, 并会通知贸易商!", 'success');
                     } else {
                         console.log(data.error);
