@@ -31,7 +31,7 @@
             <div class="panel panel-default " >
                 <!--<div class="panel-heading">Form elements</div>-->
                 <div class="panel-body">
-                    <form method="get" action="/" class="form-horizontal" data-parsley-validate="" novalidate="" ms-validate="@addValidate">
+                    <form class="form-horizontal" data-parsley-validate="" novalidate="" ms-validate="@addValidate">
                         <fieldset>
                             <!--<legend>Classic inputs</legend>-->
                             <div class="form-group" ms-class="[@errorInputName.indexOf('inputUsername')>-1 && 'has-error' ]">
@@ -52,16 +52,15 @@
                                             ms-duplex="@currentUser.role" ms-rules='{required:true}' data-required-message="请选择用户类型">
                                         <option value="" > - </option>
                                         <option ms-for="role in @roleList" ms-attr="{value: role.name}" >{{role.displayName}} </option>
-
                                     </select>
-                                    <span class="help-block m-b-none" ms-visible="@currentUser.role==='tradersAccountant' || @currentUser.role==='fundProviderAccountant'">
+                                    <span class="help-block m-b-none" ms-visible="@currentUser.role===@role.traderAccountant || @currentUser.role===@role.fundProviderAccountant">
                                     </span>
                                     <p class="form-control-static " ms-visible="@pageShowStatus === 'info'">{{@currentUser.role | rolename}}</p>
                                 </div>
                                 <div class="col-sm-5 text-danger" ms-visible="@errorInputName.indexOf('inputUserRole')>-1">{{@errorMessage.inputUserRole}}</div>
                             </div>
                         </fieldset>
-                        <fieldset ms-visible="@currentUser.role ==='tradersAccountant'">
+                        <fieldset ms-visible="@currentUser.role === @role.traderAccountant">
                             <div class="form-group" ms-class="[!@isMYSCWValid && 'has-error']">
                                 <label class="col-sm-2 control-label paddingT0"><span class="text-danger marginR">*</span>选择贸易商:</label>
                                 <div class="col-sm-5">
@@ -75,7 +74,7 @@
                                 <div class="col-sm-5 text-danger" ms-visible="!@isMYSCWValid">请选择贸易商</div>
                             </div>
                         </fieldset>
-                        <fieldset ms-visible="@currentUser.role ==='fundProviderAccountant'">
+                        <fieldset ms-visible="@currentUser.role === @role.fundProviderAccountant">
                             <div class="form-group" ms-class="[!@isMYSCWValid && 'has-error']">
                                 <label class="col-sm-2 control-label paddingT0"><span class="text-danger marginR">*</span>选择资金方:</label>
                                 <div class="col-sm-5">

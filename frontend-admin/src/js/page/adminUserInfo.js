@@ -8,7 +8,7 @@ var avalon = require('avalon2') ;
 require('../component/header.js');
 
 var userService = require('../service/user.js') ;
-
+var role = userService.userRoleKeyObject;
 
 var url = window.location.href;
 var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
@@ -34,6 +34,7 @@ var userInfo = function() {
         fundProviderList : [],
 
         roleList : userService.userRoleList,
+        role : userService.userRoleKeyObject,
 
         pageShowStatus : 'add',
 
@@ -65,7 +66,7 @@ var userInfo = function() {
                 console.log(vm.isMYSCWValid);
 
                 var isValid = true;
-                if(vm.currentUser.role === "traderAccountant" || vm.currentUser.role === "fundProviderAccountant"){
+                if(vm.currentUser.role === role.traderAccountant || vm.currentUser.role === role.fundProviderAccountant){
                     if (reasons.length || !vm.isMYSCWValid ) {
                         isValid = false;
                     }
@@ -128,13 +129,13 @@ var userInfo = function() {
 
     function checkMYS() {
 
-        if (vm.currentUser.role === "traderAccountant"){
+        if (vm.currentUser.role === role.traderAccountant){
             if (vm.currentUser.belongToUser){
                 vm.isMYSCWValid = true;
             }else{
                 vm.isMYSCWValid = false;
             }
-        }else if (vm.currentUser.role === "fundProviderAccountant"){
+        }else if (vm.currentUser.role === role.fundProviderAccountant){
             if (vm.currentUser.belongToUser){
                 vm.isMYSCWValid = true;
             }else{
@@ -155,7 +156,7 @@ var userInfo = function() {
     }
     function getUsersOfRoles(){
 
-        userService.getUserList({role : 'trader', $limit : 500}).done(function(data, textStatus, jqXHR) {
+        userService.getUserList({role : role.trader, $limit : 500}).done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.traderList = data.data;
             }else{
@@ -163,7 +164,7 @@ var userInfo = function() {
             }
         });
 
-        userService.getUserList({role : 'fundProvider', $limit : 500}).done(function(data, textStatus, jqXHR) {
+        userService.getUserList({role : role.fundProvider, $limit : 500}).done(function(data, textStatus, jqXHR) {
             if (data.success){
                 vm.fundProviderList = data.data;
             }else{
