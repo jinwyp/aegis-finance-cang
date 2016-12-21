@@ -250,7 +250,7 @@
 
                     <!-- 贸易商选择 资金方 港口 监管方-->
                     <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
-                        <div class="panel-heading">选择资金方,港口和监管方 {{@currentUser.role}} - {{@role.trader}}</div>
+                        <div class="panel-heading">选择资金方,港口和监管方 </div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
 
@@ -262,7 +262,7 @@
                                             <option ms-for="user in @fundProviderList" ms-attr="{value: user._id}" >{{user.username}} </option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.fundProvider">
+                                    <div class="col-sm-5" ms-visible="@traderFormError.fundProvider">
                                         <span class="help-block">*&nbsp;请选择贸易商!</span>
                                     </div>
                                 </div>
@@ -275,7 +275,7 @@
                                             <option ms-for="user in @harborList" ms-attr="{value: user._id}" >{{user.username}} </option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.harbor">
+                                    <div class="col-sm-5" ms-visible="@traderFormError.harbor">
                                         <span class="help-block">*&nbsp;请选择港口!</span>
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@
                                             <option ms-for="user in @supervisorList" ms-attr="{value: user._id}" >{{user.username}} </option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.supervisor">
+                                    <div class="col-sm-5" ms-visible="@traderFormError.supervisor">
                                         <span class="help-block">*&nbsp;请选择监管方!</span>
                                     </div>
                                 </div>
