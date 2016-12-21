@@ -3,11 +3,14 @@ var jQuery = require('jquery') ;
 var avalon = require('avalon2') ;
 require('../component/header.js');
 
+var tokenHeaders = require('../service/token').headers;
+
 window.jQuery = jQuery;
 var WebUploader = require('../libs/webuploader/webuploader.nolog.js') ;
 
 
 var echarts = require('echarts');
+var userService = require('../service/user.js') ;
 var orderService = require('../service/financeOrder.js') ;
 var sessionUserId = require('../service/token.js').sessionUserId ;
 var sessionUserRole = require('../service/token.js').sessionUserRole ;
@@ -24,6 +27,11 @@ var orderInfo = function(query) {
 
     var vm = avalon.define({
         $id : 'orderInfoController',
+        role : userService.userRoleKeyObject,
+        contractType : orderService.contractType,
+        selectedContractType : '',
+        contractList : [],
+        uploadFileList : [],
         currentUser : {
             id : sessionUserId,
             role : sessionUserRole
@@ -40,6 +48,16 @@ var orderInfo = function(query) {
                     console.log(data.error);
                 }
             });
+        },
+
+        getFile : function (event, file){
+            event.preventDefault();
+            orderService.getContractById(file._id);
+        },
+
+        contractFilter: function (el, i, role) {
+            // console.log(el, i,role)
+            return el.contractUserType === role
         }
     });
 
@@ -49,6 +67,14 @@ var orderInfo = function(query) {
         orderService.getFinanceOrderInfoById(orderId).done(function (data, textStatus, jqXHR) {
             if (data.success) {
                 vm.currentOrder = data.data;
+            } else {
+                console.log(data.error);
+            }
+        });
+
+        orderService.getContractListByOrderId(orderId).done(function (data, textStatus, jqXHR) {
+            if (data.success) {
+                vm.contractList = data.data;
             } else {
                 console.log(data.error);
             }
@@ -127,6 +153,55 @@ var orderInfo = function(query) {
                 }
             ]
         });
+    }else {
+        var uploader = WebUploader.create({
+
+            // 选完文件后，是否自动上传。
+            auto: true,
+
+            // swf文件路径
+            swf: '/static/admin/js/libs/webuploader/Uploader.swf',
+
+            // 文件接收服务端。
+            server: '/api/files',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#uploadPicker',
+
+            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+            resize: false
+        });
+
+        uploader.on( 'uploadBeforeSend', function( block, data, headers ) {
+
+            jQuery.extend(data, {
+                orderId : orderId,
+                contractUserType : sessionUserRole,
+                contractType : vm.selectedContractType
+            });
+            jQuery.extend(headers, tokenHeaders);
+
+        });
+
+        uploader.on( 'fileQueued', function( file ) {
+            console.log(file)
+        });
+
+        uploader.on( 'uploadSuccess', function( file ) {
+            vm.uploadFileList.push({
+                name : file.name,
+                ext  : file.ext,
+                size : file.size,
+                type : file.type
+            });
+            $.notify("上传成功!", 'success');
+        });
+
+        uploader.on( 'uploadError', function( file ) {
+            $.notify("上传出现问题!", 'error');
+        });
+
     }
 
 

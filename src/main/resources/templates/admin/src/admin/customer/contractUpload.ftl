@@ -76,18 +76,25 @@
                                 <div class="panel-heading text-center">上传合同及单据</div>
                                 <div class="panel-body H300">
                                     <table class="table table-hover">
-                                        <tr>
-                                            <td class="border0 text-center">**合同</td>
-                                            <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="border0 text-center">**合同</td>
+                                        <tr ms-for="(index, file) in @uploadFileList">
+                                            <td class="border0 text-center">{{file.name}} <a href=""></a></td>
                                             <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="panel-footer text-center">
-                                    <button class="btn btn-warning" type="button">点击上传</button>
+                                <div class="panel-footer ">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <select class="form-control contract-type-select" ms-duplex="@selectedContractType">
+                                                <option value="" > -- 请选择类型 --  </option>
+                                                <option ms-for="(key, value) in @contractType" ms-attr="{value: key}" >{{value}} </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div id="uploadPicker" class="btn">选择文件并上传</div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -138,7 +145,7 @@
                         </div>
 
                         <div class="panel-footer text-center">
-                            <a class="btn btn-default" href="/warehouse/admin/home/finance/manage">返回</a>
+                            <a class="btn btn-default" ms-attr="{href:'/warehouse/admin/home/finance/'+ @currentOrderId }">返回</a>
                         </div>
                     </div>
 
