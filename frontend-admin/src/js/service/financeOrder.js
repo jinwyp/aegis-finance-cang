@@ -8,9 +8,9 @@ var url = require('./token').url;
 var role = require('./user.js').userRoleKeyObject;
 
 var status = [
-    {name : 'financingStep11', displayName:'等待融资方上传合同及单据,等待贸易商选择港口和监管方'},
-    {name : 'financingStep12', displayName:'融资方完成上传合同,待贸易商审核'},
-    {name : 'financingStep13', displayName:'贸易商已选择港口和监管方,待港口和监管上传合同及单据'},
+    {name : 'financingStep11', displayName:'等待贸易商选择港口,监管方和资金方'},
+    {name : 'financingStep12', displayName:'等待融资方,港口和监管方上传合同及单据'},
+    {name : 'financingStep13', displayName:'融资方完成上传合同,待贸易商审核'},
     {name : 'financingStep14', displayName:'港口完成上传合同,待贸易商审核'},
     {name : 'financingStep15', displayName:'监管方完成上传合同,待贸易商审核'},
     {name : 'financingStep51', displayName:'贸易商审核不通过，流程结束'},
@@ -38,14 +38,14 @@ status.forEach(function (item, index){
 });
 
 var actions = [
-    {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '确认完成上传资料并提交'},
-    {statusAt:"financingStep11", operator : 'trader', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口,监管方和资金方'},
+    {statusAt:"financingStep11", operator : 'trader', name : 'a11SelectHarborAndSupervisor', displayName : '完成选择港口,监管方和资金方'},
 
-    {statusAt:"financingStep11", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
-    {statusAt:"financingStep11", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep12", operator : 'financer', name : 'a12FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep12", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep12", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
 
-    {statusAt:"financingStep11", operator : 'trader', name : 'a15Approved', displayName : '审核通过'},
-    {statusAt:"financingStep11", operator : 'trader', name : 'a16NotApproved', displayName : '审核不通过'},
+    {statusAt:"financingStep12", operator : 'trader', name : 'a15Approved', displayName : '审核通过'},
+    {statusAt:"financingStep12", operator : 'trader', name : 'a16NotApproved', displayName : '审核不通过'},
 
     {statusAt:"financingStep16", operator : 'traderAccountant', name : 'a17Approved', displayName : '确认放款'},
 
@@ -70,7 +70,7 @@ var actions = [
     {statusAt:"repaymentStep36", operator : 'traderAccountant', name : 'a37Approved', displayName : '放款给资金方'},
 
     {statusAt:"financingStep21", operator : 'trader', name : 'a37Punishment', displayName : '扣押货物(处置货权)'},
-    {statusAt:"repaymentStep34", operator : 'trader', name : 'a38Punishment', displayName : '扣押货物(处置货权)'},
+    {statusAt:"repaymentStep34", operator : 'trader', name : 'a38Punishment', displayName : '扣押货物(处置货权)'}
 ];
 
 var actionObject = {};

@@ -58,7 +58,23 @@ var orderInfo = function(query) {
         contractFilter: function (el, i, role) {
             // console.log(el, i,role)
             return el.contractUserType === role
-        }
+        },
+
+        traderForm : {
+            selectedFundProvider : '',
+            selectedFundProviderAccountant : '',
+            selectedHarbor : '',
+            selectedSupervisor : ''
+        },
+        traderFormError : {
+            fundProvider : '',
+            fundProviderAccountant : '',
+            harbor : '',
+            supervisor : ''
+        },
+        harborList : [],
+        supervisorList : [],
+        fundProviderList : []
     });
 
 
@@ -82,10 +98,37 @@ var orderInfo = function(query) {
     }
 
     getOrderInfo();
-    
+
+    function getUsersOfRoles(){
+
+        userService.getUserList({role : vm.role.harbor, $limit : 500}).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.harborList = data.data;
+            }else{
+                console.log(data.error);
+            }
+        });
+        userService.getUserList({role : vm.role.supervisor, $limit : 500}).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.supervisorList = data.data;
+            }else{
+                console.log(data.error);
+            }
+        })
+        userService.getUserList({role : vm.role.fundProvider, $limit : 500}).done(function(data, textStatus, jqXHR) {
+            if (data.success){
+                vm.fundProviderList = data.data;
+            }else{
+                console.log(data.error);
+            }
+        })
+    }
+
 
     //折线图
     if (urlShowStatus === 'orderInfo'){
+        getUsersOfRoles()
+
         var myChart = echarts.init(document.getElementById('main'));
         myChart.setOption({
             title: {

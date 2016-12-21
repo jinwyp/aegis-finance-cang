@@ -246,9 +246,63 @@
 
                     </div>
 
+
+
+                    <!-- 贸易商选择 资金方 港口 监管方-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">选择资金方,港口和监管方</div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@traderFormError.fundProvider && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择贸易商:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedFundProvider">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @fundProviderList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.fundProvider">
+                                        <span class="help-block">*&nbsp;请选择贸易商!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ms-class="[@traderFormError.harbor && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择港口:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedHarbor">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @harborList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.harbor">
+                                        <span class="help-block">*&nbsp;请选择港口!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ms-class="[@traderFormError.supervisor && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择监管方:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedSupervisor">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @supervisorList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.supervisor">
+                                        <span class="help-block">*&nbsp;请选择监管方!</span>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <!-- 动作按钮 -->
+
                     <div class="row" ms-if="@currentUser.role === 'financer' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a11FinishedUpload.statusAt && !@currentOrder.statusChild11Financer" ms-click="doAction(@action.a11FinishedUpload.name)">{{@action.a11FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a12FinishedUpload.statusAt && !@currentOrder.statusChild1Financer" ms-click="doAction(@action.a12FinishedUpload.name)">{{@action.a12FinishedUpload.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
@@ -265,10 +319,10 @@
 
                     <div class="row" ms-if="@currentUser.role === 'trader' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a12SelectHarborAndSupervisor.statusAt && !@currentOrder.statusChild12Trader" ms-click="doAction(@action.a12SelectHarborAndSupervisor.name)">{{@action.a12SelectHarborAndSupervisor.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a11SelectHarborAndSupervisor.statusAt" ms-click="doAction(@action.a11SelectHarborAndSupervisor.name)">{{@action.a11SelectHarborAndSupervisor.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a15Approved.statusAt && @currentOrder.statusChild21Harbor && @currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a15Approved.statusAt && @currentOrder.statusChild2Harbor && @currentOrder.statusChild3Supervisor" ms-click="doAction(@action.a15Approved.name)">{{@action.a15Approved.displayName}}</button>
                         </div>
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-danger" ms-if="@currentOrder.status === @action.a16NotApproved.statusAt" ms-click="doAction(@action.a16NotApproved.name)">{{@action.a16NotApproved.displayName}}</button>
@@ -294,6 +348,7 @@
 
                     </div>
 
+
                     <div class="row" ms-if="@currentUser.role === 'traderAccountant' ">
                         <div class="col-sm-2">
                             <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a17Approved.statusAt" ms-click="doAction(@action.a17Approved.name)">{{@action.a17Approved.displayName}}</button>
@@ -306,7 +361,7 @@
 
                     <div class="row" ms-if="@currentUser.role === 'harbor' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a13FinishedUpload.statusAt && !@currentOrder.statusChild21Harbor" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a13FinishedUpload.statusAt && !@currentOrder.statusChild2Harbor" ms-click="doAction(@action.a13FinishedUpload.name)">{{@action.a13FinishedUpload.displayName}}</button>
                         </div>
 
                         <div class="col-sm-2">
@@ -317,9 +372,10 @@
                         </div>
                     </div>
 
+
                     <div class="row" ms-if="@currentUser.role === 'supervisor' ">
                         <div class="col-sm-2">
-                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a14FinishedUpload.statusAt && !@currentOrder.statusChild22Supervisor" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
+                            <button type="button" class="mb-sm btn btn-success" ms-if="@currentOrder.status === @action.a14FinishedUpload.statusAt && !@currentOrder.statusChild3Supervisor" ms-click="doAction(@action.a14FinishedUpload.name)">{{@action.a14FinishedUpload.displayName}}</button>
                         </div>
                     </div>
 
