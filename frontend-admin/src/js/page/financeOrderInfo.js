@@ -32,6 +32,7 @@ var orderInfo = function (query) {
         contractList         : [],
         uploadFileList       : [],
         paymentList          : [],
+        depositList          : [],
         currentUser          : {
             id   : sessionUserId,
             role : sessionUserRole
@@ -130,7 +131,8 @@ var orderInfo = function (query) {
             } else {
                 var tempPaymentOrder = {
                     depositValue : vm.inputDepositValue,
-                    paymentType  : 'notified',
+                    paymentType  : 'deposit',
+                    depositType  : 'notified',
                     orderId      : orderId,
                     orderNo      : vm.currentOrder.orderNo
                 }
@@ -154,7 +156,7 @@ var orderInfo = function (query) {
             if (!vm.inputPaymentOrderNo || vm.inputPaymentOrderNo.length < 8) {
                 vm.errorPaymentOrderNo = true;
             } else {
-                orderService.updatePaymentOrderInfoById(id, {paymentNo:vm.inputPaymentOrderNo, paymentType:'alreadyPaid'}).done(function (data, textStatus, jqXHR) {
+                orderService.updatePaymentOrderInfoById(id, {paymentNo:vm.inputPaymentOrderNo, depositType:'alreadyPaid'}).done(function (data, textStatus, jqXHR) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
@@ -185,9 +187,9 @@ var orderInfo = function (query) {
             }
         });
 
-        orderService.getPaymentOrderListByOrderId(orderId).done(function (data, textStatus, jqXHR) {
+        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : 'deposit'}).done(function (data, textStatus, jqXHR) {
             if (data.success) {
-                vm.paymentList = data.data;
+                vm.depositList = data.data;
             } else {
                 console.log(data.error);
             }

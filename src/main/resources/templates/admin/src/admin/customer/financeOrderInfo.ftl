@@ -329,12 +329,12 @@
                                     <th ms-visible="@currentUser.role === @role.financer">操作</th>
                                 </tr>
 
-                                <tr ms-for="(index, paymentOrder) in @paymentList">
+                                <tr ms-for="(index, paymentOrder) in @depositList">
                                     <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
                                     <td>{{ paymentOrder.depositValue}}</td>
                                     <td>{{ paymentOrder.paymentNo || '--'}}</td>
-                                    <td>{{ paymentOrder.paymentType | paymenttype}}</td>
-                                    <td ms-visible="@currentUser.role === @role.financer && paymentOrder.paymentType ==='notified' ">
+                                    <td>{{ paymentOrder.depositType | deposittype}}</td>
+                                    <td ms-visible="@currentUser.role === @role.financer && paymentOrder.depositType ==='notified' ">
                                         <input type="text" class="payment-no" placeholder="交易流水号" ms-duplex="@inputPaymentOrderNo">
                                         <button class="btn btn-info" type="button" ms-click="@savePaymentOrder(paymentOrder._id)">确认已缴</button>
                                         <span class="text-danger" ms-visible="@errorPaymentOrderNo">流水号不正确!</span>

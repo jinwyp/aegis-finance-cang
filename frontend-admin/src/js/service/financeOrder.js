@@ -87,6 +87,11 @@ var contractType = {
 }
 
 var paymentType = {
+    payment : '还款',
+    deposit : '保证金'
+}
+
+var depositType = {
     notified    : '保证金已通知',
     alreadyPaid : '保证金已缴纳',
     transferred : '保证金已到账'
@@ -98,6 +103,7 @@ exports.actionList   = actions;
 exports.actionObject = actionObject;
 exports.contractType = contractType;
 exports.paymentType  = paymentType;
+exports.depositType  = depositType;
 
 
 

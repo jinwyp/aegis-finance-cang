@@ -32,10 +32,10 @@ avalon.filters.typename= function (str) {
 };
 
 
-avalon.filters.paymenttype= function (str) {
+avalon.filters.deposittype= function (str) {
     if (!str){
         return str
     }
 
-    return orderService.paymentType[str]
+    return orderService.depositType[str]
 };
