@@ -41,7 +41,6 @@ var orderInfo = function (query) {
         currentOrder         : {},
         action               : orderService.actionObject,
         doAction             : function (actionName) {
-            console.log(actionName)
             var selectUser = {};
             if (sessionUserRole === vm.role.trader) {
 
@@ -170,7 +169,6 @@ var orderInfo = function (query) {
                     }
                 })
             }
-
         }
     });
 
