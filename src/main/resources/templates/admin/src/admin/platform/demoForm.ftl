@@ -21,14 +21,27 @@
             <!-- Main section-->
             <section>
                 <!-- Page content-->
-                <div class="content-wrapper">
+                <div class="content-wrapper ms-controller" ms-controller="flowController">
                     <h3>流程图</h3>
 
                     <!-- START panel-->
                     <div class="panel panel-default">
-                        <div class="panel-heading">Form elements</div>
+                        <div class="panel-heading"></div>
                         <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12 flow">
 
+                                    <div class="circle" ms-for="(index, vbox) in @flowData.vbox" ms-css="{top: index * 100}">
+
+                                        <div class="line" ms-for="(index2, line) in @vbox.edge" ms-css="{top: index2 * 50 + 50, left : index2 * 25 + 25}">
+                                            <span> L{{index + 1}}{{ index2 + 1}}</span>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- END panel-->
@@ -47,10 +60,10 @@
 <#if env == 'dev' || env == 'staging' || env == 'prod' >
     <!-- 生产环境使用 bundle.js 文件 -->
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHome.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/demoFlow.bundle.js"></script>
 <#else>
     <script src="${staticPathAdmin}/js/common.bundle.js"></script>
-    <script src="${staticPathAdmin}/js/adminHome.bundle.js"></script>
+    <script src="${staticPathAdmin}/js/demoFlow.bundle.js"></script>
 </#if>
 
 
