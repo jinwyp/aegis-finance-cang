@@ -31,16 +31,42 @@
                             <div class="row">
                                 <div class="col-sm-12 flow">
 
-                                    <div class="circle" ms-for="(index, vbox) in @flowData.vbox" ms-css="{top: index * 100}">
+                                    <div class="circle" ms-for="(index, vbox) in @flowData.vbox" ms-css="{top: index * 150}" ms-click="@clickVbox(vbox)">
+                                        <span class="circle-text"> {{vbox.id}}</span>
 
-                                        <div class="line" ms-for="(index2, line) in @vbox.edge" ms-css="{top: index2 * 50 + 50, left : index2 * 25 + 25}">
-                                            <span> L{{index + 1}}{{ index2 + 1}}</span>
+                                        <div class="line" ms-for="(index2, line) in @vbox.edge" ms-css="{top: 50, left : index2 * 50 + 25, height : index2 * 150 + 100}">
+                                            <span> {{line.id}}</span>
                                         </div>
+                                    </div>
+
+                                    <div class="pull-right flow-panel">
+                                        <h4>当前选中节点 {{@currentVbox.id || '无'}}</h4>
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <input type="text" placeholder="线名称" class="form-control" ms-duplex="@addLine.id">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-lg-12">
+                                                    <input type="text" placeholder="连接到节点" class="form-control" ms-duplex="@addLine.to">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button type="submit" class="btn btn-sm btn-default" ms-click="@addVbox($event )">添加线</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
 
                                     </div>
 
-
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
