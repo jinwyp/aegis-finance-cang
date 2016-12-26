@@ -126,27 +126,25 @@
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <tr>
-                                        <th class="text-right">审批状态:</th>
+                                        <th class="text-right">当前状态:</th>
                                         <td>{{@currentOrder.status | statusname}} </td>
                                     </tr>
 
                                     <tr>
-                                        <th class="text-right">审批子状态:</th>
-                                        <td> <span ms-visible="@currentOrder.statusChild11Financer"> {{@currentOrder.statusChild11Financer | statusname}} <br> </span>
-                                            <span ms-visible="@currentOrder.statusChild12Trader"> {{@currentOrder.statusChild12Trader | statusname}} </span>
-                                        </td>
-                                        <th class="text-right">审批子状态:</th>
-                                        <td><span ms-visible="@currentOrder.statusChild21Harbor"> {{@currentOrder.statusChild21Harbor | statusname}} <br> </span>
-                                            <span ms-visible="@currentOrder.statusChild22Supervisor"> {{@currentOrder.statusChild22Supervisor | statusname}} </span>
+                                        <th class="text-right">子状态:</th>
+                                        <td>
+                                            <span ms-visible="@currentOrder.statusChild1Financer"> {{@currentOrder.statusChild1Financer | statusname}} <br> </span>
+                                            <span ms-visible="@currentOrder.statusChild2Harbor"> {{@currentOrder.statusChild2Harbor | statusname}} <br> </span>
+                                            <span ms-visible="@currentOrder.statusChild3Supervisor"> {{@currentOrder.statusChild3Supervisor | statusname}} </span>
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <tr ms-for="(index, audit) in @currentOrder.auditHistory">
                                         <th class="text-right">审批时间:</th>
-                                        <td>{{@currentOrder.requestTime | date("yyyy-MM-dd")}}</td>
+                                        <td>{{audit.updatedAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
 
                                         <th class="text-right">审批人:</th>
-                                        <td>234569876543</td>
+                                        <td>{{audit.username}}</td>
                                     </tr>
                                 </table>
 
@@ -168,14 +166,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <table class="table table-hover contract-table">
-                                    <tr>
-                                        <th class="text-right contract-table">融资用户下游合同及单据:</th>
-                                        <td>
-                                            <a class="" ms-for="(index, contract) in @contractList | filterBy(@contractFilter, @role.financer)" ms-click="@getFile($event, contract)">{{contract.originalFileName}}</a>
-                                        </td>
-                                    </tr>
-                                </table>
+
                                 <table class="table table-hover contract-table">
                                     <tr>
                                         <th class="text-right contract-table">港口方合同及单据:</th>
@@ -249,8 +240,8 @@
 
 
                     <!-- 贸易商选择 资金方 港口 监管方-->
-                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
-                        <div class="panel-heading">选择资金方,港口和监管方 {{@currentUser.role}} - {{@role.trader}}</div>
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader && !@currentOrder.harborUserId && !@currentOrder.fundProviderUserId" >
+                        <div class="panel-heading">选择资金方,港口和监管方 </div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
 
@@ -262,7 +253,7 @@
                                             <option ms-for="user in @fundProviderList" ms-attr="{value: user._id}" >{{user.username}} </option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.fundProvider">
+                                    <div class="col-sm-5" ms-visible="@traderFormError.fundProvider">
                                         <span class="help-block">*&nbsp;请选择贸易商!</span>
                                     </div>
                                 </div>
@@ -275,7 +266,7 @@
                                             <option ms-for="user in @harborList" ms-attr="{value: user._id}" >{{user.username}} </option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.harbor">
+                                    <div class="col-sm-5" ms-visible="@traderFormError.harbor">
                                         <span class="help-block">*&nbsp;请选择港口!</span>
                                     </div>
                                 </div>
@@ -288,7 +279,7 @@
                                             <option ms-for="user in @supervisorList" ms-attr="{value: user._id}" >{{user.username}} </option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-5 text-danger" ms-visible="@traderFormError.supervisor">
+                                    <div class="col-sm-5" ms-visible="@traderFormError.supervisor">
                                         <span class="help-block">*&nbsp;请选择监管方!</span>
                                     </div>
                                 </div>
@@ -297,6 +288,67 @@
                         </div>
 
                     </div>
+
+                    <!-- 贸易商通知融资方缴纳保证金-->
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
+                        <div class="panel-heading">通知融资方缴纳保证金 </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@errorDepositValue && 'has-error']">
+                                    <label class="col-sm-3 control-label">保证金金额(万元):</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" ms-duplex-number="@inputDepositValue" >
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@errorDepositValue">
+                                        <span class="help-block">*&nbsp;金额数量不正确, 最少10万元!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveDeposit($event)">提交保证金缴纳通知</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <!-- 融资方查看缴纳保证金通知 -->
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.financer || @currentUser.role === @role.trader" >
+                        <div class="panel-heading" ms-visible="@currentUser.role === @role.financer" >需要缴纳的保证金 </div>
+                        <div class="panel-heading" ms-visible="@currentUser.role === @role.trader" >保证金缴纳通知记录 </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>创建时间</th>
+                                    <th>要缴纳的金额(万元)</th>
+                                    <th>交易流水号</th>
+                                    <th>当前状态</th>
+                                    <th ms-visible="@currentUser.role === @role.financer">操作</th>
+                                </tr>
+
+                                <tr ms-for="(index, paymentOrder) in @depositList">
+                                    <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
+                                    <td>{{ paymentOrder.depositValue}}</td>
+                                    <td>{{ paymentOrder.paymentNo || '--'}}</td>
+                                    <td>{{ paymentOrder.depositType | deposittype}}</td>
+                                    <td ms-visible="@currentUser.role === @role.financer && paymentOrder.depositType ==='notified' ">
+                                        <input type="text" class="payment-no" placeholder="交易流水号" ms-duplex="@inputPaymentOrderNo">
+                                        <button class="btn btn-info" type="button" ms-click="@savePaymentOrder(paymentOrder._id)">确认已缴</button>
+                                        <span class="text-danger" ms-visible="@errorPaymentOrderNo">流水号不正确!</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+
+
 
                     <!-- 动作按钮 -->
 

@@ -10,13 +10,14 @@ var sessionUserRole = localStorage.getItem('sessionUserRole') || '';
 
 var headers = {
     "X-Authorization" : token,
-    "X-Authorization-UserId" : sessionUserId
+    "x-authorization-userid" : sessionUserId
 };
 
 var prefix = '/api';
 
 var url = {
-    financeOrderList : prefix + '/financeOrders',
+    financeOrderList : prefix + '/financeorders',
+    paymentOrderList : prefix + '/paymentorders',
     contractList : prefix + '/files',
     userList : prefix + '/users',
     login : prefix + '/auth/login',

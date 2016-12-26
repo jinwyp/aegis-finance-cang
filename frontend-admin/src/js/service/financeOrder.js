@@ -86,11 +86,24 @@ var contractType = {
     business : '业务单据类(质量和数量单据, 运输单据, 货转证明)'
 }
 
-exports.statusList = status;
+var paymentType = {
+    payment : '还款',
+    deposit : '保证金'
+}
+
+var depositType = {
+    notified    : '保证金已通知',
+    alreadyPaid : '保证金已缴纳',
+    transferred : '保证金已到账'
+}
+
+exports.statusList   = status;
 exports.statusObject = statusObject;
-exports.actionList = actions;
+exports.actionList   = actions;
 exports.actionObject = actionObject;
 exports.contractType = contractType;
+exports.paymentType  = paymentType;
+exports.depositType  = depositType;
 
 
 
@@ -179,9 +192,9 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser)
         "orderId": orderId,
         "action": actionName,
         "operator": userRole,
-        "harborUserId": "583ea0b1f17d22ecde1ecb17",
-        "supervisorUserId": "583fc370e6e14eedaa51d2a0",
-        "fundProviderUserId": "583fd13e75a02a0f2935374e",
+        // "harborUserId": "583ea0b1f17d22ecde1ecb17",
+        // "supervisorUserId": "583fc370e6e14eedaa51d2a0",
+        // "fundProviderUserId": "583fd13e75a02a0f2935374e",
         "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
     });
 
@@ -232,10 +245,53 @@ exports.getContractListByOrderId = function (orderId, query){
     });
 
 };
-
 exports.getContractById = function (id, query){
     var params = jQuery.extend({}, query);
 
     window.location = url.financeOrderList + '/file/' + id;
+
+};
+
+
+
+
+
+exports.getPaymentOrderListByOrderId = function (orderId, query){
+
+    var params = jQuery.extend({}, query, {orderId : orderId});
+
+    return jQuery.ajax({
+        url      : url.paymentOrderList,
+        method   : 'GET',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+exports.addNewPaymentOrder = function (order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        url      : url.paymentOrderList,
+        method   : 'POST',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
+
+};
+exports.updatePaymentOrderInfoById = function (id, order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        url      : url.paymentOrderList + '/' + id,
+        method   : 'PATCH',
+        dataType : 'json',
+        data     : params,
+        headers : headers
+    });
 
 };

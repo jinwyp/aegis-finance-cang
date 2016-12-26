@@ -100,18 +100,29 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading text-center">确认货物</div>
+                            <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && !@currentOrder.harborConfirmAmount">
+                                <div class="panel-heading text-center">港口确认货物</div>
                                 <div class="panel-body H300">
                                     <h4 class="lineH40">
-                                        已确认当前有
-                                        <input type="text" class="goods">
-                                        吨货物属于 <span>*************************</span>所有,并承诺与实际情况相符。
+                                        当前有 <input type="text" class="goods" ms-duplex-number="@inputHarborConfirmAmount">吨货物 <br>
+                                        货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
                                     </h4>
                                 </div>
-                                <div class="panel-footer text-center positionR">
-                                    <button class="btn btn-warning" type="button">确认</button>
-                                    <p class="positionA"><span class="text-danger">*</span>&nbsp;确认后，将自动发送给资金方，供其查阅</p>
+                                <div class="panel-footer text-center">
+                                    <button class="btn btn-warning" type="button" ms-click="@saveOrder">确认货物</button>
+                                    <span class="text-danger" ms-visible="@errorHarborConfirmAmount"> 数量错误!</span>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && @currentOrder.harborConfirmAmount || @currentUser.role === @role.supervisor && @currentOrder.harborConfirmAmount">
+                                <div class="panel-heading text-center">货物确认信息</div>
+                                <div class="panel-body H300">
+                                    <h4 class="lineH40" ms-visible="@currentOrder.harborConfirmAmount">
+                                        已确认有 {{@currentOrder.harborConfirmAmount}} 吨货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
+                                    </h4>
+                                </div>
+                                <div class="panel-footer text-center">
+
                                 </div>
                             </div>
                         </div>

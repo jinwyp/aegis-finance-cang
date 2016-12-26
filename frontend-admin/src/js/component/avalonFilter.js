@@ -29,7 +29,13 @@ avalon.filters.typename= function (str) {
         if (str === 'MYD') return '煤易贷';
         if (str === 'MYG') return '煤易购';
     }
+};
 
 
-    return orderService.statusObject[str]
+avalon.filters.deposittype= function (str) {
+    if (!str){
+        return str
+    }
+
+    return orderService.depositType[str]
 };
