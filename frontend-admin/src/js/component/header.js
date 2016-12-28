@@ -50,14 +50,24 @@ var header = function() {
     });
 
 
+
+
     // 点击隐藏的左部菜单
+    var tempLeftMenuFolded = localStorage.getItem('leftMenuFolded') || '';
     var buttonToggleLeftMenu = $("[data-trigger-resize]");
     var body = $("body");
+    if (tempLeftMenuFolded){
+        body.addClass("aside-collapsed")
+    }else{
+        body.removeClass("aside-collapsed")
+    }
 
     buttonToggleLeftMenu.on("click", function() {
         if (body.hasClass("aside-collapsed")){
+            localStorage.setItem('leftMenuFolded', false);
             body.removeClass("aside-collapsed")
         }else{
+            localStorage.setItem('leftMenuFolded', true);
             body.addClass("aside-collapsed")
         }
     });

@@ -25,6 +25,17 @@ var url = {
 };
 
 
+var saveSessionInLocalStorage = function (jwt, user) {
+    localStorage.setItem('feathers-jwt', jwt);
+    localStorage.setItem('sessionUserId', user._id);
+    localStorage.setItem('sessionUserRole', user.role);
+}
+
+var removeSessionInLocalStorage = function () {
+    localStorage.removeItem('feathers-jwt');
+    localStorage.removeItem('sessionUserId');
+    localStorage.removeItem('sessionUserRole');
+}
 
 module.exports = {
     url : url,
@@ -32,5 +43,8 @@ module.exports = {
     token : token,
     headers : headers,
     sessionUserId : sessionUserId,
-    sessionUserRole : sessionUserRole
+    sessionUserRole : sessionUserRole,
+
+    saveSessionInLocalStorage : saveSessionInLocalStorage,
+    removeSessionInLocalStorage : removeSessionInLocalStorage
 };

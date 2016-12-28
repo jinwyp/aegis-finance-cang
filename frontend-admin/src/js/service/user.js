@@ -5,7 +5,10 @@
 
 var jQuery = require('jquery');
 var headers = require('./token').headers;
-var sessionUserId = require('./token').sessionUserId;
+var tokenService = require('./token');
+var sessionUserId = tokenService.sessionUserId;
+
+
 
 var url = require('./token').url;
 
@@ -54,9 +57,7 @@ exports.login = function (user){
 
 exports.logout = function (user){
 
-    localStorage.removeItem('feathers-jwt');
-    localStorage.removeItem('sessionUserId');
-    localStorage.removeItem('sessionUserRole');
+    tokenService.removeSessionInLocalStorage();
     window.location.href = '/warehouse/admin/login'
 };
 
