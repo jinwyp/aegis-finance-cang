@@ -23,6 +23,8 @@ console.log(orderId, urlShowStatus);
 
 var orderInfo = function (query) {
 
+    var uploadFileList = [];
+
     var vm = avalon.define({
         $id                  : 'orderInfoController',
         role                 : userService.userRoleKeyObject,
@@ -41,6 +43,8 @@ var orderInfo = function (query) {
         action               : orderService.actionObject,
         doAction             : function (actionName) {
             var selectUser = {};
+            var additionalData = {};
+
             if (sessionUserRole === vm.role.trader) {
 
                 if (vm.currentOrder.statusChild1Financer && vm.currentOrder.statusChild2Harbor && vm.currentOrder.statusChild3Supervisor){
@@ -65,7 +69,13 @@ var orderInfo = function (query) {
                 }
 
             }
-            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, selectUser).done(function (data, textStatus, jqXHR) {
+
+            if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
+                additionalData.fileList = uploadFileList;
+            }
+
+
+            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, selectUser, additionalData).done(function (data, textStatus, jqXHR) {
                 if (data.success) {
                     getOrderInfo();
                     $.notify("提交成功!", 'success');
@@ -232,7 +242,9 @@ var orderInfo = function (query) {
     }
 
 
-    if (vm.currentUser.role === vm.role.financer || vm.currentUser.role === vm.role.harbor || vm.currentUser.role === vm.role.supervisor){
+    if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
+
+        console.log(vm.currentUser.role)
         var uploader = WebUploader.create({
 
             // 选完文件后，是否自动上传。
@@ -269,12 +281,15 @@ var orderInfo = function (query) {
         });
 
         uploader.on('uploadSuccess', function (file) {
-            vm.uploadFileList.push({
+            var tempFile = {
                 name : file.name,
                 ext  : file.ext,
                 size : file.size,
                 type : file.type
-            });
+            };
+
+            uploadFileList.push(tempFile)
+            vm.uploadFileList.push(tempFile);
             $.notify("上传成功!", 'success');
         });
 

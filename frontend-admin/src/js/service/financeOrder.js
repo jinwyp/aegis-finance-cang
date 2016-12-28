@@ -175,7 +175,6 @@ exports.addNewFinanceOrder = function (order){
 
     var params = jQuery.extend({}, order);
 
-
     return jQuery.ajax({
         url      : url.financeOrderList,
         method   : 'POST',
@@ -186,7 +185,7 @@ exports.addNewFinanceOrder = function (order){
 
 };
 
-exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser){
+exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser, additionalData){
     console.log("流程:%s, 角色 %s 发出的动作: %s", orderId, userRole, actionName)
     var params = jQuery.extend({}, {
         "orderId": orderId,
@@ -203,6 +202,7 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser)
     if (selectUser && selectUser.fundProviderUserId) params.fundProviderUserId = selectUser.fundProviderUserId;
     if (selectUser && selectUser.fundProviderAccountantUserId) params.fundProviderAccountantUserId = selectUser.fundProviderAccountantUserId;
 
+    if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
 
     return jQuery.ajax({
         url      : url.financeOrderList + '/audit',

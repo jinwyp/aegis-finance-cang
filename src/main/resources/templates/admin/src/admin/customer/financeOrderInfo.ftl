@@ -28,7 +28,7 @@
 
 
                     <!--基本信息 贸易商 与 资金方 -->
-                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader || @currentUser.role === @role.traderAccountant || @currentUser.role === @role.fundProvider || @currentUser.role === @role.fundProviderAccountant">
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.financer || @currentUser.role === @role.trader || @currentUser.role === @role.traderAccountant || @currentUser.role === @role.fundProvider || @currentUser.role === @role.fundProviderAccountant">
                         <div class="panel-heading">基本信息</div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -199,6 +199,11 @@
                     </div>
 
 
+
+
+
+
+
                     <!--各方合同查看-->
                     <div class="panel panel-default " >
                         <div class="panel-heading">合同信息</div>
@@ -232,95 +237,70 @@
 
                             </div>
                         </div>
-                        <#--<div class="panel-footer text-center">-->
-                            <#--<a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @currentOrderId}">上传合同</a>-->
-                        <#--</div>-->
+                    <#--<div class="panel-footer text-center">-->
+                    <#--<a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @currentOrderId}">上传合同</a>-->
+                    <#--</div>-->
                     </div>
 
 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading text-center">上传合同及单据</div>
-                                <div class="panel-body H300">
-                                    <table class="table table-hover">
-                                        <tr ms-for="(index, file) in @uploadFileList">
-                                            <td class="border0 text-center">{{file.name}} <a href=""></a></td>
-                                            <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="panel-footer ">
-                                    <div class="row">
-                                        <div class="col-sm-5">
-                                            <select class="form-control contract-type-select" ms-duplex="@selectedContractType">
-                                                <option value="" > -- 请选择类型 --  </option>
-                                                <option ms-for="(key, value) in @contractType" ms-attr="{value: key}" >{{value}} </option>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div id="uploadPicker" class="btn">选择文件并上传</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- 上传合同-->
+                    <div class="panel panel-info" ms-visible="@currentUser.role === @role.financer || @currentUser.role === @role.harbor || @currentUser.role === @role.supervisor ">
+                        <div class="panel-heading text-center">上传合同及单据</div>
+                        <div class="panel-body H300">
+                            <table class="table table-hover">
+                                <tr ms-for="(index, file) in @uploadFileList">
+                                    <td class="border0 text-center">{{file.name}} <a href=""></a></td>
+                                    <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
+                                </tr>
+                            </table>
                         </div>
-
-
-                        <div class="col-sm-6">
-                            <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && !@currentOrder.harborConfirmAmount">
-                                <div class="panel-heading text-center">港口确认货物</div>
-                                <div class="panel-body H300">
-                                    <h4 class="lineH40">
-                                        当前有 <input type="text" class="goods" ms-duplex-number="@inputHarborConfirmAmount">吨货物 <br>
-                                        货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
-                                    </h4>
+                        <div class="panel-footer ">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <select class="form-control contract-type-select" ms-duplex="@selectedContractType">
+                                        <option value="" > -- 请选择类型 --  </option>
+                                        <option ms-for="(key, value) in @contractType" ms-attr="{value: key}" >{{value}} </option>
+                                    </select>
                                 </div>
-                                <div class="panel-footer text-center">
-                                    <button class="btn btn-warning" type="button" ms-click="@saveOrder">确认货物</button>
-                                    <span class="text-danger" ms-visible="@errorHarborConfirmAmount"> 数量错误!</span>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && @currentOrder.harborConfirmAmount || @currentUser.role === @role.supervisor && @currentOrder.harborConfirmAmount">
-                                <div class="panel-heading text-center">货物确认信息</div>
-                                <div class="panel-body H300">
-                                    <h4 class="lineH40" ms-visible="@currentOrder.harborConfirmAmount">
-                                        已确认有 {{@currentOrder.harborConfirmAmount}} 吨货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
-                                    </h4>
-                                </div>
-                                <div class="panel-footer text-center">
-
+                                <div class="col-sm-6">
+                                    <div id="uploadPicker" class="btn">选择文件并上传</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
 
-                    <!-- 港口放货记录 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">港口放货记录</div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover text-center">
-                                    <tr>
-                                        <th>11</th>
-                                        <th>11</th>
-                                        <th>11</th>
-                                        <th>11</th>
-                                        <th>11</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                    </tr>
-                                </table>
-                            </div>
+
+                    <!-- 港口确认货物 -->
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && !@currentOrder.harborConfirmAmount">
+                        <div class="panel-heading text-center">港口确认货物</div>
+                        <div class="panel-body H300">
+                            <h4 class="lineH40">
+                                当前有 <input type="text" class="goods" ms-duplex-number="@inputHarborConfirmAmount">吨货物 <br>
+                                货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
+                            </h4>
+                        </div>
+                        <div class="panel-footer text-center">
+                            <button class="btn btn-warning" type="button" ms-click="@saveOrder">确认货物</button>
+                            <span class="text-danger" ms-visible="@errorHarborConfirmAmount"> 数量错误!</span>
                         </div>
                     </div>
+
+
+                    <!-- 港口 监管 显示确认货物信息 -->
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && @currentOrder.harborConfirmAmount || @currentUser.role === @role.supervisor && @currentOrder.harborConfirmAmount">
+                        <div class="panel-heading text-center">货物确认信息</div>
+                        <div class="panel-body H300">
+                            <h4 class="lineH40" ms-visible="@currentOrder.harborConfirmAmount">
+                                已确认有 {{@currentOrder.harborConfirmAmount}} 吨货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
+                            </h4>
+                        </div>
+                        <div class="panel-footer text-center">
+
+                        </div>
+                    </div>
+
+
 
 
                     <!--货值趋势图-->
@@ -334,7 +314,7 @@
 
                     <!--还款金额流水记录-->
                     <div class="panel panel-default " >
-                        <div class="panel-heading">交易记录</div>
+                        <div class="panel-heading">还款交易记录</div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped table-bordered text-center">
@@ -368,57 +348,32 @@
 
 
 
-
-
-                    <!-- 贸易商选择 资金方 港口 监管方-->
-                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader && !@currentOrder.harborUserId && !@currentOrder.fundProviderUserId" >
-                        <div class="panel-heading">选择资金方,港口和监管方 </div>
+                    <!-- 港口放货记录 -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">港口放货记录</div>
                         <div class="panel-body">
-                            <form class="form-horizontal" novalidate>
-
-                                <div class="form-group" ms-class="[@traderFormError.fundProvider && 'has-error']">
-                                    <label class="col-sm-2 control-label">选择贸易商:</label>
-                                    <div class="col-sm-3">
-                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedFundProvider">
-                                            <option value="" > - </option>
-                                            <option ms-for="user in @fundProviderList" ms-attr="{value: user._id}" >{{user.username}} </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-5" ms-visible="@traderFormError.fundProvider">
-                                        <span class="help-block">*&nbsp;请选择贸易商!</span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group" ms-class="[@traderFormError.harbor && 'has-error']">
-                                    <label class="col-sm-2 control-label">选择港口:</label>
-                                    <div class="col-sm-3">
-                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedHarbor">
-                                            <option value="" > - </option>
-                                            <option ms-for="user in @harborList" ms-attr="{value: user._id}" >{{user.username}} </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-5" ms-visible="@traderFormError.harbor">
-                                        <span class="help-block">*&nbsp;请选择港口!</span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group" ms-class="[@traderFormError.supervisor && 'has-error']">
-                                    <label class="col-sm-2 control-label">选择监管方:</label>
-                                    <div class="col-sm-3">
-                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedSupervisor">
-                                            <option value="" > - </option>
-                                            <option ms-for="user in @supervisorList" ms-attr="{value: user._id}" >{{user.username}} </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-5" ms-visible="@traderFormError.supervisor">
-                                        <span class="help-block">*&nbsp;请选择监管方!</span>
-                                    </div>
-                                </div>
-
-                            </form>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover text-center">
+                                    <tr>
+                                        <th>11</th>
+                                        <th>11</th>
+                                        <th>11</th>
+                                        <th>11</th>
+                                        <th>11</th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-
                     </div>
+
+
 
                     <!-- 贸易商通知融资方缴纳保证金-->
                     <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
@@ -478,6 +433,62 @@
 
 
 
+
+
+
+
+
+
+
+                    <!-- 贸易商选择 资金方 港口 监管方-->
+                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader && !@currentOrder.harborUserId && !@currentOrder.fundProviderUserId" >
+                        <div class="panel-heading">选择资金方,港口和监管方 </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@traderFormError.fundProvider && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择资金方:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedFundProvider">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @fundProviderList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@traderFormError.fundProvider">
+                                        <span class="help-block">*&nbsp;请选择资金方!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ms-class="[@traderFormError.harbor && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择港口:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedHarbor">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @harborList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@traderFormError.harbor">
+                                        <span class="help-block">*&nbsp;请选择港口!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ms-class="[@traderFormError.supervisor && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择监管方:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedSupervisor">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @supervisorList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@traderFormError.supervisor">
+                                        <span class="help-block">*&nbsp;请选择监管方!</span>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
 
 
 
