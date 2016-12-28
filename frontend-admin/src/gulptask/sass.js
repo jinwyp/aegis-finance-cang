@@ -7,7 +7,7 @@ var gulp         = require('gulp');
 var runSequence  = require('run-sequence');
 var spritesmith  = require('gulp.spritesmith');
 var sass         = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+// var autoprefixer = require('gulp-autoprefixer');
 var cleanCss     = require('gulp-clean-css');
 var rev          = require('gulp-rev');
 
@@ -72,10 +72,10 @@ gulp.task('sass', ['sprite'], function() {
             outputStyle     : 'compact',
             errLogToConsole : true
         }).on('error', sass.logError))
-        .pipe(autoprefixer({
-           browsers: ['> 1%', 'Last 2 versions', 'IE 8'],
-           cascade: false
-        }))
+        // .pipe(autoprefixer({
+        //    browsers: ['> 1%', 'Last 2 versions', 'IE 8'],
+        //    cascade: false
+        // }))
         //.pipe(cleanCss({compatibility: 'ie8'}))
         .pipe(gulp.dest(sourcePath.css))
 });
@@ -91,10 +91,10 @@ gulp.task('sass-release', ['htmlTemplate', 'sprite'], function(done) {
                 outputStyle     : 'compressed',
                 errLogToConsole : true
             }).on('error', sass.logError))
-            .pipe(autoprefixer({
-               browsers: ['> 1%', 'Last 2 versions', 'IE 8'],
-               cascade: false
-            }))
+            // .pipe(autoprefixer({
+            //    browsers: ['> 1%', 'Last 2 versions', 'IE 8'],
+            //    cascade: false
+            // }))
             //.pipe(cleanCss({compatibility: 'ie8'}))
             .pipe(rev())
             .pipe(gulp.dest(distPath.css))
