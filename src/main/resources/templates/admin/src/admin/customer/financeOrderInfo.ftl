@@ -289,7 +289,7 @@
 
                     <!-- 港口 监管 显示确认货物信息 -->
                     <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && @currentOrder.harborConfirmAmount || @currentUser.role === @role.supervisor && @currentOrder.harborConfirmAmount">
-                        <div class="panel-heading">货物确认信息</div>
+                        <div class="panel-heading">港口货物确认信息</div>
                         <div class="panel-body H300">
                             <h4 class="lineH40" ms-visible="@currentOrder.harborConfirmAmount">
                                 已确认有 {{@currentOrder.harborConfirmAmount}} 吨货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。

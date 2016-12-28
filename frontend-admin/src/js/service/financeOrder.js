@@ -145,12 +145,13 @@ exports.getFinanceOrderList = function (query){
     var params = jQuery.extend({}, query, user);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList,
         method   : 'GET',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
@@ -162,12 +163,13 @@ exports.getFinanceOrderInfoById = function (id, query){
     var params = jQuery.extend({}, query);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList + '/' + id,
         method   : 'GET',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
@@ -178,12 +180,13 @@ exports.addNewFinanceOrder = function (order){
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList,
         method   : 'POST',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -208,12 +211,13 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
     if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList + '/audit',
         method   : 'POST',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     :JSON.stringify(params),
-        headers : headers
+        data     :JSON.stringify(params)
+
     });
 
 };
@@ -224,12 +228,13 @@ exports.updateFinanceOrderInfoById = function (id, order){
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList + '/' + id,
         method   : 'PATCH',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -242,12 +247,13 @@ exports.getContractListByOrderId = function (orderId, query){
     var params = jQuery.extend({}, query, {orderId : orderId});
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.contractList,
         method   : 'GET',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
@@ -267,12 +273,13 @@ exports.getPaymentOrderListByOrderId = function (orderId, query){
     var params = jQuery.extend({}, query, {orderId : orderId});
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.paymentOrderList,
         method   : 'GET',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
@@ -281,12 +288,13 @@ exports.addNewPaymentOrder = function (order){
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.paymentOrderList,
         method   : 'POST',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -295,12 +303,13 @@ exports.updatePaymentOrderInfoById = function (id, order){
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.paymentOrderList + '/' + id,
         method   : 'PATCH',
-        dataType : 'json',
-        contentType : 'application/json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
