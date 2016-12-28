@@ -7,7 +7,7 @@
 <#include "../common/headcss.ftl" >
     <link rel="stylesheet" type="text/css" href="${staticPathAdmin}/css/stylesheets/page/home.css"/>
 </head>
-<body>
+<body class="aside-collapsed">
 <div class="wrapper">
 
     <!-- top navbar-->

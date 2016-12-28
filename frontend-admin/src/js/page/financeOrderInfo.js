@@ -242,8 +242,8 @@ var orderInfo = function (query) {
             swf : '/static/admin/js/libs/webuploader/Uploader.swf',
 
             // 文件接收服务端。
-            // server : '/api/files',
-            server : '/apz/upload/file',
+            server : '/api/files',
+            // server : '/apz/upload/file',
 
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
