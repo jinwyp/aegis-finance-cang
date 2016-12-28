@@ -50,7 +50,8 @@ exports.login = function (user){
         url      : url.login,
         method   : 'POST',
         dataType : 'json',
-        data     : params
+        contentType : 'application/json',
+        data     : JSON.stringify(params)
     });
 
 };
@@ -70,7 +71,8 @@ exports.getSessionUser = function (query){
             url      : url.userList + '/' + sessionUserId,
             method   : 'GET',
             dataType : 'json',
-            data     : params,
+            contentType : 'application/json',
+            data     : JSON.stringify(params),
             headers : headers
         });
     }else{
@@ -92,7 +94,8 @@ exports.getUserList = function (query){
         url      : url.userList,
         method   : 'GET',
         dataType : 'json',
-        data     : params,
+        contentType : 'application/json',
+        data     : JSON.stringify(params),
         headers : headers
     });
 
@@ -107,7 +110,8 @@ exports.getUserInfoById = function (userId, query){
         url      : url.userList + '/' + userId,
         method   : 'GET',
         dataType : 'json',
-        data     : params,
+        contentType : 'application/json',
+        data     : JSON.stringify(params),
         headers : headers
     });
 
@@ -130,7 +134,8 @@ exports.addNewUser = function (user){
         url      : url.userList,
         method   : 'POST',
         dataType : 'json',
-        data     : params,
+        contentType : 'application/json',
+        data     : JSON.stringify(params),
         headers : headers
     });
 
@@ -144,7 +149,8 @@ exports.updateUserInfoById = function (userId, user){
         url      : url.userList + '/' + userId,
         method   : 'PATCH',
         dataType : 'json',
-        data     : params,
+        contentType : 'application/json',
+        data     : JSON.stringify(params),
         headers : headers
     });
 
@@ -162,7 +168,8 @@ exports.modifyPassword = function (userId, oldPassword, newPassword){
         url      : url.password,
         method   : 'POST',
         dataType : 'json',
-        data     : params,
+        contentType : 'application/json',
+        data     : JSON.stringify(params),
         headers : headers
     });
 

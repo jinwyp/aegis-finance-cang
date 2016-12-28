@@ -148,6 +148,7 @@ exports.getFinanceOrderList = function (query){
         url      : url.financeOrderList,
         method   : 'GET',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -164,6 +165,7 @@ exports.getFinanceOrderInfoById = function (id, query){
         url      : url.financeOrderList + '/' + id,
         method   : 'GET',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -179,6 +181,7 @@ exports.addNewFinanceOrder = function (order){
         url      : url.financeOrderList,
         method   : 'POST',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -208,7 +211,8 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
         url      : url.financeOrderList + '/audit',
         method   : 'POST',
         dataType : 'json',
-        data     : params,
+        contentType : 'application/json',
+        data     :JSON.stringify(params),
         headers : headers
     });
 
@@ -223,6 +227,7 @@ exports.updateFinanceOrderInfoById = function (id, order){
         url      : url.financeOrderList + '/' + id,
         method   : 'PATCH',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -240,6 +245,7 @@ exports.getContractListByOrderId = function (orderId, query){
         url      : url.contractList,
         method   : 'GET',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -264,6 +270,7 @@ exports.getPaymentOrderListByOrderId = function (orderId, query){
         url      : url.paymentOrderList,
         method   : 'GET',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -277,6 +284,7 @@ exports.addNewPaymentOrder = function (order){
         url      : url.paymentOrderList,
         method   : 'POST',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });
@@ -290,6 +298,7 @@ exports.updatePaymentOrderInfoById = function (id, order){
         url      : url.paymentOrderList + '/' + id,
         method   : 'PATCH',
         dataType : 'json',
+        contentType : 'application/json',
         data     : params,
         headers : headers
     });

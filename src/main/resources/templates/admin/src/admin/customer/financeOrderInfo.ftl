@@ -245,7 +245,7 @@
 
                     <!-- 上传合同-->
                     <div class="panel panel-info" ms-visible="@currentUser.role === @role.financer || @currentUser.role === @role.harbor || @currentUser.role === @role.supervisor ">
-                        <div class="panel-heading text-center">上传合同及单据</div>
+                        <div class="panel-heading">上传合同及单据</div>
                         <div class="panel-body H300">
                             <table class="table table-hover">
                                 <tr ms-for="(index, file) in @uploadFileList">
@@ -273,7 +273,7 @@
 
                     <!-- 港口确认货物 -->
                     <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && !@currentOrder.harborConfirmAmount">
-                        <div class="panel-heading text-center">港口确认货物</div>
+                        <div class="panel-heading">港口确认货物</div>
                         <div class="panel-body H300">
                             <h4 class="lineH40">
                                 当前有 <input type="text" class="goods" ms-duplex-number="@inputHarborConfirmAmount">吨货物 <br>
@@ -289,7 +289,7 @@
 
                     <!-- 港口 监管 显示确认货物信息 -->
                     <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && @currentOrder.harborConfirmAmount || @currentUser.role === @role.supervisor && @currentOrder.harborConfirmAmount">
-                        <div class="panel-heading text-center">货物确认信息</div>
+                        <div class="panel-heading">货物确认信息</div>
                         <div class="panel-body H300">
                             <h4 class="lineH40" ms-visible="@currentOrder.harborConfirmAmount">
                                 已确认有 {{@currentOrder.harborConfirmAmount}} 吨货物属于{{@currentOrder.financerCompanyName || ''}}所有, 并承诺与实际情况相符。
@@ -441,7 +441,7 @@
 
 
                     <!-- 贸易商选择 资金方 港口 监管方-->
-                    <div class="panel panel-default" ms-if="@currentUser.role === @role.trader && !@currentOrder.harborUserId && !@currentOrder.fundProviderUserId" >
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.trader && !@currentOrder.harborUserId && !@currentOrder.fundProviderUserId" >
                         <div class="panel-heading">选择资金方,港口和监管方 </div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
