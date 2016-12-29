@@ -209,6 +209,7 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
     if (selectUser && selectUser.fundProviderAccountantUserId) params.fundProviderAccountantUserId = selectUser.fundProviderAccountantUserId;
 
     if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
+    if (additionalData && additionalData.loanValue) params.loanValue = additionalData.loanValue;
 
     return jQuery.ajax({
         headers : headers,

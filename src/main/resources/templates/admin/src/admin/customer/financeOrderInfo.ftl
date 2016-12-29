@@ -492,6 +492,35 @@
 
 
 
+                    <!-- 贸易商财务 给出放款金额建议 -->
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.traderAccountant" >
+                        <div class="panel-heading">贸易商财务放款金额建议: </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@errorActualLoanValue && 'has-error']">
+                                    <label class="col-sm-3 control-label">实际放款金额(万元):</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" ms-duplex-number="@inputActualLoanValue" >
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@errorActualLoanValue">
+                                        <span class="help-block">*&nbsp;金额数量不正确, 最少10万元!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveActualLoanValue($event)">保存</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
                     <!-- 动作按钮 -->
 
                     <div class="row" ms-if="@currentUser.role === @role.financer ">

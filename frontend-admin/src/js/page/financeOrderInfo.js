@@ -75,6 +75,10 @@ var orderInfo = function (query) {
                 additionalData.fileList = uploadFileList;
             }
 
+            if (sessionUserRole === vm.role.traderAccountant){
+                additionalData.loanValue = vm.currentOrder.loanValue
+            }
+
 
             orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, selectUser, additionalData).done(function (data, textStatus, jqXHR) {
                 if (data.success) {
@@ -167,10 +171,30 @@ var orderInfo = function (query) {
         savePaymentOrder : function(id){
             vm.errorPaymentOrderNo = false;
 
-            if (!vm.inputPaymentOrderNo || vm.inputPaymentOrderNo.length < 8) {
+            if (!vm.inputPaymentOrderNo || vm.inputPaymentOrderNo.length < 10) {
                 vm.errorPaymentOrderNo = true;
             } else {
                 orderService.updatePaymentOrderInfoById(id, {paymentNo:vm.inputPaymentOrderNo, depositType:'alreadyPaid'}).done(function (data, textStatus, jqXHR) {
+                    if (data.success) {
+                        getOrderInfo()
+                        $.notify("保存成功!", 'success');
+                    } else {
+                        console.log(data.error);
+                    }
+                })
+            }
+        },
+
+        inputActualLoanValue : 0,
+        errorActualLoanValue : '',
+        saveActualLoanValue : function(event){
+            event.preventDefault();
+            vm.errorActualLoanValue = false;
+
+            if (!vm.inputActualLoanValue || vm.inputActualLoanValue.length < 10) {
+                vm.errorActualLoanValue = true;
+            } else {
+                orderService.updateFinanceOrderInfoById(orderId, {loanValue:vm.inputActualLoanValue}).done(function (data, textStatus, jqXHR) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
