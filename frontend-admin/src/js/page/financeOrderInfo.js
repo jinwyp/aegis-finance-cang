@@ -2,6 +2,7 @@ var jQuery = require('jquery');
 var avalon = require('avalon2');
 require('../component/header.js');
 
+var API = require('../service/token').url;
 var tokenHeaders = require('../service/token').headers;
 
 window.jQuery   = jQuery;
@@ -254,7 +255,7 @@ var orderInfo = function (query) {
             swf : '/static/admin/js/libs/webuploader/Uploader.swf',
 
             // 文件接收服务端。
-            server : '/api/files',
+            server : API.financeOrderList,
             // server : '/apz/upload/file',
 
             // 选择文件的按钮。可选。

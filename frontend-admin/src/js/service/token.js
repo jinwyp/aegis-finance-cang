@@ -13,9 +13,10 @@ var headers = {
     "x-authorization-userid" : sessionUserId
 };
 
-var prefix = '/api';
+var prefix = '/apimock';
 
 var url = {
+    files : prefix + '/files',
     financeOrderList : prefix + '/financeorders',
     paymentOrderList : prefix + '/paymentorders',
     contractList : prefix + '/files',
