@@ -312,39 +312,7 @@
                     </div>
 
 
-                    <!--还款金额流水记录-->
-                    <div class="panel panel-default " >
-                        <div class="panel-heading">还款交易记录</div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-striped table-bordered text-center">
-                                    <tr>
-                                        <th class="text-center">交易流水</th>
-                                        <th class="text-center">交易日期</th>
-                                        <th class="text-center">交易类型</th>
-                                        <th class="text-center">赎货金额(万元)</th>
-                                        <th class="text-center">剩余归还金额(万元)</th>
-                                        <th class="text-center">交易金额</th>
-                                    </tr>
-                                    <tr>
-                                        <td>23423</td>
-                                        <td>2016-09-12</td>
-                                        <td>回款</td>
-                                        <td>234323</td>
-                                        <td>23432</td>
-                                        <td>+1000</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="6">暂无任何数据</td>
-                                    </tr>
 
-
-                                </table>
-
-                            </div>
-                        </div>
-
-                    </div>
 
 
 
@@ -353,7 +321,7 @@
                         <div class="panel-heading">港口放货记录</div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover text-center">
+                                <table class="table table-hover table-striped table-bordered">
                                     <tr>
                                         <th>11</th>
                                         <th>11</th>
@@ -393,7 +361,7 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-5">
-                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveDeposit($event)">提交保证金缴纳通知</button>
+                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@addNotifyDeposit($event)">提交保证金缴纳通知</button>
                                     </div>
                                 </div>
                             </form>
@@ -406,24 +374,28 @@
                         <div class="panel-heading" ms-visible="@currentUser.role === @role.financer" >需要缴纳的保证金 </div>
                         <div class="panel-heading" ms-visible="@currentUser.role === @role.trader" >保证金缴纳通知记录 </div>
                         <div class="panel-body">
-                            <table class="table table-hover">
+                            <table class="table table-hover table-striped table-bordered">
                                 <tr>
                                     <th>创建时间</th>
                                     <th>要缴纳的金额(万元)</th>
                                     <th>交易流水号</th>
+                                    <th>缴纳时间</th>
                                     <th>当前状态</th>
-                                    <th ms-visible="@currentUser.role === @role.financer">操作</th>
+                                    <th>操作</th>
                                 </tr>
 
                                 <tr ms-for="(index, paymentOrder) in @depositList">
                                     <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
                                     <td>{{ paymentOrder.depositValue}}</td>
                                     <td>{{ paymentOrder.paymentNo || '--'}}</td>
+                                    <td> <span ms-visible="paymentOrder.confirmDate">{{ paymentOrder.confirmDate | date("yyyy-MM-dd:HH:mm:ss ") }}</span></td>
                                     <td>{{ paymentOrder.depositType | deposittype}}</td>
-                                    <td ms-visible="@currentUser.role === @role.financer && paymentOrder.depositType ==='notified' ">
-                                        <input type="text" class="payment-no" placeholder="交易流水号" ms-duplex="@inputPaymentOrderNo">
-                                        <button class="btn btn-info" type="button" ms-click="@savePaymentOrder(paymentOrder._id)">确认已缴</button>
-                                        <span class="text-danger" ms-visible="@errorPaymentOrderNo">流水号不正确!</span>
+                                    <td>
+                                        <div ms-visible="@currentUser.role === @role.financer && paymentOrder.depositType ==='notified' ">
+                                            <input type="text" class="payment-no" placeholder="交易流水号" ms-duplex="@inputPaymentOrderNo">
+                                            <button class="btn btn-info" type="button" ms-click="@savePaymentOrder(paymentOrder._id)">确认已缴</button>
+                                            <span class="text-danger" ms-visible="@errorPaymentOrderNo">流水号长度少于10位!</span>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
@@ -432,7 +404,40 @@
 
 
 
+                    <!--还款金额流水记录-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">还款交易记录</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped table-bordered">
+                                    <tr>
+                                        <th>交易日期</th>
+                                        <th>交易流水号</th>
+                                        <th>赎货还款金额(万元)</th>
+                                        <th>下次还款计息本金</th>
+                                        <th>本次还款计息本金</th>
+                                        <th>利息计息天数</th>
+                                        <th>利息</th>
+                                        <th>付款方</th>
+                                        <th>收款方</th>
+                                    </tr>
 
+                                    <tr ms-for="(index, paymentOrder) in @repaymentList">
+                                        <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
+                                        <td>{{ paymentOrder.paymentNo || '--'}}</td>
+                                        <td>{{ paymentOrder.redemptionValue}}</td>
+                                        <td>{{ paymentOrder.leftPrincipalValue}}  </td>
+                                        <td>{{ paymentOrder.leftPrincipalValue  + paymentOrder.redemptionValue}}  </td>
+                                        <td> 第xxx天 </td>
+                                        <td> xxx 利息 </td>
+                                        <td> - </td>
+                                        <td> - </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -493,7 +498,7 @@
 
 
                     <!-- 贸易商财务 给出放款金额建议 -->
-                    <div class="panel panel-info" ms-if="@currentUser.role === @role.traderAccountant" >
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.traderAccountant && @currentOrder.status === @action.a17Approved.statusAt " >
                         <div class="panel-heading">贸易商财务放款金额建议: </div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
@@ -516,7 +521,37 @@
 
                             </form>
                         </div>
+                    </div>
 
+
+
+
+
+
+                    <!-- 融资方还款 -->
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.financer && @currentOrder.status === @action.a31FirstReturnMoney.statusAt" >
+                        <div class="panel-heading">融资方还款: </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@errorReturnValue && 'has-error']">
+                                    <label class="col-sm-3 control-label">还款金额(万元):</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" ms-duplex-number="@inputReturnValue" >
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@errorReturnValue">
+                                        <span class="help-block">*&nbsp;金额数量不正确, 最少10万元!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveReturnValue($event)">保存</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
 
 

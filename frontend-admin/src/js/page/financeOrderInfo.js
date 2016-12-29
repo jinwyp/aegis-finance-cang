@@ -33,7 +33,7 @@ var orderInfo = function (query) {
         selectedContractType : '',
         contractList         : [],
         uploadFileList       : [],
-        paymentList          : [],
+        repaymentList        : [],
         depositList          : [],
         currentUser          : {
             id   : sessionUserId,
@@ -73,6 +73,10 @@ var orderInfo = function (query) {
 
             if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
                 additionalData.fileList = uploadFileList;
+            }
+
+            if (sessionUserRole === vm.role.harbor){
+                additionalData.harborConfirmAmount = vm.currentOrder.harborConfirmAmount
             }
 
             if (sessionUserRole === vm.role.traderAccountant){
@@ -121,13 +125,12 @@ var orderInfo = function (query) {
         saveOrder                : function () {
             vm.errorHarborConfirmAmount = false;
 
-            if (vm.inputHarborConfirmAmount < 100) {
+            if (!vm.inputHarborConfirmAmount || vm.inputHarborConfirmAmount < 100) {
                 vm.errorHarborConfirmAmount = true;
             } else {
-                var tempOrder = {
+                orderService.updateFinanceOrderInfoById(orderId, {
                     harborConfirmAmount : vm.inputHarborConfirmAmount
-                }
-                orderService.updateFinanceOrderInfoById(orderId, tempOrder).done(function (data, textStatus, jqXHR) {
+                }).done(function (data, textStatus, jqXHR) {
                     if (data.success) {
                         getOrderInfo();
                         $.notify("保存成功, 并会通知贸易商!", 'success');
@@ -140,16 +143,16 @@ var orderInfo = function (query) {
 
         inputDepositValue : 0,
         errorDepositValue : '',
-        saveDeposit       : function (event) {
+        addNotifyDeposit       : function (event) {
             event.preventDefault();
             vm.errorDepositValue = false;
 
-            if (vm.inputDepositValue < 10) {
+            if (!vm.inputDepositValue || vm.inputDepositValue < 10) {
                 vm.errorDepositValue = true;
             } else {
                 var tempPaymentOrder = {
                     depositValue : vm.inputDepositValue,
-                    paymentType  : 'deposit',
+                    paymentType  : orderService.paymentTypeKey.deposit,
                     depositType  : 'notified',
                     orderId      : orderId,
                     orderNo      : vm.currentOrder.orderNo
@@ -203,7 +206,43 @@ var orderInfo = function (query) {
                     }
                 })
             }
-        }
+        },
+
+        inputReturnValue : 0,
+        errorReturnValue : '',
+        saveReturnValue  : function (event) {
+            event.preventDefault();
+            vm.errorReturnValue = false;
+
+            if (!vm.inputReturnValue || vm.inputReturnValue < 10) {
+                vm.errorReturnValue = true;
+            } else {
+                var tempLeftValue = vm.currentOrder.loanValue;
+
+                vm.repaymentList.forEach(function(pay){
+                    tempLeftValue = tempLeftValue - pay.redemptionValue;
+                })
+
+                var tempPaymentOrder = {
+                    redemptionValue : vm.inputReturnValue,
+                    leftPrincipalValue : tempLeftValue - vm.inputReturnValue,
+                    paymentType  : orderService.paymentTypeKey.repayment,
+                    orderId      : orderId,
+                    orderNo      : vm.currentOrder.orderNo
+                }
+
+                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data, textStatus, jqXHR) {
+                    if (data.success) {
+                        getOrderInfo()
+                        $.notify("保存成功!", 'success');
+                    } else {
+                        console.log(data.error);
+                    }
+                })
+            }
+        },
+
+
     });
 
 
@@ -224,9 +263,17 @@ var orderInfo = function (query) {
             }
         });
 
-        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : 'deposit'}).done(function (data, textStatus, jqXHR) {
+        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : orderService.paymentTypeKey.deposit}).done(function (data, textStatus, jqXHR) {
             if (data.success) {
                 vm.depositList = data.data;
+            } else {
+                console.log(data.error);
+            }
+        });
+
+        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : orderService.paymentTypeKey.repayment}).done(function (data, textStatus, jqXHR) {
+            if (data.success) {
+                vm.repaymentList = data.data;
             } else {
                 console.log(data.error);
             }

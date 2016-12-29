@@ -86,10 +86,18 @@ var contractType = {
     business : '业务单据类(质量和数量单据, 运输单据, 货转证明)'
 }
 
-var paymentType = {
-    payment : '还款',
-    deposit : '保证金'
-}
+var paymentType = [
+    { name : 'repayment',  displayName : '还款'},
+    { name : 'deposit',  displayName : '保证金'}
+]
+var paymentTypeObject = {};
+var paymentTypeKeyObject = {};
+
+paymentType.forEach(function (type, index){
+    paymentTypeObject[type.name] = type.displayName;
+    paymentTypeKeyObject[type.name] = type.name;
+});
+
 
 var depositType = {
     notified    : '保证金已通知',
@@ -102,7 +110,8 @@ exports.statusObject = statusObject;
 exports.actionList   = actions;
 exports.actionObject = actionObject;
 exports.contractType = contractType;
-exports.paymentType  = paymentType;
+exports.paymentType  = paymentTypeObject;
+exports.paymentTypeKey  = paymentTypeKeyObject;
 exports.depositType  = depositType;
 
 
