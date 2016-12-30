@@ -88,7 +88,8 @@ var contractType = {
 
 var paymentType = [
     { name : 'repayment',  displayName : '还款'},
-    { name : 'deposit',  displayName : '保证金'}
+    { name : 'deposit',  displayName : '保证金'},
+    { name : 'returnCargo',  displayName : '返回货物'}
 ]
 var paymentTypeObject = {};
 var paymentTypeKeyObject = {};

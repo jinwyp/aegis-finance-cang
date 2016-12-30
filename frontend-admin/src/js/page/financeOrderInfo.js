@@ -242,8 +242,46 @@ var orderInfo = function (query) {
             }
         },
 
+        inputRedemptionAmount : 0,
+        inputRedemptionFileList : [],
+        errorRedemptionAmount : '',
+        saveRedemptionAmount  : function (event) {
+            event.preventDefault();
+            vm.errorRedemptionAmount = false;
+
+            if (!vm.inputRedemptionAmount || vm.inputRedemptionAmount < 10) {
+                vm.errorRedemptionAmount = true;
+            } else {
+
+
+                var tempPaymentOrder = {
+                    uploadFiles : [],
+                    redemptionAmount : vm.inputRedemptionAmount,
+                    paymentType  : orderService.paymentTypeKey.returnCargo,
+                    orderId      : orderId,
+                    orderNo      : vm.currentOrder.orderNo
+                }
+
+                vm.inputRedemptionFileList.forEach(function(file, fileIndex){
+                    console.log(file.fileId)
+                    tempPaymentOrder.uploadFiles.push(file.fileId)
+                })
+
+                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data, textStatus, jqXHR) {
+                    if (data.success) {
+                        getOrderInfo()
+                        $.notify("保存成功!", 'success');
+                    } else {
+                        console.log(data.error);
+                    }
+                })
+            }
+        }
+
 
     });
+
+
 
 
     function getOrderInfo() {
@@ -309,48 +347,85 @@ var orderInfo = function (query) {
     getOrderInfo();
 
 
+
+
+    // 上传文件
+    function uploadBeforeSend (block, data, headers) {
+
+        jQuery.extend(data, {
+            orderId          : orderId,
+            contractUserType : sessionUserRole,
+            contractType     : vm.selectedContractType
+        });
+        jQuery.extend(headers, tokenHeaders);
+    }
+
+    function fileQueued (file) {
+        console.log(file)
+    }
+
+    function uploadError (file) {
+        $.notify("上传出现问题!", 'error');
+    }
+
+    var uploadSetting = {
+
+        // 选完文件后，是否自动上传。
+        auto : true,
+
+        // swf文件路径
+        swf : '/static/admin/js/libs/webuploader/Uploader.swf',
+
+        // 文件接收服务端。
+        server : API.files,
+        // server : '/apz/upload/file',
+
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick : '#uploadPicker',
+
+        // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+        resize : false
+    };
+
+    var uploadSettingRedemptionFile = jQuery.extend({}, uploadSetting, {
+        pick : '#uploadPickerRedemptionFile'
+    });
+
+
     if (vm.currentUser.role === vm.role.trader){
         getUsersOfRoles()
+
+        var uploaderRedemptionFile = WebUploader.create(uploadSettingRedemptionFile);
+
+        uploaderRedemptionFile.on('uploadBeforeSend', uploadBeforeSend);
+        uploaderRedemptionFile.on('fileQueued', fileQueued);
+        uploaderRedemptionFile.on('uploadError', uploadError);
+
+        uploaderRedemptionFile.on('uploadSuccess', function (file) {
+            console.log(file._id)
+            var tempFile = {
+                fileId : file._id,
+                name : file.name,
+                ext  : file.ext,
+                size : file.size,
+                type : file.type
+            };
+
+            vm.inputRedemptionFileList.push(tempFile);
+            $.notify("上传成功!", 'success');
+        });
+
     }
 
 
     if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
 
-        console.log(vm.currentUser.role)
-        var uploader = WebUploader.create({
+        var uploader = WebUploader.create(uploadSetting);
 
-            // 选完文件后，是否自动上传。
-            auto : true,
-
-            // swf文件路径
-            swf : '/static/admin/js/libs/webuploader/Uploader.swf',
-
-            // 文件接收服务端。
-            server : API.financeOrderList,
-            // server : '/apz/upload/file',
-
-            // 选择文件的按钮。可选。
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick : '#uploadPicker',
-
-            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-            resize : false
-        });
-
-        uploader.on('uploadBeforeSend', function (block, data, headers) {
-
-            jQuery.extend(data, {
-                orderId          : orderId,
-                contractUserType : sessionUserRole,
-                contractType     : vm.selectedContractType
-            });
-            jQuery.extend(headers, tokenHeaders);
-
-        });
-
-        uploader.on('fileQueued', function (file) {
-            console.log(file)
-        });
+        uploader.on('uploadBeforeSend', uploadBeforeSend);
+        uploader.on('fileQueued', fileQueued);
+        uploader.on('uploadError', uploadError);
 
         uploader.on('uploadSuccess', function (file) {
             var tempFile = {
@@ -363,10 +438,6 @@ var orderInfo = function (query) {
             uploadFileList.push(tempFile)
             vm.uploadFileList.push(tempFile);
             $.notify("上传成功!", 'success');
-        });
-
-        uploader.on('uploadError', function (file) {
-            $.notify("上传出现问题!", 'error');
         });
 
     }

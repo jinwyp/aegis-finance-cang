@@ -316,32 +316,6 @@
 
 
 
-                    <!-- 港口放货记录 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">港口放货记录</div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-striped table-bordered">
-                                    <tr>
-                                        <th>11</th>
-                                        <th>11</th>
-                                        <th>11</th>
-                                        <th>11</th>
-                                        <th>11</th>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
 
                     <!-- 贸易商通知融资方缴纳保证金-->
                     <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
@@ -417,7 +391,7 @@
                                         <th>下次还款计息本金</th>
                                         <th>本次还款计息本金</th>
                                         <th>利息计息天数</th>
-                                        <th>利息</th>
+                                        <th>利息 <br>(剩余本金 X 天 X 每日利息)</th>
                                         <th>付款方</th>
                                         <th>收款方</th>
                                     </tr>
@@ -428,8 +402,8 @@
                                         <td>{{ paymentOrder.redemptionValue}}</td>
                                         <td>{{ paymentOrder.leftPrincipalValue}}  </td>
                                         <td>{{ paymentOrder.leftPrincipalValue  + paymentOrder.redemptionValue}}  </td>
-                                        <td> 第xxx天 </td>
-                                        <td> xxx 利息 </td>
+                                        <td> 第 3 天 </td>
+                                        <td> {{ paymentOrder.leftPrincipalValue  + paymentOrder.redemptionValue}} x 3 x 0.1 / 360 </td>
                                         <td> - </td>
                                         <td> - </td>
                                     </tr>
@@ -440,6 +414,34 @@
                     </div>
 
 
+
+                    <!-- 港口返还货物记录-->
+                    <div class="panel panel-default " >
+                        <div class="panel-heading">港口返还货物记录</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped table-bordered">
+                                    <tr>
+                                        <th>交易日期</th>
+                                        <th>放货数量（吨）</th>
+                                        <th>放货方</th>
+                                        <th>收货方</th>
+                                        <th>操作</th>
+                                    </tr>
+
+                                    <tr ms-for="(index, paymentOrder) in @repaymentList">
+                                        <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
+                                        <td>{{ paymentOrder.redemptionValue}}</td>
+                                        <td> 第 3 天 </td>
+                                        <td> {{ paymentOrder.leftPrincipalValue  + paymentOrder.redemptionValue}} x 3 x 0.1 / 360 </td>
+                                        <td> - </td>
+                                        <td> - </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -529,7 +531,7 @@
 
 
                     <!-- 融资方还款 -->
-                    <div class="panel panel-info" ms-if="@currentUser.role === @role.financer && @currentOrder.status === @action.a31FirstReturnMoney.statusAt" >
+                    <div class="panel panel-info" ms-if="@currentUser.role === @role.financer && @currentOrder.status === @action.a31FirstReturnMoney.statusAt || @currentUser.role === @role.financer && @currentOrder.status === @action.a32SecondReturnMoney.statusAt" >
                         <div class="panel-heading">融资方还款: </div>
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
@@ -553,6 +555,57 @@
                             </form>
                         </div>
                     </div>
+
+
+
+                    <!-- 贸易方上传港口放货文件合同-->
+                    <div class="panel panel-info" ms-visible="@currentUser.role === @role.trader">
+                        <div class="panel-heading">贸易商返还货物信息</div>
+
+                        <div class="panel-body">
+
+                            <form class="form-horizontal" novalidate>
+
+                                <div class="form-group" ms-class="[@errorRedemptionAmount && 'has-error']">
+                                    <label class="col-sm-3 control-label">本次放货数量(吨):</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" ms-duplex-number="@inputRedemptionAmount" >
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@errorRedemptionAmount">
+                                        <span class="help-block">*&nbsp;数量不正确, 最少10吨!</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" >
+                                    <label class="col-sm-3 control-label">上传放货文件</label>
+                                    <div class="col-sm-4">
+                                        <table class="table table-hover">
+                                            <tr>
+                                                <td><div id="uploadPickerRedemptionFile" class="btn ">选择放货文件并上传</div></td>
+                                            </tr>
+                                            <tr ms-for="(index, file) in @inputRedemptionFileList">
+                                                <td class="border0 text-center">{{file.name}} <a href=""></a></td>
+                                                <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-5">
+                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveRedemptionAmount($event)">保存</button>
+
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
 
 
 
