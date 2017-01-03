@@ -316,7 +316,6 @@
 
 
 
-
                     <!-- 贸易商通知融资方缴纳保证金-->
                     <div class="panel panel-default" ms-if="@currentUser.role === @role.trader" >
                         <div class="panel-heading">通知融资方缴纳保证金 </div>
@@ -414,7 +413,6 @@
                     </div>
 
 
-
                     <!-- 港口返还货物记录-->
                     <div class="panel panel-default " >
                         <div class="panel-heading">港口返还货物记录</div>
@@ -426,15 +424,20 @@
                                         <th>放货数量（吨）</th>
                                         <th>放货方</th>
                                         <th>收货方</th>
+                                        <th>港口确认放货时间</th>
+                                        <th>查看文件</th>
                                         <th>操作</th>
                                     </tr>
 
-                                    <tr ms-for="(index, paymentOrder) in @repaymentList">
-                                        <td>{{ paymentOrder.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
-                                        <td>{{ paymentOrder.redemptionValue}}</td>
-                                        <td> 第 3 天 </td>
-                                        <td> {{ paymentOrder.leftPrincipalValue  + paymentOrder.redemptionValue}} x 3 x 0.1 / 360 </td>
+                                    <tr ms-for="(index, delivery) in @deliveryList">
+                                        <td>{{ delivery.createdAt | date("yyyy-MM-dd:HH:mm:ss ") }}</td>
+                                        <td>{{ delivery.redemptionAmount}}</td>
                                         <td> - </td>
+                                        <td> - </td>
+                                        <td> <span ms-visible="delivery.confirmDate"> {{ delivery.confirmDate | date("yyyy-MM-dd:HH:mm:ss ")}}  </span> </td>
+                                        <td>
+                                            <a class="" ms-for="(index, file) in delivery.fileList" ms-click="@getFile($event, file)">{{file.originalFileName}}<br> </a>
+                                        </td>
                                         <td> - </td>
                                     </tr>
                                 </table>
@@ -520,7 +523,6 @@
                                         <button class="btn btn-default btn-lg btn-primary" ms-click="@saveActualLoanValue($event)">保存</button>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -558,8 +560,8 @@
 
 
 
-                    <!-- 贸易方上传港口放货文件合同-->
-                    <div class="panel panel-info" ms-visible="@currentUser.role === @role.trader">
+                    <!-- 贸易方 输入放货数量 和 上传港口放货文件合同 -->
+                    <div class="panel panel-info" ms-visible="@currentUser.role === @role.trader && @currentOrder.status === 'repaymentStep31' && @isNeedDelivery ">
                         <div class="panel-heading">贸易商返还货物信息</div>
 
                         <div class="panel-body">
@@ -589,22 +591,19 @@
                                             </tr>
                                         </table>
                                     </div>
-
                                 </div>
-
 
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-5">
                                         <button class="btn btn-default btn-lg btn-primary" ms-click="@saveRedemptionAmount($event)">保存</button>
-
                                     </div>
                                 </div>
 
                             </form>
 
                         </div>
-
                     </div>
+
 
 
 

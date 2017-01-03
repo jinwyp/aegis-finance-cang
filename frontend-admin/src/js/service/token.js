@@ -19,6 +19,7 @@ var url = {
     files : prefix + '/files',
     financeOrderList : prefix + '/financeorders',
     paymentOrderList : prefix + '/paymentorders',
+    deliveryList : prefix + '/deliveries',
     contractList : prefix + '/files',
     userList : prefix + '/users',
     login : prefix + '/auth/login',

@@ -22,7 +22,7 @@ var urlShowStatus = 'orderInfo'
 if (url.indexOf('contract') > -1) urlShowStatus = 'contractInfo'
 console.log(orderId, urlShowStatus);
 
-var orderInfo = function (query) {
+var orderInfo = function () {
 
     var uploadFileList = [];
 
@@ -30,18 +30,20 @@ var orderInfo = function (query) {
         $id                  : 'orderInfoController',
         role                 : userService.userRoleKeyObject,
         contractType         : orderService.contractType,
+        action               : orderService.actionObject,
         selectedContractType : '',
         contractList         : [],
         uploadFileList       : [],
         repaymentList        : [],
         depositList          : [],
+        deliveryList         : [],
         currentUser          : {
             id   : sessionUserId,
             role : sessionUserRole
         },
         currentOrderId       : orderId,
         currentOrder         : {},
-        action               : orderService.actionObject,
+
         doAction             : function (actionName) {
             var selectUser = {};
             var additionalData = {};
@@ -49,6 +51,15 @@ var orderInfo = function (query) {
             if (sessionUserRole === vm.role.trader) {
 
                 if (vm.currentOrder.statusChild1Financer && vm.currentOrder.statusChild2Harbor && vm.currentOrder.statusChild3Supervisor){
+
+                    if (vm.currentOrder.status === 'repaymentStep31'){
+                        additionalData.redemptionfileList = []
+                        additionalData.redemptionAmount = vm.inputRedemptionAmount
+
+                        vm.inputRedemptionFileList.forEach(function(file, fileIndex){
+                            additionalData.redemptionfileList.push(file.fileId)
+                        })
+                    }
 
                 }else{
                     vm.traderFormError.fundProvider = false;
@@ -68,7 +79,6 @@ var orderInfo = function (query) {
                         "fundProviderUserId" : vm.traderForm.selectedFundProvider
                     }
                 }
-
             }
 
             if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
@@ -83,8 +93,11 @@ var orderInfo = function (query) {
                 additionalData.loanValue = vm.currentOrder.loanValue
             }
 
+            if (sessionUserRole === vm.role.financer){
+                additionalData.redemptionValue = vm.inputReturnValue
+            }
 
-            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, selectUser, additionalData).done(function (data, textStatus, jqXHR) {
+            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, selectUser, additionalData).done(function (data) {
                 if (data.success) {
                     getOrderInfo();
                     $.notify("提交成功!", 'success');
@@ -130,7 +143,7 @@ var orderInfo = function (query) {
             } else {
                 orderService.updateFinanceOrderInfoById(orderId, {
                     harborConfirmAmount : vm.inputHarborConfirmAmount
-                }).done(function (data, textStatus, jqXHR) {
+                }).done(function (data) {
                     if (data.success) {
                         getOrderInfo();
                         $.notify("保存成功, 并会通知贸易商!", 'success');
@@ -158,7 +171,7 @@ var orderInfo = function (query) {
                     orderNo      : vm.currentOrder.orderNo
                 }
 
-                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data, textStatus, jqXHR) {
+                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
@@ -177,7 +190,7 @@ var orderInfo = function (query) {
             if (!vm.inputPaymentOrderNo || vm.inputPaymentOrderNo.length < 10) {
                 vm.errorPaymentOrderNo = true;
             } else {
-                orderService.updatePaymentOrderInfoById(id, {paymentNo:vm.inputPaymentOrderNo, depositType:'alreadyPaid'}).done(function (data, textStatus, jqXHR) {
+                orderService.updatePaymentOrderInfoById(id, {paymentNo:vm.inputPaymentOrderNo, depositType:'alreadyPaid'}).done(function (data) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
@@ -197,7 +210,7 @@ var orderInfo = function (query) {
             if (!vm.inputActualLoanValue || vm.inputActualLoanValue.length < 10) {
                 vm.errorActualLoanValue = true;
             } else {
-                orderService.updateFinanceOrderInfoById(orderId, {loanValue:vm.inputActualLoanValue}).done(function (data, textStatus, jqXHR) {
+                orderService.updateFinanceOrderInfoById(orderId, {loanValue:vm.inputActualLoanValue}).done(function (data) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
@@ -231,7 +244,7 @@ var orderInfo = function (query) {
                     orderNo      : vm.currentOrder.orderNo
                 }
 
-                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data, textStatus, jqXHR) {
+                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
@@ -245,6 +258,7 @@ var orderInfo = function (query) {
         inputRedemptionAmount : 0,
         inputRedemptionFileList : [],
         errorRedemptionAmount : '',
+        isNeedDelivery  : false,
         saveRedemptionAmount  : function (event) {
             event.preventDefault();
             vm.errorRedemptionAmount = false;
@@ -253,21 +267,18 @@ var orderInfo = function (query) {
                 vm.errorRedemptionAmount = true;
             } else {
 
-
-                var tempPaymentOrder = {
+                var tempDelivery = {
                     uploadFiles : [],
                     redemptionAmount : vm.inputRedemptionAmount,
-                    paymentType  : orderService.paymentTypeKey.returnCargo,
                     orderId      : orderId,
                     orderNo      : vm.currentOrder.orderNo
                 }
 
                 vm.inputRedemptionFileList.forEach(function(file, fileIndex){
-                    console.log(file.fileId)
-                    tempPaymentOrder.uploadFiles.push(file.fileId)
+                    tempDelivery.uploadFiles.push(file.fileId)
                 })
 
-                orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data, textStatus, jqXHR) {
+                orderService.addNewDelivery(tempDelivery).done(function (data) {
                     if (data.success) {
                         getOrderInfo()
                         $.notify("保存成功!", 'success');
@@ -278,14 +289,13 @@ var orderInfo = function (query) {
             }
         }
 
-
     });
 
 
 
 
     function getOrderInfo() {
-        orderService.getFinanceOrderInfoById(orderId).done(function (data, textStatus, jqXHR) {
+        orderService.getFinanceOrderInfoById(orderId).done(function (data) {
             if (data.success) {
                 vm.currentOrder = data.data;
             } else {
@@ -293,15 +303,49 @@ var orderInfo = function (query) {
             }
         });
 
-        orderService.getContractListByOrderId(orderId).done(function (data, textStatus, jqXHR) {
+        orderService.getContractListByOrderId(orderId).done(function (data) {
             if (data.success) {
+                var tempFiles = {};
+                data.data.forEach(function(file, fileIndex){
+                    tempFiles[file._id.toString()] = file;
+                })
                 vm.contractList = data.data;
+
+                orderService.getDeliveryListByOrderId(orderId).done(function (data) {
+                    if (data.success) {
+
+                        if (data.data.length > 0){
+                            data.data.forEach(function (delivery, deliveryIndex) {
+
+                                if (typeof delivery.confirmDate === 'undefined'){
+                                    vm.isNeedDelivery = false;
+                                }
+
+                                delivery.fileList = [];
+                                delivery.uploadFiles.forEach(function(file2, file2Index){
+                                    delivery.fileList.push(tempFiles[file2.toString()])
+                                })
+
+                            })
+                        }else{
+                            vm.isNeedDelivery = true;
+                        }
+
+                        vm.deliveryList = data.data;
+
+                        upload()
+
+                    } else {
+                        console.log(data.error);
+                    }
+                });
+
             } else {
                 console.log(data.error);
             }
         });
 
-        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : orderService.paymentTypeKey.deposit}).done(function (data, textStatus, jqXHR) {
+        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : orderService.paymentTypeKey.deposit}).done(function (data) {
             if (data.success) {
                 vm.depositList = data.data;
             } else {
@@ -309,33 +353,34 @@ var orderInfo = function (query) {
             }
         });
 
-        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : orderService.paymentTypeKey.repayment}).done(function (data, textStatus, jqXHR) {
+        orderService.getPaymentOrderListByOrderId(orderId, {paymentType  : orderService.paymentTypeKey.repayment}).done(function (data) {
             if (data.success) {
                 vm.repaymentList = data.data;
             } else {
                 console.log(data.error);
             }
         });
+
     }
 
 
     function getUsersOfRoles() {
 
-        userService.getUserList({role : vm.role.harbor, $limit : 500}).done(function (data, textStatus, jqXHR) {
+        userService.getUserList({role : vm.role.harbor, $limit : 500}).done(function (data) {
             if (data.success) {
                 vm.harborList = data.data;
             } else {
                 console.log(data.error);
             }
         });
-        userService.getUserList({role : vm.role.supervisor, $limit : 500}).done(function (data, textStatus, jqXHR) {
+        userService.getUserList({role : vm.role.supervisor, $limit : 500}).done(function (data) {
             if (data.success) {
                 vm.supervisorList = data.data;
             } else {
                 console.log(data.error);
             }
         })
-        userService.getUserList({role : vm.role.fundProvider, $limit : 500}).done(function (data, textStatus, jqXHR) {
+        userService.getUserList({role : vm.role.fundProvider, $limit : 500}).done(function (data) {
             if (data.success) {
                 vm.fundProviderList = data.data;
             } else {
@@ -350,98 +395,104 @@ var orderInfo = function (query) {
 
 
     // 上传文件
-    function uploadBeforeSend (block, data, headers) {
+    function upload(){
 
-        jQuery.extend(data, {
-            orderId          : orderId,
-            contractUserType : sessionUserRole,
-            contractType     : vm.selectedContractType
-        });
-        jQuery.extend(headers, tokenHeaders);
-    }
+        function uploadBeforeSend (block, data, headers) {
 
-    function fileQueued (file) {
-        console.log(file)
-    }
+            jQuery.extend(data, {
+                orderId          : orderId,
+                contractUserType : sessionUserRole,
+                contractType     : vm.selectedContractType
+            });
+            jQuery.extend(headers, tokenHeaders);
+        }
 
-    function uploadError (file) {
-        $.notify("上传出现问题!", 'error');
-    }
+        function fileQueued (file) {
+            console.log(file)
+        }
 
-    var uploadSetting = {
+        function uploadError (file) {
+            $.notify("上传出现问题!", 'error');
+        }
 
-        // 选完文件后，是否自动上传。
-        auto : true,
+        var uploadSetting = {
 
-        // swf文件路径
-        swf : '/static/admin/js/libs/webuploader/Uploader.swf',
+            // 选完文件后，是否自动上传。
+            auto : true,
 
-        // 文件接收服务端。
-        server : API.files,
-        // server : '/apz/upload/file',
+            // swf文件路径
+            swf : '/static/admin/js/libs/webuploader/Uploader.swf',
 
-        // 选择文件的按钮。可选。
-        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-        pick : '#uploadPicker',
+            // 文件接收服务端。
+            server : API.files,
+            // server : '/apz/upload/file',
 
-        // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-        resize : false
-    };
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick : '#uploadPicker',
 
-    var uploadSettingRedemptionFile = jQuery.extend({}, uploadSetting, {
-        pick : '#uploadPickerRedemptionFile'
-    });
+            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+            resize : false
+        };
 
-
-    if (vm.currentUser.role === vm.role.trader){
-        getUsersOfRoles()
-
-        var uploaderRedemptionFile = WebUploader.create(uploadSettingRedemptionFile);
-
-        uploaderRedemptionFile.on('uploadBeforeSend', uploadBeforeSend);
-        uploaderRedemptionFile.on('fileQueued', fileQueued);
-        uploaderRedemptionFile.on('uploadError', uploadError);
-
-        uploaderRedemptionFile.on('uploadSuccess', function (file) {
-            console.log(file._id)
-            var tempFile = {
-                fileId : file._id,
-                name : file.name,
-                ext  : file.ext,
-                size : file.size,
-                type : file.type
-            };
-
-            vm.inputRedemptionFileList.push(tempFile);
-            $.notify("上传成功!", 'success');
+        var uploadSettingRedemptionFile = jQuery.extend({}, uploadSetting, {
+            pick : '#uploadPickerRedemptionFile'
         });
 
+
+        if (vm.currentUser.role === vm.role.trader){
+            getUsersOfRoles()
+
+            var uploaderRedemptionFile = WebUploader.create(uploadSettingRedemptionFile);
+
+            uploaderRedemptionFile.on('uploadBeforeSend', uploadBeforeSend);
+            uploaderRedemptionFile.on('fileQueued', fileQueued);
+            uploaderRedemptionFile.on('uploadError', uploadError);
+
+            uploaderRedemptionFile.on('uploadSuccess', function (file, response) {
+                var tempFile = {
+                    fileId : response.data._id,
+                    path : response.data.fileId,
+                    name : file.name,
+                    ext  : file.ext,
+                    size : file.size,
+                    type : file.type
+                };
+                vm.inputRedemptionFileList.push(tempFile);
+                $.notify("上传成功!", 'success');
+            });
+
+        }
+
+
+        if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
+
+            var uploader = WebUploader.create(uploadSetting);
+
+            uploader.on('uploadBeforeSend', uploadBeforeSend);
+            uploader.on('fileQueued', fileQueued);
+            uploader.on('uploadError', uploadError);
+
+            uploader.on('uploadSuccess', function (file, response) {
+                var tempFile = {
+                    fileId : response.data._id,
+                    path : response.data.fileId,
+                    name : file.name,
+                    ext  : file.ext,
+                    size : file.size,
+                    type : file.type
+                };
+
+                uploadFileList.push(tempFile)
+                vm.uploadFileList.push(tempFile);
+                $.notify("上传成功!", 'success');
+            });
+
+        }
+
+
+
     }
-
-
-    if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
-
-        var uploader = WebUploader.create(uploadSetting);
-
-        uploader.on('uploadBeforeSend', uploadBeforeSend);
-        uploader.on('fileQueued', fileQueued);
-        uploader.on('uploadError', uploadError);
-
-        uploader.on('uploadSuccess', function (file) {
-            var tempFile = {
-                name : file.name,
-                ext  : file.ext,
-                size : file.size,
-                type : file.type
-            };
-
-            uploadFileList.push(tempFile)
-            vm.uploadFileList.push(tempFile);
-            $.notify("上传成功!", 'success');
-        });
-
-    }
-
 
 
 
@@ -520,9 +571,6 @@ var orderInfo = function (query) {
 
 
     if (urlShowStatus === 'orderInfo') {
-
-
-    } else {
 
 
     }

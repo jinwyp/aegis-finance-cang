@@ -88,8 +88,7 @@ var contractType = {
 
 var paymentType = [
     { name : 'repayment',  displayName : '还款'},
-    { name : 'deposit',  displayName : '保证金'},
-    { name : 'returnCargo',  displayName : '返回货物'}
+    { name : 'deposit',  displayName : '保证金'}
 ]
 var paymentTypeObject = {};
 var paymentTypeKeyObject = {};
@@ -166,8 +165,6 @@ exports.getFinanceOrderList = function (query){
 
 };
 
-
-
 exports.getFinanceOrderInfoById = function (id, query){
 
     var params = jQuery.extend({}, query);
@@ -183,7 +180,6 @@ exports.getFinanceOrderInfoById = function (id, query){
     });
 
 };
-
 
 exports.addNewFinanceOrder = function (order){
 
@@ -219,7 +215,12 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
     if (selectUser && selectUser.fundProviderAccountantUserId) params.fundProviderAccountantUserId = selectUser.fundProviderAccountantUserId;
 
     if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
+    if (additionalData && additionalData.harborConfirmAmount) params.harborConfirmAmount = additionalData.harborConfirmAmount;
     if (additionalData && additionalData.loanValue) params.loanValue = additionalData.loanValue;
+
+    if (additionalData && additionalData.redemptionValue) params.redemptionValue = additionalData.redemptionValue;
+    if (additionalData && additionalData.redemptionAmount) params.redemptionAmount = additionalData.redemptionAmount;
+    if (additionalData && additionalData.redemptionfileList) params.redemptionfileList = additionalData.redemptionfileList;
 
     return jQuery.ajax({
         headers : headers,
@@ -266,7 +267,6 @@ exports.getContractListByOrderId = function (orderId, query){
         data     : params
 
     });
-
 };
 exports.getContractById = function (id, query){
     var params = jQuery.extend({}, query);
@@ -292,7 +292,6 @@ exports.getPaymentOrderListByOrderId = function (orderId, query){
         data     : params
 
     });
-
 };
 exports.addNewPaymentOrder = function (order){
 
@@ -319,6 +318,38 @@ exports.updatePaymentOrderInfoById = function (id, order){
         dataType : 'json',
         url      : url.paymentOrderList + '/' + id,
         method   : 'PATCH',
+        data     : JSON.stringify(params)
+
+    });
+
+};
+
+
+
+exports.getDeliveryListByOrderId = function (orderId, query){
+
+    var params = jQuery.extend({}, query, {orderId : orderId});
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
+        url      : url.deliveryList,
+        method   : 'GET',
+        data     : params
+
+    });
+};
+exports.addNewDelivery = function (order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
+        url      : url.deliveryList,
+        method   : 'POST',
         data     : JSON.stringify(params)
 
     });
