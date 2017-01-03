@@ -425,8 +425,7 @@
                                         <th>放货方</th>
                                         <th>收货方</th>
                                         <th>港口确认放货时间</th>
-                                        <th>查看文件</th>
-                                        <th>操作</th>
+                                        <th>查看放货文件</th>
                                     </tr>
 
                                     <tr ms-for="(index, delivery) in @deliveryList">
@@ -438,7 +437,6 @@
                                         <td>
                                             <a class="" ms-for="(index, file) in delivery.fileList" ms-click="@getFile($event, file)">{{file.originalFileName}}<br> </a>
                                         </td>
-                                        <td> - </td>
                                     </tr>
                                 </table>
 

@@ -221,6 +221,7 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
     if (additionalData && additionalData.redemptionValue) params.redemptionValue = additionalData.redemptionValue;
     if (additionalData && additionalData.redemptionAmount) params.redemptionAmount = additionalData.redemptionAmount;
     if (additionalData && additionalData.redemptionfileList) params.redemptionfileList = additionalData.redemptionfileList;
+    if (additionalData && additionalData.redemptionAmountDeliveryId) params.redemptionAmountDeliveryId = additionalData.redemptionAmountDeliveryId;
 
     return jQuery.ajax({
         headers : headers,
@@ -350,6 +351,20 @@ exports.addNewDelivery = function (order){
         dataType : 'json',
         url      : url.deliveryList,
         method   : 'POST',
+        data     : JSON.stringify(params)
+
+    });
+};
+exports.updateDeliveryInfoById = function (id, order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
+        url      : url.deliveryList + '/' + id,
+        method   : 'PATCH',
         data     : JSON.stringify(params)
 
     });

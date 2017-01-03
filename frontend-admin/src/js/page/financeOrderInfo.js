@@ -25,6 +25,7 @@ console.log(orderId, urlShowStatus);
 var orderInfo = function () {
 
     var uploadFileList = [];
+    var tempDeliveryId = '';
 
     var vm = avalon.define({
         $id                  : 'orderInfoController',
@@ -87,7 +88,18 @@ var orderInfo = function () {
 
             if (sessionUserRole === vm.role.harbor){
                 additionalData.harborConfirmAmount = vm.currentOrder.harborConfirmAmount
+                additionalData.redemptionAmountDeliveryId = tempDeliveryId
+
+                if (tempDeliveryId){
+                    orderService.updateDeliveryInfoById(tempDeliveryId, {}).done(function (data) {
+                        if (data.success) {
+                        } else {
+                            console.log(data.error);
+                        }
+                    })
+                }
             }
+
 
             if (sessionUserRole === vm.role.traderAccountant){
                 additionalData.loanValue = vm.currentOrder.loanValue
@@ -317,16 +329,19 @@ var orderInfo = function () {
                         if (data.data.length > 0){
                             data.data.forEach(function (delivery, deliveryIndex) {
 
-                                if (typeof delivery.confirmDate === 'undefined'){
-                                    vm.isNeedDelivery = false;
-                                }
-
                                 delivery.fileList = [];
                                 delivery.uploadFiles.forEach(function(file2, file2Index){
                                     delivery.fileList.push(tempFiles[file2.toString()])
                                 })
-
                             })
+
+                            if (typeof data.data[data.data.length - 1].confirmDate === 'undefined'){
+                                vm.isNeedDelivery = false;
+                                tempDeliveryId = data.data[data.data.length - 1]._id
+                            }else{
+                                vm.isNeedDelivery = true;
+                            }
+
                         }else{
                             vm.isNeedDelivery = true;
                         }
