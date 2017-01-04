@@ -56,22 +56,22 @@ var companyInfo = function() {
             },
             onValidateAll: function (reasons) {
 
-                // var isValid = true;
+                var isValid = true;
                 // if(vm.currentUser.role === role.traderAccountant || vm.currentUser.role === role.fundProviderAccountant){
                 //     if (reasons.length || !vm.isMYSCWValid ) {
                 //         isValid = false;
                 //     }
                 // }else{
-                //     if (reasons.length ) {
-                //         isValid = false;
-                //     }
+                    if (reasons.length ) {
+                        isValid = false;
+                    }
                 // }
 
-                // if(!isValid){
-                //     console.log('表单项没有通过');
-                //     $("input").focus().blur();
-                //     $("select").focus().blur()
-                // } else{
+                if(!isValid){
+                    console.log('表单项没有通过');
+                    $("input").focus().blur();
+                    $("select").focus().blur()
+                } else{
                     var user = {
                         party_name : vm.currentUser.party_name,
                         party_class : vm.currentUser.party_class
@@ -97,7 +97,7 @@ var companyInfo = function() {
                             }
                         })
                     }
-                // }
+                }
 
 
 
