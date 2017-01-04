@@ -200,13 +200,15 @@ exports.addNewFinanceOrder = function (order){
 exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser, additionalData){
     console.log("流程:%s, 角色 %s 发出的动作: %s", orderId, userRole, actionName)
     var params = jQuery.extend({}, {
+        "taskId": orderId,
+        "flowId": orderId,
         "orderId": orderId,
         "action": actionName,
-        "operator": userRole,
+        "operator": userRole
         // "harborUserId": "583ea0b1f17d22ecde1ecb17",
         // "supervisorUserId": "583fc370e6e14eedaa51d2a0",
         // "fundProviderUserId": "583fd13e75a02a0f2935374e",
-        "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
+        // "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
     });
 
     if (selectUser && selectUser.harborUserId) params.harborUserId = selectUser.harborUserId;
@@ -214,20 +216,20 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
     if (selectUser && selectUser.fundProviderUserId) params.fundProviderUserId = selectUser.fundProviderUserId;
     if (selectUser && selectUser.fundProviderAccountantUserId) params.fundProviderAccountantUserId = selectUser.fundProviderAccountantUserId;
 
+
     if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
     if (additionalData && additionalData.harborConfirmAmount) params.harborConfirmAmount = additionalData.harborConfirmAmount;
     if (additionalData && additionalData.loanValue) params.loanValue = additionalData.loanValue;
 
-    if (additionalData && additionalData.redemptionValue) params.redemptionValue = additionalData.redemptionValue;
+    if (additionalData && additionalData.repaymentValue) params.repaymentValue = additionalData.redemptionValue;
     if (additionalData && additionalData.redemptionAmount) params.redemptionAmount = additionalData.redemptionAmount;
-    if (additionalData && additionalData.redemptionfileList) params.redemptionfileList = additionalData.redemptionfileList;
     if (additionalData && additionalData.redemptionAmountDeliveryId) params.redemptionAmountDeliveryId = additionalData.redemptionAmountDeliveryId;
 
     return jQuery.ajax({
         headers : headers,
         contentType : 'application/json',
         dataType : 'json',
-        url      : url.financeOrderList + '/audit',
+        url      : url.financeOrderList + '/task',
         method   : 'POST',
         data     :JSON.stringify(params)
 

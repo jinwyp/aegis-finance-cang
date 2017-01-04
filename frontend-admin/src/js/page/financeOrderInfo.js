@@ -51,37 +51,49 @@ var orderInfo = function () {
 
             if (sessionUserRole === vm.role.trader) {
 
+
+                // 判断是否完成 融资方 港口 监管 上传文件
                 if (vm.currentOrder.statusChild1Financer && vm.currentOrder.statusChild2Harbor && vm.currentOrder.statusChild3Supervisor){
 
                     if (vm.currentOrder.status === 'repaymentStep31'){
-                        additionalData.redemptionfileList = []
+                        additionalData.fileList = []
                         additionalData.redemptionAmount = vm.inputRedemptionAmount
 
                         vm.inputRedemptionFileList.forEach(function(file, fileIndex){
-                            additionalData.redemptionfileList.push(file.fileId)
+                            additionalData.fileList.push(file.fileId)
                         })
                     }
 
                 }else{
+
+                    // 贸易商选择 资金方 资金方财务 港口 监管方
+
                     vm.traderFormError.fundProvider = false;
+                    vm.traderFormError.fundProviderAccountant = false;
                     vm.traderFormError.harbor       = false;
                     vm.traderFormError.supervisor   = false;
 
                     if (!vm.traderForm.selectedFundProvider) vm.traderFormError.fundProvider = true;
+                    if (!vm.traderForm.selectedFundProviderAccountant) vm.traderFormError.fundProviderAccountant = true;
                     if (!vm.traderForm.selectedHarbor) vm.traderFormError.harbor = true;
                     if (!vm.traderForm.selectedSupervisor) vm.traderFormError.supervisor = true;
 
                     if (vm.traderFormError.fundProvider || vm.traderFormError.harbor || vm.traderFormError.supervisor) {
                         return;
+                    }else{
+                        selectUser = {
+                            "harborUserId"                 : vm.traderForm.selectedHarbor,
+                            "supervisorUserId"             : vm.traderForm.selectedSupervisor,
+                            "fundProviderUserId"           : vm.traderForm.selectedFundProvider,
+                            "fundProviderAccountantUserId" : vm.traderForm.selectedFundProviderAccountant
+                        }
                     }
-                    selectUser = {
-                        "harborUserId"       : vm.traderForm.selectedHarbor,
-                        "supervisorUserId"   : vm.traderForm.selectedSupervisor,
-                        "fundProviderUserId" : vm.traderForm.selectedFundProvider
-                    }
+
                 }
             }
 
+
+            // 融资方 港口 监管 上传文件
             if (sessionUserRole === vm.role.financer || sessionUserRole === vm.role.harbor || sessionUserRole === vm.role.supervisor){
                 additionalData.fileList = uploadFileList;
             }
@@ -130,10 +142,14 @@ var orderInfo = function () {
         },
 
         traderForm       : {
-            selectedFundProvider           : '',
-            selectedFundProviderAccountant : '',
-            selectedHarbor                 : '',
-            selectedSupervisor             : ''
+            selectedFundProvider                  : '',
+            selectedFundProviderAccountant        : '',
+            selectedHarbor                        : '',
+            selectedSupervisor                    : '',
+            selectedFundProviderCompany           : '',
+            selectedFundProviderAccountantCompany : '',
+            selectedHarborCompany                 : '',
+            selectedSupervisorCompany             : ''
         },
         traderFormError  : {
             fundProvider           : '',
@@ -144,6 +160,7 @@ var orderInfo = function () {
         harborList       : [],
         supervisorList   : [],
         fundProviderList : [],
+        fundProviderAccountantList : [],
 
         inputHarborConfirmAmount : 0,
         errorHarborConfirmAmount : '',
@@ -378,6 +395,7 @@ var orderInfo = function () {
 
     }
 
+    getOrderInfo();
 
     function getUsersOfRoles() {
 
@@ -402,10 +420,19 @@ var orderInfo = function () {
                 console.log(data.error);
             }
         })
+        userService.getUserList({role : vm.role.fundProviderAccountant, $limit : 500}).done(function (data) {
+            if (data.success) {
+                vm.fundProviderAccountantList = data.data;
+            } else {
+                console.log(data.error);
+            }
+        })
     }
 
-    getOrderInfo();
 
+    if (vm.currentUser.role === vm.role.trader) {
+        getUsersOfRoles()
+    }
 
 
 
@@ -456,7 +483,6 @@ var orderInfo = function () {
 
 
         if (vm.currentUser.role === vm.role.trader){
-            getUsersOfRoles()
 
             var uploaderRedemptionFile = WebUploader.create(uploadSettingRedemptionFile);
 
@@ -476,7 +502,6 @@ var orderInfo = function () {
                 vm.inputRedemptionFileList.push(tempFile);
                 $.notify("上传成功!", 'success');
             });
-
         }
 
 
@@ -504,8 +529,6 @@ var orderInfo = function () {
             });
 
         }
-
-
 
     }
 

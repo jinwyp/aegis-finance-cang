@@ -34,11 +34,11 @@
 
 
                 <li >
-                    <a href="#manage" title="Layouts" data-toggle="collapse">
+                    <a href="#financeorder" title="Layouts" data-toggle="collapse">
                         <em class="icon-note"></em>
                         <span>融资管理</span>
                     </a>
-                    <ul id="manage" class="nav sidebar-subnav collapse">
+                    <ul id="financeorder" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">融资管理</li>
                         <li >
                             <a href="/warehouse/admin/home/finance" id="11">
@@ -50,11 +50,11 @@
 
 
                 <li >
-                    <a href="#layout" title="Layouts" data-toggle="collapse">
+                    <a href="#sessioninfo" title="Layouts" data-toggle="collapse">
                         <em class="icon-layers"></em>
                         <span>个人信息</span>
                     </a>
-                    <ul id="layout" class="nav sidebar-subnav collapse">
+                    <ul id="sessioninfo" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">个人信息</li>
                         <li >
                             <a href="/warehouse/admin/home/session/info" id="21">
@@ -78,11 +78,11 @@
                 -->
 
                 <li class="admin-user-management hidden">
-                    <a href="#forms" title="Forms" data-toggle="collapse">
+                    <a href="#system" title="Forms" data-toggle="collapse">
                         <em class="icon-grid"></em>
                         <span data-localize="sidebar.nav.form.FORM">系统设置</span>
                     </a>
-                    <ul id="forms" class="nav sidebar-subnav collapse">
+                    <ul id="system" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">系统设置</li>
                         <li>
                             <a href="/warehouse/admin/home/userlist" id="31" >

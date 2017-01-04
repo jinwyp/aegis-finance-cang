@@ -27,7 +27,7 @@
                     <h3>融资管理 - 详情 <a class="mb-sm btn btn-default pull-right" href="/warehouse/admin/home/finance">返回</a> </h3>
 
 
-                    <!--基本信息 贸易商 与 资金方 -->
+                    <!--基本信息 显示 贸易商 与 资金方 -->
                     <div class="panel panel-default" ms-if="@currentUser.role === @role.financer || @currentUser.role === @role.trader || @currentUser.role === @role.traderAccountant || @currentUser.role === @role.fundProvider || @currentUser.role === @role.fundProviderAccountant">
                         <div class="panel-heading">基本信息</div>
                         <div class="panel-body">
@@ -120,7 +120,7 @@
                     </div>
 
 
-                    <!--基本信息 港口 与 监管 -->
+                    <!--基本信息 显示 港口 与 监管 -->
                     <div class="panel panel-default" ms-if="@currentUser.role === @role.harbor || @currentUser.role === @role.supervisor ">
                         <div class="panel-heading">基本信息</div>
                         <div class="panel-body">
@@ -165,7 +165,7 @@
                     </div>
 
 
-                    <!--审批详情-->
+                    <!--审批详情 审批记录 流程图显示 -->
                     <div class="panel panel-default " >
                         <div class="panel-heading">审批详情</div>
                         <div class="panel-body">
@@ -204,7 +204,7 @@
 
 
 
-                    <!--各方合同查看-->
+                    <!-- 各方合同查看 -->
                     <div class="panel panel-default " >
                         <div class="panel-heading">合同信息</div>
                         <div class="panel-body">
@@ -237,13 +237,11 @@
 
                             </div>
                         </div>
-                    <#--<div class="panel-footer text-center">-->
-                    <#--<a class="btn btn-primary" ms-attr="{href:'/warehouse/admin/home/finance/contract/' + @currentOrderId}">上传合同</a>-->
-                    <#--</div>-->
+
                     </div>
 
 
-                    <!-- 上传合同-->
+                    <!-- 融资方 港口 与 监管 上传合同-->
                     <div class="panel panel-info" ms-visible="@currentUser.role === @role.financer || @currentUser.role === @role.harbor || @currentUser.role === @role.supervisor ">
                         <div class="panel-heading">上传合同及单据</div>
                         <div class="panel-body H300">
@@ -287,7 +285,7 @@
                     </div>
 
 
-                    <!-- 港口 监管 显示确认货物信息 -->
+                    <!-- 港口 与 监管 显示确认货物信息 -->
                     <div class="panel panel-info" ms-if="@currentUser.role === @role.harbor && @currentOrder.harborConfirmAmount || @currentUser.role === @role.supervisor && @currentOrder.harborConfirmAmount">
                         <div class="panel-heading">港口货物确认信息</div>
                         <div class="panel-body H300">
@@ -467,6 +465,20 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group" ms-class="[@traderFormError.fundProviderAccountant && 'has-error']">
+                                    <label class="col-sm-2 control-label">选择资金方财务:</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-control m-b" ms-duplex="@traderForm.selectedFundProviderAccountant">
+                                            <option value="" > - </option>
+                                            <option ms-for="user in @fundProviderAccountantList" ms-attr="{value: user._id}" >{{user.username}} </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5" ms-visible="@traderFormError.fundProviderAccountant">
+                                        <span class="help-block">*&nbsp;请选择资金方财务!</span>
+                                    </div>
+                                </div>
+
+
                                 <div class="form-group" ms-class="[@traderFormError.harbor && 'has-error']">
                                     <label class="col-sm-2 control-label">选择港口:</label>
                                     <div class="col-sm-3">
@@ -601,6 +613,7 @@
 
                         </div>
                     </div>
+
 
 
 
