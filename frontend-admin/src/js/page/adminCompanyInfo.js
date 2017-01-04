@@ -27,7 +27,10 @@ var companyInfo = function() {
             role : ''
         },
         traderList : [],
+        // fundProviderList : [],
 
+        roleList : userService.userRoleList,
+        role : userService.userRoleKeyObject,
         pageShowStatus : 'add',
 
         errorMessage : {
