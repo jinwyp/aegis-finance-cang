@@ -89,6 +89,11 @@
                                 <span>用户管理</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="/warehouse/admin/home/companylist" id="32" >
+                                <span>公司管理</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
