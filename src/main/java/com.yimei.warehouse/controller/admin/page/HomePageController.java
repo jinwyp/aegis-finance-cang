@@ -133,5 +133,18 @@ public class HomePageController {
             return "admin/customer/contractUpload";
     }
 
+    @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 公司列表", notes = "管理后台平台管理员添加的用户列表页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/companylist", method = RequestMethod.GET)
+    public String adminCompanyList() {
+            return "admin/platform/companyList";
+        }
+
+
+    @ApiOperation(value = "管理后台平台管理员 - 用户管理 - 添加公司", notes = "管理后台平台管理员添加用户页面 需要平台管理员登录")
+    @RequestMapping(value = "/warehouse/admin/home/company/add", method = RequestMethod.GET)
+    public String adminCompanyAdd() {
+        return "admin/platform/companyInfo";
+    }
+
 
 }
