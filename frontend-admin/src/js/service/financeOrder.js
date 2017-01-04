@@ -10,9 +10,9 @@ var role = require('./user.js').userRoleKeyObject;
 var status = [
     {name : 'financingStep11', displayName:'等待贸易商选择港口,监管方和资金方'},
     {name : 'financingStep12', displayName:'等待融资方,港口和监管方上传合同及单据'},
-    {name : 'financingStep13', displayName:'融资方完成上传合同,待贸易商审核'},
-    {name : 'financingStep14', displayName:'港口完成上传合同,待贸易商审核'},
-    {name : 'financingStep15', displayName:'监管方完成上传合同,待贸易商审核'},
+    {name : 'financingStep13', displayName:'融资方完成上传合同,待贸易商审核'}, // 不需要
+    {name : 'financingStep14', displayName:'港口完成上传合同,待贸易商审核'}, // 不需要
+    {name : 'financingStep15', displayName:'监管方完成上传合同,待贸易商审核'}, // 不需要
     {name : 'financingStep51', displayName:'贸易商审核不通过，流程结束'},
     {name : 'financingStep16', displayName:'贸易商审核通过,待贸易商财务放款建议'},
     {name : 'financingStep17', displayName:'贸易商财务放款建议审核通过,待资金方审核'},
@@ -86,10 +86,18 @@ var contractType = {
     business : '业务单据类(质量和数量单据, 运输单据, 货转证明)'
 }
 
-var paymentType = {
-    payment : '还款',
-    deposit : '保证金'
-}
+var paymentType = [
+    { name : 'repayment',  displayName : '还款'},
+    { name : 'deposit',  displayName : '保证金'}
+]
+var paymentTypeObject = {};
+var paymentTypeKeyObject = {};
+
+paymentType.forEach(function (type, index){
+    paymentTypeObject[type.name] = type.displayName;
+    paymentTypeKeyObject[type.name] = type.name;
+});
+
 
 var depositType = {
     notified    : '保证金已通知',
@@ -102,7 +110,8 @@ exports.statusObject = statusObject;
 exports.actionList   = actions;
 exports.actionObject = actionObject;
 exports.contractType = contractType;
-exports.paymentType  = paymentType;
+exports.paymentType  = paymentTypeObject;
+exports.paymentTypeKey  = paymentTypeKeyObject;
 exports.depositType  = depositType;
 
 
@@ -145,57 +154,61 @@ exports.getFinanceOrderList = function (query){
     var params = jQuery.extend({}, query, user);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList,
         method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
-
-
 
 exports.getFinanceOrderInfoById = function (id, query){
 
     var params = jQuery.extend({}, query);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList + '/' + id,
         method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
-
 
 exports.addNewFinanceOrder = function (order){
 
     var params = jQuery.extend({}, order);
 
-
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList,
         method   : 'POST',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
 
-exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser){
+exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser, additionalData){
     console.log("流程:%s, 角色 %s 发出的动作: %s", orderId, userRole, actionName)
     var params = jQuery.extend({}, {
+        "taskId": orderId,
+        "flowId": orderId,
         "orderId": orderId,
         "action": actionName,
-        "operator": userRole,
+        "operator": userRole
         // "harborUserId": "583ea0b1f17d22ecde1ecb17",
         // "supervisorUserId": "583fc370e6e14eedaa51d2a0",
         // "fundProviderUserId": "583fd13e75a02a0f2935374e",
-        "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
+        // "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
     });
 
     if (selectUser && selectUser.harborUserId) params.harborUserId = selectUser.harborUserId;
@@ -204,12 +217,22 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser)
     if (selectUser && selectUser.fundProviderAccountantUserId) params.fundProviderAccountantUserId = selectUser.fundProviderAccountantUserId;
 
 
+    if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
+    if (additionalData && additionalData.harborConfirmAmount) params.harborConfirmAmount = additionalData.harborConfirmAmount;
+    if (additionalData && additionalData.loanValue) params.loanValue = additionalData.loanValue;
+
+    if (additionalData && additionalData.repaymentValue) params.repaymentValue = additionalData.redemptionValue;
+    if (additionalData && additionalData.redemptionAmount) params.redemptionAmount = additionalData.redemptionAmount;
+    if (additionalData && additionalData.redemptionAmountDeliveryId) params.redemptionAmountDeliveryId = additionalData.redemptionAmountDeliveryId;
+
     return jQuery.ajax({
-        url      : url.financeOrderList + '/audit',
-        method   : 'POST',
+        headers : headers,
+        contentType : 'application/json',
         dataType : 'json',
-        data     : params,
-        headers : headers
+        url      : url.financeOrderList + '/task',
+        method   : 'POST',
+        data     :JSON.stringify(params)
+
     });
 
 };
@@ -220,11 +243,13 @@ exports.updateFinanceOrderInfoById = function (id, order){
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.financeOrderList + '/' + id,
         method   : 'PATCH',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -237,13 +262,14 @@ exports.getContractListByOrderId = function (orderId, query){
     var params = jQuery.extend({}, query, {orderId : orderId});
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.contractList,
         method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
-    });
+        data     : params
 
+    });
 };
 exports.getContractById = function (id, query){
     var params = jQuery.extend({}, query);
@@ -261,24 +287,27 @@ exports.getPaymentOrderListByOrderId = function (orderId, query){
     var params = jQuery.extend({}, query, {orderId : orderId});
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.paymentOrderList,
         method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
-    });
+        data     : params
 
+    });
 };
 exports.addNewPaymentOrder = function (order){
 
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.paymentOrderList,
         method   : 'POST',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -287,11 +316,59 @@ exports.updatePaymentOrderInfoById = function (id, order){
     var params = jQuery.extend({}, order);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.paymentOrderList + '/' + id,
         method   : 'PATCH',
+        data     : JSON.stringify(params)
+
+    });
+
+};
+
+
+
+exports.getDeliveryListByOrderId = function (orderId, query){
+
+    var params = jQuery.extend({}, query, {orderId : orderId});
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
         dataType : 'json',
-        data     : params,
-        headers : headers
+        url      : url.deliveryList,
+        method   : 'GET',
+        data     : params
+
+    });
+};
+exports.addNewDelivery = function (order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
+        url      : url.deliveryList,
+        method   : 'POST',
+        data     : JSON.stringify(params)
+
+    });
+};
+exports.updateDeliveryInfoById = function (id, order){
+
+    var params = jQuery.extend({}, order);
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
+        url      : url.deliveryList + '/' + id,
+        method   : 'PATCH',
+        data     : JSON.stringify(params)
+
     });
 
 };

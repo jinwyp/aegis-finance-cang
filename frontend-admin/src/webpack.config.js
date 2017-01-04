@@ -103,11 +103,11 @@ module.exports = {
         contentBase: path.join(__dirname),
         publicPath: "/static/admin/js/",
         compress: true,
-        port: 9000,  //默认8080
+        port: 8000,  //默认8080
         proxy: {
             "/warehouse": "http://localhost:8003",
             "/static": "http://localhost:8003",
-            "/api": "http://192.168.1.51:3030"
+            "/apimock": "http://192.168.1.54:3030"
         }
     }
 };

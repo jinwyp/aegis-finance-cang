@@ -13,11 +13,13 @@ var headers = {
     "x-authorization-userid" : sessionUserId
 };
 
-var prefix = '/api';
+var prefix = '/apimock';
 
 var url = {
+    files : prefix + '/files',
     financeOrderList : prefix + '/financeorders',
     paymentOrderList : prefix + '/paymentorders',
+    deliveryList : prefix + '/deliveries',
     contractList : prefix + '/files',
     userList : prefix + '/users',
     login : prefix + '/auth/login',
@@ -25,6 +27,17 @@ var url = {
 };
 
 
+var saveSessionInLocalStorage = function (jwt, user) {
+    localStorage.setItem('feathers-jwt', jwt);
+    localStorage.setItem('sessionUserId', user._id);
+    localStorage.setItem('sessionUserRole', user.role);
+}
+
+var removeSessionInLocalStorage = function () {
+    localStorage.removeItem('feathers-jwt');
+    localStorage.removeItem('sessionUserId');
+    localStorage.removeItem('sessionUserRole');
+}
 
 module.exports = {
     url : url,
@@ -32,5 +45,8 @@ module.exports = {
     token : token,
     headers : headers,
     sessionUserId : sessionUserId,
-    sessionUserRole : sessionUserRole
+    sessionUserRole : sessionUserRole,
+
+    saveSessionInLocalStorage : saveSessionInLocalStorage,
+    removeSessionInLocalStorage : removeSessionInLocalStorage
 };

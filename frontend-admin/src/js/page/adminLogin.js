@@ -5,6 +5,7 @@
 var avalon = require('avalon2') ;
 
 var userService = require('../service/user.js') ;
+var tokenService = require('../service/token.js') ;
 
 
 var login = function() {
@@ -50,9 +51,8 @@ var login = function() {
                     }).done(function( data, textStatus, jqXHR ) {
                         if (data.success){
                             console.log('登录成功', data);
-                            localStorage.setItem('feathers-jwt', data.data.token);
-                            localStorage.setItem('sessionUserId', data.data.data._id);
-                            localStorage.setItem('sessionUserRole', data.data.data.role);
+
+                            tokenService.saveSessionInLocalStorage(data.data.token, data.data.data)
                             window.location.href = '/warehouse/admin/home/finance'
                         }else{
                             vm.errorMessage.ajax = data.error.message;

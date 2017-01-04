@@ -5,7 +5,10 @@
 
 var jQuery = require('jquery');
 var headers = require('./token').headers;
-var sessionUserId = require('./token').sessionUserId;
+var tokenService = require('./token');
+var sessionUserId = tokenService.sessionUserId;
+
+
 
 var url = require('./token').url;
 
@@ -44,19 +47,17 @@ exports.login = function (user){
     }, user);
 
     return jQuery.ajax({
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.login,
         method   : 'POST',
-        dataType : 'json',
-        data     : params
-    });
+        data     : JSON.stringify(params)});
 
 };
 
 exports.logout = function (user){
 
-    localStorage.removeItem('feathers-jwt');
-    localStorage.removeItem('sessionUserId');
-    localStorage.removeItem('sessionUserRole');
+    tokenService.removeSessionInLocalStorage();
     window.location.href = '/warehouse/admin/login'
 };
 
@@ -66,11 +67,13 @@ exports.getSessionUser = function (query){
         var params = jQuery.extend({}, query);
 
         return jQuery.ajax({
+            headers : headers,
+            contentType : 'application/json',
+            dataType : 'json',
             url      : url.userList + '/' + sessionUserId,
             method   : 'GET',
-            dataType : 'json',
-            data     : params,
-            headers : headers
+            data     : params
+
         });
     }else{
         return {
@@ -88,11 +91,13 @@ exports.getUserList = function (query){
     var params = jQuery.extend({}, query);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.userList,
         method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
@@ -103,11 +108,13 @@ exports.getUserInfoById = function (userId, query){
     var params = jQuery.extend({}, query);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.userList + '/' + userId,
         method   : 'GET',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : params
+
     });
 
 };
@@ -126,11 +133,13 @@ exports.addNewUser = function (user){
 
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.userList,
         method   : 'POST',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -140,11 +149,13 @@ exports.updateUserInfoById = function (userId, user){
     var params = jQuery.extend({}, user);
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.userList + '/' + userId,
         method   : 'PATCH',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
@@ -158,11 +169,13 @@ exports.modifyPassword = function (userId, oldPassword, newPassword){
     });
 
     return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
         url      : url.password,
         method   : 'POST',
-        dataType : 'json',
-        data     : params,
-        headers : headers
+        data     : JSON.stringify(params)
+
     });
 
 };
