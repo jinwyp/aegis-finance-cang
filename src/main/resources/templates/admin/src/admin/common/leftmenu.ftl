@@ -45,11 +45,6 @@
                             </a>
                         </li>
                         <li class=" ">
-                            <a href="/warehouse/admin/home/demo/form" title="范例 - 流程图">
-                                <span>范例 - 流程图</span>
-                            </a>
-                        </li>
-                        <li class=" ">
                             <a href="/warehouse/admin/home/demo/echart" title="范例 - Echart">
                                 <span>范例 - Echart</span>
                             </a>

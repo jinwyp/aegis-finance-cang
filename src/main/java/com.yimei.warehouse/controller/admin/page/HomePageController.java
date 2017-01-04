@@ -51,14 +51,6 @@ public class HomePageController {
     }
 
 
-    @ApiOperation(value = "管理后台平台管理员范例页面 - 表单", notes = "管理后台平台管理员范例表单页面 需要平台管理员登录")
-    @RequestMapping(value = "/warehouse/admin/home/demo/form", method = RequestMethod.GET)
-    public String adminDemoForm() {
-//        if (adminSession.getUser() == null) {
-//            return "redirect:/warehouse/admin/login";
-//        }
-        return "admin/platform/demoForm";
-    }
 
 
     @ApiOperation(value = "管理后台平台管理员范例页面 - Echart", notes = "管理后台平台管理员范例Echart图表页面 需要平台管理员登录")
@@ -69,9 +61,6 @@ public class HomePageController {
 //        }
         return "admin/platform/demoEchart";
     }
-
-
-
 
 
 
@@ -104,6 +93,7 @@ public class HomePageController {
     public String adminUserInfo(@PathVariable(value = "userId") String userId) {
         return "admin/platform/userInfo";
     }
+
 
 
 
@@ -140,8 +130,6 @@ public class HomePageController {
         public String adminFinanceContractUpload() {
             return "admin/customer/contractUpload";
     }
-
-
 
 
 }
