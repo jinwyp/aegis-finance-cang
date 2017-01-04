@@ -34,7 +34,7 @@
                     <form class="form-horizontal" data-parsley-validate="" novalidate="" ms-validate="@addValidate">
                         <fieldset>
                             <div class="form-group" ms-class="[@errorInputName.indexOf('inputUserRole')>-1 && 'has-error' ]">
-                                <label class="col-sm-2 control-label paddingT0"><span class=" marginR">*</span>用户类型:</label>
+                                <label class="col-sm-2 control-label "><span class=" marginR">*</span>用户类型:</label>
                                 <div class="col-sm-5">
                                     <select name="account" class="form-control" id="inputUserRole" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                             ms-duplex="@currentUser.role" ms-rules='{required:true}' data-required-message="请选择用户类型">
@@ -51,7 +51,7 @@
 
                         <fieldset>
                             <div class="form-group" ms-class="[@errorInputName.indexOf('inputCompanyName')>-1 && 'has-error' ]">
-                                <label for="inputCompanyName" class="col-sm-2 control-label paddingT0"><span class=" marginR">*</span>公司名称:</label>
+                                <label for="inputCompanyName" class="col-sm-2 control-label"><span class=" marginR">*</span>公司名称:</label>
                                 <div class="col-sm-5">
                                     <input id="inputCompanyName" type="text" class="form-control" placeholder="请输入公司名称" ms-visible="@pageShowStatus === 'add' || @pageShowStatus === 'edit'"
                                            ms-duplex="@currentUser.companyName" ms-rules='{required:true}' data-required-message="请输入公司名称">
