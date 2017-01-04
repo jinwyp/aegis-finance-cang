@@ -16,7 +16,7 @@ var companyList = function() {
 
     var vm = avalon.define({
         $id : 'companyListController',
-        userList : [],
+        companyList : [],
         searchQuery : {
             username : '',
             companyName : ''
@@ -33,14 +33,14 @@ var companyList = function() {
                     $skip : skip
                 };
 
-                getUsers(query)
+                getCompanies(query)
             }
         },
 
 
         clickSearchButton : function (event) {
             event.preventDefault();
-            getUsers();
+            getCompanies();
         },
 
         clickResetPassword:function () {
@@ -59,7 +59,7 @@ var companyList = function() {
 
         userService.getCompanyList(query).done(function(data, textStatus, jqXHR) {
             if (data.success){
-                vm.userList = data.data;
+                vm.companyList = data.data;
 
                 vm.configPagination.currentPage = data.meta.page;
                 vm.configPagination.totalCount = data.meta.total;

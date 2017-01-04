@@ -23,9 +23,9 @@
         <!-- Page content-->
         <div class="content-wrapper ms-controller" ms-controller="companyAddController">
 
-            <!--<h3 ms-visible="@pageShowStatus === 'info'">用户管理 - 查看用户信息 </h3>-->
-            <h3>公司管理 - 添加公司 </h3>
-            <!--<h3 ms-visible="@pageShowStatus === 'edit'">用户管理 - 修改用户信息 </h3>-->
+            <h3 ms-visible="@pageShowStatus === 'info'">公司管理 - 查看公司信息 </h3>
+            <h3 ms-visible="@pageShowStatus === 'add'">公司管理 - 添加公司信息 </h3>
+            <h3 ms-visible="@pageShowStatus === 'edit'">公司管理 - 修改公司信息 </h3>
 
             <!-- START panel-->
             <div class="panel panel-default " >

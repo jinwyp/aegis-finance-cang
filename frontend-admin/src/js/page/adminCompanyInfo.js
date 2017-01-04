@@ -10,12 +10,12 @@ require('../component/header.js');
 var userService = require('../service/user.js') ;
 var role = userService.userRoleKeyObject;
 
-// var url = window.location.href;
-// var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
-// var userId = url.match(/\/user\/[a-zA-Z_0-9]{24,24}/);
-// if (userId){ userId = userId[0].split('/')[2] }
-//
-// console.log('userID:', userId, '页面状态:', urlShowStatus);
+var url = window.location.href;
+var urlShowStatus = url.substring(url.lastIndexOf("\/") + 1, url.length);
+var userId = url.match(/\/user\/[a-zA-Z_0-9]{24,24}/);
+if (userId){ userId = userId[0].split('/')[2] }
+
+console.log('userID:', userId, '页面状态:', urlShowStatus);
 
 
 var companyInfo = function() {
@@ -127,7 +127,7 @@ var companyInfo = function() {
         }
     }
 
-    function getUserInfo() {
+    function getCompanyInfo() {
         userService.getUserInfoById(userId).done(function (data, textStatus, jqXHR) {
             if (data.success) {
                 vm.currentUser = data.data;
@@ -137,7 +137,7 @@ var companyInfo = function() {
             }
         });
     }
-    function getUsersOfRoles(){
+    function getCompanyOfRoles(){
 
         userService.getUserList({role : role.trader, $limit : 500}).done(function(data, textStatus, jqXHR) {
             if (data.success){
@@ -157,17 +157,17 @@ var companyInfo = function() {
     }
 
 
-    // if (urlShowStatus === 'add'){
-    //     vm.pageShowStatus = 'add';
-    //     getUsersOfRoles()
-    // }else if (urlShowStatus === 'edit'){
-    //     vm.pageShowStatus = 'edit';
-    //     getUserInfo()
-    //     getUsersOfRoles()
-    // }else {
-    //     vm.pageShowStatus = 'info';
-    //     getUserInfo()
-    // }
+    if (urlShowStatus === 'add'){
+        vm.pageShowStatus = 'add';
+        getCompanyOfRoles()
+    }else if (urlShowStatus === 'edit'){
+        vm.pageShowStatus = 'edit';
+        getCompanyInfo()
+        getCompanyOfRoles()
+    }else {
+        vm.pageShowStatus = 'info';
+        getCompanyInfo()
+    }
 
 
 

@@ -62,10 +62,10 @@
                                         <td class="text-center">用户类型</td>
                                         <td class="text-center">操作</td>
                                     </tr>
-                                    <tr ms-for="(index, user) in @userList">
+                                    <tr ms-for="(index, company) in @companyList">
 
-                                        <td>{{ user.companyName || '--'}}</td>
-                                        <td>{{user.role | rolename}}</td>
+                                        <td>{{ company.companyName || '--'}}</td>
+                                        <td>{{company.role | rolename}}</td>
 
                                         <td>
                                             <span class="btn btn-default resetPassword" ms-click="@clickResetPassword">重置密码</span>
