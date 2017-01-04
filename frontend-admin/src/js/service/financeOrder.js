@@ -197,7 +197,7 @@ exports.addNewFinanceOrder = function (order){
 
 };
 
-exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser, additionalData){
+exports.auditFinanceOrder = function (orderId, userRole, actionName, additionalData){
     console.log("流程:%s, 角色 %s 发出的动作: %s", orderId, userRole, actionName)
     var params = jQuery.extend({}, {
         "taskId": orderId,
@@ -211,10 +211,10 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
         // "fundProviderAccountantUserId": "583fd178551ff10f40108c8c"
     });
 
-    if (selectUser && selectUser.harborUserId) params.harborUserId = selectUser.harborUserId;
-    if (selectUser && selectUser.supervisorUserId) params.supervisorUserId = selectUser.supervisorUserId;
-    if (selectUser && selectUser.fundProviderUserId) params.fundProviderUserId = selectUser.fundProviderUserId;
-    if (selectUser && selectUser.fundProviderAccountantUserId) params.fundProviderAccountantUserId = selectUser.fundProviderAccountantUserId;
+    if (additionalData && additionalData.harborUserId) params.harborUserId = additionalData.harborUserId;
+    if (additionalData && additionalData.supervisorUserId) params.supervisorUserId = additionalData.supervisorUserId;
+    if (additionalData && additionalData.fundProviderUserId) params.fundProviderUserId = additionalData.fundProviderUserId;
+    if (additionalData && additionalData.fundProviderAccountantUserId) params.fundProviderAccountantUserId = additionalData.fundProviderAccountantUserId;
 
 
     if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
@@ -227,12 +227,15 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
     if (additionalData && additionalData.redemptionAmountDeliveryId) params.redemptionAmountDeliveryId = additionalData.redemptionAmountDeliveryId;
 
     if (actionName === 'a15Approved' || actionName === 'a18Approved') {
-        additionalData.approveStatus = 1
+        params.approveStatus = 1
     }
     if (actionName === 'a16NotApproved' || actionName === 'a19NotApproved') {
-        additionalData.approveStatus = 0
+        params.approveStatus = 0
     }
 
+    if (actionName === 'a17Approved' || actionName === 'a20Approved' || actionName === 'a36ReturnMoney' || actionName === 'a37Approved') {
+        params.status = 1
+    }
 
     return jQuery.ajax({
         headers : headers,
