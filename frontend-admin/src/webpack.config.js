@@ -107,8 +107,7 @@ module.exports = {
         proxy: {
             "/warehouse": "http://localhost:8003",
             "/static": "http://localhost:8003",
-            "/apimock": "http://192.168.1.54:3030",
-            "/apz": "http://127.0.0.1:9000"
+            "/apimock": "http://192.168.1.54:3030"
         }
     }
 };

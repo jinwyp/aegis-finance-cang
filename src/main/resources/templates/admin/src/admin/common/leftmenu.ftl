@@ -31,62 +31,37 @@
                 <li class="nav-heading ">
                     <span data-localize="sidebar.heading.HEADER">仓押管理系统</span>
                 </li>
-                <li class=" ">
-                    <a href="#dashboard" title="Dashboard" data-toggle="collapse">
-                        <!--<div class="pull-right label label-info">3</div>-->
-                        <em class="icon-speedometer"></em>
-                        <span data-localize="sidebar.nav.DASHBOARD">控制台</span>
-                    </a>
-                    <ul id="dashboard" class="nav sidebar-subnav collapse">
-                        <li class="sidebar-subnav-header">Dashboard</li>
-                        <li class=" ">
-                            <a href="/warehouse/admin/home" title="范例 - 搜索列表">
-                                <span>范例 - 搜索列表</span>
-                            </a>
-                        </li>
-                        <li class=" ">
-                            <a href="/warehouse/admin/home/demo/echart" title="范例 - Echart">
-                                <span>范例 - Echart</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
-                <li class=" ">
+
+                <li >
                     <a href="#manage" title="Layouts" data-toggle="collapse">
                         <em class="icon-note"></em>
                         <span>融资管理</span>
                     </a>
                     <ul id="manage" class="nav sidebar-subnav collapse">
-                        <li class="sidebar-subnav-header">个人信息</li>
-                        <li class=" ">
+                        <li class="sidebar-subnav-header">融资管理</li>
+                        <li >
                             <a href="/warehouse/admin/home/finance" id="11">
                                 <span>业务列表</span>
                             </a>
                         </li>
-                        <!--<li class=" ">-->
-                            <!--<a href="/warehouse/admin/home/session/password" id="12">-->
-                                <!--<span>管理</span>-->
-                            <!--</a>-->
-                        <!--</li>-->
                     </ul>
                 </li>
 
 
-
-                <li class=" ">
+                <li >
                     <a href="#layout" title="Layouts" data-toggle="collapse">
                         <em class="icon-layers"></em>
                         <span>个人信息</span>
                     </a>
                     <ul id="layout" class="nav sidebar-subnav collapse">
                         <li class="sidebar-subnav-header">个人信息</li>
-                        <li class=" ">
+                        <li >
                             <a href="/warehouse/admin/home/session/info" id="21">
                                 <span>基本信息</span>
                             </a>
                         </li>
-                        <li class=" ">
+                        <li >
                             <a href="/warehouse/admin/home/session/password" id="22">
                                 <span>修改密码</span>
                             </a>
@@ -94,9 +69,14 @@
                     </ul>
                 </li>
 
-                <!--<li class="nav-heading ">-->
-                    <!--<span data-localize="sidebar.heading.COMPONENTS">Components</span>-->
-                <!--</li>-->
+
+
+                <!--
+                <li class="nav-heading ">
+                    <span data-localize="sidebar.heading.COMPONENTS">Components</span>
+                </li>
+                -->
+
                 <li class="admin-user-management hidden">
                     <a href="#forms" title="Forms" data-toggle="collapse">
                         <em class="icon-grid"></em>
@@ -109,20 +89,35 @@
                                 <span>用户管理</span>
                             </a>
                         </li>
-                        <!--<li class=" ">-->
-                            <!--<a href="form-extended.html" title="Extended">-->
-                                <!--<span data-localize="sidebar.nav.form.EXTENDED">角色管理</span>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                        <!--<li class=" ">-->
-                            <!--<a href="form-validation.html" title="Validation">-->
-                                <!--<span data-localize="sidebar.nav.form.VALIDATION">业务线管理</span>-->
-                            <!--</a>-->
-                        <!--</li>-->
-
                     </ul>
                 </li>
 
+
+
+
+
+
+
+                <li >
+                    <a href="#dashboard" title="Dashboard" data-toggle="collapse">
+                        <!--<div class="pull-right label label-info">3</div>-->
+                        <em class="icon-speedometer"></em>
+                        <span data-localize="sidebar.nav.DASHBOARD">控制台</span>
+                    </a>
+                    <ul id="dashboard" class="nav sidebar-subnav collapse">
+                        <li class="sidebar-subnav-header">Dashboard</li>
+                        <li >
+                            <a href="/warehouse/admin//demo/dashboard" title="范例 - 搜索列表">
+                                <span>范例 - 搜索列表</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="/warehouse/admin/home/demo/echart" title="范例 - Echart">
+                                <span>范例 - Echart</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
             </ul>
             <!-- END sidebar nav-->
