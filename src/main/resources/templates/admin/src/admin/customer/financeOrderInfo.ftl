@@ -528,11 +528,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-sm-offset-3 col-sm-5">
-                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveActualLoanValue($event)">保存</button>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -548,19 +543,13 @@
                         <div class="panel-body">
                             <form class="form-horizontal" novalidate>
 
-                                <div class="form-group" ms-class="[@errorReturnValue && 'has-error']">
+                                <div class="form-group" ms-class="[@errorRepaymentValue && 'has-error']">
                                     <label class="col-sm-3 control-label">还款金额(万元):</label>
                                     <div class="col-sm-3">
-                                        <input type="text" class="form-control" ms-duplex-number="@inputReturnValue" >
+                                        <input type="text" class="form-control" ms-duplex-number="@inputRepaymentValue" >
                                     </div>
-                                    <div class="col-sm-5" ms-visible="@errorReturnValue">
+                                    <div class="col-sm-5" ms-visible="@errorRepaymentValue">
                                         <span class="help-block">*&nbsp;金额数量不正确, 最少10万元!</span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-sm-offset-3 col-sm-5">
-                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveReturnValue($event)">保存</button>
                                     </div>
                                 </div>
 
@@ -600,12 +589,6 @@
                                                 <td class="border0 text-center"><span class="btn btn-primary">删除</span></td>
                                             </tr>
                                         </table>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-sm-offset-3 col-sm-5">
-                                        <button class="btn btn-default btn-lg btn-primary" ms-click="@saveRedemptionAmount($event)">保存</button>
                                     </div>
                                 </div>
 
