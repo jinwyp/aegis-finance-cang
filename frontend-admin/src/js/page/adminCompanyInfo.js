@@ -56,18 +56,18 @@ var companyInfo = function() {
             },
             onValidateAll: function (reasons) {
 
-                var isValid = true;
+                // var isValid = true;
                 // if(vm.currentUser.role === role.traderAccountant || vm.currentUser.role === role.fundProviderAccountant){
                 //     if (reasons.length || !vm.isMYSCWValid ) {
                 //         isValid = false;
                 //     }
                 // }else{
-                    if (reasons.length ) {
-                        isValid = false;
-                    }
+                //     if (reasons.length ) {
+                //         isValid = false;
+                //     }
                 // }
 
-                if(!isValid){
+                if(reasons.length){
                     console.log('表单项没有通过');
                     $("input").focus().blur();
                     $("select").focus().blur()
@@ -140,33 +140,33 @@ var companyInfo = function() {
             }
         });
     }
-    function getCompanyOfRoles(){
-
-        userService.getCompanyList({role : role.trader, $limit : 500}).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.traderList = data.data;
-            }else{
-                console.log(data.error);
-            }
-        });
-
-        userService.getCompanyList({role : role.fundProvider, $limit : 500}).done(function(data, textStatus, jqXHR) {
-            if (data.success){
-                vm.fundProviderList = data.data;
-            }else{
-                console.log(data.error);
-            }
-        })
-    }
+    // function getCompanyOfRoles(){
+    //
+    //     userService.getCompanyList({role : role.trader, $limit : 500}).done(function(data, textStatus, jqXHR) {
+    //         if (data.success){
+    //             vm.traderList = data.data;
+    //         }else{
+    //             console.log(data.error);
+    //         }
+    //     });
+    //
+    //     userService.getCompanyList({role : role.fundProvider, $limit : 500}).done(function(data, textStatus, jqXHR) {
+    //         if (data.success){
+    //             vm.fundProviderList = data.data;
+    //         }else{
+    //             console.log(data.error);
+    //         }
+    //     })
+    // }
 
 
     if (urlShowStatus === 'add'){
         vm.pageShowStatus = 'add';
-        getCompanyOfRoles()
+        // getCompanyOfRoles()
     }else if (urlShowStatus === 'edit'){
         vm.pageShowStatus = 'edit';
         getCompanyInfo();
-        getCompanyOfRoles()
+        // getCompanyOfRoles()
     }else {
         vm.pageShowStatus = 'info';
         getCompanyInfo()
