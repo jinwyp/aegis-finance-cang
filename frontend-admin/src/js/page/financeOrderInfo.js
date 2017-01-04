@@ -99,7 +99,27 @@ var orderInfo = function () {
             }
 
             if (sessionUserRole === vm.role.harbor){
-                additionalData.harborConfirmAmount = vm.currentOrder.harborConfirmAmount
+
+                // 港口确认货物
+                if (vm.currentOrder.status === 'financingStep12'){
+                    vm.errorHarborConfirmAmount = false;
+
+                    if (!vm.inputHarborConfirmAmount || vm.inputHarborConfirmAmount < 100) {
+                        vm.errorHarborConfirmAmount = true;
+                        return ;
+                    } else {
+                        additionalData.harborConfirmAmount =  vm.inputHarborConfirmAmount
+
+                        orderService.updateFinanceOrderInfoById(orderId, { harborConfirmAmount : vm.inputHarborConfirmAmount }).done(function (data) {
+                            if (data.success) {
+                            } else {
+                                console.log(data.error);
+                            }
+                        })
+                    }
+                }
+
+
                 additionalData.redemptionAmountDeliveryId = tempDeliveryId
 
                 if (tempDeliveryId){
@@ -162,26 +182,10 @@ var orderInfo = function () {
         fundProviderList : [],
         fundProviderAccountantList : [],
 
-        inputHarborConfirmAmount : 0,
-        errorHarborConfirmAmount : '',
-        saveOrder                : function () {
-            vm.errorHarborConfirmAmount = false;
 
-            if (!vm.inputHarborConfirmAmount || vm.inputHarborConfirmAmount < 100) {
-                vm.errorHarborConfirmAmount = true;
-            } else {
-                orderService.updateFinanceOrderInfoById(orderId, {
-                    harborConfirmAmount : vm.inputHarborConfirmAmount
-                }).done(function (data) {
-                    if (data.success) {
-                        getOrderInfo();
-                        $.notify("保存成功, 并会通知贸易商!", 'success');
-                    } else {
-                        console.log(data.error);
-                    }
-                })
-            }
-        },
+        inputHarborConfirmAmount : 0, // 港口确认货物
+        errorHarborConfirmAmount : '',
+
 
         inputDepositValue : 0,
         errorDepositValue : '',

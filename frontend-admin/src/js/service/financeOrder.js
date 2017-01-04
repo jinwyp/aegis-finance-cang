@@ -41,7 +41,7 @@ var actions = [
     {statusAt:"financingStep11", operator : 'trader', name : 'a11SelectHarborAndSupervisor', displayName : '完成选择港口,监管方和资金方'},
 
     {statusAt:"financingStep12", operator : 'financer', name : 'a12FinishedUpload', displayName : '确认完成上传资料并提交'},
-    {statusAt:"financingStep12", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep12", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并已确认货物数量'},
     {statusAt:"financingStep12", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
 
     {statusAt:"financingStep12", operator : 'trader', name : 'a15Approved', displayName : '审核通过'},
@@ -219,11 +219,20 @@ exports.auditFinanceOrder = function (orderId, userRole, actionName, selectUser,
 
     if (additionalData && additionalData.fileList) params.fileList = additionalData.fileList;
     if (additionalData && additionalData.harborConfirmAmount) params.harborConfirmAmount = additionalData.harborConfirmAmount;
+
     if (additionalData && additionalData.loanValue) params.loanValue = additionalData.loanValue;
 
     if (additionalData && additionalData.repaymentValue) params.repaymentValue = additionalData.redemptionValue;
     if (additionalData && additionalData.redemptionAmount) params.redemptionAmount = additionalData.redemptionAmount;
     if (additionalData && additionalData.redemptionAmountDeliveryId) params.redemptionAmountDeliveryId = additionalData.redemptionAmountDeliveryId;
+
+    if (actionName === 'a15Approved' || actionName === 'a18Approved') {
+        additionalData.approveStatus = 1
+    }
+    if (actionName === 'a16NotApproved' || actionName === 'a19NotApproved') {
+        additionalData.approveStatus = 0
+    }
+
 
     return jQuery.ajax({
         headers : headers,
