@@ -83,7 +83,6 @@ exports.getSessionUser = function (query){
         }
     }
 
-
 };
 
 exports.getUserList = function (query){
@@ -199,7 +198,21 @@ exports.getCompanyList = function (query){
     });
 
 };
+exports.getCompanyInfoById = function (companyId, query){
 
+    var params = jQuery.extend({}, query);
+
+    return jQuery.ajax({
+        headers : headers,
+        contentType : 'application/json',
+        dataType : 'json',
+        url      : url.companyList + '/' + companyId,
+        method   : 'GET',
+        data     : params
+
+    });
+
+};
 
 exports.addNewCompany = function (company){
 
@@ -236,18 +249,4 @@ exports.updateCompanyInfoById = function (companyId, company){
     });
 
 };
-exports.getCompanyInfoById = function (companyId, query){
 
-    var params = jQuery.extend({}, query);
-
-    return jQuery.ajax({
-        headers : headers,
-        contentType : 'application/json',
-        dataType : 'json',
-        url      : url.companyList + '/' + companyId,
-        method   : 'GET',
-        data     : params
-
-    });
-
-};
