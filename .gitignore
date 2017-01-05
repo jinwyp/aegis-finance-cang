@@ -24,7 +24,7 @@ workbench.xmi
 *.gz
 *.tar
 target
-.idea
+
 /.metadata
 
 
@@ -133,7 +133,6 @@ node_modules
 iml
 *.iml
 *.ipr
-*.iws
 .idea/
 out/
 
